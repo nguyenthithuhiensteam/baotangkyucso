@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,-apple-system,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style></head><body>
+<title>Bảo tàng Ký ức Nông Tiến</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&family=Patrick+Hand&display=swap">
+<style>
+/* Layout: a sunny preschool hall: sky page, cloud-white rounded cards, one bright colour per room (coral, sunflower, leaf, sky, lilac) */
+:root{
+  --paper:#eef7ff; --wall:#fff7dc; --ink:#24304a; --muted:#56637d;
+  --indigo:#2f6fc4; --indigo-soft:#dcecff; --turmeric:#9c5f05; --turmeric-fill:#ffc531; --leaf:#34a060;
+  --frame:#ffffff; --line:#cfe0f2; --now:#2e9a57; --danger:#cf4237; --red:#e4574b;
+  --coral:#ff7466; --lilac:#8c6bd6; --c:var(--indigo); --shadow:rgba(47,111,196,.18);
+  --f-display:"Baloo 2","Nunito",system-ui,sans-serif;
+  --f-body:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-hand:"Patrick Hand","Comic Sans MS",cursive;
+  --r:22px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#12203a; --wall:#1d2c4c; --ink:#eef3ff; --muted:#a9b6d3;
+  --indigo:#7db6ff; --indigo-soft:#233a63; --turmeric:#ffd36b; --turmeric-fill:#f2b730; --leaf:#6fd093;
+  --frame:#1a2944; --line:#2f4168; --now:#6fd093; --danger:#ff8a80; --red:#ff8a7e;
+  --coral:#ff8f82; --lilac:#b9a2f5; --shadow:rgba(0,0,0,.35); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#12203a; --wall:#1d2c4c; --ink:#eef3ff; --muted:#a9b6d3;
+  --indigo:#7db6ff; --indigo-soft:#233a63; --turmeric:#ffd36b; --turmeric-fill:#f2b730; --leaf:#6fd093;
+  --frame:#1a2944; --line:#2f4168; --now:#6fd093; --danger:#ff8a80; --red:#ff8a7e;
+  --coral:#ff8f82; --lilac:#b9a2f5; --shadow:rgba(0,0,0,.35); color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+.wrap{max-width:1060px;margin:0 auto}
+h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.15;font-weight:800}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--turmeric-fill);outline-offset:3px}
+.eyebrow{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:800}
+.sample{display:inline-block;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--turmeric);font-weight:800}
+.chip{display:inline-block;font-size:13px;font-weight:800;color:var(--indigo);background:var(--indigo-soft);padding:3px 11px;border-radius:999px;border:0}
+.media-dots{display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
+.media-dots span{font-size:11px;font-weight:800;color:var(--ink);background:color-mix(in srgb,var(--c) 30%,var(--frame));border-radius:999px;padding:0 8px;line-height:19px}
+
+/* Hero: sky with sun & clouds */
+.gate{position:relative;margin-top:16px;border-radius:32px;background:var(--indigo-soft);overflow:hidden;padding-block:34px 30px;padding-inline:clamp(18px,4vw,44px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center}
+.gate .deco{position:absolute;inset:auto 0 0 0;height:46px;color:var(--leaf);pointer-events:none}
+.gate .deco svg{width:100%;height:100%;display:block}
+.gate .sun{width:clamp(110px,16vw,170px);height:auto;position:relative;z-index:1}
+.gate .txt{position:relative;z-index:1;padding-bottom:18px}
+.gate .school{font-weight:800;color:var(--indigo);font-size:15px}
+.gate h1{font-size:clamp(38px,7vw,68px);color:var(--ink);margin-top:2px;letter-spacing:-.01em}
+.gate h1 span{color:var(--coral)}
+.gate h1 span+span{color:var(--leaf)}
+.gate .motto{font-family:var(--f-hand);font-size:clamp(20px,2.6vw,26px);margin:2px 0 0;color:var(--indigo)}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.stats span{background:var(--frame);border-radius:999px;padding:4px 14px 4px 6px;font-weight:700;font-size:15px;display:inline-flex;align-items:center;gap:6px;box-shadow:0 3px 0 var(--line)}
+.stats b{font-family:var(--f-display);font-size:18px;color:var(--paper);background:var(--c);border-radius:999px;min-width:34px;height:30px;display:inline-grid;place-items:center;padding:0 8px;font-variant-numeric:tabular-nums}
+.cta{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:10px 20px;font-weight:800;font-size:16px;text-decoration:none;white-space:nowrap;border:2.5px solid var(--indigo);background:var(--frame);color:var(--indigo);box-shadow:0 4px 0 var(--line);transition:transform .12s}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--line)}
+.btn.primary{background:var(--indigo);color:var(--paper);box-shadow:0 4px 0 color-mix(in srgb,var(--indigo) 60%,#000)}
+.btn.sun{background:var(--turmeric-fill);border-color:var(--turmeric-fill);color:#3a2a00;box-shadow:0 4px 0 #c9921a}
+.btn.small{padding:5px 13px;font-size:14px;box-shadow:0 2px 0 var(--line)}
+.btn.danger{border-color:var(--danger);color:var(--danger)}
+.btn.danger.primary{background:var(--danger);color:var(--paper);box-shadow:none}
+.btn:disabled{opacity:.45;cursor:default;transform:none}
+@media (max-width:620px){.gate{grid-template-columns:1fr}.gate .sun{position:absolute;right:-18px;top:-14px;width:110px;opacity:.95}.gate .txt{padding-top:44px}}
+
+/* Room nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);padding-block:12px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.rooms{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;max-width:1060px;margin:0 auto;padding-bottom:4px}
+.rooms button{flex:none;border:2.5px solid var(--c);background:var(--frame);color:var(--ink);border-radius:999px;padding:6px 16px;font-size:15px;font-weight:800;white-space:nowrap}
+.rooms button .n{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--c);color:#1d2638;font-size:12px;margin-right:6px}
+.rooms button[aria-selected="true"]{background:color-mix(in srgb,var(--c) 28%,var(--frame));color:var(--ink)}
+.rooms button.admin-tab{border-style:dashed;--c:var(--muted)}
+
+/* Room */
+.room{padding-top:26px;display:grid;gap:26px}
+.room-head{display:grid;gap:6px;max-width:68ch}
+.room-head h2{font-size:clamp(30px,4.6vw,42px)}
+.room-head h2::after{content:"";display:block;width:64px;height:8px;border-radius:8px;background:var(--c);margin-top:8px}
+.room-head p{margin:0;color:var(--muted)}
+.room-head .src{font-size:13px;color:var(--muted)}
+.wall{background:color-mix(in srgb,var(--c) 12%,var(--frame));border-radius:32px;padding:28px max(16px,3vw);display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:26px}
+.empty{background:var(--wall);border-radius:28px;padding:28px;color:var(--muted);text-align:center;font-weight:700}
+h3.sub{font-size:26px}
+
+/* Exhibit */
+.piece{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:10px;text-align:center}
+.piece .frame{background:var(--frame);border:6px solid var(--c);border-radius:28px;aspect-ratio:1;max-width:100%;display:grid;place-items:center;box-shadow:0 8px 0 color-mix(in srgb,var(--c) 35%,transparent);transition:transform .2s}
+.piece:nth-child(odd):hover .frame,.piece:nth-child(odd):focus-visible .frame{transform:translateY(-5px) rotate(-2deg)}
+.piece:nth-child(even):hover .frame,.piece:nth-child(even):focus-visible .frame{transform:translateY(-5px) rotate(2deg)}
+.piece:focus-visible{outline:3px solid var(--turmeric-fill);outline-offset:6px;border-radius:28px}
+.piece .frame svg{width:62%;height:auto;color:var(--indigo)}
+.label{display:grid;gap:3px;min-width:0}
+.label b{font-family:var(--f-display);font-size:19px;line-height:1.2;font-weight:700}
+.label span.p{font-size:14px;color:var(--muted)}
+@media (max-width:560px){.wall{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 14px;padding:18px 12px;border-radius:24px}.piece .frame{border-width:5px;border-radius:22px}.label b{font-size:16px}}
+
+/* Phases */
+.phases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:760px){.phases{grid-template-columns:1fr}}
+.phase{background:var(--frame);border-radius:var(--r);padding:18px 20px;display:grid;gap:6px;align-content:start;box-shadow:0 4px 0 var(--line)}
+.phase .d{font-size:14px;font-weight:800;color:var(--indigo);font-variant-numeric:tabular-nums}
+.phase h4{font-size:20px}
+.phase ul{margin:0;padding-left:18px;color:var(--muted);font-size:15px}
+.phase.is-now,.month.is-now{box-shadow:0 0 0 3px var(--now),0 6px 0 var(--line)}
+.badge{justify-self:start;font-size:12px;font-weight:800;color:var(--paper);background:var(--now);padding:2px 11px;border-radius:999px;white-space:nowrap}
+.badge.done{background:var(--muted)}
+.badge.next{background:transparent;color:var(--muted);border:2px solid var(--line)}
+
+.index{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px}
+.door{all:unset;cursor:pointer;background:color-mix(in srgb,var(--c) 24%,var(--frame));color:var(--ink);border-top:10px solid var(--c);border-radius:26px 26px 18px 18px;padding:18px 18px 16px;display:grid;gap:2px;box-shadow:0 6px 0 color-mix(in srgb,var(--c) 55%,#000);transition:transform .15s;min-height:120px;align-content:end;position:relative;overflow:hidden}
+.door::before{content:"";position:absolute;width:90px;height:90px;border-radius:50%;background:var(--c);opacity:.35;right:-24px;top:-34px}
+.door:hover{transform:translateY(-3px)}
+.door:focus-visible{outline:3px solid var(--turmeric-fill);outline-offset:3px}
+.door .n{font-size:13px;font-weight:800;color:var(--muted)}
+.door b{font-family:var(--f-display);font-size:22px;line-height:1.15}
+.door span{font-size:14px;font-weight:700;color:var(--muted)}
+
+/* Timeline */
+.timeline{list-style:none;margin:0;padding:0 0 0 30px;border-left:6px dotted var(--c);display:grid;gap:22px;max-width:760px}
+.timeline li{position:relative;background:var(--frame);border-radius:var(--r);padding:16px 20px;display:grid;gap:4px;box-shadow:0 4px 0 var(--line)}
+.timeline li::before{content:"";position:absolute;left:-46px;top:16px;width:26px;height:26px;border-radius:50%;background:var(--turmeric-fill);border:4px solid var(--paper)}
+.timeline .when{font-size:14px;font-weight:800;color:var(--c)}
+.timeline h3{font-size:23px}
+.timeline p{margin:0;color:var(--muted)}
+.timeline .ref{font-size:13px;color:var(--muted)}
+.todo{font-family:var(--f-hand);color:var(--turmeric);font-size:19px;line-height:1.3}
+
+/* Calendar */
+.cal{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.month{background:var(--frame);border-radius:var(--r);padding:16px 18px;display:grid;gap:6px;align-content:start;box-shadow:0 4px 0 var(--line);border-top:10px solid var(--mc,var(--c))}
+.month .m{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.month .m b{font-family:var(--f-display);font-size:22px;color:var(--ink);font-variant-numeric:tabular-nums}
+.month h4{font-family:var(--f-body);font-size:16px;line-height:1.35}
+.month p{margin:0;font-size:14px;color:var(--muted)}
+
+/* Tree */
+.tree-room{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:760px){.tree-room{grid-template-columns:1fr}}
+.tree svg{width:100%;height:auto;max-width:420px;display:block;margin:0 auto}
+.notes{display:grid;gap:14px}
+.note{background:var(--wall);border-radius:18px 18px 18px 4px;padding:14px 18px}
+.note:nth-child(2){border-radius:18px 18px 4px 18px;margin-left:24px}
+.note q{font-family:var(--f-hand);font-size:22px;line-height:1.35;quotes:"“" "”";display:block}
+.note small{color:var(--muted)}
+
+.box{background:var(--frame);border-radius:var(--r);padding:18px 20px;display:grid;gap:8px;align-content:start;min-width:0;box-shadow:0 4px 0 var(--line)}
+.box h3{font-size:21px}
+.box ol,.box ul{margin:0;padding-left:20px;color:var(--muted);font-size:15px}
+.box li{margin-bottom:5px}
+.box.warn{background:var(--wall);box-shadow:none}
+.box p{margin:0;color:var(--muted)}
+.guide{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+code{font-size:13px;background:var(--indigo-soft);padding:1px 6px;border-radius:6px;overflow-wrap:anywhere}
+
+/* Admin */
+.savebar{position:sticky;bottom:0;z-index:6;background:var(--indigo);color:var(--paper);padding:12px 18px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-top:24px;border-radius:22px 22px 0 0;padding-bottom:max(12px,env(safe-area-inset-bottom,0px))}
+.savebar .btn{border-color:var(--paper);color:var(--paper);background:transparent;box-shadow:none}
+.savebar .btn.primary{background:var(--turmeric-fill);border-color:var(--turmeric-fill);color:#3a2a00}
+.msg{font-size:15px;font-weight:700}
+.admin-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:22px;align-items:start}
+@media (max-width:820px){.admin-grid{grid-template-columns:1fr}}
+.alist{display:grid;gap:18px}
+.agroup h4{font-size:19px;margin-bottom:8px}
+.arow{display:grid;grid-template-columns:46px minmax(0,1fr) auto;gap:10px;align-items:center;background:var(--frame);border-radius:16px;padding:8px 10px;margin-bottom:8px;box-shadow:0 3px 0 var(--line)}
+.arow.on{box-shadow:0 0 0 3px var(--indigo)}
+.arow svg{width:42px;height:42px;color:var(--indigo)}
+.arow b{display:block;font-size:15px;line-height:1.3}
+.arow small{color:var(--muted);font-size:12px}
+.arow .acts{display:flex;gap:6px}
+form.edit{background:var(--frame);border-radius:var(--r);padding:20px 22px;display:grid;gap:12px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 74px);box-shadow:0 4px 0 var(--line)}
+@media (max-width:820px){form.edit{position:static}}
+.f{display:grid;gap:4px;min-width:0}
+.f label{font-size:14px;font-weight:800}
+.f .hint{font-size:12px;color:var(--muted)}
+.f input,.f textarea,.f select{font:inherit;font-size:15px;color:var(--ink);background:var(--paper);border:2px solid var(--line);border-radius:12px;padding:8px 11px;width:100%;min-width:0}
+.f input:focus,.f textarea:focus,.f select:focus{border-color:var(--indigo);outline:none}
+.f textarea{min-height:84px;resize:vertical}
+.f.bad input{border-color:var(--danger)}
+.f .err{font-size:12px;color:var(--danger);font-weight:700}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:520px){.two{grid-template-columns:1fr}}
+.artpick{display:flex;flex-wrap:wrap;gap:6px}
+.artpick button{all:unset;cursor:pointer;width:48px;height:48px;border:2px solid var(--line);border-radius:14px;display:grid;place-items:center;background:var(--paper)}
+.artpick button[aria-pressed="true"]{border:3px solid var(--indigo);background:var(--indigo-soft)}
+.artpick button:focus-visible{outline:3px solid var(--turmeric-fill)}
+.artpick svg{width:34px;height:34px;color:var(--indigo)}
+fieldset{border:2px dashed var(--line);border-radius:16px;padding:12px 14px;display:grid;gap:10px;margin:0;min-width:0}
+legend{font-size:14px;font-weight:800;color:var(--indigo);padding:0 6px}
+.check{display:flex;gap:8px;align-items:center;font-size:15px}
+.atabs{display:flex;gap:8px;flex-wrap:wrap}
+.atabs button{border:2.5px solid var(--line);background:var(--frame);color:var(--ink);border-radius:999px;padding:6px 16px;font-weight:800;font-size:15px}
+.atabs button[aria-selected="true"]{border-color:var(--indigo);color:var(--paper);background:var(--indigo)}
+.confirm{display:flex;gap:6px;align-items:center;font-size:13px;color:var(--danger);flex-wrap:wrap;justify-content:flex-end;font-weight:700}
+.ghinfo{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--wall);border-radius:16px;padding:10px 16px;font-size:15px}
+
+/* Viewer */
+.viewer{position:fixed;inset:0;z-index:20;background:rgba(18,32,58,.55);display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.card{background:var(--frame);width:min(720px,100%);max-height:100%;overflow:auto;border-radius:30px;border:6px solid var(--c);display:grid;grid-template-columns:190px minmax(0,1fr);gap:22px;padding:24px}
+@media (max-width:600px){.card{grid-template-columns:1fr}.card .big{max-width:140px;margin:0 auto}}
+.card .big{background:color-mix(in srgb,var(--c) 14%,var(--frame));border-radius:24px;aspect-ratio:1;display:grid;place-items:center}
+.card .big svg{width:72%;color:var(--indigo)}
+.card h3{font-size:30px;margin-top:4px}
+.meta{font-size:13px;color:var(--muted);margin:4px 0 10px}
+.story{margin:0 0 12px;font-size:17px}
+.ask{background:var(--wall);border-radius:18px;padding:12px 16px;font-size:16px}
+.ask b{color:var(--turmeric)}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.links .note-d{flex-basis:100%;font-size:12px;color:var(--muted)}
+.ctrl{grid-column:1/-1;display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap;border-top:2px dashed var(--line);padding-top:14px}
+.ctrl .pos{font-size:14px;color:var(--muted);font-weight:800;font-variant-numeric:tabular-nums}
+footer{margin-top:40px;padding-top:16px;font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:space-between}
+footer a{color:var(--muted)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div id="root"></div>
+
+<script type="application/json" id="state">{"v":1,"settings":{"room3d":{"khoanh-khac":"","tri-an":"","di-san":""},"introVideo":""},"exhibits":[{"id":"e1","room":"khoanh-khac","art":"khoc","name":"Ngày đầu nín khóc","era":"Tháng 9/2026 · Khai giảng","plan":"Đón trẻ đầu năm học","from":"Một nhóm trẻ 25–36 tháng","story":"Tuần đầu, bé khóc suốt buổi sáng. Cô bế bé đi xem bồn hoa, cho bé tưới cây cùng các bạn. Đến ngày thứ năm, bé tự chào mẹ rồi chạy vào lớp.","ask":"Ngày đầu đi học con thấy thế nào? Bây giờ con thích gì ở lớp?","video":"","audio":"","link3d":"","drive":"","sample":true},{"id":"e2","room":"khoanh-khac","art":"an","name":"Lần đầu tự xúc ăn","era":"Tháng 11/2026","plan":"Ngày hội dinh dưỡng","from":"Một lớp Mẫu giáo 3–4 tuổi","story":"Trong Ngày hội dinh dưỡng, các bé được tự chọn món, tự cầm thìa và tự dọn bát. Cô ghi lại hình ảnh bé lần đầu ăn hết suất mà không cần cô bón.","ask":"Hôm nay con ăn món gì? Món nào giúp con khỏe mạnh?","video":"","audio":"","link3d":"","drive":"","sample":true},{"id":"e3","room":"khoanh-khac","art":"cap","name":"Bé tự cài cúc áo","era":"Năm học 2026–2027","plan":"Rèn kỹ năng tự phục vụ","from":"Một lớp Mẫu giáo 4–5 tuổi","story":"Góc thực hành có khung cài cúc tự làm từ bìa và vải vụn. Sau một tháng luyện tập, cả lớp tự mặc áo khoác khi trời trở lạnh.","ask":"Con tự làm được những việc gì rồi?","video":"","audio":"","link3d":"","drive":"","sample":true},{"id":"e4","room":"khoanh-khac","art":"rua","name":"Xếp hàng rửa tay","era":"Hằng ngày","plan":"Lớp học Xanh – Sạch","from":"Một lớp Mẫu giáo 5–6 tuổi","story":"Sau giờ chăm sóc góc thiên nhiên, các bé xếp hàng rửa tay bằng xà phòng theo 6 bước. Bạn trực nhật nhắc các bạn khóa vòi để tiết kiệm nước.","ask":"Khi nào chúng mình phải rửa tay?","video":"","audio":"","link3d":"","drive":"","sample":true},{"id":"e5","room":"tri-an","art":"thiep","name":"Bưu thiếp lá khô","era":"12–20/11/2026","plan":"20/11 · Ngày Nhà giáo Việt Nam","from":"Một lớp Mẫu giáo 5–6 tuổi","story":"Các bé nhặt lá rụng ở sân trường, phơi khô rồi dán thành bông hoa trên tấm thiệp tặng cô. Mỗi tấm thiệp mang một hình khác nhau.","ask":"Con muốn tặng thiệp cho ai? Con sẽ nói gì với cô?","video":"","audio":"","link3d":"","drive":"","sample":true},{"id":"e6","room":"tri-an","art":"tranh","name":"Tranh vẽ tặng cô","era":"12–20/11/2026","plan":"20/11 · Ngày Nhà giáo Việt Nam","from":"Một lớp Mẫu giáo 4–5 tuổi","story":"Bé vẽ cô giáo đứng giữa vườn hoa của lớp, bên cạnh là các bạn đang tưới cây. Bé nói cô cũng là một bông hoa.","ask":"Con vẽ những ai trong tranh?","video":"","audio":"","link3d":"","drive":"","sample":true},{"id":"e7","room":"tri-an","art":"mic","name":"Lời chúc ghi âm","era":"12–20/11/2026","plan":"Giai đoạn 2 · ghi âm lời chúc","from":"Một lớp Mẫu giáo 3–4 tuổi","story":"Mỗi bé nói một câu chúc cô. Cô ghi âm và lưu vào thư mục số của lớp; giọng nói của trẻ chỉ chia sẻ nội bộ qua nhóm Zalo lớp.","ask":"Con muốn chúc cô điều gì?","video":"","audio":"","link3d":"","drive":"","sample":true},{"id":"e8","room":"tri-an","art":"thu","name":"Thư cảm ơn của cha mẹ","era":"Tháng 11/2026","plan":"Ban đại diện cha mẹ học sinh","from":"Phụ huynh một nhóm trẻ","story":"Một phụ huynh viết thư cảm ơn cô đã kiên nhẫn giúp con hết khóc và biết tự ăn trong tháng đầu đi học.","ask":"Bố mẹ con thường nói gì về cô giáo?","video":"","audio":"","link3d":"","drive":"","sample":true},{"id":"e9","room":"tri-an","art":"cay","name":"Mỗi mầm xanh – Một lời tri ân","era":"05–11/11/2026","plan":"Phong trào cây xanh","from":"Cha mẹ học sinh và giáo viên","story":"Mỗi chậu cây được ủng hộ tự nguyện mang theo một lời tri ân mái trường. Cây được nhân viên y tế rà soát an toàn trước khi đặt vào góc thiên nhiên của lớp.","ask":"Cây của lớp mình cần gì để lớn lên?","video":"","audio":"","link3d":"","drive":"","sample":true},{"id":"e10","room":"di-san","art":"den","name":"Đèn Trung thu Thành Tuyên","era":"Tháng 9/2026","plan":"Lễ hội Thành Tuyên","from":"Toàn trường, phối hợp cha mẹ trẻ","story":"Cô, bé và bố mẹ cùng làm đèn từ tre, giấy bóng kính và vật liệu tái chế. Mỗi lớp rước một chiếc đèn mang hình con vật mà các bé chọn.","ask":"Đèn của lớp mình hình con gì? Làm bằng những gì?","video":"","audio":"","link3d":"","drive":"","sample":true},{"id":"e11","room":"di-san","art":"ao","name":"Áo chàm của người Tày","era":"Tháng 11/2026","plan":"Ngày hội văn hóa Việt Nam","from":"Gia đình một bé phân hiệu","story":"Bà của bé cho mượn chiếc áo chàm bà mặc khi còn trẻ. Các bé được sờ vải, xem màu chàm và nghe bà kể cách nhuộm vải bằng cây chàm.","ask":"Áo của bà có màu gì? Áo của con có gì khác?","video":"","audio":"","link3d":"","drive":"","sample":true},{"id":"e12","room":"di-san","art":"dao","name":"Khăn và áo của người Dao","era":"Tháng 11/2026","plan":"Ngày hội văn hóa Việt Nam","from":"Một lớp Mẫu giáo 5–6 tuổi","story":"Trang phục người Dao có khăn đỏ và đường thêu nhiều màu. Các bé mặc thử, đếm hoa văn và tự vẽ hoa văn lên khăn giấy.","ask":"Con đếm được bao nhiêu hình trên đường thêu?","video":"","audio":"","link3d":"","drive":"","sample":true},{"id":"e13","room":"di-san","art":"tinh","name":"Đàn tính, câu hát then","era":"Tháng 11/2026","plan":"Hát múa làn điệu quê hương","from":"Các cô giáo tổ Mẫu giáo","story":"Cô mang đàn tính đến lớp, gảy một đoạn nhạc then. Các bé vỗ tay theo nhịp và học vài động tác múa đơn giản.","ask":"Tiếng đàn tính nghe như thế nào?","video":"","audio":"","link3d":"","drive":"","sample":true},{"id":"e14","room":"di-san","art":"oan","name":"Ô ăn quan","era":"Tháng 11/2026","plan":"Ngày hội văn hóa Việt Nam","from":"Các lớp mẫu giáo","story":"Bàn chơi kẻ trên sân, quân là sỏi nhỏ. Trò chơi giúp bé tập đếm, chờ đến lượt và chơi cùng bạn.","ask":"Mỗi ô có mấy viên sỏi? Con đếm cùng cô nhé.","video":"","audio":"","link3d":"","drive":"","sample":true},{"id":"e15","room":"di-san","art":"dau","name":"Chiếc đèn dầu của bà","era":"Ông bà kể chuyện","plan":"Khai thác văn hóa địa phương","from":"Gia đình một bé lớp Mẫu giáo 5–6 tuổi","story":"Ngày trước, khi chưa có điện, cả nhà quây quần bên đèn dầu. Bà kể mẹ của bé học bài dưới ánh đèn này.","ask":"Ngày xưa chưa có bóng điện thì mọi người thắp sáng bằng gì?","video":"","audio":"","link3d":"","drive":"","sample":true}],"timeline":[{"id":"t1","when":"1991 hoặc 1993","title":"Thành lập Trường Mầm non Nông Tiến","text":"Trường đặt tại tổ dân phố 6, phường Nông Tiến, gần nhà các bé.","ref":"Báo cáo thường niên số 02/2026","todo":"Báo cáo ghi hai năm khác nhau: mục 6 ghi năm 1991, phần hồ sơ pháp lý ghi QĐ 539/TCCB ngày 01/9/1993. Nhà trường thống nhất một mốc trước khi công bố."},{"id":"t2","when":"Nhiều năm liên tục","title":"Tập thể lao động xuất sắc","text":"Nhiều năm đạt danh hiệu Tập thể lao động tiên tiến, xuất sắc; nhận Giấy khen của UBND phường, UBND tỉnh và Bằng khen của Bộ Giáo dục và Đào tạo.","ref":"Báo cáo thường niên số 02/2026","todo":"Bổ sung năm nhận Bằng khen của Bộ và ảnh tư liệu."},{"id":"t3","when":"Chuẩn quốc gia","title":"Trường chuẩn quốc gia mức độ 2","text":"Trường đạt kiểm định chất lượng cấp độ 3 và chuẩn quốc gia mức độ 2; năm học 2026–2027 tiếp tục duy trì, giữ vững.","ref":"Báo cáo thường niên số 02/2026","todo":"Bổ sung năm được công nhận."},{"id":"t4","when":"13/8/2026","title":"Sáp nhập Trường Mầm non Tràng Đà","text":"Trường tổ chức lại gồm trường chính và hai phân hiệu Tràng Đà, Hương Sen: 3 điểm trường, 24 nhóm lớp, 526 học sinh.","ref":"Quyết định số 83/QĐ-UBND phường Nông Tiến","todo":""},{"id":"t5","when":"03/10/2026","title":"Thí điểm mô hình đổi mới giáo dục mầm non","text":"Sở Giáo dục và Đào tạo Tuyên Quang giao trường thí điểm xây dựng mô hình đổi mới, nâng cao chất lượng giáo dục mầm non giai đoạn 2026–2030.","ref":"Công văn số 3424/SGDĐT-GDMN","todo":""},{"id":"t6","when":"20/11/2026","title":"Trường học hạnh phúc – Xanh, Sạch, Số","text":"Chào mừng 44 năm Ngày Nhà giáo Việt Nam; Tọa đàm ngày 15/11 trình chiếu những khoảnh khắc đẹp từ Bảo tàng ký ức số.","ref":"Kế hoạch số 17/KH-MNNT","todo":""}]}</script>
+
+<script id="app">
+(function(){
+const clone=o=>JSON.parse(JSON.stringify(o));
+let saved=JSON.parse(document.getElementById('state').textContent);
+let data=clone(saved);
+let dirty=false, canAdmin=false, artifactNS=null, readOnly=false, mode='artifact', ghSha=null;
+const NOW=new Date();
+
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const okUrl=u=>/^https:\/\/[^\s"'<>]+$/i.test(String(u||'').trim());
+const $=id=>document.getElementById(id);
+
+const S=b=>`<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${b}</svg>`;
+const T='var(--turmeric-fill)',SOFT='var(--indigo-soft)';
+const ART={
+ khoc:["Em bé cười",S(`<circle cx="50" cy="50" r="32" fill="${T}" fill-opacity=".55"/><circle cx="39" cy="46" r="3.5" fill="currentColor"/><circle cx="61" cy="46" r="3.5" fill="currentColor"/><path d="M36 58c8 10 20 10 28 0"/><circle cx="31" cy="57" r="5" fill="var(--coral)" stroke="none" opacity=".6"/><circle cx="69" cy="57" r="5" fill="var(--coral)" stroke="none" opacity=".6"/>`)],
+ an:["Bát cơm",S(`<path d="M18 52h64c0 18-14 30-32 30S18 70 18 52z" fill="${SOFT}"/><path d="M28 44c4-6 8-6 12 0M46 40c4-6 8-6 12 0M64 44c4-6 8-6 12 0" stroke-width="2.4"/><path d="M76 16 58 46" stroke-width="4"/><ellipse cx="80" cy="13" rx="6" ry="4" transform="rotate(-30 80 13)" fill="${T}"/>`)],
+ cap:["Áo cài cúc",S(`<path d="M30 30h40l14 14-10 8v34H26V52l-10-8z" fill="${SOFT}"/><path d="M42 30c2 8 14 8 16 0"/><path d="M50 40v46"/>${[50,62,74].map(y=>`<circle cx="44" cy="${y}" r="3" fill="var(--coral)" stroke="none"/>`).join('')}`)],
+ rua:["Rửa tay",S(`<path d="M30 20h40v10H58v8"/><path d="M55 44c0 5-3 7-5 7s-5-2-5-7 5-10 5-10 5 5 5 10z" fill="var(--indigo)" fill-opacity=".5"/><path d="M22 70c6-8 14-10 22-8l14 4c4 1 4 7 0 8l-10-1M78 70c-6-8-14-10-22-8" fill="${SOFT}"/><path d="M22 70l10 12h36l10-12"/>`)],
+ thiep:["Bưu thiếp",S(`<rect x="18" y="22" width="64" height="56" rx="6" fill="${SOFT}"/><path d="M50 22v56" stroke-width="2"/><path d="M34 44c6-10 14-4 10 4-4 8-10 14-10 14s-6-6-10-14c-4-8 4-14 10-4z" fill="var(--coral)" stroke="var(--coral)"/><path d="M60 38h14M60 48h14M60 58h10" stroke-width="2.5"/>`)],
+ tranh:["Tranh vẽ",S(`<rect x="16" y="18" width="68" height="52" rx="4" fill="${SOFT}"/><circle cx="66" cy="32" r="7" fill="${T}" stroke="${T}"/><path d="M16 60l18-16 14 12 10-8 26 18" fill="var(--leaf)" fill-opacity=".35"/><path d="M38 70 30 88M62 70l8 18M24 88h52"/>`)],
+ mic:["Ghi âm",S(`<rect x="38" y="14" width="24" height="40" rx="12" fill="${SOFT}"/><path d="M28 46c0 14 10 22 22 22s22-8 22-22M50 68v16M38 84h24"/><path d="M80 30c4 6 4 14 0 20M88 24c7 10 7 22 0 32" stroke="var(--coral)" stroke-width="3"/>`)],
+ thu:["Lá thư",S(`<rect x="14" y="26" width="72" height="50" rx="5" fill="${SOFT}"/><path d="M14 26l36 28 36-28"/><path d="M50 72s-12-8-12-15c0-5 6-8 12-2 6-6 12-3 12 2 0 7-12 15-12 15z" fill="var(--coral)" stroke="var(--coral)" stroke-width="2"/>`)],
+ cay:["Chậu cây",S(`<path d="M30 62h40l-6 26H36z" fill="var(--coral)" fill-opacity=".55"/><path d="M26 62h48"/><path d="M50 62V34" stroke="var(--leaf)"/><path d="M50 44c-14 0-20-10-20-20 14 0 20 8 20 20zM50 36c12 0 18-8 18-18-12 0-18 8-18 18z" fill="var(--leaf)" fill-opacity=".6" stroke="var(--leaf)"/>`)],
+ den:["Đèn Trung thu",S(`<path d="M50 10v10"/><path d="M50 20 74 46 50 82 26 46z" fill="${T}" fill-opacity=".7"/><path d="M26 46h48M50 20v62M38 33h24M38 64h24" stroke-width="2"/><path d="M50 82v8M42 90h16" stroke="var(--coral)"/>`)],
+ ao:["Áo chàm",S(`<path d="M34 16h32l20 14-8 14-10-6v50H32V38l-10 6-8-14z" fill="var(--indigo)" fill-opacity=".85"/><path d="M42 16c2 6 14 6 16 0" stroke="var(--paper)"/><path d="M40 24v40" stroke="${T}" stroke-width="2.5"/>`)],
+ dao:["Trang phục Dao",S(`<path d="M28 30h44v50H28z" fill="${SOFT}"/><path d="M30 18c6-6 34-6 40 0l-4 12H34z" fill="var(--red)" fill-opacity=".8" stroke="var(--red)"/><path d="M28 50h44M28 62h44" stroke="var(--red)" stroke-width="3"/><path d="M36 56l4-3 4 3 4-3 4 3 4-3 4 3 4-3" stroke="${T}" stroke-width="2"/>`)],
+ tinh:["Đàn tính",S(`<circle cx="34" cy="70" r="16" fill="${T}" fill-opacity=".6"/><path d="M44 58 82 16M82 16l6 4M78 22l6 4"/><path d="M28 64l42-44M34 70l42-44" stroke-width="1.5"/><path d="M14 30c4-4 8-4 12 0M14 40c4-4 8-4 12 0" stroke="var(--coral)" stroke-width="2.5"/>`)],
+ oan:["Ô ăn quan",S(`<path d="M8 50c0-10 8-16 14-16h56c6 0 14 6 14 16s-8 16-14 16H22c-6 0-14-6-14-16z" fill="${SOFT}"/><path d="M22 34v32M36 34v32M50 34v32M64 34v32M78 34v32M22 50h56" stroke-width="2"/>${[29,43,57,71].map(x=>`<circle cx="${x}" cy="42" r="2.8" fill="var(--coral)" stroke="none"/><circle cx="${x}" cy="58" r="2.8" fill="var(--leaf)" stroke="none"/>`).join('')}<circle cx="14" cy="50" r="4" fill="${T}" stroke="none"/><circle cx="86" cy="50" r="4" fill="${T}" stroke="none"/>`)],
+ dau:["Đèn dầu",S(`<path d="M50 14c6 8 6 14 0 18-6-4-6-10 0-18z" fill="${T}" stroke="${T}"/><path d="M42 36h16l4 18c4 4 4 10 0 14H38c-4-4-4-10 0-14z"/><path d="M28 74h44l-4 12H32z" fill="${SOFT}"/><path d="M38 68h24v6H38z"/>`)],
+ non:["Nón lá",S(`<path d="M50 18 12 70h76z" fill="${T}" fill-opacity=".45"/><path d="M8 72c14 6 70 6 84 0"/><path d="M50 18 38 70M50 18l12 52M50 18 26 70M50 18l24 52" stroke-width="1.6"/>`)],
+ video:["Video",S(`<rect x="12" y="24" width="60" height="52" rx="8" fill="${SOFT}"/><path d="M72 42l18-10v36L72 58z" fill="${T}"/><path d="M36 38l16 12-16 12z" fill="var(--coral)" stroke="var(--coral)"/>`)],
+ sach:["Sách ảnh",S(`<path d="M50 26c-10-6-24-8-36-6v56c12-2 26 0 36 6 10-6 24-8 36-6V20c-12-2-26 0-36 6z" fill="${SOFT}"/><path d="M50 26v56"/><circle cx="32" cy="42" r="5" fill="${T}" stroke="none"/><path d="M20 64l10-10 10 8M58 40h18M58 50h18M58 60h12" stroke-width="2.5"/>`)],
+ truong:["Ngôi trường",S(`<path d="M12 46 50 20l38 26" fill="var(--coral)" fill-opacity=".55"/><path d="M18 86V46M82 86V46M10 88h80M42 86V66h16v20"/><rect x="26" y="54" width="10" height="10" fill="${T}"/><rect x="64" y="54" width="10" height="10" fill="${T}"/><path d="M50 20V8l12 4-12 4" fill="var(--leaf)" stroke="var(--leaf)"/>`)]
+};
+const art=k=>(ART[k]||ART.sach)[1];
+
+const ROOMS=[
+ {id:"loi-vao",name:"Lối vào",kind:"intro",c:"var(--indigo)"},
+ {id:"khoanh-khac",n:"1",name:"Khoảnh khắc diệu kỳ",kind:"exhibits",c:"var(--coral)",
+  lead:"Những bước tiến bộ đầu đời của trẻ: ngày đầu đến lớp nín khóc, lần đầu tự xúc ăn, biết cài cúc áo, biết xếp hàng rửa tay, những nụ cười bên cô.",src:"Mục II.3, Kế hoạch số 17/KH-MNNT"},
+ {id:"tri-an",n:"2",name:"Lời tri ân thơ ngây",kind:"exhibits",tree:true,c:"var(--turmeric-fill)",
+  lead:"Lời chúc ghi âm của trẻ, tranh tự vẽ, bưu thiếp tặng cô nhân ngày 20/11 và lời cảm ơn của cha mẹ học sinh.",src:"Mục II.3 và Giai đoạn 2 (12–20/11/2026), Kế hoạch số 17/KH-MNNT"},
+ {id:"di-san",n:"3",name:"Hành trình di sản lớp tôi",kind:"exhibits",c:"var(--leaf)",
+  lead:"Trẻ làm đèn Trung thu Thành Tuyên, mặc trang phục dân tộc Tày, Dao, hát múa làn điệu quê hương, chơi trò dân gian và nghe ông bà kể chuyện ngày xưa.",src:"Mục II.3 Kế hoạch số 17; Lễ hội Thành Tuyên (T9), Ngày hội văn hóa Việt Nam (T11) theo Kế hoạch số 01/KH-MNNT"},
+ {id:"hanh-trinh",n:"4",name:"Hành trình của trường",kind:"timeline",c:"var(--indigo)",
+  lead:"Những mốc đáng nhớ của Trường Mầm non Nông Tiến, theo Báo cáo thường niên và các quyết định của nhà trường.",src:"Báo cáo thường niên số 02/2026; QĐ 83/QĐ-UBND; CV 3424/SGDĐT-GDMN"},
+ {id:"lich",n:"5",name:"Lịch trưng bày năm học",kind:"calendar",c:"var(--lilac)",
+  lead:"Mỗi hoạt động trải nghiệm trong năm học là một gian trưng bày mới. Cuối mỗi tháng, các lớp chọn 3–5 khoảnh khắc tiêu biểu đưa vào bảo tàng.",src:"Mục 5.4 Kế hoạch số 01/KH-MNNT về thực hiện nhiệm vụ năm học 2026–2027"},
+ {id:"huong-dan",name:"Hướng dẫn cho lớp",kind:"guide",c:"var(--indigo)"},
+ {id:"quan-tri",name:"Khu quản trị",kind:"admin",adminOnly:true,c:"var(--muted)"}
+];
+const EXROOMS=ROOMS.filter(r=>r.kind==='exhibits');
+const roomOf=id=>ROOMS.find(r=>r.id===id)||ROOMS[0];
+const MONTHS=[
+ {y:2026,m:9,t:"Lễ hội Thành Tuyên",d:"Làm đèn, rước đèn cùng cha mẹ; trải nghiệm văn hóa địa phương.",room:"di-san"},
+ {y:2026,m:10,t:"Thực hành kỹ năng PCCC, thoát hiểm",d:"Gắn với ngày truyền thống PCCC 4/10, phối hợp Công an phường.",room:"khoanh-khac"},
+ {y:2026,m:11,t:"Ngày hội dinh dưỡng · Ngày hội văn hóa Việt Nam · 20/11",d:"Bé tự phục vụ, trang phục và trò chơi dân gian, lời tri ân tặng cô.",room:"tri-an"},
+ {y:2026,m:12,t:"Bé làm quen môi trường số an toàn · Bé tập làm chú bộ đội",d:"Kỹ năng số phù hợp độ tuổi; lòng biết ơn, vận động.",room:"khoanh-khac"},
+ {y:2027,m:2,t:"Tết và mùa xuân",d:"Phong tục, món ăn, trò chơi ngày Tết cùng cha mẹ và cộng đồng.",room:"di-san"},
+ {y:2027,m:3,t:"Tôi yêu Việt Nam · Bé với ATGT · Ngày hội thể thao",d:"Tình yêu quê hương, giữ gìn môi trường.",room:"di-san"},
+ {y:2027,m:4,t:"Bé tập làm học sinh lớp 1",d:"Khối 5 tuổi trải nghiệm, tự tin bước vào lớp 1.",room:"khoanh-khac"},
+ {y:2027,m:5,t:"Thực hành 5 điều Bác Hồ dạy",d:"Lễ phép, đoàn kết, giữ vệ sinh; mở Hộp thư gửi tương lai.",room:"tri-an"}
+];
+const NOTES=[{q:"Con chúc cô luôn vui và không bị ốm.",who:"Một bé lớp Mẫu giáo 4–5 tuổi"},{q:"Cô ơi, con thương cô như thương mẹ.",who:"Một bé lớp Mẫu giáo 3–4 tuổi"},{q:"Cảm ơn cô đã dạy con đếm đến 10.",who:"Một bé lớp Mẫu giáo 5–6 tuổi"}];
+
+/* ---------- shell ---------- */
+const root=$('root');
+root.innerHTML=`
+<header class="wrap gate">
+ <div class="txt">
+  <div class="school">Trường Mầm non Nông Tiến · Tuyên Quang</div>
+  <h1><span>Bảo tàng</span> <span>ký ức</span> số</h1>
+  <p class="motto">Nơi lưu giữ hành trình lớn khôn và tri ân</p>
+  <div class="stats"><span style="--c:var(--coral)"><b>3</b>điểm trường</span><span style="--c:var(--leaf)"><b>24</b>nhóm, lớp</span><span style="--c:var(--indigo)"><b>526</b>bé</span></div>
+  <div class="cta" id="heroCta"></div>
+ </div>
+ <svg class="sun" viewBox="0 0 160 160" aria-hidden="true"><g stroke="var(--turmeric-fill)" stroke-width="9" stroke-linecap="round">${Array.from({length:12},(_,i)=>{const a=i*Math.PI/6,x1=80+Math.cos(a)*52,y1=80+Math.sin(a)*52,x2=80+Math.cos(a)*70,y2=80+Math.sin(a)*70;return `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}"/>`}).join('')}</g><circle cx="80" cy="80" r="40" fill="var(--turmeric-fill)"/><circle cx="66" cy="74" r="5" fill="#3a2a00"/><circle cx="94" cy="74" r="5" fill="#3a2a00"/><path d="M64 90c8 10 24 10 32 0" stroke="#3a2a00" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="58" cy="88" r="6" fill="var(--coral)" opacity=".7"/><circle cx="102" cy="88" r="6" fill="var(--coral)" opacity=".7"/></svg>
+ <div class="deco"><svg viewBox="0 0 1000 46" preserveAspectRatio="none"><path d="M0 30 Q 60 6 120 26 T 240 24 T 360 28 T 480 20 T 600 28 T 720 22 T 840 28 T 1000 22 V46 H0z" fill="var(--leaf)" opacity=".35"/><path d="M0 38 Q 80 22 160 36 T 320 34 T 480 38 T 640 32 T 800 38 T 1000 34 V46 H0z" fill="var(--leaf)" opacity=".6"/></svg></div>
+</header>
+<nav aria-label="Các phòng trưng bày"><div class="rooms" role="tablist" id="rooms"></div></nav>
+<main class="wrap" id="main"></main>
+<footer class="wrap"><span>Mô hình thuộc Kế hoạch số 17/KH-MNNT ngày 03/11/2026. Hình trên trang là tranh minh họa; ảnh, video và giọng nói thật của trẻ chỉ lưu trong thư mục lớp trên Google Drive tổ chức của nhà trường.</span><a href="#quan-tri" id="adminLink" hidden>Quản trị</a></footer>
+<div class="viewer" id="viewer" hidden role="dialog" aria-modal="true" aria-labelledby="vTitle">
+ <div class="card" id="vCard">
+  <div class="big" id="vArt"></div>
+  <div style="min-width:0">
+   <span class="chip" id="vPlan"></span>
+   <h3 id="vTitle"></h3>
+   <div class="meta" id="vMeta"></div>
+   <p class="story" id="vStory"></p>
+   <div class="ask"><b>Cô hỏi bé:</b> <span id="vAsk"></span></div>
+   <div class="links" id="vLinks"></div>
+  </div>
+  <div class="ctrl">
+   <button type="button" class="btn small" id="vPrev">← Trước</button>
+   <span class="pos" id="vPos"></span>
+   <span style="display:flex;gap:8px"><button type="button" class="btn small" id="vClose">Đóng</button><button type="button" class="btn small primary" id="vNext">Tiếp →</button></span>
+  </div>
+ </div>
+</div>`;
+
+function heroCta(){
+ const v=data.settings.introVideo;
+ $('heroCta').innerHTML=`<button class="btn sun" id="tourBtn" type="button">▶ Bé đi tham quan</button>${okUrl(v)?`<a class="btn" href="${esc(v)}" target="_blank" rel="noopener">Xem video giới thiệu ↗</a>`:''}`;
+ $('tourBtn').onclick=()=>openViewer(data.exhibits.map(e=>({...e,roomName:roomOf(e.room).name,c:roomOf(e.room).c})),0);
+}
+function navTabs(){
+ const el=$('rooms');el.innerHTML='';
+ ROOMS.filter(r=>!r.adminOnly||canAdmin||(mode==='github'&&location.hash==='#quan-tri')).forEach(r=>{
+  const b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.dataset.id=r.id;b.style.setProperty('--c',r.c);
+  if(r.adminOnly)b.className='admin-tab';
+  b.innerHTML=(r.n?`<span class="n">${r.n}</span>`:'')+esc(r.name)+(r.adminOnly&&dirty?' •':'');
+  b.onclick=()=>{location.hash=r.id};el.appendChild(b);
+ });
+ $('adminLink').hidden=mode!=='github';
+}
+
+/* ---------- public rooms ---------- */
+const fmt=d=>`${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}`;
+const stateOf=(a,b)=>NOW>b?'done':NOW>=a?'now':'next';
+const BADGE={done:'Đã xong',now:'Đang làm',next:'Sắp tới'};
+function head(r){
+ const l3=r.kind==='exhibits'?data.settings.room3d[r.id]:'';
+ return `<div class="room-head">${r.n?`<span class="eyebrow">Phòng ${r.n}</span>`:''}<h2>${esc(r.name)}</h2><p>${esc(r.lead)}</p>${r.src?`<span class="src">Căn cứ: ${esc(r.src)}</span>`:''}${okUrl(l3)?`<div class="cta"><a class="btn primary" href="${esc(l3)}" target="_blank" rel="noopener">Vào phòng trưng bày 3D ↗</a></div>`:''}</div>`;
+}
+const mediaTags=e=>{const t=[];if(okUrl(e.video))t.push('Video');if(okUrl(e.audio))t.push('Âm thanh');if(okUrl(e.link3d))t.push('3D');if(okUrl(e.drive))t.push('Drive');return t.length?`<span class="media-dots">${t.map(x=>`<span>${x}</span>`).join('')}</span>`:''};
+const piece=(e,i)=>`<button class="piece" type="button" data-i="${i}"><div class="frame">${art(e.art)}</div><div class="label"><b>${esc(e.name)}</b><span class="p">${esc(e.plan)}</span>${mediaTags(e)}${e.sample?'<span class="sample">Hiện vật mẫu</span>':''}</div></button>`;
+
+function intro(){
+ const ph=[
+  {a:new Date(2026,10,4),b:new Date(2026,10,11,23),t:"Giai đoạn 1 · Chuẩn bị",li:["Triển khai kế hoạch tại họp đầu tháng (04/11)","Tiếp nhận cây xanh, chỉnh trang lớp học","Mỗi lớp tạo thư mục “Bảo tàng ký ức số” trên Drive tổ chức"]},
+  {a:new Date(2026,10,12),b:new Date(2026,10,20,23),t:"Giai đoạn 2 · Trải nghiệm",li:["Trẻ làm bưu thiếp, quà tặng từ vật liệu thiên nhiên","Ghi âm lời chúc của trẻ, lưu vào thư mục lớp","Sinh hoạt chuyên môn theo nghiên cứu bài học"]},
+  {a:new Date(2026,10,15),b:new Date(2026,10,25,23),t:"Giai đoạn 3 · Lan tỏa",li:["Tọa đàm 15/11: trình chiếu khoảnh khắc đẹp từ bảo tàng","Biểu dương ý tưởng, giải pháp sáng tạo","Báo cáo nhanh bằng hình thức số trước 25/11"]}];
+ const cnt=r=>r.kind==='exhibits'?`${data.exhibits.filter(e=>e.room===r.id).length} hiện vật`:r.kind==='timeline'?`${data.timeline.length} mốc`:`${MONTHS.length} tháng`;
+ return `<section class="room" style="--c:var(--indigo)"><div class="room-head"><span class="eyebrow">Lối vào</span><h2>Chào mừng cô, bé và gia đình!</h2>
+ <p>Bảo tàng ký ức số là mô hình của đợt hoạt động chào mừng 44 năm Ngày Nhà giáo Việt Nam, chủ đề “Trường học hạnh phúc – Xanh, Sạch, Số; Lan tỏa yêu thương và tri ân”. Mời bé chọn một căn phòng để vào thăm nhé.</p></div>
+ <div class="index">${ROOMS.filter(x=>x.n).map(x=>`<button class="door" type="button" data-go="${x.id}" style="--c:${x.c}"><span class="n">Phòng ${x.n}</span><b>${esc(x.name)}</b><span>${cnt(x)}</span></button>`).join('')}</div>
+ <div style="display:grid;gap:12px"><h3 class="sub">Tiến độ đợt cao điểm 04–20/11/2026</h3><div class="phases">${ph.map(p=>{const s=stateOf(p.a,p.b);return `<div class="phase ${s==='now'?'is-now':''}"><span class="badge ${s}">${BADGE[s]}</span><span class="d">${fmt(p.a)} – ${fmt(p.b)}/2026</span><h4>${p.t}</h4><ul>${p.li.map(l=>`<li>${l}</li>`).join('')}</ul></div>`}).join('')}</div></div></section>`;
+}
+function tree(){
+ const L=[[150,70],[110,92],[190,92],[80,130],[220,128],[130,128],[170,124],[100,170],[200,168],[150,108],[60,170],[240,170]],C=['var(--leaf)','var(--turmeric-fill)','var(--coral)','var(--indigo)','var(--lilac)'];
+ return `<svg viewBox="0 0 300 300" role="img" aria-label="Cây tri ân, mỗi chiếc lá là một dấu tay của bé"><path d="M150 290V170M150 220l-40-40M150 205l45-45M150 180l-30-55M150 175l25-60" stroke="#9a6b3f" stroke-width="10" stroke-linecap="round" fill="none"/><path d="M100 292h100" stroke="var(--leaf)" stroke-width="7" stroke-linecap="round"/>${L.map(([x,y],i)=>`<g transform="translate(${x} ${y}) rotate(${(i*23)%50-25})" fill="${C[i%5]}"><ellipse cx="0" cy="6" rx="11" ry="12"/><rect x="-11" y="-16" width="5" height="16" rx="2.5"/><rect x="-5" y="-21" width="5" height="20" rx="2.5"/><rect x="1" y="-19" width="5" height="18" rx="2.5"/><rect x="7" y="-13" width="4.5" height="14" rx="2.2"/></g>`).join('')}</svg>`;
+}
+function exhibitsRoom(r){
+ const items=data.exhibits.filter(e=>e.room===r.id);
+ let h=`<section class="room" style="--c:${r.c}">${head(r)}${items.length?`<div class="wall">${items.map(piece).join('')}</div>`:`<div class="empty">Phòng này chưa có hiện vật. ${canAdmin?'Thêm hiện vật ở Khu quản trị.':'Các lớp đang chuẩn bị, bé quay lại sau nhé!'}</div>`}`;
+ if(r.tree)h+=`<div style="display:grid;gap:12px"><h3 class="sub">Cây tri ân</h3><div class="tree-room"><div class="tree">${tree()}</div><div class="notes">${NOTES.map(n=>`<div class="note"><q>${n.q}</q><small>${n.who} · <span class="sample">mẫu</span></small></div>`).join('')}<div class="box" style="border:3px dashed var(--turmeric-fill);box-shadow:none"><h3>Hộp thư gửi tương lai</h3><p>Mỗi bé lớp 5–6 tuổi vẽ một bức tranh về điều mình mong ước. Hộp được mở vào tháng 5/2027 khi các bé chia tay trường mầm non.</p></div></div></div></div>`;
+ return h+'</section>';
+}
+function timelineRoom(r){
+ return `<section class="room" style="--c:${r.c}">${head(r)}${data.timeline.length?`<ol class="timeline">${data.timeline.map(s=>`<li><div class="when">${esc(s.when)}</div><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p>${s.ref?`<div class="ref">Nguồn: ${esc(s.ref)}</div>`:''}${s.todo?`<div class="todo">✎ ${esc(s.todo)}</div>`:''}</li>`).join('')}</ol>`:'<div class="empty">Chưa có mốc nào.</div>'}</section>`;
+}
+function calendarRoom(r){
+ const c=NOW.getFullYear()*12+NOW.getMonth()+1;
+ return `<section class="room" style="--c:${r.c}">${head(r)}<div class="cal">${MONTHS.map(o=>{const k=o.y*12+o.m,s=k<c?'done':k===c?'now':'next';return `<div class="month ${s==='now'?'is-now':''}" style="--mc:${roomOf(o.room).c}"><div class="m"><b>Tháng ${o.m}/${o.y}</b><span class="badge ${s}">${s==='done'?'Đã trưng bày':s==='now'?'Tháng này':'Sắp mở'}</span></div><h4>${o.t}</h4><p>${o.d}</p><button class="chip" style="justify-self:start;cursor:pointer" type="button" data-go="${o.room}">Xem ở ${roomOf(o.room).name} →</button></div>`}).join('')}</div></section>`;
+}
+function guideRoom(){
+ return `<section class="room" style="--c:var(--indigo)"><div class="room-head"><span class="eyebrow">Dành cho giáo viên các lớp</span><h2>Đóng góp vào bảo tàng</h2><p>Ảnh, video và giọng nói của trẻ lưu trong thư mục lớp. Trang bảo tàng chung chỉ dùng tranh minh họa, câu chuyện đã viết lại và đường link; không đăng khuôn mặt hay tên đầy đủ của trẻ.</p><span class="src">Căn cứ: Mục II.3 Kế hoạch số 17/KH-MNNT; Quy chế ban hành kèm Quyết định số 24/QĐ-MNNT</span></div>
+ <div class="guide">
+  <div class="box"><h3>Cách lưu tư liệu</h3><ol><li>Dùng tài khoản tổ chức của trường, mở thư mục <code>Bảo tàng ký ức số / [Tên lớp]</code>.</li><li>Tạo 3 thư mục con: <code>1 Khoảnh khắc diệu kỳ</code>, <code>2 Lời tri ân thơ ngây</code>, <code>3 Di sản lớp tôi</code>.</li><li>Đặt tên tệp theo mẫu <code>2026-11-14_TriAn_BuuThiep.jpg</code>.</li><li>Mỗi tư liệu kèm 2–3 câu: bé làm gì, trong hoạt động nào, tiến bộ ra sao.</li><li>Cuối tháng chọn 3–5 tư liệu tiêu biểu gửi Phó Hiệu trưởng phụ trách để đưa lên trang chung.</li></ol></div>
+  <div class="box"><h3>Gắn phòng 3D, video, âm thanh</h3><ul><li><b>Phòng 3D:</b> dựng trên Artsteps (artsteps.com), sao chép link phòng.</li><li><b>Video:</b> YouTube chế độ “Không công khai”, hoặc tệp trên Drive tổ chức.</li><li><b>Âm thanh thuyết minh:</b> tệp mp3 trên Drive.</li><li>Gửi link cho người quản trị để gắn vào hiện vật. Link phải bắt đầu bằng <code>https://</code>.</li></ul></div>
+  <div class="box warn"><h3>An toàn dữ liệu của trẻ</h3><ul><li>Chỉ dùng ảnh, giọng nói của trẻ đã có Phiếu đồng thuận của cha mẹ.</li><li>Video, ghi âm có mặt hoặc giọng trẻ: để trên Drive tổ chức, chia sẻ nội bộ; không đăng YouTube công khai.</li><li>Không dán mã QR dẫn tới hình ảnh trẻ tại bảng tin nơi công cộng.</li><li>Không tải khuôn mặt, giọng nói của trẻ lên nền tảng AI công cộng.</li></ul></div>
+ </div></section>`;
+}
+
+/* ---------- GitHub storage ---------- */
+const GHK='btkuc_github';
+const ghCfg=()=>{try{return JSON.parse(localStorage.getItem(GHK))||null}catch(_){return null}};
+const ghStore=c=>{try{c?localStorage.setItem(GHK,JSON.stringify(c)):localStorage.removeItem(GHK)}catch(_){}};
+function ghGuess(){const m=location.hostname.match(/^([^.]+)\.github\.io$/i);if(!m)return{owner:'nguyenthithuhiensteam',repo:'baotangkyucso'};const seg=location.pathname.split('/').filter(Boolean)[0]||'';return{owner:m[1],repo:seg&&!seg.includes('.html')?seg:m[1]+'.github.io'}}
+const ghUrl=c=>`https://api.github.com/repos/${encodeURIComponent(c.owner)}/${encodeURIComponent(c.repo)}/contents/data/museum.json`;
+const ghHead=c=>({Authorization:'Bearer '+c.token,Accept:'application/vnd.github+json'});
+const b64enc=s=>{const by=new TextEncoder().encode(s);let b='';for(let i=0;i<by.length;i+=0x8000)b+=String.fromCharCode.apply(null,by.subarray(i,i+0x8000));return btoa(b)};
+const b64dec=s=>new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\s/g,'')),ch=>ch.charCodeAt(0)));
+async function ghFetchLatest(c){
+ const r=await fetch(ghUrl(c)+'?ref='+encodeURIComponent(c.branch)+'&t='+Date.now(),{headers:ghHead(c),cache:'no-store'});
+ if(!r.ok)throw{status:r.status};
+ const j=await r.json();return{sha:j.sha,data:JSON.parse(b64dec(j.content))};
+}
+async function ghLogin(c){
+ const r=await fetch(`https://api.github.com/repos/${encodeURIComponent(c.owner)}/${encodeURIComponent(c.repo)}`,{headers:ghHead(c),cache:'no-store'});
+ if(r.status===401)throw'Mã truy cập (token) không đúng hoặc đã hết hạn.';
+ if(r.status===404)throw'Không tìm thấy kho, hoặc token chưa được cấp quyền vào kho này.';
+ if(!r.ok)throw'GitHub báo lỗi '+r.status+'. Thử lại sau ít phút.';
+ const j=await r.json();if(j.permissions&&!j.permissions.push)throw'Token chỉ có quyền đọc. Hãy cấp quyền “Contents: Read and write”.';
+ const latest=await ghFetchLatest(c).catch(e=>{throw e.status===404?'Kho chưa có tệp data/museum.json. Hãy tải đủ các tệp trong bộ cài lên kho.':'Không đọc được dữ liệu ('+(e.status||'lỗi mạng')+').'});
+ return latest;
+}
+async function ghSave(){
+ const c=ghCfg();
+ const now=await ghFetchLatest(c).catch(e=>{throw{msg:'Không đọc được bản hiện tại trên GitHub ('+(e.status||'lỗi mạng')+').'}});
+ if(ghSha&&now.sha!==ghSha)throw{msg:'Có người vừa lưu bản khác lên GitHub. Bấm “Tải bản mới nhất” rồi làm lại thay đổi.',conflict:true,latest:now};
+ const r=await fetch(ghUrl(c),{method:'PUT',headers:{...ghHead(c),'Content-Type':'application/json'},
+  body:JSON.stringify({message:'Cập nhật Bảo tàng ký ức '+new Date().toLocaleString('vi-VN'),content:b64enc(JSON.stringify(data,null,1)),branch:c.branch,sha:now.sha})});
+ if(r.status===401||r.status===403)throw{msg:'Token không còn quyền ghi. Hãy đăng nhập lại.'};
+ if(r.status===409)throw{msg:'Có người vừa lưu bản khác. Bấm “Tải bản mới nhất”.',conflict:true};
+ if(!r.ok)throw{msg:'GitHub báo lỗi '+r.status+'. Thử lại sau ít phút.'};
+ ghSha=(await r.json()).content.sha;
+}
+
+/* ---------- admin ---------- */
+let aTab='exhibits', editId=null, confirmDel=null, draft=null, errors={}, loginMsg='';
+const blankEx=room=>({id:'e'+Date.now().toString(36),room:room||'khoanh-khac',art:'sach',name:'',era:'',plan:'',from:'',story:'',ask:'',video:'',audio:'',link3d:'',drive:'',sample:false});
+const blankT=()=>({id:'t'+Date.now().toString(36),when:'',title:'',text:'',ref:'',todo:''});
+const fld=(id,label,v,o={})=>`<div class="f ${errors[id]?'bad':''}"><label for="${id}">${label}</label>${o.area?`<textarea id="${id}">${esc(v)}</textarea>`:`<input id="${id}" type="${o.type||(o.url?'url':'text')}" value="${esc(v)}" ${o.ph?`placeholder="${esc(o.ph)}"`:''} ${o.ac?`autocomplete="${o.ac}"`:''}>`}${o.hint?`<span class="hint">${o.hint}</span>`:''}${errors[id]?`<span class="err">${errors[id]}</span>`:''}</div>`;
+
+function loginRoom(){
+ const g=ghGuess(),c=ghCfg()||{};
+ return `<section class="room" style="--c:var(--muted)"><div class="room-head"><span class="eyebrow">Dành cho người quản trị</span><h2>Đăng nhập Khu quản trị</h2><p>Dữ liệu bảo tàng được lưu trong kho GitHub của trường. Nhập tên kho và mã truy cập (token) để thêm, sửa, xóa hiện vật. Mã chỉ lưu trên trình duyệt của máy này.</p></div>
+ <form class="edit" id="ghForm" novalidate style="position:static;max-width:620px">
+  <div class="two">${fld('g_owner','Tài khoản GitHub',c.owner||g.owner,{ph:'VD: mnnongtien'})}${fld('g_repo','Tên kho',c.repo||g.repo,{ph:'VD: bao-tang-ky-uc'})}</div>
+  ${fld('g_branch','Nhánh',c.branch||'main')}
+  ${fld('g_token','Mã truy cập (fine-grained token)','',{type:'password',ac:'off',ph:'github_pat_…',hint:'Tạo tại GitHub › Settings › Developer settings › Fine-grained tokens; chỉ chọn kho này, quyền Contents: Read and write.'})}
+  ${loginMsg?`<div class="err" style="color:var(--danger);font-weight:700">${esc(loginMsg)}</div>`:''}
+  <div><button type="submit" class="btn primary" id="g_go">Đăng nhập</button></div>
+ </form></section>`;
+}
+function adminRoom(){
+ if(mode==='github'&&!canAdmin)return loginRoom();
+ if(!canAdmin)return `<section class="room"><div class="empty">Khu quản trị chỉ dành cho người được cấp quyền chỉnh sửa trang.</div></section>`;
+ const c=ghCfg();
+ return `<section class="room" style="--c:var(--muted)"><div class="room-head"><span class="eyebrow">Chỉ người quản trị mới thấy mục này</span><h2>Khu quản trị</h2><p>Thêm, sửa, xóa hiện vật và mốc lịch sử; gắn link phòng 3D, video, âm thanh. Thay đổi chỉ hiện với phụ huynh sau khi bấm <b>Lưu lên trang</b>.</p></div>
+ ${mode==='github'?`<div class="ghinfo"><span>Đang lưu vào kho <b>${esc(c.owner)}/${esc(c.repo)}</b> (nhánh ${esc(c.branch)})</span><span style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="btn small" id="ghReload">Tải bản mới nhất</button><button type="button" class="btn small" id="ghOut">Đăng xuất</button></span></div>`:''}
+ <div class="atabs" role="tablist">${[['exhibits','Hiện vật'],['timeline','Mốc lịch sử'],['links','Phòng 3D & video chung']].map(([k,l])=>`<button type="button" role="tab" data-atab="${k}" aria-selected="${aTab===k}">${l}</button>`).join('')}</div>
+ ${aTab==='exhibits'?adminExhibits():aTab==='timeline'?adminTimeline():adminLinks()}
+ ${readOnly?`<div class="box warn"><p>Tài khoản này chỉ có quyền xem, nên không lưu được thay đổi.</p></div>`:''}
+ </section>`;
+}
+function rowActs(id){
+ return confirmDel===id?`<span class="confirm">Xóa mục này? <button type="button" class="btn small danger primary" data-delok="${id}">Xóa</button><button type="button" class="btn small" data-delno>Không</button></span>`
+ :`<span class="acts"><button type="button" class="btn small" data-edit="${id}">Sửa</button><button type="button" class="btn small danger" data-del="${id}">Xóa</button></span>`;
+}
+function adminExhibits(){
+ const list=EXROOMS.map(r=>{const it=data.exhibits.filter(e=>e.room===r.id);return `<div class="agroup" style="--c:${r.c}"><h4>Phòng ${r.n} · ${esc(r.name)} (${it.length})</h4>${it.map(e=>`<div class="arow ${editId===e.id?'on':''}">${art(e.art)}<div style="min-width:0"><b>${esc(e.name||'(chưa đặt tên)')}</b><small>${esc(e.plan)}${e.sample?' · mẫu':''}</small>${mediaTags(e)?`<div style="text-align:left">${mediaTags(e)}</div>`:''}</div>${rowActs(e.id)}</div>`).join('')||'<small style="color:var(--muted)">Chưa có hiện vật.</small>'}</div>`}).join('');
+ const d=draft;
+ const form=d?`<form class="edit" id="exForm" novalidate>
+   <h3>${data.exhibits.some(e=>e.id===d.id)?'Sửa hiện vật':'Thêm hiện vật mới'}</h3>
+   <div class="two"><div class="f"><label for="x_room">Phòng trưng bày</label><select id="x_room">${EXROOMS.map(r=>`<option value="${r.id}" ${d.room===r.id?'selected':''}>Phòng ${r.n} · ${esc(r.name)}</option>`).join('')}</select></div>
+   ${fld('x_plan','Gắn với hoạt động / kế hoạch',d.plan,{ph:'VD: Ngày hội văn hóa Việt Nam'})}</div>
+   <div class="f"><label>Hình minh họa</label><div class="artpick">${Object.entries(ART).map(([k,[n,s]])=>`<button type="button" data-art="${k}" aria-pressed="${d.art===k}" title="${n}" aria-label="${n}">${s}</button>`).join('')}</div></div>
+   ${fld('x_name','Tên hiện vật *',d.name)}
+   <div class="two">${fld('x_era','Thời gian',d.era,{ph:'VD: Tháng 11/2026'})}${fld('x_from','Người / lớp gửi',d.from,{ph:'VD: Lớp MG 5-6 tuổi A1',hint:'Không ghi họ tên đầy đủ của trẻ.'})}</div>
+   ${fld('x_story','Câu chuyện',d.story,{area:1})}
+   ${fld('x_ask','Câu “Cô hỏi bé”',d.ask)}
+   <fieldset><legend>Đường link (mở ở tab mới)</legend>
+    ${fld('x_video','Video',d.video,{url:1,ph:'https://youtu.be/… hoặc https://drive.google.com/…'})}
+    ${fld('x_audio','Âm thanh thuyết minh',d.audio,{url:1,ph:'https://drive.google.com/…'})}
+    ${fld('x_link3d','Phòng 3D / ảnh 360°',d.link3d,{url:1,ph:'https://www.artsteps.com/view/…'})}
+    ${fld('x_drive','Thư mục lớp trên Drive',d.drive,{url:1,ph:'https://drive.google.com/drive/folders/…',hint:'Chỉ người được cấp quyền trên Drive mới mở được.'})}
+   </fieldset>
+   <label class="check"><input type="checkbox" id="x_sample" ${d.sample?'checked':''}> Đánh dấu là nội dung mẫu</label>
+   <div style="display:flex;gap:8px;flex-wrap:wrap"><button type="submit" class="btn primary">Đưa vào danh sách</button><button type="button" class="btn" id="x_cancel">Hủy</button></div>
+  </form>`:`<div class="box"><h3>Thêm hiện vật</h3><p>Chọn phòng, hình minh họa, viết câu chuyện và dán link video, âm thanh, phòng 3D.</p><button type="button" class="btn primary" id="addEx" style="justify-self:start">+ Thêm hiện vật</button></div>`;
+ return `<div class="admin-grid"><div class="alist">${list}</div>${form}</div>`;
+}
+function adminTimeline(){
+ const list=`<div class="agroup"><h4>Phòng 4 · Hành trình của trường (${data.timeline.length})</h4>${data.timeline.map(t=>`<div class="arow ${editId===t.id?'on':''}" style="grid-template-columns:minmax(0,1fr) auto"><div style="min-width:0"><b>${esc(t.when)} · ${esc(t.title)}</b><small>${esc(t.ref)}</small></div>${rowActs(t.id)}</div>`).join('')}</div>`;
+ const d=draft;
+ const form=d?`<form class="edit" id="tForm" novalidate><h3>${data.timeline.some(t=>t.id===d.id)?'Sửa mốc':'Thêm mốc mới'}</h3>
+  <div class="two">${fld('t_when','Thời gian *',d.when,{ph:'VD: 01/9/1993'})}${fld('t_ref','Nguồn',d.ref,{ph:'VD: QĐ số …'})}</div>
+  ${fld('t_title','Tiêu đề *',d.title)}${fld('t_text','Nội dung',d.text,{area:1})}${fld('t_todo','Ghi chú cần bổ sung',d.todo,{hint:'Hiện bằng chữ viết tay màu vàng. Để trống khi đã đủ thông tin.'})}
+  <div class="f"><label for="t_pos">Vị trí trên dòng thời gian</label><select id="t_pos">${(()=>{const ci=data.timeline.findIndex(t=>t.id===d.id),rest=data.timeline.filter(t=>t.id!==d.id);return rest.map((t,i)=>`<option value="${i}" ${i===ci?'selected':''}>Trước “${esc(t.title)}”</option>`).join('')+`<option value="end" ${ci<0||ci>=rest.length?'selected':''}>Ở cuối</option>`})()}</select></div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap"><button type="submit" class="btn primary">Đưa vào danh sách</button><button type="button" class="btn" id="x_cancel">Hủy</button></div></form>`
+ :`<div class="box"><h3>Thêm mốc lịch sử</h3><p>Năm thành lập, năm đạt chuẩn, các lần xây dựng, khen thưởng.</p><button type="button" class="btn primary" id="addT" style="justify-self:start">+ Thêm mốc</button></div>`;
+ return `<div class="admin-grid"><div class="alist">${list}</div>${form}</div>`;
+}
+function adminLinks(){
+ return `<form class="edit" id="lForm" novalidate style="position:static;max-width:720px"><h3>Link dùng chung</h3><p style="margin:0;color:var(--muted);font-size:15px">Mỗi phòng có thể gắn một phòng trưng bày 3D trên Artsteps; nút “Vào phòng trưng bày 3D” hiện ở đầu phòng.</p>
+ ${EXROOMS.map(r=>fld('l_'+r.id,`Phòng ${r.n} · ${r.name}: phòng 3D`,data.settings.room3d[r.id]||'',{url:1,ph:'https://www.artsteps.com/view/…'})).join('')}
+ ${fld('l_intro','Video giới thiệu trường (hiện ở đầu trang)',data.settings.introVideo,{url:1,ph:'https://youtu.be/…'})}
+ <div><button type="submit" class="btn primary">Đưa vào danh sách</button></div></form>`;
+}
+const val=id=>{const el=$(id);return el?el.value.trim():''};
+function checkUrls(ids){ids.forEach(id=>{const v=val(id);if(v&&!okUrl(v))errors[id]='Link phải bắt đầu bằng https://'})}
+function markDirty(){dirty=true;renderSaveBar();navTabs();markTab()}
+function adoptLatest(l){saved=l.data;data=clone(l.data);ghSha=l.sha;dirty=false;draft=null;editId=null;heroCta();navTabs();render();renderSaveBar()}
+function wireAdmin(){
+ const gf=$('ghForm');
+ if(gf){gf.onsubmit=async e=>{e.preventDefault();const c={owner:val('g_owner'),repo:val('g_repo'),branch:val('g_branch')||'main',token:val('g_token')};
+  if(!c.owner||!c.repo||!c.token){loginMsg='Hãy nhập đủ tài khoản, tên kho và mã truy cập.';render();return}
+  $('g_go').disabled=true;$('g_go').textContent='Đang kiểm tra…';
+  try{const l=await ghLogin(c);ghStore(c);canAdmin=true;loginMsg='';adoptLatest(l);setMsg('Đã đăng nhập. Dữ liệu là bản mới nhất trên GitHub.')}
+  catch(err){loginMsg=typeof err==='string'?err:'Không kết nối được GitHub. Kiểm tra mạng rồi thử lại.';render()}};return}
+ const out=$('ghOut');if(out)out.onclick=()=>{if(dirty&&!confirmOut){confirmOut=true;setMsg('Còn thay đổi chưa lưu. Bấm Đăng xuất lần nữa để bỏ thay đổi.');return}ghStore(null);canAdmin=false;dirty=false;data=clone(saved);msgText='';confirmOut=false;navTabs();render();renderSaveBar()};
+ const rl=$('ghReload');if(rl)rl.onclick=async()=>{try{adoptLatest(await ghFetchLatest(ghCfg()));setMsg('Đã tải bản mới nhất từ GitHub.')}catch(e){setMsg('Không tải được ('+(e.status||'lỗi mạng')+').')}};
+ main.querySelectorAll('[data-atab]').forEach(b=>b.onclick=()=>{aTab=b.dataset.atab;draft=null;editId=null;confirmDel=null;errors={};render()});
+ const coll=aTab==='timeline'?data.timeline:data.exhibits;
+ main.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>{editId=b.dataset.edit;draft={...coll.find(x=>x.id===editId)};errors={};confirmDel=null;render();main.querySelector('form.edit input')?.focus()});
+ main.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{confirmDel=b.dataset.del;render()});
+ main.querySelectorAll('[data-delno]').forEach(b=>b.onclick=()=>{confirmDel=null;render()});
+ main.querySelectorAll('[data-delok]').forEach(b=>b.onclick=()=>{const id=b.dataset.delok;const i=coll.findIndex(x=>x.id===id);if(i>=0)coll.splice(i,1);if(editId===id){draft=null;editId=null}confirmDel=null;markDirty();render()});
+ const add=$('addEx');if(add)add.onclick=()=>{draft=blankEx();editId=draft.id;errors={};render();$('x_name').focus()};
+ const addT=$('addT');if(addT)addT.onclick=()=>{draft=blankT();editId=draft.id;errors={};render();$('t_when').focus()};
+ const cancel=$('x_cancel');if(cancel)cancel.onclick=()=>{draft=null;editId=null;errors={};render()};
+ main.querySelectorAll('[data-art]').forEach(b=>b.onclick=()=>{captureEx();draft.art=b.dataset.art;render()});
+ const ef=$('exForm');if(ef)ef.onsubmit=e=>{e.preventDefault();captureEx();errors={};if(!draft.name)errors.x_name='Hãy nhập tên hiện vật.';checkUrls(['x_video','x_audio','x_link3d','x_drive']);if(Object.keys(errors).length){render();return}
+  const i=data.exhibits.findIndex(x=>x.id===draft.id);if(i>=0)data.exhibits[i]={...draft};else data.exhibits.push({...draft});draft=null;editId=null;markDirty();render()};
+ const tf=$('tForm');if(tf)tf.onsubmit=e=>{e.preventDefault();const pos=val('t_pos');Object.assign(draft,{when:val('t_when'),title:val('t_title'),text:val('t_text'),ref:val('t_ref'),todo:val('t_todo')});errors={};
+  if(!draft.when)errors.t_when='Hãy nhập thời gian.';if(!draft.title)errors.t_title='Hãy nhập tiêu đề.';if(Object.keys(errors).length){render();return}
+  const rest=data.timeline.filter(t=>t.id!==draft.id);if(pos==='end')rest.push({...draft});else rest.splice(+pos,0,{...draft});data.timeline=rest;draft=null;editId=null;markDirty();render()};
+ const lf=$('lForm');if(lf)lf.onsubmit=e=>{e.preventDefault();errors={};checkUrls(EXROOMS.map(r=>'l_'+r.id).concat('l_intro'));if(Object.keys(errors).length){render();return}
+  EXROOMS.forEach(r=>data.settings.room3d[r.id]=val('l_'+r.id));data.settings.introVideo=val('l_intro');markDirty();heroCta();render();setMsg('Đã cập nhật link. Bấm Lưu lên trang để phụ huynh thấy.')};
+}
+let confirmOut=false;
+function captureEx(){if(!draft||!$('exForm'))return;Object.assign(draft,{room:val('x_room'),plan:val('x_plan'),name:val('x_name'),era:val('x_era'),from:val('x_from'),story:val('x_story'),ask:val('x_ask'),video:val('x_video'),audio:val('x_audio'),link3d:val('x_link3d'),drive:val('x_drive'),sample:$('x_sample').checked})}
+
+/* save bar */
+let bar=null,msgText='';
+function setMsg(t){msgText=t;renderSaveBar()}
+function renderSaveBar(){
+ if(!canAdmin){if(bar)bar.hidden=true;return}
+ if(!bar){bar=document.createElement('div');bar.className='savebar wrap';root.appendChild(bar)}
+ bar.hidden=!dirty&&!msgText;
+ bar.innerHTML=`<span class="msg" role="status">${esc(msgText||(dirty?'Có thay đổi chưa lưu. Phụ huynh vẫn thấy bản cũ.':''))}</span>${dirty?`<span style="display:flex;gap:8px"><button type="button" class="btn small" id="undoAll">Bỏ thay đổi</button><button type="button" class="btn small primary" id="saveAll" ${readOnly?'disabled':''}>Lưu lên trang</button></span>`:''}`;
+ const u=$('undoAll');if(u)u.onclick=()=>{data=clone(saved);dirty=false;draft=null;editId=null;msgText='';navTabs();heroCta();render();renderSaveBar()};
+ const s=$('saveAll');if(s)s.onclick=save;
+}
+function buildDoc(){
+ const reset=(document.head.querySelector('style')||{}).textContent||':root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,-apple-system,sans-serif}img{max-width:100%}[hidden]{display:none!important}';
+ const pageStyle=[...document.querySelectorAll('style')].find(s=>s.textContent.includes('--turmeric-fill'));
+ const json=JSON.stringify(data).replace(/</g,'\\u003c');
+ return '<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>'+reset+'</style></head><body>'
+  +'<title>Bảo tàng Ký ức Nông Tiến</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n'
+  +'<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&family=Patrick+Hand&display=swap">\n'
+  +'<style>'+pageStyle.textContent+'</style>\n\n<div id="root"></div>\n\n'
+  +'<script type="application/json" id="state">'+json+'</'+'script>\n\n'
+  +'<script id="app">'+document.getElementById('app').textContent+'</'+'script>\n</body></html>';
+}
+async function save(){
+ const s=$('saveAll');if(s){s.disabled=true;s.textContent='Đang lưu…'}
+ if(mode==='github'){
+  try{await ghSave();saved=clone(data);dirty=false;msgText='Đã lưu lên GitHub. Trang công khai cập nhật sau khoảng 1–2 phút.';navTabs();markTab();renderSaveBar()}
+  catch(e){setMsg(e.msg||'Không kết nối được GitHub. Kiểm tra mạng rồi thử lại.')}
+  return;
+ }
+ if(!artifactNS){setMsg('Không lưu được ở chế độ xem này.');return}
+ try{await artifactNS.publish(buildDoc());dirty=false;msgText='Đã lưu. Trang đang tải lại bản mới.';renderSaveBar()}
+ catch(e){const c=e&&e.code;
+  if(c==='conflict')setMsg('Có người vừa lưu bản khác. Trang sẽ tải lại bản mới nhất; thao tác vừa rồi chưa được lưu.');
+  else if(c==='not_writer'||c==='not_granted'){readOnly=true;setMsg('Tài khoản này chỉ có quyền xem nên không lưu được.');render()}
+  else if(c==='too_large')setMsg('Nội dung quá lớn. Hãy rút gọn bớt câu chuyện.');
+  else if(c==='rate_limited')setMsg('Lưu quá nhiều lần liên tiếp. Đợi một phút rồi bấm Lưu lại.');
+  else setMsg('Chưa lưu được ('+(c||'lỗi kết nối')+'). Thử lại sau ít phút.');
+  const s2=$('saveAll');if(s2){s2.disabled=readOnly;s2.textContent='Lưu lên trang'}}
+}
+addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue=''}});
+
+/* ---------- render / route ---------- */
+const main=$('main');
+let currentId='loi-vao';
+function markTab(){[...$('rooms').children].forEach(b=>b.setAttribute('aria-selected',b.dataset.id===currentId))}
+function render(){
+ const want=(location.hash||'').slice(1)||'loi-vao';
+ let r=ROOMS.find(x=>x.id===want)||ROOMS[0];if(r.adminOnly&&!canAdmin&&mode!=='github')r=ROOMS[0];currentId=r.id;markTab();
+ main.innerHTML=r.kind==='intro'?intro():r.kind==='exhibits'?exhibitsRoom(r):r.kind==='timeline'?timelineRoom(r):r.kind==='calendar'?calendarRoom(r):r.kind==='guide'?guideRoom():adminRoom();
+ if(r.kind==='exhibits'){const items=data.exhibits.filter(e=>e.room===r.id).map(e=>({...e,roomName:r.name,c:r.c}));main.querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>openViewer(items,+b.dataset.i))}
+ main.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{location.hash=b.dataset.go});
+ if(r.kind==='admin')wireAdmin();
+}
+addEventListener('hashchange',()=>{navTabs();render();document.querySelector('nav').scrollIntoView({block:'start'})});
+
+/* ---------- viewer ---------- */
+const V=$('viewer');let list=[],pos=0,lastFocus=null;
+function openViewer(items,i){if(!items.length)return;list=items;pos=i;lastFocus=document.activeElement;show();V.hidden=false;$('vNext').focus()}
+function show(){const e=list[pos];$('vCard').style.setProperty('--c',e.c||'var(--indigo)');$('vArt').innerHTML=art(e.art);$('vPlan').textContent=e.plan||e.roomName;$('vTitle').textContent=e.name;
+ $('vMeta').textContent=[e.roomName,e.era,e.from,e.sample?'nội dung mẫu':''].filter(Boolean).join(' · ');$('vStory').textContent=e.story;$('vAsk').textContent=e.ask;$('vAsk').parentElement.hidden=!e.ask;
+ const L=[[e.video,'▶ Xem video'],[e.audio,'♪ Nghe thuyết minh'],[e.link3d,'Xem phòng 3D'],[e.drive,'Mở thư mục lớp']].filter(([u])=>okUrl(u));
+ $('vLinks').innerHTML=L.map(([u,t],i)=>`<a class="btn small ${i===0?'primary':''}" href="${esc(u)}" target="_blank" rel="noopener">${t} ↗</a>`).join('')+(L.length?'<span class="note-d">Mở ở tab mới.'+(okUrl(e.drive)?' Thư mục Drive chỉ mở được với tài khoản đã được cấp quyền.':'')+'</span>':'');
+ $('vPos').textContent=`${pos+1} / ${list.length}`;$('vPrev').disabled=pos===0;$('vNext').textContent=pos===list.length-1?'Kết thúc':'Tiếp →'}
+function close(){V.hidden=true;if(lastFocus)lastFocus.focus()}
+$('vPrev').onclick=()=>{if(pos>0){pos--;show()}};
+$('vNext').onclick=()=>{if(pos<list.length-1){pos++;show()}else close()};
+$('vClose').onclick=close;V.addEventListener('click',e=>{if(e.target===V)close()});
+addEventListener('keydown',e=>{if(V.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowRight')$('vNext').click();if(e.key==='ArrowLeft')$('vPrev').click()});
+
+heroCta();navTabs();render();
+
+/* ---------- boot: GitHub data file, or claude.ai capabilities ---------- */
+(async()=>{
+ try{
+  const r=await fetch('data/museum.json?t='+Date.now(),{cache:'no-store'});
+  if(r.ok){const j=await r.json();if(j&&Array.isArray(j.exhibits)){mode='github';saved=j;data=clone(j)}}
+ }catch(_){}
+ if(mode==='github'){
+  const c=ghCfg();
+  if(c){try{const l=await ghFetchLatest(c);canAdmin=true;adoptLatest(l)}catch(_){canAdmin=false}}
+  heroCta();navTabs();render();return;
+ }
+ try{
+  const [user,a]=await Promise.all([window.claude?.use?.('user'),window.claude?.use?.('artifact')]);
+  artifactNS=a||null;
+  const ed=user?await user.canEdit():false;
+  if(ed&&artifactNS){canAdmin=true;navTabs();render();renderSaveBar()}
+ }catch(_){}
+})();
+})();
+</script>
+
+</body></html>
