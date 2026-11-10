@@ -191,6 +191,19 @@ form.edit{background:var(--frame);border-radius:var(--r);padding:20px 22px;displ
 fieldset{border:2px dashed var(--line);border-radius:16px;padding:12px 14px;display:grid;gap:10px;margin:0;min-width:0}
 legend{font-size:14px;font-weight:800;color:var(--indigo);padding:0 6px}
 .check{display:flex;gap:8px;align-items:center;font-size:15px}
+.checks{display:flex;flex-direction:column;gap:6px}
+.pend{background:var(--frame);border-radius:16px;padding:12px 14px;margin-bottom:10px;box-shadow:0 3px 0 var(--line);display:grid;gap:6px}
+.pend b{font-size:15px;line-height:1.3}
+.pend small{color:var(--muted);font-size:13px}
+.pend dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 10px;margin:6px 0 0;font-size:14px}
+.pend dt{color:var(--muted);font-weight:700}
+.pend dd{margin:0;overflow-wrap:anywhere;white-space:pre-wrap}
+.pend .row{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.pend input{flex:1 1 180px;min-width:0;font:inherit;font-size:14px;padding:5px 10px;border:2px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
+.st{display:inline-block;font-size:12px;font-weight:800;border-radius:999px;padding:1px 10px;color:var(--paper);background:var(--muted)}
+.st.pending{background:var(--turmeric);}
+.st.approved{background:var(--now)}
+.st.rejected{background:var(--danger)}
 .atabs{display:flex;gap:8px;flex-wrap:wrap}
 .atabs button{border:2.5px solid var(--line);background:var(--frame);color:var(--ink);border-radius:999px;padding:6px 16px;font-weight:800;font-size:15px}
 .atabs button[aria-selected="true"]{border-color:var(--indigo);color:var(--paper);background:var(--indigo)}
@@ -387,79 +400,85 @@ function guideRoom(){
  </div></section>`;
 }
 
-/* ---------- GitHub storage ---------- */
-const GHK='btkuc_github';
-const ghCfg=()=>{try{return JSON.parse(localStorage.getItem(GHK))||null}catch(_){return null}};
-const ghStore=c=>{try{c?localStorage.setItem(GHK,JSON.stringify(c)):localStorage.removeItem(GHK)}catch(_){}};
-function ghGuess(){const m=location.hostname.match(/^([^.]+)\.github\.io$/i);if(!m)return{owner:'nguyenthithuhiensteam',repo:'baotangkyucso'};const seg=location.pathname.split('/').filter(Boolean)[0]||'';return{owner:m[1],repo:seg&&!seg.includes('.html')?seg:m[1]+'.github.io'}}
-const ghUrl=c=>`https://api.github.com/repos/${encodeURIComponent(c.owner)}/${encodeURIComponent(c.repo)}/contents/data/museum.json`;
-const ghHead=c=>({Authorization:'Bearer '+c.token,Accept:'application/vnd.github+json'});
-const b64enc=s=>{const by=new TextEncoder().encode(s);let b='';for(let i=0;i<by.length;i+=0x8000)b+=String.fromCharCode.apply(null,by.subarray(i,i+0x8000));return btoa(b)};
-const b64dec=s=>new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\s/g,'')),ch=>ch.charCodeAt(0)));
-async function ghFetchLatest(c){
- const r=await fetch(ghUrl(c)+'?ref='+encodeURIComponent(c.branch)+'&t='+Date.now(),{headers:ghHead(c),cache:'no-store'});
- if(!r.ok)throw{status:r.status};
- const j=await r.json();return{sha:j.sha,data:JSON.parse(b64dec(j.content))};
+/* ---------- máy chủ quản trị (giữ mã GitHub, kiểm tra quyền) ---------- */
+const API=/^(localhost|127\.0\.0\.1)$/.test(location.hostname)?'http://localhost:8787':'https://baotangkyucso-api.onrender.com';
+const SK='btkuc_session';
+try{localStorage.removeItem('btkuc_github')}catch(_){}
+const sess=()=>{try{return JSON.parse(localStorage.getItem(SK))||null}catch(_){return null}};
+const sessStore=s=>{try{s?localStorage.setItem(SK,JSON.stringify(s)):localStorage.removeItem(SK)}catch(_){}};
+let me=null;
+const isAdmin=()=>!!me&&me.role==='admin';
+const WAKE='Máy chủ quản trị đang khởi động, có thể mất khoảng 1 phút. Vui lòng chờ…';
+async function api(path,body,onSlow){
+ const s=sess(),t=onSlow?setTimeout(onSlow,4000):0;
+ try{
+  const r=await fetch(API+path,{method:body===undefined?'GET':'POST',cache:'no-store',
+   headers:{...(s?{Authorization:'Bearer '+s.token}:{}),...(body!==undefined?{'Content-Type':'application/json'}:{})},
+   body:body===undefined?undefined:JSON.stringify(body)});
+  let j={};try{j=await r.json()}catch(_){}
+  if(!r.ok){if(r.status===401&&path!=='/api/login')expired();throw{status:r.status,msg:j.error||('Máy chủ báo lỗi '+r.status+'. Thử lại sau ít phút.')}}
+  return j;
+ }catch(e){if(e&&e.status)throw e;throw{status:0,msg:'Không kết nối được máy chủ quản trị. Kiểm tra mạng rồi thử lại.'}}
+ finally{clearTimeout(t)}
 }
-async function ghLogin(c){
- const r=await fetch(`https://api.github.com/repos/${encodeURIComponent(c.owner)}/${encodeURIComponent(c.repo)}`,{headers:ghHead(c),cache:'no-store'});
- if(r.status===401)throw'Mã truy cập (token) không đúng hoặc đã hết hạn.';
- if(r.status===404)throw'Không tìm thấy kho, hoặc token chưa được cấp quyền vào kho này.';
- if(!r.ok)throw'GitHub báo lỗi '+r.status+'. Thử lại sau ít phút.';
- const j=await r.json();if(j.permissions&&!j.permissions.push)throw'Token chỉ có quyền đọc. Hãy cấp quyền “Contents: Read and write”.';
- const latest=await ghFetchLatest(c).catch(e=>{throw e.status===404?'Kho chưa có tệp data/museum.json. Hãy tải đủ các tệp trong bộ cài lên kho.':'Không đọc được dữ liệu ('+(e.status||'lỗi mạng')+').'});
- return latest;
-}
-async function ghSave(){
- const c=ghCfg();
- const now=await ghFetchLatest(c).catch(e=>{throw{msg:'Không đọc được bản hiện tại trên GitHub ('+(e.status||'lỗi mạng')+').'}});
- if(ghSha&&now.sha!==ghSha)throw{msg:'Có người vừa lưu bản khác lên GitHub. Bấm “Tải bản mới nhất” rồi làm lại thay đổi.',conflict:true,latest:now};
- const r=await fetch(ghUrl(c),{method:'PUT',headers:{...ghHead(c),'Content-Type':'application/json'},
-  body:JSON.stringify({message:'Cập nhật Bảo tàng ký ức '+new Date().toLocaleString('vi-VN'),content:b64enc(JSON.stringify(data,null,1)),branch:c.branch,sha:now.sha})});
- if(r.status===401||r.status===403)throw{msg:'Token không còn quyền ghi. Hãy đăng nhập lại.'};
- if(r.status===409)throw{msg:'Có người vừa lưu bản khác. Bấm “Tải bản mới nhất”.',conflict:true};
- if(!r.ok)throw{msg:'GitHub báo lỗi '+r.status+'. Thử lại sau ít phút.'};
- ghSha=(await r.json()).content.sha;
+function expired(){sessStore(null);me=null;canAdmin=false;dirty=false;data=clone(saved);loginMsg='Phiên đăng nhập đã hết hạn. Hãy đăng nhập lại.';msgText='';navTabs();render();renderSaveBar()}
+async function apiSave(){
+ const r=await api('/api/save',{sha:ghSha,data});
+ ghSha=r.sha;
 }
 
 /* ---------- admin ---------- */
 let aTab='exhibits', editId=null, confirmDel=null, draft=null, errors={}, loginMsg='';
-const blankEx=room=>({id:'e'+Date.now().toString(36),room:room||'khoanh-khac',art:'sach',name:'',era:'',plan:'',from:'',story:'',ask:'',video:'',audio:'',link3d:'',drive:'',sample:false});
+let pendingList=null, usersList=null, userDraft=null, rejectOpen=null, busy=false;
+const blankEx=room=>({id:'e'+Date.now().toString(36),room:room||(isAdmin()?'khoanh-khac':(me&&me.rooms[0])||'khoanh-khac'),art:'sach',name:'',era:'',plan:'',from:'',story:'',ask:'',video:'',audio:'',link3d:'',drive:'',sample:false});
 const blankT=()=>({id:'t'+Date.now().toString(36),when:'',title:'',text:'',ref:'',todo:''});
 const fld=(id,label,v,o={})=>`<div class="f ${errors[id]?'bad':''}"><label for="${id}">${label}</label>${o.area?`<textarea id="${id}">${esc(v)}</textarea>`:`<input id="${id}" type="${o.type||(o.url?'url':'text')}" value="${esc(v)}" ${o.ph?`placeholder="${esc(o.ph)}"`:''} ${o.ac?`autocomplete="${o.ac}"`:''}>`}${o.hint?`<span class="hint">${o.hint}</span>`:''}${errors[id]?`<span class="err">${errors[id]}</span>`:''}</div>`;
+const myRooms=()=>isAdmin()?EXROOMS:EXROOMS.filter(r=>me&&me.rooms.includes(r.id));
+const roomShort=id=>{const r=roomOf(id);return r.n?`Phòng ${r.n}`:r.name};
+const when=s=>{try{return new Date(s).toLocaleString('vi-VN',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'})}catch(_){return s}};
+const ST={pending:'Chờ duyệt',approved:'Đã duyệt',rejected:'Bị trả lại'};
 
 function loginRoom(){
- const g=ghGuess(),c=ghCfg()||{};
- return `<section class="room" style="--c:var(--muted)"><div class="room-head"><span class="eyebrow">Dành cho người quản trị</span><h2>Đăng nhập Khu quản trị</h2><p>Dữ liệu bảo tàng được lưu trong kho GitHub của trường. Nhập tên kho và mã truy cập (token) để thêm, sửa, xóa hiện vật. Mã chỉ lưu trên trình duyệt của máy này.</p></div>
- <form class="edit" id="ghForm" novalidate style="position:static;max-width:620px">
-  <div class="two">${fld('g_owner','Tài khoản GitHub',c.owner||g.owner,{ph:'VD: mnnongtien'})}${fld('g_repo','Tên kho',c.repo||g.repo,{ph:'VD: bao-tang-ky-uc'})}</div>
-  ${fld('g_branch','Nhánh',c.branch||'main')}
-  ${fld('g_token','Mã truy cập (fine-grained token)','',{type:'password',ac:'off',ph:'github_pat_…',hint:'Tạo tại GitHub › Settings › Developer settings › Fine-grained tokens; chỉ chọn kho này, quyền Contents: Read and write.'})}
-  ${loginMsg?`<div class="err" style="color:var(--danger);font-weight:700">${esc(loginMsg)}</div>`:''}
+ return `<section class="room" style="--c:var(--muted)"><div class="room-head"><span class="eyebrow">Dành cho người quản trị và giáo viên</span><h2>Đăng nhập Khu quản trị</h2><p>Dùng tên đăng nhập và mật khẩu do người quản trị nhà trường cấp. Lần đăng nhập đầu tiên sau một thời gian có thể phải chờ khoảng 1 phút để máy chủ khởi động.</p></div>
+ <form class="edit" id="loginForm" novalidate style="position:static;max-width:460px">
+  ${fld('g_user','Tên đăng nhập','',{ac:'username'})}
+  ${fld('g_pass','Mật khẩu','',{type:'password',ac:'current-password'})}
+  <div class="err" id="loginMsg" role="status" style="color:var(--danger);font-weight:700">${esc(loginMsg)}</div>
   <div><button type="submit" class="btn primary" id="g_go">Đăng nhập</button></div>
  </form></section>`;
 }
 function adminRoom(){
  if(mode==='github'&&!canAdmin)return loginRoom();
  if(!canAdmin)return `<section class="room"><div class="empty">Khu quản trị chỉ dành cho người được cấp quyền chỉnh sửa trang.</div></section>`;
- const c=ghCfg();
- return `<section class="room" style="--c:var(--muted)"><div class="room-head"><span class="eyebrow">Chỉ người quản trị mới thấy mục này</span><h2>Khu quản trị</h2><p>Thêm, sửa, xóa hiện vật và mốc lịch sử; gắn link phòng 3D, video, âm thanh. Thay đổi chỉ hiện với phụ huynh sau khi bấm <b>Lưu lên trang</b>.</p></div>
- ${mode==='github'?`<div class="ghinfo"><span>Đang lưu vào kho <b>${esc(c.owner)}/${esc(c.repo)}</b> (nhánh ${esc(c.branch)})</span><span style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="btn small" id="ghReload">Tải bản mới nhất</button><button type="button" class="btn small" id="ghOut">Đăng xuất</button></span></div>`:''}
- <div class="atabs" role="tablist">${[['exhibits','Hiện vật'],['timeline','Mốc lịch sử'],['links','Phòng 3D & video chung']].map(([k,l])=>`<button type="button" role="tab" data-atab="${k}" aria-selected="${aTab===k}">${l}</button>`).join('')}</div>
- ${aTab==='exhibits'?adminExhibits():aTab==='timeline'?adminTimeline():adminLinks()}
+ const A=isAdmin(), local=mode!=='github';
+ const tabs=local?[['exhibits','Hiện vật'],['timeline','Mốc lịch sử'],['links','Phòng 3D & video chung']]
+  :A?[['exhibits','Hiện vật'],['timeline','Mốc lịch sử'],['links','Phòng 3D & video chung'],['pending','Duyệt bài'+(pendingList?` (${pendingList.filter(p=>p.status==='pending').length})`:'')],['users','Tài khoản']]
+  :[['exhibits','Hiện vật'],...(me.timeline?[['timeline','Mốc lịch sử']]:[]),['mine','Bài đã gửi'],['pw','Đổi mật khẩu']];
+ if(!tabs.some(t=>t[0]===aTab))aTab=tabs[0][0];
+ const lead=local||A?`Thêm, sửa, xóa hiện vật và mốc lịch sử; gắn link phòng 3D, video, âm thanh. Thay đổi chỉ hiện với phụ huynh sau khi bấm <b>Lưu lên trang</b>.`
+  :`Chị/cô được thêm và sửa hiện vật ở ${myRooms().length?myRooms().map(r=>`<b>Phòng ${r.n} · ${esc(r.name)}</b>`).join(', '):'<b>(chưa được giao phòng nào)</b>'}${me.timeline?' và các mốc lịch sử của trường':''}. ${me.review?'Bài gửi sẽ hiện trên trang sau khi người quản trị duyệt.':'Bài gửi hiện ngay trên trang sau khoảng 1–2 phút.'}`;
+ return `<section class="room" style="--c:var(--muted)"><div class="room-head"><span class="eyebrow">${A||local?'Chỉ người quản trị mới thấy mục này':'Dành cho giáo viên'}</span><h2>Khu quản trị</h2><p>${lead}</p></div>
+ ${mode==='github'?`<div class="ghinfo"><span>Đang đăng nhập: <b>${esc(me.name)}</b> (${A?'Quản trị':'Giáo viên'} · ${esc(me.username)})</span><span style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="btn small" id="ghReload">Tải bản mới nhất</button><button type="button" class="btn small" id="ghOut">Đăng xuất</button></span></div>`:''}
+ <div class="atabs" role="tablist">${tabs.map(([k,l])=>`<button type="button" role="tab" data-atab="${k}" aria-selected="${aTab===k}">${l}</button>`).join('')}</div>
+ ${aTab==='exhibits'?adminExhibits():aTab==='timeline'?adminTimeline():aTab==='links'?adminLinks():aTab==='pending'?adminPending():aTab==='users'?adminUsers():aTab==='mine'?myPosts():pwForm()}
  ${readOnly?`<div class="box warn"><p>Tài khoản này chỉ có quyền xem, nên không lưu được thay đổi.</p></div>`:''}
  </section>`;
 }
 function rowActs(id){
+ const canDel=isAdmin()||mode!=='github';
  return confirmDel===id?`<span class="confirm">Xóa mục này? <button type="button" class="btn small danger primary" data-delok="${id}">Xóa</button><button type="button" class="btn small" data-delno>Không</button></span>`
- :`<span class="acts"><button type="button" class="btn small" data-edit="${id}">Sửa</button><button type="button" class="btn small danger" data-del="${id}">Xóa</button></span>`;
+ :`<span class="acts"><button type="button" class="btn small" data-edit="${id}">Sửa</button>${canDel?`<button type="button" class="btn small danger" data-del="${id}">Xóa</button>`:''}</span>`;
 }
+const teacher=()=>mode==='github'&&!isAdmin();
+const sendLabel=()=>teacher()?(me.review?'Gửi để duyệt':'Đăng lên trang'):'Đưa vào danh sách';
 function adminExhibits(){
- const list=EXROOMS.map(r=>{const it=data.exhibits.filter(e=>e.room===r.id);return `<div class="agroup" style="--c:${r.c}"><h4>Phòng ${r.n} · ${esc(r.name)} (${it.length})</h4>${it.map(e=>`<div class="arow ${editId===e.id?'on':''}">${art(e.art)}<div style="min-width:0"><b>${esc(e.name||'(chưa đặt tên)')}</b><small>${esc(e.plan)}${e.sample?' · mẫu':''}</small>${mediaTags(e)?`<div style="text-align:left">${mediaTags(e)}</div>`:''}</div>${rowActs(e.id)}</div>`).join('')||'<small style="color:var(--muted)">Chưa có hiện vật.</small>'}</div>`}).join('');
+ const rooms=mode==='github'?myRooms():EXROOMS;
+ if(!rooms.length)return `<div class="box"><h3>Chưa được giao phòng</h3><p>Tài khoản của chị/cô chưa được giao phòng trưng bày nào. Hãy liên hệ người quản trị.</p></div>`;
+ const list=rooms.map(r=>{const it=data.exhibits.filter(e=>e.room===r.id);return `<div class="agroup" style="--c:${r.c}"><h4>Phòng ${r.n} · ${esc(r.name)} (${it.length})</h4>${it.map(e=>`<div class="arow ${editId===e.id?'on':''}">${art(e.art)}<div style="min-width:0"><b>${esc(e.name||'(chưa đặt tên)')}</b><small>${esc(e.plan)}${e.sample?' · mẫu':''}</small>${mediaTags(e)?`<div style="text-align:left">${mediaTags(e)}</div>`:''}</div>${rowActs(e.id)}</div>`).join('')||'<small style="color:var(--muted)">Chưa có hiện vật.</small>'}</div>`}).join('');
  const d=draft;
  const form=d?`<form class="edit" id="exForm" novalidate>
    <h3>${data.exhibits.some(e=>e.id===d.id)?'Sửa hiện vật':'Thêm hiện vật mới'}</h3>
-   <div class="two"><div class="f"><label for="x_room">Phòng trưng bày</label><select id="x_room">${EXROOMS.map(r=>`<option value="${r.id}" ${d.room===r.id?'selected':''}>Phòng ${r.n} · ${esc(r.name)}</option>`).join('')}</select></div>
+   <div class="two"><div class="f"><label for="x_room">Phòng trưng bày</label><select id="x_room">${rooms.map(r=>`<option value="${r.id}" ${d.room===r.id?'selected':''}>Phòng ${r.n} · ${esc(r.name)}</option>`).join('')}</select></div>
    ${fld('x_plan','Gắn với hoạt động / kế hoạch',d.plan,{ph:'VD: Ngày hội văn hóa Việt Nam'})}</div>
    <div class="f"><label>Hình minh họa</label><div class="artpick">${Object.entries(ART).map(([k,[n,s]])=>`<button type="button" data-art="${k}" aria-pressed="${d.art===k}" title="${n}" aria-label="${n}">${s}</button>`).join('')}</div></div>
    ${fld('x_name','Tên hiện vật *',d.name)}
@@ -473,7 +492,7 @@ function adminExhibits(){
     ${fld('x_drive','Thư mục lớp trên Drive',d.drive,{url:1,ph:'https://drive.google.com/drive/folders/…',hint:'Chỉ người được cấp quyền trên Drive mới mở được.'})}
    </fieldset>
    <label class="check"><input type="checkbox" id="x_sample" ${d.sample?'checked':''}> Đánh dấu là nội dung mẫu</label>
-   <div style="display:flex;gap:8px;flex-wrap:wrap"><button type="submit" class="btn primary">Đưa vào danh sách</button><button type="button" class="btn" id="x_cancel">Hủy</button></div>
+   <div style="display:flex;gap:8px;flex-wrap:wrap"><button type="submit" class="btn primary">${sendLabel()}</button><button type="button" class="btn" id="x_cancel">Hủy</button></div>
   </form>`:`<div class="box"><h3>Thêm hiện vật</h3><p>Chọn phòng, hình minh họa, viết câu chuyện và dán link video, âm thanh, phòng 3D.</p><button type="button" class="btn primary" id="addEx" style="justify-self:start">+ Thêm hiện vật</button></div>`;
  return `<div class="admin-grid"><div class="alist">${list}</div>${form}</div>`;
 }
@@ -483,8 +502,8 @@ function adminTimeline(){
  const form=d?`<form class="edit" id="tForm" novalidate><h3>${data.timeline.some(t=>t.id===d.id)?'Sửa mốc':'Thêm mốc mới'}</h3>
   <div class="two">${fld('t_when','Thời gian *',d.when,{ph:'VD: 01/9/1993'})}${fld('t_ref','Nguồn',d.ref,{ph:'VD: QĐ số …'})}</div>
   ${fld('t_title','Tiêu đề *',d.title)}${fld('t_text','Nội dung',d.text,{area:1})}${fld('t_todo','Ghi chú cần bổ sung',d.todo,{hint:'Hiện bằng chữ viết tay màu vàng. Để trống khi đã đủ thông tin.'})}
-  <div class="f"><label for="t_pos">Vị trí trên dòng thời gian</label><select id="t_pos">${(()=>{const ci=data.timeline.findIndex(t=>t.id===d.id),rest=data.timeline.filter(t=>t.id!==d.id);return rest.map((t,i)=>`<option value="${i}" ${i===ci?'selected':''}>Trước “${esc(t.title)}”</option>`).join('')+`<option value="end" ${ci<0||ci>=rest.length?'selected':''}>Ở cuối</option>`})()}</select></div>
-  <div style="display:flex;gap:8px;flex-wrap:wrap"><button type="submit" class="btn primary">Đưa vào danh sách</button><button type="button" class="btn" id="x_cancel">Hủy</button></div></form>`
+  <div class="f"><label for="t_pos">Vị trí trên dòng thời gian</label><select id="t_pos">${(()=>{const ci=data.timeline.findIndex(t=>t.id===d.id),rest=data.timeline.filter(t=>t.id!==d.id);return rest.map((t,i)=>`<option value="${esc(t.id)}" ${i===ci?'selected':''}>Trước “${esc(t.title)}”</option>`).join('')+`<option value="" ${ci<0||ci>=rest.length?'selected':''}>Ở cuối</option>`})()}</select></div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap"><button type="submit" class="btn primary">${sendLabel()}</button><button type="button" class="btn" id="x_cancel">Hủy</button></div></form>`
  :`<div class="box"><h3>Thêm mốc lịch sử</h3><p>Năm thành lập, năm đạt chuẩn, các lần xây dựng, khen thưởng.</p><button type="button" class="btn primary" id="addT" style="justify-self:start">+ Thêm mốc</button></div>`;
  return `<div class="admin-grid"><div class="alist">${list}</div>${form}</div>`;
 }
@@ -494,20 +513,98 @@ function adminLinks(){
  ${fld('l_intro','Video giới thiệu trường (hiện ở đầu trang)',data.settings.introVideo,{url:1,ph:'https://youtu.be/…'})}
  <div><button type="submit" class="btn primary">Đưa vào danh sách</button></div></form>`;
 }
+function itemDetails(p){
+ const it=p.item||{};
+ const rows=p.kind==='exhibit'?[['Phòng',roomShort(it.room)+' · '+roomOf(it.room).name],['Hoạt động',it.plan],['Thời gian',it.era],['Người / lớp gửi',it.from],['Câu chuyện',it.story],['Cô hỏi bé',it.ask],['Video',it.video],['Âm thanh',it.audio],['Phòng 3D',it.link3d],['Drive',it.drive]]
+  :[['Thời gian',it.when],['Nội dung',it.text],['Nguồn',it.ref],['Ghi chú',it.todo]];
+ return `<details><summary>Xem nội dung</summary><dl>${rows.filter(r=>r[1]).map(([k,v])=>`<dt>${k}</dt><dd>${esc(v)}</dd>`).join('')}</dl></details>`;
+}
+function pendHead(p){
+ const it=p.item||{};
+ return `<b>${p.isNew?'Thêm mới':'Sửa'} ${p.kind==='exhibit'?'hiện vật':'mốc lịch sử'}: ${esc(it.name||it.title)}</b>
+  <small>${p.kind==='exhibit'?esc(roomShort(it.room))+' · ':''}${!p.isNew&&p.oldName&&p.oldName!==(it.name||it.title)?'Tên cũ: “'+esc(p.oldName)+'” · ':''}${esc(p.byName||p.by)} (${esc(p.by)}) · ${esc(when(p.at))}</small>`;
+}
+function adminPending(){
+ if(!pendingList)return `<div class="empty">Đang tải danh sách bài…</div>`;
+ const wait=pendingList.filter(p=>p.status==='pending'),done=pendingList.filter(p=>p.status!=='pending').slice(0,20);
+ return `<div class="alist"><div class="agroup"><h4>Bài chờ duyệt (${wait.length})</h4>
+ ${wait.map(p=>`<div class="pend">${pendHead(p)}${itemDetails(p)}
+  ${rejectOpen===p.id?`<div class="row"><input id="rj_${p.id}" placeholder="Lý do trả lại (giáo viên sẽ thấy)" maxlength="500"><button type="button" class="btn small danger primary" data-rjok="${p.id}">Trả lại</button><button type="button" class="btn small" data-rjno>Hủy</button></div>`
+  :`<div class="row"><button type="button" class="btn small primary" data-ok="${p.id}">Duyệt, đưa lên trang</button><button type="button" class="btn small danger" data-rj="${p.id}">Trả lại</button></div>`}</div>`).join('')||'<small style="color:var(--muted)">Không có bài nào đang chờ.</small>'}
+ </div>
+ ${done.length?`<div class="agroup"><h4>Đã xử lý gần đây</h4>${done.map(p=>`<div class="pend"><span><span class="st ${p.status}">${ST[p.status]}</span></span>${pendHead(p)}${p.note?`<small>Lý do: ${esc(p.note)}</small>`:''}</div>`).join('')}</div>`:''}
+ <div><button type="button" class="btn small" id="pendReload">Tải lại danh sách</button></div></div>`;
+}
+function myPosts(){
+ if(!pendingList)return `<div class="empty">Đang tải danh sách bài…</div>`;
+ return `<div class="alist"><div class="agroup"><h4>Bài chị/cô đã gửi duyệt (${pendingList.length})</h4>
+ ${pendingList.map(p=>`<div class="pend"><span><span class="st ${p.status}">${ST[p.status]}</span></span>${pendHead(p)}${p.note?`<small><b>Lý do trả lại:</b> ${esc(p.note)}</small>`:''}${itemDetails(p)}</div>`).join('')||'<small style="color:var(--muted)">Chưa có bài nào. Bài đăng thẳng lên trang (không cần duyệt) không hiện ở đây.</small>'}</div>
+ <div><button type="button" class="btn small" id="pendReload">Tải lại danh sách</button></div></div>`;
+}
+function pwForm(){
+ return `<form class="edit" id="pwForm" novalidate style="position:static;max-width:460px"><h3>Đổi mật khẩu</h3>
+  ${fld('pw_old','Mật khẩu hiện tại','',{type:'password',ac:'current-password'})}
+  ${fld('pw_new','Mật khẩu mới (ít nhất 6 ký tự)','',{type:'password',ac:'new-password'})}
+  ${fld('pw_new2','Nhập lại mật khẩu mới','',{type:'password',ac:'new-password'})}
+  <div><button type="submit" class="btn primary">Đổi mật khẩu</button></div></form>`;
+}
+const blankUser=()=>({isNew:true,username:'',name:'',rooms:[],timeline:false,review:true,active:true});
+function adminUsers(){
+ if(!usersList)return `<div class="empty">Đang tải danh sách tài khoản…</div>`;
+ const list=`<div class="agroup"><h4>Tài khoản giáo viên (${usersList.length})</h4>
+  ${usersList.map(u=>`<div class="arow ${userDraft&&userDraft.username===u.username&&!userDraft.isNew?'on':''}" style="grid-template-columns:minmax(0,1fr) auto"><div style="min-width:0"><b>${esc(u.name)} ${u.active?'':'<span class="st rejected">Đã khóa</span>'}</b><small>${esc(u.username)} · ${u.rooms.length?u.rooms.map(roomShort).join(', '):'chưa giao phòng'}${u.timeline?' · sửa dòng thời gian':''} · ${u.review?'cần duyệt':'đăng thẳng'}</small></div>
+   ${confirmDel==='u:'+u.username?`<span class="confirm">Xóa tài khoản? <button type="button" class="btn small danger primary" data-udelok="${esc(u.username)}">Xóa</button><button type="button" class="btn small" data-delno>Không</button></span>`
+   :`<span class="acts"><button type="button" class="btn small" data-uedit="${esc(u.username)}">Sửa</button><button type="button" class="btn small danger" data-udel="${esc(u.username)}">Xóa</button></span>`}</div>`).join('')||'<small style="color:var(--muted)">Chưa có tài khoản giáo viên nào.</small>'}</div>`;
+ const d=userDraft;
+ const form=d?`<form class="edit" id="uForm" novalidate><h3>${d.isNew?'Tạo tài khoản giáo viên':'Sửa tài khoản'}</h3>
+  ${fld('u_name','Họ tên *',d.name,{ph:'VD: Cô Nguyễn Thị Lan'})}
+  ${d.isNew?fld('u_user','Tên đăng nhập *',d.username,{ph:'VD: colan',hint:'3–32 ký tự: chữ không dấu, số, dấu chấm, gạch ngang. Không đổi được sau khi tạo.',ac:'off'}):`<div class="f"><label>Tên đăng nhập</label><b>${esc(d.username)}</b></div>`}
+  ${fld('u_pass',d.isNew?'Mật khẩu *':'Mật khẩu mới',d.password||'',{ac:'new-password',hint:d.isNew?'Ít nhất 6 ký tự. Gửi riêng cho giáo viên, không gửi vào nhóm chung.':'Để trống nếu giữ mật khẩu cũ. Đặt mật khẩu mới sẽ đăng xuất giáo viên trên mọi máy.'})}
+  <fieldset><legend>Phòng được giao</legend><div class="checks">${EXROOMS.map(r=>`<label class="check"><input type="checkbox" data-uroom="${r.id}" ${d.rooms.includes(r.id)?'checked':''}> Phòng ${r.n} · ${esc(r.name)}</label>`).join('')}</div></fieldset>
+  <fieldset><legend>Quyền khác</legend><div class="checks">
+   <label class="check"><input type="checkbox" id="u_tl" ${d.timeline?'checked':''}> Được thêm, sửa mốc ở dòng thời gian (Phòng 4)</label>
+   <label class="check"><input type="checkbox" id="u_rv" ${d.review?'checked':''}> Bài phải chờ quản trị duyệt mới lên trang</label>
+   <label class="check"><input type="checkbox" id="u_on" ${d.active?'checked':''}> Tài khoản đang hoạt động (bỏ tích để khóa)</label>
+  </div></fieldset>
+  <p style="margin:0;color:var(--muted);font-size:14px">Giáo viên không xóa được hiện vật và không sửa được link dùng chung; các việc đó chỉ người quản trị làm.</p>
+  <div style="display:flex;gap:8px;flex-wrap:wrap"><button type="submit" class="btn primary" id="u_save">${d.isNew?'Tạo tài khoản':'Lưu tài khoản'}</button><button type="button" class="btn" id="u_cancel">Hủy</button></div></form>`
+  :`<div class="box"><h3>Thêm giáo viên</h3><p>Tạo tên đăng nhập, mật khẩu và giao phòng trưng bày cho từng giáo viên.</p><button type="button" class="btn primary" id="addU" style="justify-self:start">+ Tạo tài khoản</button></div>`;
+ return `<div class="admin-grid"><div class="alist">${list}</div>${form}</div>`;
+}
 const val=id=>{const el=$(id);return el?el.value.trim():''};
 function checkUrls(ids){ids.forEach(id=>{const v=val(id);if(v&&!okUrl(v))errors[id]='Link phải bắt đầu bằng https://'})}
 function markDirty(){dirty=true;renderSaveBar();navTabs();markTab()}
 function adoptLatest(l){saved=l.data;data=clone(l.data);ghSha=l.sha;dirty=false;draft=null;editId=null;heroCta();navTabs();render();renderSaveBar()}
+async function loadPending(){try{pendingList=(await api('/api/pending')).pending}catch(e){pendingList=[];setMsg(e.msg)}if(aTab==='pending'||aTab==='mine')render()}
+async function loadUsers(){try{usersList=(await api('/api/users')).users}catch(e){usersList=[];setMsg(e.msg)}if(aTab==='users')render()}
+function tabData(){if(aTab==='pending'||aTab==='mine')loadPending();if(aTab==='users')loadUsers()}
+async function afterLogin(r){
+ me=r.user;canAdmin=true;loginMsg='';aTab='exhibits';pendingList=null;usersList=null;
+ const l=await api('/api/data');adoptLatest(l);
+ if(isAdmin())loadPending();
+}
+async function submitItem(kind,item,beforeId){
+ if(busy)return;busy=true;
+ const btn=main.querySelector('form.edit button[type=submit]');if(btn){btn.disabled=true;btn.textContent='Đang gửi…'}
+ try{
+  const r=await api('/api/submit',{kind,item,beforeId},()=>setMsg(WAKE));
+  if(r.status==='published'){adoptLatest(r);setMsg('Đã đăng lên trang. Phụ huynh thấy bản mới sau khoảng 1–2 phút.')}
+  else{draft=null;editId=null;pendingList=null;render();setMsg('Đã gửi. Bài sẽ lên trang sau khi người quản trị duyệt; theo dõi ở thẻ “Bài đã gửi”.')}
+ }catch(e){setMsg(e.msg);if(btn){btn.disabled=false;btn.textContent=sendLabel()}}
+ finally{busy=false}
+}
 function wireAdmin(){
- const gf=$('ghForm');
- if(gf){gf.onsubmit=async e=>{e.preventDefault();const c={owner:val('g_owner'),repo:val('g_repo'),branch:val('g_branch')||'main',token:val('g_token')};
-  if(!c.owner||!c.repo||!c.token){loginMsg='Hãy nhập đủ tài khoản, tên kho và mã truy cập.';render();return}
-  $('g_go').disabled=true;$('g_go').textContent='Đang kiểm tra…';
-  try{const l=await ghLogin(c);ghStore(c);canAdmin=true;loginMsg='';adoptLatest(l);setMsg('Đã đăng nhập. Dữ liệu là bản mới nhất trên GitHub.')}
-  catch(err){loginMsg=typeof err==='string'?err:'Không kết nối được GitHub. Kiểm tra mạng rồi thử lại.';render()}};return}
- const out=$('ghOut');if(out)out.onclick=()=>{if(dirty&&!confirmOut){confirmOut=true;setMsg('Còn thay đổi chưa lưu. Bấm Đăng xuất lần nữa để bỏ thay đổi.');return}ghStore(null);canAdmin=false;dirty=false;data=clone(saved);msgText='';confirmOut=false;navTabs();render();renderSaveBar()};
- const rl=$('ghReload');if(rl)rl.onclick=async()=>{try{adoptLatest(await ghFetchLatest(ghCfg()));setMsg('Đã tải bản mới nhất từ GitHub.')}catch(e){setMsg('Không tải được ('+(e.status||'lỗi mạng')+').')}};
- main.querySelectorAll('[data-atab]').forEach(b=>b.onclick=()=>{aTab=b.dataset.atab;draft=null;editId=null;confirmDel=null;errors={};render()});
+ const lf0=$('loginForm');
+ if(lf0){lf0.onsubmit=async e=>{e.preventDefault();const username=val('g_user'),password=$('g_pass').value;
+  const m=$('loginMsg');
+  if(!username||!password){m.textContent='Hãy nhập tên đăng nhập và mật khẩu.';return}
+  $('g_go').disabled=true;$('g_go').textContent='Đang đăng nhập…';m.textContent='';
+  try{const r=await api('/api/login',{username,password},()=>{m.style.color='var(--muted)';m.textContent=WAKE});
+   sessStore({token:r.token});await afterLogin(r);setMsg('Xin chào '+r.user.name+'. Đã tải dữ liệu mới nhất.')}
+  catch(err){sessStore(null);me=null;canAdmin=false;loginMsg=err.msg||'Không đăng nhập được.';render()}};return}
+ const out=$('ghOut');if(out)out.onclick=()=>{if(dirty&&!confirmOut){confirmOut=true;setMsg('Còn thay đổi chưa lưu. Bấm Đăng xuất lần nữa để bỏ thay đổi.');return}sessStore(null);me=null;canAdmin=false;dirty=false;data=clone(saved);msgText='';confirmOut=false;pendingList=null;usersList=null;userDraft=null;draft=null;editId=null;navTabs();render();renderSaveBar()};
+ const rl=$('ghReload');if(rl)rl.onclick=async()=>{if(dirty){setMsg('Còn thay đổi chưa lưu. Hãy Lưu hoặc Bỏ thay đổi trước.');return}try{adoptLatest(await api('/api/data',undefined,()=>setMsg(WAKE)));setMsg('Đã tải bản mới nhất.');tabData()}catch(e){setMsg(e.msg)}};
+ main.querySelectorAll('[data-atab]').forEach(b=>b.onclick=()=>{aTab=b.dataset.atab;draft=null;editId=null;confirmDel=null;errors={};userDraft=null;rejectOpen=null;render();tabData()});
  const coll=aTab==='timeline'?data.timeline:data.exhibits;
  main.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>{editId=b.dataset.edit;draft={...coll.find(x=>x.id===editId)};errors={};confirmDel=null;render();main.querySelector('form.edit input')?.focus()});
  main.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{confirmDel=b.dataset.del;render()});
@@ -518,12 +615,50 @@ function wireAdmin(){
  const cancel=$('x_cancel');if(cancel)cancel.onclick=()=>{draft=null;editId=null;errors={};render()};
  main.querySelectorAll('[data-art]').forEach(b=>b.onclick=()=>{captureEx();draft.art=b.dataset.art;render()});
  const ef=$('exForm');if(ef)ef.onsubmit=e=>{e.preventDefault();captureEx();errors={};if(!draft.name)errors.x_name='Hãy nhập tên hiện vật.';checkUrls(['x_video','x_audio','x_link3d','x_drive']);if(Object.keys(errors).length){render();return}
+  if(teacher()){submitItem('exhibit',{...draft});return}
   const i=data.exhibits.findIndex(x=>x.id===draft.id);if(i>=0)data.exhibits[i]={...draft};else data.exhibits.push({...draft});draft=null;editId=null;markDirty();render()};
- const tf=$('tForm');if(tf)tf.onsubmit=e=>{e.preventDefault();const pos=val('t_pos');Object.assign(draft,{when:val('t_when'),title:val('t_title'),text:val('t_text'),ref:val('t_ref'),todo:val('t_todo')});errors={};
+ const tf=$('tForm');if(tf)tf.onsubmit=e=>{e.preventDefault();const before=val('t_pos');Object.assign(draft,{when:val('t_when'),title:val('t_title'),text:val('t_text'),ref:val('t_ref'),todo:val('t_todo')});errors={};
   if(!draft.when)errors.t_when='Hãy nhập thời gian.';if(!draft.title)errors.t_title='Hãy nhập tiêu đề.';if(Object.keys(errors).length){render();return}
-  const rest=data.timeline.filter(t=>t.id!==draft.id);if(pos==='end')rest.push({...draft});else rest.splice(+pos,0,{...draft});data.timeline=rest;draft=null;editId=null;markDirty();render()};
+  if(teacher()){submitItem('timeline',{...draft},before||null);return}
+  const rest=data.timeline.filter(t=>t.id!==draft.id),at=before?rest.findIndex(t=>t.id===before):-1;if(at<0)rest.push({...draft});else rest.splice(at,0,{...draft});data.timeline=rest;draft=null;editId=null;markDirty();render()};
  const lf=$('lForm');if(lf)lf.onsubmit=e=>{e.preventDefault();errors={};checkUrls(EXROOMS.map(r=>'l_'+r.id).concat('l_intro'));if(Object.keys(errors).length){render();return}
   EXROOMS.forEach(r=>data.settings.room3d[r.id]=val('l_'+r.id));data.settings.introVideo=val('l_intro');markDirty();heroCta();render();setMsg('Đã cập nhật link. Bấm Lưu lên trang để phụ huynh thấy.')};
+ /* duyệt bài */
+ const pr=$('pendReload');if(pr)pr.onclick=()=>{pendingList=null;render();loadPending()};
+ main.querySelectorAll('[data-ok]').forEach(b=>b.onclick=async()=>{
+  if(dirty){setMsg('Còn thay đổi chưa lưu. Hãy Lưu lên trang hoặc Bỏ thay đổi trước khi duyệt bài.');return}
+  if(busy)return;busy=true;b.disabled=true;b.textContent='Đang duyệt…';
+  try{const r=await api('/api/pending/approve',{id:b.dataset.ok},()=>setMsg(WAKE));adoptLatest(r);setMsg('Đã duyệt. Bài hiện trên trang sau khoảng 1–2 phút.');await loadPending()}
+  catch(e){setMsg(e.msg);b.disabled=false;b.textContent='Duyệt, đưa lên trang'}finally{busy=false}});
+ main.querySelectorAll('[data-rj]').forEach(b=>b.onclick=()=>{rejectOpen=b.dataset.rj;render();$('rj_'+rejectOpen)?.focus()});
+ main.querySelectorAll('[data-rjno]').forEach(b=>b.onclick=()=>{rejectOpen=null;render()});
+ main.querySelectorAll('[data-rjok]').forEach(b=>b.onclick=async()=>{
+  if(busy)return;busy=true;b.disabled=true;
+  try{await api('/api/pending/reject',{id:b.dataset.rjok,note:val('rj_'+b.dataset.rjok)});rejectOpen=null;setMsg('Đã trả lại bài cho giáo viên.');await loadPending()}
+  catch(e){setMsg(e.msg);b.disabled=false}finally{busy=false}});
+ /* tài khoản */
+ const addU=$('addU');if(addU)addU.onclick=()=>{userDraft=blankUser();errors={};render();$('u_name').focus()};
+ const uc=$('u_cancel');if(uc)uc.onclick=()=>{userDraft=null;errors={};render()};
+ main.querySelectorAll('[data-uedit]').forEach(b=>b.onclick=()=>{const u=usersList.find(x=>x.username===b.dataset.uedit);userDraft={...u,rooms:[...u.rooms],isNew:false};errors={};confirmDel=null;render()});
+ main.querySelectorAll('[data-udel]').forEach(b=>b.onclick=()=>{confirmDel='u:'+b.dataset.udel;render()});
+ main.querySelectorAll('[data-udelok]').forEach(b=>b.onclick=async()=>{
+  if(busy)return;busy=true;b.disabled=true;
+  try{await api('/api/users/delete',{username:b.dataset.udelok});if(userDraft&&userDraft.username===b.dataset.udelok)userDraft=null;confirmDel=null;setMsg('Đã xóa tài khoản.');await loadUsers()}
+  catch(e){setMsg(e.msg);b.disabled=false}finally{busy=false}});
+ const uf=$('uForm');if(uf)uf.onsubmit=async e=>{e.preventDefault();
+  const d=userDraft;Object.assign(d,{name:val('u_name'),password:val('u_pass'),rooms:[...main.querySelectorAll('[data-uroom]')].filter(x=>x.checked).map(x=>x.dataset.uroom),timeline:$('u_tl').checked,review:$('u_rv').checked,active:$('u_on').checked});
+  if(d.isNew)d.username=val('u_user').toLowerCase();
+  errors={};if(!d.name)errors.u_name='Hãy nhập họ tên.';if(d.isNew&&!/^[a-z0-9._-]{3,32}$/.test(d.username))errors.u_user='3–32 ký tự: chữ không dấu, số, dấu chấm, gạch ngang.';
+  if((d.isNew||d.password)&&d.password.length<6)errors.u_pass='Mật khẩu cần ít nhất 6 ký tự.';
+  if(Object.keys(errors).length){render();return}
+  if(busy)return;busy=true;$('u_save').disabled=true;
+  try{await api('/api/users',d,()=>setMsg(WAKE));setMsg(d.isNew?`Đã tạo tài khoản “${d.username}”. Gửi tên đăng nhập và mật khẩu riêng cho giáo viên.`:'Đã lưu tài khoản.');userDraft=null;await loadUsers()}
+  catch(err){setMsg(err.msg);$('u_save').disabled=false}finally{busy=false}};
+ /* đổi mật khẩu */
+ const pf=$('pwForm');if(pf)pf.onsubmit=async e=>{e.preventDefault();const o=$('pw_old').value,n=$('pw_new').value,n2=$('pw_new2').value;
+  errors={};if(n.length<6)errors.pw_new='Mật khẩu mới cần ít nhất 6 ký tự.';else if(n!==n2)errors.pw_new2='Hai lần nhập không khớp.';
+  if(Object.keys(errors).length){render();return}
+  try{const r=await api('/api/password',{old:o,new:n});sessStore({token:r.token});errors={};render();setMsg('Đã đổi mật khẩu.')}catch(err){setMsg(err.msg)}};
 }
 let confirmOut=false;
 function captureEx(){if(!draft||!$('exForm'))return;Object.assign(draft,{room:val('x_room'),plan:val('x_plan'),name:val('x_name'),era:val('x_era'),from:val('x_from'),story:val('x_story'),ask:val('x_ask'),video:val('x_video'),audio:val('x_audio'),link3d:val('x_link3d'),drive:val('x_drive'),sample:$('x_sample').checked})}
@@ -535,7 +670,8 @@ function renderSaveBar(){
  if(!canAdmin){if(bar)bar.hidden=true;return}
  if(!bar){bar=document.createElement('div');bar.className='savebar wrap';root.appendChild(bar)}
  bar.hidden=!dirty&&!msgText;
- bar.innerHTML=`<span class="msg" role="status">${esc(msgText||(dirty?'Có thay đổi chưa lưu. Phụ huynh vẫn thấy bản cũ.':''))}</span>${dirty?`<span style="display:flex;gap:8px"><button type="button" class="btn small" id="undoAll">Bỏ thay đổi</button><button type="button" class="btn small primary" id="saveAll" ${readOnly?'disabled':''}>Lưu lên trang</button></span>`:''}`;
+ bar.innerHTML=`<span class="msg" role="status">${esc(msgText||(dirty?'Có thay đổi chưa lưu. Phụ huynh vẫn thấy bản cũ.':''))}</span>${dirty?`<span style="display:flex;gap:8px"><button type="button" class="btn small" id="undoAll">Bỏ thay đổi</button><button type="button" class="btn small primary" id="saveAll" ${readOnly?'disabled':''}>Lưu lên trang</button></span>`:`<button type="button" class="btn small" id="msgClose">Đóng</button>`}`;
+ const mc=$('msgClose');if(mc)mc.onclick=()=>{msgText='';renderSaveBar()};
  const u=$('undoAll');if(u)u.onclick=()=>{data=clone(saved);dirty=false;draft=null;editId=null;msgText='';navTabs();heroCta();render();renderSaveBar()};
  const s=$('saveAll');if(s)s.onclick=save;
 }
@@ -553,8 +689,8 @@ function buildDoc(){
 async function save(){
  const s=$('saveAll');if(s){s.disabled=true;s.textContent='Đang lưu…'}
  if(mode==='github'){
-  try{await ghSave();saved=clone(data);dirty=false;msgText='Đã lưu lên GitHub. Trang công khai cập nhật sau khoảng 1–2 phút.';navTabs();markTab();renderSaveBar()}
-  catch(e){setMsg(e.msg||'Không kết nối được GitHub. Kiểm tra mạng rồi thử lại.')}
+  try{await apiSave();saved=clone(data);dirty=false;msgText='Đã lưu. Trang công khai cập nhật sau khoảng 1–2 phút.';navTabs();markTab();renderSaveBar()}
+  catch(e){setMsg(e.msg||'Không kết nối được máy chủ. Kiểm tra mạng rồi thử lại.')}
   return;
  }
  if(!artifactNS){setMsg('Không lưu được ở chế độ xem này.');return}
@@ -606,9 +742,10 @@ heroCta();navTabs();render();
   if(r.ok){const j=await r.json();if(j&&Array.isArray(j.exhibits)){mode='github';saved=j;data=clone(j)}}
  }catch(_){}
  if(mode==='github'){
-  const c=ghCfg();
-  if(c){try{const l=await ghFetchLatest(c);canAdmin=true;adoptLatest(l)}catch(_){canAdmin=false}}
-  heroCta();navTabs();render();return;
+  heroCta();navTabs();render();
+  if(location.hash==='#quan-tri'||sess())api('/api/health').catch(()=>{});
+  if(sess()){try{const r=await api('/api/me');await afterLogin(r)}catch(_){if(!sess()){canAdmin=false;me=null}}}
+  return;
  }
  try{
   const [user,a]=await Promise.all([window.claude?.use?.('user'),window.claude?.use?.('artifact')]);

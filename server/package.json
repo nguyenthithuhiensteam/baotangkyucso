@@ -1,0 +1,13 @@
+{
+  "name": "baotangkyucso-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Máy chủ quản trị và phân quyền cho Bảo tàng ký ức số",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
