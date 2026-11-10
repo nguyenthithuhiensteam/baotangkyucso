@@ -25,7 +25,7 @@ const ORIGINS = (env.ALLOWED_ORIGINS || 'https://baotang.nguyenhiensteam.vn,http
   .split(',').map(s => s.trim().replace(/\/$/, '')).filter(Boolean);
 const DATA_FILE = 'data/museum.json';
 const PRIV_FILE = 'quantri.json';
-const ROOMS = ['khoanh-khac', 'tri-an', 'di-san'];
+const ROOMS = ['khoanh-khac', 'tri-an', 'di-san', 'thien-nhien'];
 const SESSION_MS = 7 * 24 * 3600 * 1000;
 
 const configured = !!(TOKEN && ADMIN_PASSWORD.length >= 8 && SECRET.length >= 16);
