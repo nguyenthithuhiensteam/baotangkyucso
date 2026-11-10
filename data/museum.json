@@ -314,11 +314,11 @@
    "drive": "https://drive.google.com/drive/folders/1A241CauBB69SnX9EeeM-OA276FzohJUD?usp=drive_link",
    "photo": "anh/bd582e1a8795f8a876c2.jpg",
    "photoAlt": "",
-   "sample": true
+   "sample": false
   },
   {
    "id": "emwaf5ty4",
-   "room": "khoanh-khac",
+   "room": "thien-nhien",
    "art": "sach",
    "name": "Cây Lan ý",
    "era": "Tháng 11/2026",
@@ -332,7 +332,7 @@
    "drive": "https://drive.google.com/drive/folders/1dCsYbyaPmBdo2Cvc2ZwENcJ1AOtbqb2m?usp=drive_link",
    "photo": "",
    "photoAlt": "",
-   "sample": true
+   "sample": false
   }
  ],
  "timeline": [
