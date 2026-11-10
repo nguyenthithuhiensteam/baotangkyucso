@@ -204,6 +204,8 @@ legend{font-size:14px;font-weight:800;color:var(--indigo);padding:0 6px}
 .st.pending{background:var(--turmeric);}
 .st.approved{background:var(--now)}
 .st.rejected{background:var(--danger)}
+.st.replaced{background:var(--muted)}
+.dup{color:var(--turmeric);font-weight:800}
 .atabs{display:flex;gap:8px;flex-wrap:wrap}
 .atabs button{border:2.5px solid var(--line);background:var(--frame);color:var(--ink);border-radius:999px;padding:6px 16px;font-weight:800;font-size:15px}
 .atabs button[aria-selected="true"]{border-color:var(--indigo);color:var(--paper);background:var(--indigo)}
@@ -458,7 +460,7 @@ const fld=(id,label,v,o={})=>`<div class="f ${errors[id]?'bad':''}"><label for="
 const myRooms=()=>isAdmin()?EXROOMS:EXROOMS.filter(r=>me&&me.rooms.includes(r.id));
 const roomShort=id=>{const r=roomOf(id);return r.n?`Phòng ${r.n}`:r.name};
 const when=s=>{try{return new Date(s).toLocaleString('vi-VN',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'})}catch(_){return s}};
-const ST={pending:'Chờ duyệt',approved:'Đã duyệt',rejected:'Bị trả lại'};
+const ST={pending:'Chờ duyệt',approved:'Đã duyệt',rejected:'Bị trả lại',replaced:'Đã gộp'};
 
 function loginRoom(){
  return `<section class="room" style="--c:var(--muted)"><div class="room-head"><span class="eyebrow">Dành cho người quản trị và giáo viên</span><h2>Đăng nhập Khu quản trị</h2><p>Dùng tên đăng nhập và mật khẩu do người quản trị nhà trường cấp. Lần đăng nhập đầu tiên sau một thời gian có thể phải chờ khoảng 1 phút để máy chủ khởi động.</p></div>
@@ -551,13 +553,16 @@ function itemDetails(p){
 function pendHead(p){
  const it=p.item||{};
  return `<b>${p.isNew?'Thêm mới':'Sửa'} ${p.kind==='exhibit'?'hiện vật':'mốc lịch sử'}: ${esc(it.name||it.title)}</b>
+  ${p.edits>1?`<small>Đã gửi lại ${p.edits} lần, chỉ giữ bản mới nhất.</small>`:''}
   <small>${p.kind==='exhibit'?esc(roomShort(it.room))+' · ':''}${!p.isNew&&p.oldName&&p.oldName!==(it.name||it.title)?'Tên cũ: “'+esc(p.oldName)+'” · ':''}${esc(p.byName||p.by)} (${esc(p.by)}) · ${esc(when(p.at))}</small>`;
 }
 function adminPending(){
  if(!pendingList)return `<div class="empty">Đang tải danh sách bài…</div>`;
- const wait=pendingList.filter(p=>p.status==='pending'),done=pendingList.filter(p=>p.status!=='pending').slice(0,20);
+ const wait=pendingList.filter(p=>p.status==='pending'),done=pendingList.filter(p=>p.status!=='pending'&&p.status!=='replaced').slice(0,20);
+ const keyOf=p=>p.kind+'|'+((p.item||{}).id||''),cnt={};wait.forEach(p=>cnt[keyOf(p)]=(cnt[keyOf(p)]||0)+1);
+ const dupNote=p=>{const o=wait.filter(x=>x!==p&&keyOf(x)===keyOf(p));return o.length?`<small class="dup">⚠ Cùng ${p.kind==='exhibit'?'hiện vật':'mốc'} này còn ${o.length} bài khác đang chờ (${o.map(x=>esc(x.byName||x.by)).join(', ')}). Duyệt bài sau sẽ ghi đè bài trước.</small>`:''};
  return `<div class="alist"><div class="agroup"><h4>Bài chờ duyệt (${wait.length})</h4>
- ${wait.map(p=>`<div class="pend">${pendHead(p)}${itemDetails(p)}
+ ${wait.map(p=>`<div class="pend">${pendHead(p)}${dupNote(p)}${itemDetails(p)}
   ${rejectOpen===p.id?`<div class="row"><input id="rj_${p.id}" placeholder="Lý do trả lại (giáo viên sẽ thấy)" maxlength="500"><button type="button" class="btn small danger primary" data-rjok="${p.id}">Trả lại</button><button type="button" class="btn small" data-rjno>Hủy</button></div>`
   :`<div class="row"><button type="button" class="btn small primary" data-ok="${p.id}">Duyệt, đưa lên trang</button><button type="button" class="btn small danger" data-rj="${p.id}">Trả lại</button></div>`}</div>`).join('')||'<small style="color:var(--muted)">Không có bài nào đang chờ.</small>'}
  </div>
@@ -566,8 +571,8 @@ function adminPending(){
 }
 function myPosts(){
  if(!pendingList)return `<div class="empty">Đang tải danh sách bài…</div>`;
- return `<div class="alist"><div class="agroup"><h4>Bài chị/cô đã gửi duyệt (${pendingList.length})</h4>
- ${pendingList.map(p=>`<div class="pend"><span><span class="st ${p.status}">${ST[p.status]}</span></span>${pendHead(p)}${p.note?`<small><b>Lý do trả lại:</b> ${esc(p.note)}</small>`:''}${itemDetails(p)}</div>`).join('')||'<small style="color:var(--muted)">Chưa có bài nào. Bài đăng thẳng lên trang (không cần duyệt) không hiện ở đây.</small>'}</div>
+ return `<div class="alist"><div class="agroup"><h4>Bài chị/cô đã gửi duyệt (${pendingList.filter(p=>p.status!=='replaced').length})</h4>
+ ${pendingList.filter(p=>p.status!=='replaced').map(p=>`<div class="pend"><span><span class="st ${p.status}">${ST[p.status]}</span></span>${pendHead(p)}${p.note?`<small><b>Lý do trả lại:</b> ${esc(p.note)}</small>`:''}${itemDetails(p)}</div>`).join('')||'<small style="color:var(--muted)">Chưa có bài nào. Bài đăng thẳng lên trang (không cần duyệt) không hiện ở đây.</small>'}</div>
  <div><button type="button" class="btn small" id="pendReload">Tải lại danh sách</button></div></div>`;
 }
 function pwForm(){
@@ -619,7 +624,7 @@ async function submitItem(kind,item,beforeId){
  try{
   const r=await api('/api/submit',{kind,item,beforeId},()=>setMsg(WAKE));
   if(r.status==='published'){adoptLatest(r);setMsg('Đã đăng lên trang. Phụ huynh thấy bản mới sau khoảng 1–2 phút.')}
-  else{draft=null;editId=null;pendingList=null;render();setMsg('Đã gửi. Bài sẽ lên trang sau khi người quản trị duyệt; theo dõi ở thẻ “Bài đã gửi”.')}
+  else{draft=null;editId=null;pendingList=null;render();setMsg(r.merged?'Đã cập nhật bài đang chờ duyệt (gộp với lần gửi trước, chỉ giữ bản mới nhất).':'Đã gửi. Bài sẽ lên trang sau khi người quản trị duyệt; theo dõi ở thẻ “Bài đã gửi”.')}
  }catch(e){setMsg(e.msg);if(btn){btn.disabled=false;btn.textContent=sendLabel()}}
  finally{busy=false}
 }

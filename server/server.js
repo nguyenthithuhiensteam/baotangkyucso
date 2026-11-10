@@ -278,16 +278,22 @@ const routes = {
         `${user.username}: ${old ? 'sửa' : 'thêm'} ${kind === 'exhibit' ? 'hiện vật' : 'mốc'} “${item.name || item.title}”`);
       return { status: 'published', sha: r.sha, data: r.data };
     }
+    let merged = false;
     await updatePriv(p => {
-      p.pending.push({ id: 'p' + crypto.randomBytes(6).toString('hex'), kind, item, beforeId, isNew: !old, oldName: old ? (old.name || old.title) : '',
-        by: user.username, byName: user.name, at: new Date().toISOString(), status: 'pending' });
+      const at = new Date().toISOString();
+      // Cùng người gửi lại cùng một hiện vật / mốc khi bài trước còn chờ: gộp vào bài cũ, chỉ giữ bản mới nhất.
+      const same = p.pending.find(x => x.status === 'pending' && x.kind === kind && x.item?.id === item.id && x.by === user.username);
+      if (same) { Object.assign(same, { item, beforeId, at, byName: user.name, edits: (same.edits || 1) + 1 }); merged = true; }
+      else p.pending.push({ id: 'p' + crypto.randomBytes(6).toString('hex'), kind, item, beforeId, isNew: !old, oldName: old ? (old.name || old.title) : '',
+        by: user.username, byName: user.name, at, status: 'pending' });
       prune(p);
-    }, `Bài chờ duyệt của ${user.username}`);
-    return { status: 'pending' };
+    }, `Bài chờ duyệt của ${user.username}${merged ? ' (gộp bản sửa)' : ''}`);
+    return { status: 'pending', merged };
   },
 
   'GET /api/pending': async (req, _b, user) => {
     const p = await loadPriv(true);
+    prune(p); // gộp bài trùng cũ khi hiển thị (lần ghi sau sẽ lưu lại)
     const list = user.role === 'admin' ? p.pending : p.pending.filter(x => x.by === user.username);
     return { pending: list.slice().reverse() };
   },
@@ -392,8 +398,19 @@ const routes = {
     return { ok: true, token };
   },
 };
-/** Giữ tối đa 60 ngày các bài đã duyệt / trả lại. */
+/** Gộp bài trùng (cùng người, cùng hiện vật/mốc, còn chờ): giữ bản mới nhất, bản cũ ghi "Đã gộp".
+    Giữ tối đa 60 ngày các bài đã xử lý. */
 function prune(p) {
+  const latest = new Map(), now = new Date().toISOString();
+  for (const x of p.pending) {
+    if (x.status !== 'pending') continue;
+    const k = x.kind + '|' + (x.item?.id || '') + '|' + x.by, y = latest.get(k);
+    if (!y) { latest.set(k, x); continue; }
+    const [older, newer] = Date.parse(x.at) >= Date.parse(y.at) ? [y, x] : [x, y];
+    older.status = 'replaced'; older.decidedAt = now; older.note = 'Đã gộp vào bản gửi mới hơn.';
+    newer.edits = (newer.edits || 1) + (older.edits || 1);
+    latest.set(k, newer);
+  }
   const cut = Date.now() - 60 * 864e5;
   p.pending = p.pending.filter(x => x.status === 'pending' || Date.parse(x.decidedAt || x.at) > cut).slice(-500);
 }
