@@ -457,7 +457,7 @@ function adminRoom(){
  if(!canAdmin)return `<section class="room"><div class="empty">Khu quản trị chỉ dành cho người được cấp quyền chỉnh sửa trang.</div></section>`;
  const A=isAdmin(), local=mode!=='github';
  const tabs=local?[['exhibits','Hiện vật'],['timeline','Mốc lịch sử'],['links','Phòng 3D & video chung']]
-  :A?[['exhibits','Hiện vật'],['timeline','Mốc lịch sử'],['links','Phòng 3D & video chung'],['pending','Duyệt bài'+(pendingList?` (${pendingList.filter(p=>p.status==='pending').length})`:'')],['users','Tài khoản']]
+  :A?[['exhibits','Hiện vật'],['timeline','Mốc lịch sử'],['links','Phòng 3D & video chung'],['pending','Duyệt bài'+(pendingList?` (${pendingList.filter(p=>p.status==='pending').length})`:'')],['users','Tài khoản'],['pw','Đổi mật khẩu']]
   :[['exhibits','Hiện vật'],...(me.timeline?[['timeline','Mốc lịch sử']]:[]),['mine','Bài đã gửi'],['pw','Đổi mật khẩu']];
  if(!tabs.some(t=>t[0]===aTab))aTab=tabs[0][0];
  const lead=local||A?`Thêm, sửa, xóa hiện vật và mốc lịch sử; gắn link phòng 3D, video, âm thanh. Thay đổi chỉ hiện với phụ huynh sau khi bấm <b>Lưu lên trang</b>.`
@@ -547,9 +547,10 @@ function myPosts(){
  <div><button type="button" class="btn small" id="pendReload">Tải lại danh sách</button></div></div>`;
 }
 function pwForm(){
- return `<form class="edit" id="pwForm" novalidate style="position:static;max-width:460px"><h3>Đổi mật khẩu</h3>
+ return `<form class="edit" id="pwForm" novalidate style="position:static;max-width:460px"><h3>Đổi mật khẩu${isAdmin()?' quản trị':''}</h3>
+  ${isAdmin()?`<p style="margin:0;color:var(--muted);font-size:15px">Quên mật khẩu quản trị: vào Render › dịch vụ baotangkyucso-api › Environment, đặt giá trị mới cho <code>ADMIN_PASSWORD</code>. Mật khẩu đó sẽ thay mật khẩu đã đổi ở đây.</p>`:''}
   ${fld('pw_old','Mật khẩu hiện tại','',{type:'password',ac:'current-password'})}
-  ${fld('pw_new','Mật khẩu mới (ít nhất 6 ký tự)','',{type:'password',ac:'new-password'})}
+  ${fld('pw_new',`Mật khẩu mới (ít nhất ${isAdmin()?8:6} ký tự)`,'',{type:'password',ac:'new-password'})}
   ${fld('pw_new2','Nhập lại mật khẩu mới','',{type:'password',ac:'new-password'})}
   <div><button type="submit" class="btn primary">Đổi mật khẩu</button></div></form>`;
 }
@@ -661,7 +662,7 @@ function wireAdmin(){
   catch(err){setMsg(err.msg);$('u_save').disabled=false}finally{busy=false}};
  /* đổi mật khẩu */
  const pf=$('pwForm');if(pf)pf.onsubmit=async e=>{e.preventDefault();const o=$('pw_old').value,n=$('pw_new').value,n2=$('pw_new2').value;
-  errors={};if(n.length<6)errors.pw_new='Mật khẩu mới cần ít nhất 6 ký tự.';else if(n!==n2)errors.pw_new2='Hai lần nhập không khớp.';
+  errors={};const mn=isAdmin()?8:6;if(n.length<mn)errors.pw_new=`Mật khẩu mới cần ít nhất ${mn} ký tự.`;else if(n!==n2)errors.pw_new2='Hai lần nhập không khớp.';
   if(Object.keys(errors).length){render();return}
   try{const r=await api('/api/password',{old:o,new:n});sessStore({token:r.token});errors={};render();setMsg('Đã đổi mật khẩu.')}catch(err){setMsg(err.msg)}};
 }

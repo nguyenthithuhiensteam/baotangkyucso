@@ -154,6 +154,16 @@ function canTouch(user, data, kind, item) {
 /* ---------------- Tài khoản & phiên ---------------- */
 const hmac = b => crypto.createHmac('sha256', SECRET).update(b).digest('base64url');
 const adminVer = () => crypto.createHash('sha256').update('v1:' + ADMIN_PASSWORD).digest('hex').slice(0, 12);
+/* Mật khẩu quản trị đổi trên trang được lưu (dạng băm) trong kho riêng tư, gắn với ADMIN_PASSWORD hiện tại.
+   Đổi ADMIN_PASSWORD trên Render sẽ bỏ mật khẩu đã đổi trên trang: dùng khi quên mật khẩu. */
+const envTag = () => crypto.createHash('sha256').update('env:' + ADMIN_PASSWORD).digest('hex').slice(0, 12);
+async function adminCred() {
+  try {
+    const a = (await loadPriv()).admin;
+    if (a && a.envTag === envTag() && a.salt && a.hash) return { a, ver: 'p' + a.hash.slice(0, 12) };
+  } catch (e) { console.error('[quản trị] Không đọc được kho riêng tư:', e.message); }
+  return { a: null, ver: adminVer() };
+}
 function sign(p) { const b = Buffer.from(JSON.stringify({ ...p, exp: Date.now() + SESSION_MS })).toString('base64url'); return b + '.' + hmac(b); }
 function verifyToken(t) {
   const [b, s] = String(t || '').split('.');
@@ -172,7 +182,7 @@ async function who(req) {
   const p = verifyToken((req.headers.authorization || '').replace(/^Bearer\s+/i, ''));
   const expired = new HttpErr(401, 'Phiên đăng nhập đã hết hạn. Hãy đăng nhập lại.');
   if (!p) throw expired;
-  if (p.role === 'admin') { if (p.u !== ADMIN_USER || p.v !== adminVer()) throw expired; return ADMIN(); }
+  if (p.role === 'admin') { if (p.u !== ADMIN_USER || p.v !== (await adminCred()).ver) throw expired; return ADMIN(); }
   const u = (await loadPriv()).users.find(x => x.username === p.u);
   if (!u || u.active === false || u.ver !== p.v) throw expired;
   return pubUser(u);
@@ -200,9 +210,10 @@ const routes = {
     limitLogin(key);
     const bad = new HttpErr(401, 'Tên đăng nhập hoặc mật khẩu không đúng.');
     if (username === ADMIN_USER) {
-      if (!safeEq(password, ADMIN_PASSWORD)) { failLogin(key); throw bad; }
+      const c = await adminCred();
+      if (!(c.a ? checkPw(password, c.a) : safeEq(password, ADMIN_PASSWORD))) { failLogin(key); throw bad; }
       fails.delete(key);
-      return { token: sign({ u: ADMIN_USER, role: 'admin', v: adminVer() }), user: ADMIN() };
+      return { token: sign({ u: ADMIN_USER, role: 'admin', v: c.ver }), user: ADMIN() };
     }
     const u = (await loadPriv(true)).users.find(x => x.username === username);
     if (!u || !checkPw(password, u)) { failLogin(key); throw bad; }
@@ -304,8 +315,15 @@ const routes = {
   },
 
   'POST /api/password': async (req, body, user) => {
-    if (user.role === 'admin') throw new HttpErr(400, 'Mật khẩu quản trị đổi trong phần Environment của Render.');
     const nw = String(body.new || '');
+    if (user.role === 'admin') {
+      if (nw.length < 8) throw new HttpErr(400, 'Mật khẩu quản trị mới cần ít nhất 8 ký tự.');
+      const c = await adminCred();
+      if (!(c.a ? checkPw(body.old || '', c.a) : safeEq(body.old || '', ADMIN_PASSWORD))) throw new HttpErr(400, 'Mật khẩu hiện tại không đúng.');
+      const salt = crypto.randomBytes(16).toString('hex'), hash = hashPw(nw, salt);
+      await updatePriv(q => { q.admin = { salt, hash, envTag: envTag(), at: new Date().toISOString() }; }, 'Đổi mật khẩu quản trị');
+      return { ok: true, token: sign({ u: ADMIN_USER, role: 'admin', v: 'p' + hash.slice(0, 12) }) };
+    }
     if (nw.length < 6) throw new HttpErr(400, 'Mật khẩu mới cần ít nhất 6 ký tự.');
     let token;
     await updatePriv(q => {

@@ -8,7 +8,7 @@ Khu quản trị: **https://baotang.nguyenhiensteam.vn/#quan-tri**
 | Tệp | Công dụng |
 |---|---|
 | `index.html` | Toàn bộ trang bảo tàng (giao diện + khu quản trị) |
-| `data/museum.json` | Dữ liệu công khai: hiện vật, mốc lịch sử, link phòng 3D, video |
+| `data/museum.json` | Dữ liệu công khai: hiện vật, mốc lịch sử, link phòng 3D, video (6 phòng, có Phòng 6 · Góc thiên nhiên xanh) |
 | `server/` | Máy chủ quản trị: đăng nhập, phân quyền, duyệt bài |
 | `.nojekyll` | Dùng khi chạy trên GitHub Pages (không bắt buộc) |
 
@@ -27,7 +27,8 @@ Khu quản trị: **https://baotang.nguyenhiensteam.vn/#quan-tri**
 | Thêm, sửa mốc lịch sử (Phòng 4) | Có | Khi được bật quyền |
 | Link phòng 3D, video chung | Có | Không |
 | Bài lên trang | Ngay khi bấm Lưu | Chờ quản trị duyệt (hoặc đăng thẳng nếu quản trị tắt “cần duyệt”) |
-| Tạo, sửa, khóa, xóa tài khoản | Có | Không; chỉ tự đổi mật khẩu |
+| Tạo, sửa, khóa, xóa tài khoản | Có | Không |
+| Tự đổi mật khẩu | Có | Có |
 
 Quyền được máy chủ kiểm tra, giáo viên không thể tự vượt quyền.
 
@@ -64,6 +65,8 @@ Quyền được máy chủ kiểm tra, giáo viên không thể tự vượt qu
 4. **Deploy Web Service**. Khi thấy **Live**, mở `https://baotangkyucso-api.onrender.com/api/health` phải thấy `"configured":true`.
 
 Tên đăng nhập quản trị mặc định là `quantri` (muốn đổi: thêm biến `ADMIN_USER`).
+
+**Đổi mật khẩu quản trị:** đăng nhập `quantri` › thẻ **Đổi mật khẩu** (ít nhất 8 ký tự). **Quên mật khẩu:** trên Render đặt giá trị mới cho `ADMIN_PASSWORD` › Save; mật khẩu đó sẽ thay mật khẩu đã đổi trên trang.
 
 ## Sử dụng hằng ngày
 
