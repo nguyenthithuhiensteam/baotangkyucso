@@ -76,13 +76,15 @@ Tên đăng nhập quản trị mặc định là `quantri` (muốn đổi: thê
 - Thẻ **Giới thiệu & link chung**: sửa các con số đầu trang (điểm trường, phân hiệu, nhóm lớp, cô giáo, học sinh), link phòng 3D, video giới thiệu.
 - Sửa trực tiếp hiện vật, mốc, link › **Lưu lên trang**.
 
+**Ảnh thật:** khi thêm/sửa hiện vật, bấm **Chọn tệp** ở ô *Ảnh thật* (máy tính hoặc điện thoại). Ảnh tự thu nhỏ (cạnh dài ≤ 1600px), bỏ thông tin vị trí GPS, rồi lưu trong thư mục `anh/` của kho công khai. Ảnh của giáo viên cần duyệt được giữ ở kho riêng tư cho tới khi quản trị duyệt. **Không đăng ảnh rõ mặt trẻ** khi chưa có đồng ý của cha mẹ.
+
 **Giáo viên:** mở `#quan-tri`, đăng nhập bằng tài khoản được cấp › thêm/sửa hiện vật › **Gửi để duyệt**. Theo dõi kết quả ở thẻ **Bài đã gửi**.
 
 Gói miễn phí của Render cho máy chủ ngủ sau 15 phút không dùng: lần đăng nhập đầu có thể chờ khoảng 1 phút. Trang công khai cho phụ huynh không bị ảnh hưởng.
 
 ## Lưu ý về dữ liệu của trẻ
 
-- Kho `baotangkyucso` là **công khai**: ai cũng đọc được `data/museum.json`. Chỉ ghi câu chuyện đã viết lại và đường link, **không** ghi họ tên đầy đủ, ảnh hay giọng nói của trẻ.
+- Kho `baotangkyucso` là **công khai**: ai cũng đọc được `data/museum.json`. Chỉ ghi câu chuyện đã viết lại và đường link, **không** ghi họ tên đầy đủ hay giọng nói của trẻ. Ảnh đã đăng (thư mục `anh/`) ai cũng xem được: chỉ đăng ảnh cây, đồ vật, sản phẩm, hoặc ảnh trẻ từ phía sau/không rõ mặt, trừ khi cha mẹ đã đồng ý.
 - Video, ghi âm có mặt hoặc giọng trẻ để trên Google Drive tổ chức của trường, chia sẻ nội bộ; trên trang chỉ dán link Drive.
 - Gửi mật khẩu cho từng giáo viên riêng, không gửi vào nhóm chung.
 - Thực hiện theo Mục II.3 Kế hoạch số 17/KH-MNNT và Quy chế ban hành kèm Quyết định số 24/QĐ-MNNT.

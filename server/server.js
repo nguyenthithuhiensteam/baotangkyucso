@@ -70,6 +70,30 @@ async function writeFile(repo, file, data, sha, message) {
   if (!r.ok) throw new HttpErr(502, `GitHub báo lỗi ${r.status} khi lưu ${file}.`);
   return (await r.json()).content.sha;
 }
+/* Ảnh: kho công khai anh/<tên>.jpg; ảnh chờ duyệt nằm ở kho riêng tư anh/<tên>.jpg (đường dẫn trong bài: cho-duyet/<tên>.jpg). */
+const PHOTO_RE = /^(anh|cho-duyet)\/([a-z0-9]{8,40})\.jpg$/;
+const MAX_PHOTO = 1024 * 1024;
+async function putBinary(repo, file, b64, message) {
+  const r = await gh(`/repos/${enc(OWNER)}/${enc(repo)}/contents/${file}`, { method: 'PUT', body: JSON.stringify({ message, branch: BRANCH, content: b64 }) });
+  if (r.status === 401 || r.status === 403) throw new HttpErr(500, 'Mã GitHub trên máy chủ không có quyền ghi. Cần quyền Contents: Read and write.');
+  if (!r.ok && r.status !== 422) throw new HttpErr(502, `GitHub báo lỗi ${r.status} khi lưu ảnh.`);
+}
+async function getBinary(repo, file) {
+  const r = await gh(`/repos/${enc(OWNER)}/${enc(repo)}/contents/${file}?ref=${enc(BRANCH)}`);
+  if (r.status === 404) throw new HttpErr(404, 'Không tìm thấy ảnh.');
+  if (!r.ok) throw new HttpErr(502, `GitHub báo lỗi ${r.status} khi đọc ảnh.`);
+  const j = await r.json();
+  return String(j.content || '').replace(/\s/g, '');
+}
+/** Ảnh chờ duyệt: chép từ kho riêng tư sang kho công khai, trả về đường dẫn công khai. */
+async function publishPhoto(photo, who) {
+  const m = PHOTO_RE.exec(photo || '');
+  if (!m || m[1] === 'anh') return photo || '';
+  const b64 = await getBinary(PRIV_REPO, `anh/${m[2]}.jpg`);
+  await putBinary(DATA_REPO, `anh/${m[2]}.jpg`, b64, `Ảnh hiện vật (${who})`);
+  return `anh/${m[2]}.jpg`;
+}
+
 /** Đọc, sửa và ghi lại một tệp; tự thử lại nếu có người khác vừa ghi. */
 async function updateFile(repo, file, fallback, mutate, message) {
   for (let i = 0; ; i++) {
@@ -114,6 +138,9 @@ function cleanExhibit(x) {
     o[k] = str(x[k], 1000);
     if (o[k] && !okUrl(o[k])) throw new HttpErr(400, 'Link phải bắt đầu bằng https://');
   }
+  o.photo = str(x.photo, 80);
+  if (o.photo && !PHOTO_RE.test(o.photo)) throw new HttpErr(400, 'Đường dẫn ảnh không hợp lệ.');
+  o.photoAlt = str(x.photoAlt, 200);
   o.sample = !!x.sample;
   return o;
 }
@@ -231,6 +258,7 @@ const routes = {
   'POST /api/save': async (req, body, user) => {
     needAdmin(user);
     const clean = cleanData(body.data);
+    for (const e of clean.exhibits) if (e.photo.startsWith('cho-duyet/')) throw new HttpErr(400, `Ảnh của “${e.name}” còn chờ duyệt.`);
     const cur = await readFile(DATA_REPO, DATA_FILE);
     if (body.sha && cur.sha && body.sha !== cur.sha) throw new HttpErr(409, 'Có người vừa lưu hoặc vừa có bài được duyệt. Bấm “Tải bản mới nhất” rồi làm lại thay đổi.');
     const sha = await writeFile(DATA_REPO, DATA_FILE, clean, cur.sha, 'Cập nhật Bảo tàng ký ức (quản trị) ' + new Date().toISOString().slice(0, 16).replace('T', ' '));
@@ -245,6 +273,7 @@ const routes = {
     canTouch(user, cur.data, kind, item);
     const old = kind === 'exhibit' ? cur.data.exhibits.find(e => e.id === item.id) : cur.data.timeline.find(t => t.id === item.id);
     if (user.role === 'admin' || !user.review) {
+      if (kind === 'exhibit') item.photo = await publishPhoto(item.photo, user.username);
       const r = await updateData(d => { canTouch(user, d, kind, item); applyItem(d, kind, item, beforeId); },
         `${user.username}: ${old ? 'sửa' : 'thêm'} ${kind === 'exhibit' ? 'hiện vật' : 'mốc'} “${item.name || item.title}”`);
       return { status: 'published', sha: r.sha, data: r.data };
@@ -268,7 +297,9 @@ const routes = {
     const p = await loadPriv(true);
     const it = p.pending.find(x => x.id === body.id && x.status === 'pending');
     if (!it) throw new HttpErr(404, 'Bài này không còn chờ duyệt.');
-    const r = await updateData(d => applyItem(d, it.kind, it.kind === 'exhibit' ? cleanExhibit(it.item) : cleanTimeline(it.item), it.beforeId),
+    const item = it.kind === 'exhibit' ? cleanExhibit(it.item) : cleanTimeline(it.item);
+    if (it.kind === 'exhibit') item.photo = await publishPhoto(item.photo, it.by);
+    const r = await updateData(d => applyItem(d, it.kind, item, it.beforeId),
       `Duyệt bài của ${it.by}: “${it.item.name || it.item.title}”`);
     await updatePriv(q => { const x = q.pending.find(y => y.id === it.id); if (x) { x.status = 'approved'; x.decidedAt = new Date().toISOString(); } prune(q); }, 'Đã duyệt ' + it.id);
     return { sha: r.sha, data: r.data };
@@ -284,6 +315,30 @@ const routes = {
     }, 'Trả lại ' + str(body.id, 40));
     if (!found) throw new HttpErr(404, 'Bài này không còn chờ duyệt.');
     return { ok: true };
+  },
+
+  /* Tải ảnh lên (JPEG đã thu nhỏ ở trình duyệt). Quản trị / giáo viên đăng thẳng: vào kho công khai; còn lại: kho riêng tư chờ duyệt. */
+  'POST /api/photo': async (req, body, user) => {
+    const m = /^data:image\/jpeg;base64,([A-Za-z0-9+/=]+)$/.exec(String(body.data || ''));
+    if (!m) throw new HttpErr(400, 'Ảnh phải ở dạng JPEG.');
+    const buf = Buffer.from(m[1], 'base64');
+    if (buf.length < 100 || buf[0] !== 0xff || buf[1] !== 0xd8) throw new HttpErr(400, 'Tệp ảnh không hợp lệ.');
+    if (buf.length > MAX_PHOTO) throw new HttpErr(400, 'Ảnh quá lớn (tối đa 1 MB sau khi thu nhỏ).');
+    if (user.role !== 'admin' && !user.rooms.length) throw new HttpErr(403, 'Tài khoản chưa được giao phòng nào.');
+    const name = crypto.randomBytes(10).toString('hex');
+    if (user.role === 'admin' || !user.review) {
+      await putBinary(DATA_REPO, `anh/${name}.jpg`, m[1], `Ảnh hiện vật (${user.username})`);
+      return { photo: `anh/${name}.jpg` };
+    }
+    await putBinary(PRIV_REPO, `anh/${name}.jpg`, m[1], `Ảnh chờ duyệt (${user.username})`);
+    return { photo: `cho-duyet/${name}.jpg` };
+  },
+
+  /* Xem ảnh chờ duyệt (chỉ người đã đăng nhập). */
+  'POST /api/photo/view': async (req, body) => {
+    const m = PHOTO_RE.exec(String(body.photo || ''));
+    if (!m || m[1] !== 'cho-duyet') throw new HttpErr(400, 'Đường dẫn ảnh không hợp lệ.');
+    return { data: 'data:image/jpeg;base64,' + await getBinary(PRIV_REPO, `anh/${m[2]}.jpg`) };
   },
 
   'GET /api/users': async (req, _b, user) => { needAdmin(user); return { users: (await loadPriv(true)).users.map(pubUser), admin: ADMIN_USER }; },

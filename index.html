@@ -216,6 +216,13 @@ legend{font-size:14px;font-weight:800;color:var(--indigo);padding:0 6px}
 @media (max-width:600px){.card{grid-template-columns:1fr}.card .big{max-width:140px;margin:0 auto}}
 .card .big{background:color-mix(in srgb,var(--c) 14%,var(--frame));border-radius:24px;aspect-ratio:1;display:grid;place-items:center}
 .card .big svg{width:72%;color:var(--indigo)}
+.piece .frame.ph{overflow:hidden}
+.piece .frame.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.card .big img{width:100%;height:100%;object-fit:cover;border-radius:24px;display:block}
+.arow img{width:42px;height:42px;object-fit:cover;border-radius:10px;display:block}
+.phprev{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.phprev img{width:120px;height:120px;object-fit:cover;border-radius:16px;border:3px solid var(--line)}
+img[data-pv]{max-width:220px;border-radius:12px;border:3px solid var(--line);display:block;margin-top:6px}
 .card h3{font-size:30px;margin-top:4px}
 .meta{font-size:13px;color:var(--muted);margin:4px 0 10px}
 .story{margin:0 0 12px;font-size:17px}
@@ -273,6 +280,12 @@ const ART={
  truong:["Ngôi trường",S(`<path d="M12 46 50 20l38 26" fill="var(--coral)" fill-opacity=".55"/><path d="M18 86V46M82 86V46M10 88h80M42 86V66h16v20"/><rect x="26" y="54" width="10" height="10" fill="${T}"/><rect x="64" y="54" width="10" height="10" fill="${T}"/><path d="M50 20V8l12 4-12 4" fill="var(--leaf)" stroke="var(--leaf)"/>`)]
 };
 const art=k=>(ART[k]||ART.sach)[1];
+/* Ảnh thật: anh/<tên>.jpg trong kho công khai; nếu Render chưa kịp cập nhật thì lấy thẳng từ GitHub. */
+const RAW='https://raw.githubusercontent.com/nguyenthithuhiensteam/baotangkyucso/main/';
+const phPrev={};
+const pubPhoto=p=>/^anh\/[a-z0-9]{8,40}\.jpg$/.test(p||'');
+const pic=e=>pubPhoto(e.photo)?`<img src="${e.photo}" alt="${esc(e.photoAlt||e.name)}" loading="lazy" onerror="if(!this.dataset.r){this.dataset.r=1;this.src='${RAW}${e.photo}'}">`
+ :(e.photo&&phPrev[e.photo])?`<img src="${phPrev[e.photo]}" alt="${esc(e.photoAlt||e.name)}">`:art(e.art);
 
 const ROOMS=[
  {id:"loi-vao",name:"Lối vào",kind:"intro",c:"var(--indigo)"},
@@ -321,7 +334,7 @@ root.innerHTML=`
 </header>
 <nav aria-label="Các phòng trưng bày"><div class="rooms" role="tablist" id="rooms"></div></nav>
 <main class="wrap" id="main"></main>
-<footer class="wrap"><span>Mô hình thuộc Kế hoạch số 17/KH-MNNT ngày 03/11/2026. Hình trên trang là tranh minh họa; ảnh, video và giọng nói thật của trẻ chỉ lưu trong thư mục lớp trên Google Drive tổ chức của nhà trường.</span><a href="#quan-tri" id="adminLink" hidden>Quản trị</a></footer>
+<footer class="wrap"><span>Mô hình thuộc Kế hoạch số 17/KH-MNNT ngày 03/11/2026. Ảnh trên trang do nhà trường duyệt, không đăng ảnh rõ mặt trẻ khi chưa có đồng ý của cha mẹ; video và giọng nói của trẻ lưu trong thư mục lớp trên Google Drive tổ chức của nhà trường.</span><a href="#quan-tri" id="adminLink" hidden>Quản trị</a></footer>
 <div class="viewer" id="viewer" hidden role="dialog" aria-modal="true" aria-labelledby="vTitle">
  <div class="card" id="vCard">
   <div class="big" id="vArt"></div>
@@ -370,7 +383,7 @@ function head(r){
  return `<div class="room-head">${r.n?`<span class="eyebrow">Phòng ${r.n}</span>`:''}<h2>${esc(r.name)}</h2><p>${esc(r.lead)}</p>${r.src?`<span class="src">Căn cứ: ${esc(r.src)}</span>`:''}${okUrl(l3)?`<div class="cta"><a class="btn primary" href="${esc(l3)}" target="_blank" rel="noopener">Vào phòng trưng bày 3D ↗</a></div>`:''}</div>`;
 }
 const mediaTags=e=>{const t=[];if(okUrl(e.video))t.push('Video');if(okUrl(e.audio))t.push('Âm thanh');if(okUrl(e.link3d))t.push('3D');if(okUrl(e.drive))t.push('Drive');return t.length?`<span class="media-dots">${t.map(x=>`<span>${x}</span>`).join('')}</span>`:''};
-const piece=(e,i)=>`<button class="piece" type="button" data-i="${i}"><div class="frame">${art(e.art)}</div><div class="label"><b>${esc(e.name)}</b><span class="p">${esc(e.plan)}</span>${mediaTags(e)}${e.sample?'<span class="sample">Hiện vật mẫu</span>':''}</div></button>`;
+const piece=(e,i)=>`<button class="piece" type="button" data-i="${i}"><div class="frame ${pubPhoto(e.photo)?'ph':''}">${pic(e)}</div><div class="label"><b>${esc(e.name)}</b><span class="p">${esc(e.plan)}</span>${mediaTags(e)}${e.sample?'<span class="sample">Hiện vật mẫu</span>':''}</div></button>`;
 
 function intro(){
  const ph=[
@@ -439,7 +452,7 @@ async function apiSave(){
 /* ---------- admin ---------- */
 let aTab='exhibits', editId=null, confirmDel=null, draft=null, errors={}, loginMsg='';
 let pendingList=null, usersList=null, userDraft=null, rejectOpen=null, busy=false;
-const blankEx=room=>({id:'e'+Date.now().toString(36),room:room||(isAdmin()?'khoanh-khac':(me&&me.rooms[0])||'khoanh-khac'),art:'sach',name:'',era:'',plan:'',from:'',story:'',ask:'',video:'',audio:'',link3d:'',drive:'',sample:false});
+const blankEx=room=>({id:'e'+Date.now().toString(36),room:room||(isAdmin()?'khoanh-khac':(me&&me.rooms[0])||'khoanh-khac'),art:'sach',name:'',era:'',plan:'',from:'',story:'',ask:'',video:'',audio:'',link3d:'',drive:'',photo:'',photoAlt:'',sample:false});
 const blankT=()=>({id:'t'+Date.now().toString(36),when:'',title:'',text:'',ref:'',todo:''});
 const fld=(id,label,v,o={})=>`<div class="f ${errors[id]?'bad':''}"><label for="${id}">${label}</label>${o.area?`<textarea id="${id}">${esc(v)}</textarea>`:`<input id="${id}" type="${o.type||(o.url?'url':'text')}" value="${esc(v)}" ${o.ph?`placeholder="${esc(o.ph)}"`:''} ${o.ac?`autocomplete="${o.ac}"`:''}>`}${o.hint?`<span class="hint">${o.hint}</span>`:''}${errors[id]?`<span class="err">${errors[id]}</span>`:''}</div>`;
 const myRooms=()=>isAdmin()?EXROOMS:EXROOMS.filter(r=>me&&me.rooms.includes(r.id));
@@ -483,13 +496,18 @@ const sendLabel=()=>teacher()?(me.review?'Gửi để duyệt':'Đăng lên tran
 function adminExhibits(){
  const rooms=mode==='github'?myRooms():EXROOMS;
  if(!rooms.length)return `<div class="box"><h3>Chưa được giao phòng</h3><p>Tài khoản của chị/cô chưa được giao phòng trưng bày nào. Hãy liên hệ người quản trị.</p></div>`;
- const list=rooms.map(r=>{const it=data.exhibits.filter(e=>e.room===r.id);return `<div class="agroup" style="--c:${r.c}"><h4>Phòng ${r.n} · ${esc(r.name)} (${it.length})</h4>${it.map(e=>`<div class="arow ${editId===e.id?'on':''}">${art(e.art)}<div style="min-width:0"><b>${esc(e.name||'(chưa đặt tên)')}</b><small>${esc(e.plan)}${e.sample?' · mẫu':''}</small>${mediaTags(e)?`<div style="text-align:left">${mediaTags(e)}</div>`:''}</div>${rowActs(e.id)}</div>`).join('')||'<small style="color:var(--muted)">Chưa có hiện vật.</small>'}</div>`}).join('');
+ const list=rooms.map(r=>{const it=data.exhibits.filter(e=>e.room===r.id);return `<div class="agroup" style="--c:${r.c}"><h4>Phòng ${r.n} · ${esc(r.name)} (${it.length})</h4>${it.map(e=>`<div class="arow ${editId===e.id?'on':''}">${pic(e)}<div style="min-width:0"><b>${esc(e.name||'(chưa đặt tên)')}</b><small>${esc(e.plan)}${e.sample?' · mẫu':''}</small>${mediaTags(e)?`<div style="text-align:left">${mediaTags(e)}</div>`:''}</div>${rowActs(e.id)}</div>`).join('')||'<small style="color:var(--muted)">Chưa có hiện vật.</small>'}</div>`}).join('');
  const d=draft;
  const form=d?`<form class="edit" id="exForm" novalidate>
    <h3>${data.exhibits.some(e=>e.id===d.id)?'Sửa hiện vật':'Thêm hiện vật mới'}</h3>
    <div class="two"><div class="f"><label for="x_room">Phòng trưng bày</label><select id="x_room">${rooms.map(r=>`<option value="${r.id}" ${d.room===r.id?'selected':''}>Phòng ${r.n} · ${esc(r.name)}</option>`).join('')}</select></div>
    ${fld('x_plan','Gắn với hoạt động / kế hoạch',d.plan,{ph:'VD: Ngày hội văn hóa Việt Nam'})}</div>
    <div class="f"><label>Hình minh họa</label><div class="artpick">${Object.entries(ART).map(([k,[n,s]])=>`<button type="button" data-art="${k}" aria-pressed="${d.art===k}" title="${n}" aria-label="${n}">${s}</button>`).join('')}</div></div>
+   ${mode==='github'?`<div class="f"><label for="x_photo">Ảnh thật (không bắt buộc)</label>
+    ${d.photo?`<div class="phprev">${pic(d)}<button type="button" class="btn small danger" id="phDel">Bỏ ảnh</button></div>`:''}
+    <input type="file" id="x_photo" accept="image/jpeg,image/png,image/webp,image/heic">
+    <span class="hint">Có ảnh thì ảnh thay cho hình minh họa. Ảnh tự thu nhỏ trước khi gửi. <b>Không đăng ảnh rõ mặt trẻ</b> khi chưa có đồng ý của cha mẹ.${teacher()&&me.review?' Ảnh chỉ hiện trên trang sau khi được duyệt.':''}</span></div>
+   ${d.photo?fld('x_palt','Mô tả ảnh (đọc cho người khiếm thị)',d.photoAlt||'',{ph:'VD: Cây bàng sân trước, lá đỏ mùa đông'}):''}`:''}
    ${fld('x_name','Tên hiện vật *',d.name)}
    <div class="two">${fld('x_era','Thời gian',d.era,{ph:'VD: Tháng 11/2026'})}${fld('x_from','Người / lớp gửi',d.from,{ph:'VD: Lớp MG 5-6 tuổi A1',hint:'Không ghi họ tên đầy đủ của trẻ.'})}</div>
    ${fld('x_story','Câu chuyện',d.story,{area:1})}
@@ -528,7 +546,7 @@ function itemDetails(p){
  const it=p.item||{};
  const rows=p.kind==='exhibit'?[['Phòng',roomShort(it.room)+' · '+roomOf(it.room).name],['Hoạt động',it.plan],['Thời gian',it.era],['Người / lớp gửi',it.from],['Câu chuyện',it.story],['Cô hỏi bé',it.ask],['Video',it.video],['Âm thanh',it.audio],['Phòng 3D',it.link3d],['Drive',it.drive]]
   :[['Thời gian',it.when],['Nội dung',it.text],['Nguồn',it.ref],['Ghi chú',it.todo]];
- return `<details><summary>Xem nội dung</summary><dl>${rows.filter(r=>r[1]).map(([k,v])=>`<dt>${k}</dt><dd>${esc(v)}</dd>`).join('')}</dl></details>`;
+ return `<details><summary>Xem nội dung</summary><dl>${rows.filter(r=>r[1]).map(([k,v])=>`<dt>${k}</dt><dd>${esc(v)}</dd>`).join('')}</dl>${p.kind==='exhibit'&&it.photo?(pubPhoto(it.photo)?pic(it).replace('<img','<img data-pub style="max-width:220px;border-radius:12px;display:block;margin-top:6px"'):`<img data-pv="${esc(it.photo)}" alt="Ảnh gửi kèm">`):''}</details>`;
 }
 function pendHead(p){
  const it=p.item||{};
@@ -669,13 +687,27 @@ function wireAdmin(){
   try{await api('/api/users',d,()=>setMsg(WAKE));setMsg(d.isNew?`Đã tạo tài khoản “${d.username}”. Gửi tên đăng nhập và mật khẩu riêng cho giáo viên.`:'Đã lưu tài khoản.');userDraft=null;await loadUsers()}
   catch(err){setMsg(err.msg);$('u_save').disabled=false}finally{busy=false}};
  /* đổi mật khẩu */
+ const xp=$('x_photo');if(xp)xp.onchange=async()=>{const f=xp.files&&xp.files[0];if(!f)return;captureEx();setMsg('Đang thu nhỏ và tải ảnh lên…');
+  try{const url=await shrink(f);const r=await api('/api/photo',{data:url});phPrev[r.photo]=url;draft.photo=r.photo;render();setMsg(r.photo.startsWith('anh/')?'Đã tải ảnh. Bấm '+sendLabel()+' để gắn ảnh vào hiện vật.':'Đã tải ảnh. Ảnh sẽ hiện sau khi bài được duyệt.')}
+  catch(err){xp.value='';setMsg(err&&err.msg?err.msg:'Không đọc được ảnh này. Hãy chọn ảnh JPG hoặc PNG.')}};
+ const pd=$('phDel');if(pd)pd.onclick=()=>{captureEx();draft.photo='';draft.photoAlt='';render()};
+ main.querySelectorAll('img[data-pv]').forEach(async im=>{const p=im.dataset.pv;try{if(!phPrev[p])phPrev[p]=(await api('/api/photo/view',{photo:p})).data;im.src=phPrev[p]}catch{im.alt='Không tải được ảnh'}});
  const pf=$('pwForm');if(pf)pf.onsubmit=async e=>{e.preventDefault();const o=$('pw_old').value,n=$('pw_new').value,n2=$('pw_new2').value;
   errors={};const mn=isAdmin()?8:6;if(n.length<mn)errors.pw_new=`Mật khẩu mới cần ít nhất ${mn} ký tự.`;else if(n!==n2)errors.pw_new2='Hai lần nhập không khớp.';
   if(Object.keys(errors).length){render();return}
   try{const r=await api('/api/password',{old:o,new:n});sessStore({token:r.token});errors={};render();setMsg('Đã đổi mật khẩu.')}catch(err){setMsg(err.msg)}};
 }
 let confirmOut=false;
-function captureEx(){if(!draft||!$('exForm'))return;Object.assign(draft,{room:val('x_room'),plan:val('x_plan'),name:val('x_name'),era:val('x_era'),from:val('x_from'),story:val('x_story'),ask:val('x_ask'),video:val('x_video'),audio:val('x_audio'),link3d:val('x_link3d'),drive:val('x_drive'),sample:$('x_sample').checked})}
+function captureEx(){if(!draft||!$('exForm'))return;Object.assign(draft,{room:val('x_room'),plan:val('x_plan'),name:val('x_name'),era:val('x_era'),from:val('x_from'),story:val('x_story'),ask:val('x_ask'),video:val('x_video'),audio:val('x_audio'),link3d:val('x_link3d'),drive:val('x_drive'),photoAlt:$('x_palt')?val('x_palt'):(draft.photoAlt||''),sample:$('x_sample').checked})}
+/** Thu nhỏ ảnh (cạnh dài tối đa 1600px), bỏ thông tin vị trí, xuất JPEG dưới ~900 KB. */
+async function shrink(file){
+ let src;try{src=await createImageBitmap(file,{imageOrientation:'from-image'})}catch{src=await new Promise((ok,no)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=no;i.src=URL.createObjectURL(file)})}
+ const W=src.width,H=src.height;let side=1600,q=.82,out='';
+ for(let k=0;k<6;k++){const s=Math.min(1,side/Math.max(W,H)),c=document.createElement('canvas');c.width=Math.round(W*s);c.height=Math.round(H*s);
+  const g=c.getContext('2d');g.fillStyle='#fff';g.fillRect(0,0,c.width,c.height);g.drawImage(src,0,0,c.width,c.height);out=c.toDataURL('image/jpeg',q);
+  if(out.length*.75<900*1024)return out;side=Math.round(side*.8);q=Math.max(.6,q-.06)}
+ return out;
+}
 
 /* save bar */
 let bar=null,msgText='';
@@ -736,7 +768,7 @@ addEventListener('hashchange',()=>{navTabs();render();document.querySelector('na
 /* ---------- viewer ---------- */
 const V=$('viewer');let list=[],pos=0,lastFocus=null;
 function openViewer(items,i){if(!items.length)return;list=items;pos=i;lastFocus=document.activeElement;show();V.hidden=false;$('vNext').focus()}
-function show(){const e=list[pos];$('vCard').style.setProperty('--c',e.c||'var(--indigo)');$('vArt').innerHTML=art(e.art);$('vPlan').textContent=e.plan||e.roomName;$('vTitle').textContent=e.name;
+function show(){const e=list[pos];$('vCard').style.setProperty('--c',e.c||'var(--indigo)');$('vArt').innerHTML=pic(e);$('vPlan').textContent=e.plan||e.roomName;$('vTitle').textContent=e.name;
  $('vMeta').textContent=[e.roomName,e.era,e.from,e.sample?'nội dung mẫu':''].filter(Boolean).join(' · ');$('vStory').textContent=e.story;$('vAsk').textContent=e.ask;$('vAsk').parentElement.hidden=!e.ask;
  const L=[[e.video,'▶ Xem video'],[e.audio,'♪ Nghe thuyết minh'],[e.link3d,'Xem phòng 3D'],[e.drive,'Mở thư mục lớp']].filter(([u])=>okUrl(u));
  $('vLinks').innerHTML=L.map(([u,t],i)=>`<a class="btn small ${i===0?'primary':''}" href="${esc(u)}" target="_blank" rel="noopener">${t} ↗</a>`).join('')+(L.length?'<span class="note-d">Mở ở tab mới.'+(okUrl(e.drive)?' Thư mục Drive chỉ mở được với tài khoản đã được cấp quyền.':'')+'</span>':'');
