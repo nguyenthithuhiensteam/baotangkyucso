@@ -613,6 +613,19 @@ function adoptLatest(l){saved=l.data;data=clone(l.data);ghSha=l.sha;dirty=false;
 async function loadPending(){try{pendingList=(await api('/api/pending')).pending}catch(e){pendingList=[];setMsg(e.msg)}if(aTab==='pending'||aTab==='mine')render()}
 async function loadUsers(){try{usersList=(await api('/api/users')).users}catch(e){usersList=[];setMsg(e.msg)}if(aTab==='users')render()}
 function tabData(){if(aTab==='pending'||aTab==='mine')loadPending();if(aTab==='users')loadUsers()}
+/* Render mất vài phút mới đăng bản mới của data/museum.json. Trang hiện ngay bản trên Render,
+   rồi đọc bản mới nhất thẳng từ GitHub (chậm tối đa ~1 phút); nếu khác thì cập nhật lại. */
+const GH_DATA='https://api.github.com/repos/nguyenthithuhiensteam/baotangkyucso/contents/data/museum.json?ref=main';
+async function freshen(){
+ try{
+  const r=await fetch(GH_DATA,{headers:{Accept:'application/vnd.github.raw+json'}});
+  if(!r.ok)return;
+  const j=await r.json();
+  if(!j||!Array.isArray(j.exhibits)||canAdmin||dirty||JSON.stringify(j)===JSON.stringify(saved))return;
+  saved=j;data=clone(j);heroCta();navTabs();
+  if($('viewer').hidden)render();
+ }catch(_){}
+}
 async function afterLogin(r){
  me=r.user;canAdmin=true;loginMsg='';aTab='exhibits';pendingList=null;usersList=null;
  const l=await api('/api/data');adoptLatest(l);
@@ -794,6 +807,7 @@ heroCta();navTabs();render();
  }catch(_){}
  if(mode==='github'){
   heroCta();navTabs();render();
+  freshen();
   if(location.hash==='#quan-tri'||sess())api('/api/health').catch(()=>{});
   if(sess()){try{const r=await api('/api/me');await afterLogin(r)}catch(_){if(!sess()){canAdmin=false;me=null}}}
   return;
