@@ -30,7 +30,7 @@
 [hidden]{display:none!important}
 body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
-.wrap{max-width:1060px;margin:0 auto}
+.wrap{max-width:1280px;margin:0 auto}
 h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.15;font-weight:800}
 button{font:inherit;cursor:pointer}
 :focus-visible{outline:3px solid var(--turmeric-fill);outline-offset:3px}
@@ -44,7 +44,7 @@ button{font:inherit;cursor:pointer}
 .gate{position:relative;margin-top:16px;border-radius:32px;background:var(--indigo-soft);overflow:hidden;padding-block:34px 30px;padding-inline:clamp(18px,4vw,44px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center}
 .gate .deco{position:absolute;inset:auto 0 0 0;height:46px;color:var(--leaf);pointer-events:none}
 .gate .deco svg{width:100%;height:100%;display:block}
-.gate .sun{width:clamp(110px,16vw,170px);height:auto;position:relative;z-index:1}
+.gate svg.sun{width:clamp(110px,16vw,170px);height:auto;position:relative;z-index:1}
 .gate .txt{position:relative;z-index:1;padding-bottom:18px}
 .gate .school{font-weight:800;color:var(--indigo);font-size:15px}
 .gate h1{font-size:clamp(38px,7vw,68px);color:var(--ink);margin-top:2px;letter-spacing:-.01em}
@@ -64,7 +64,7 @@ button{font:inherit;cursor:pointer}
 .btn.danger{border-color:var(--danger);color:var(--danger)}
 .btn.danger.primary{background:var(--danger);color:var(--paper);box-shadow:none}
 .btn:disabled{opacity:.45;cursor:default;transform:none}
-@media (max-width:620px){.gate{grid-template-columns:1fr}.gate .sun{position:absolute;right:-18px;top:-14px;width:110px;opacity:.95}.gate .txt{padding-top:44px}}
+@media (max-width:620px){.gate{grid-template-columns:1fr}.gate svg.sun{position:absolute;right:-18px;top:-14px;width:110px;opacity:.95}.gate .txt{padding-top:44px}}
 
 /* Room nav */
 nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);padding-block:12px}
@@ -74,6 +74,29 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .rooms button .n{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--c);color:#1d2638;font-size:12px;margin-right:6px}
 .rooms button[aria-selected="true"]{background:color-mix(in srgb,var(--c) 28%,var(--frame));color:var(--ink)}
 .rooms button.admin-tab{border-style:dashed;--c:var(--muted)}
+
+/* 3 cột: phòng | nội dung (gấp đôi) | thông tin */
+.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr) minmax(0,1fr);gap:24px;align-items:start;margin-top:22px}
+.layout.wide{grid-template-columns:minmax(0,1fr) minmax(0,3fr)}
+.layout.wide .side-info{display:none}
+.layout .room{padding-top:0}
+nav.side-nav{position:sticky;top:max(12px,env(safe-area-inset-top,0px));padding:0;background:none;display:grid;gap:8px;max-height:calc(100vh - 24px);overflow:auto}
+.side-nav .rooms{flex-direction:column;overflow:visible;max-width:none;margin:0;padding:0}
+.side-nav .rooms button{white-space:normal;text-align:left;display:flex;align-items:center;gap:8px;border-radius:18px;padding:9px 12px;line-height:1.25;width:100%}
+.side-nav .rooms button .n{flex:none;margin-right:0}
+.side-info{display:grid;gap:16px}
+.side-info h3{font-size:20px}
+.side-info .stats{margin-top:4px}
+.side-info .m{font-weight:800;color:var(--muted);font-size:14px}
+.side-info p{margin:0;font-size:15px;color:var(--muted)}
+.newlist{display:grid;gap:8px}
+.newlist button{all:unset;cursor:pointer;display:grid;grid-template-columns:44px minmax(0,1fr);gap:10px;align-items:center;background:color-mix(in srgb,var(--c) 14%,var(--frame));border-radius:14px;padding:6px 8px}
+.newlist button:focus-visible{outline:3px solid var(--turmeric-fill)}
+.newlist svg,.newlist img{width:44px;height:44px;object-fit:cover;border-radius:10px;color:var(--indigo);display:block}
+.newlist b{display:block;font-size:15px;line-height:1.2}
+.newlist small{color:var(--muted);font-size:13px}
+@media (max-width:1100px){.layout{grid-template-columns:minmax(0,1fr) minmax(0,3fr)}.side-info{grid-column:1/-1;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}.layout.wide .side-info{display:none}}
+@media (max-width:760px){.layout{grid-template-columns:minmax(0,1fr);gap:18px}nav.side-nav{position:static;max-height:none}.side-nav .rooms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.side-nav .rooms button{font-size:14px;padding:8px 10px}}
 
 /* Room */
 .room{padding-top:26px;display:grid;gap:26px}
@@ -328,14 +351,20 @@ root.innerHTML=`
   <div class="school">Trường Mầm non Nông Tiến · Tuyên Quang</div>
   <h1><span>Bảo tàng</span> <span>ký ức</span> số</h1>
   <p class="motto">Nơi lưu giữ hành trình lớn khôn và tri ân</p>
-  <div class="stats" id="heroStats"></div>
   <div class="cta" id="heroCta"></div>
  </div>
  <svg class="sun" viewBox="0 0 160 160" aria-hidden="true"><g stroke="var(--turmeric-fill)" stroke-width="9" stroke-linecap="round">${Array.from({length:12},(_,i)=>{const a=i*Math.PI/6,x1=80+Math.cos(a)*52,y1=80+Math.sin(a)*52,x2=80+Math.cos(a)*70,y2=80+Math.sin(a)*70;return `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}"/>`}).join('')}</g><circle cx="80" cy="80" r="40" fill="var(--turmeric-fill)"/><circle cx="66" cy="74" r="5" fill="#3a2a00"/><circle cx="94" cy="74" r="5" fill="#3a2a00"/><path d="M64 90c8 10 24 10 32 0" stroke="#3a2a00" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="58" cy="88" r="6" fill="var(--coral)" opacity=".7"/><circle cx="102" cy="88" r="6" fill="var(--coral)" opacity=".7"/></svg>
  <div class="deco"><svg viewBox="0 0 1000 46" preserveAspectRatio="none"><path d="M0 30 Q 60 6 120 26 T 240 24 T 360 28 T 480 20 T 600 28 T 720 22 T 840 28 T 1000 22 V46 H0z" fill="var(--leaf)" opacity=".35"/><path d="M0 38 Q 80 22 160 36 T 320 34 T 480 38 T 640 32 T 800 38 T 1000 34 V46 H0z" fill="var(--leaf)" opacity=".6"/></svg></div>
 </header>
-<nav aria-label="Các phòng trưng bày"><div class="rooms" role="tablist" id="rooms"></div></nav>
-<main class="wrap" id="main"></main>
+<div class="layout wrap" id="layout">
+ <nav class="side-nav" aria-label="Các phòng trưng bày"><div class="eyebrow">Các phòng</div><div class="rooms" role="tablist" id="rooms"></div></nav>
+ <main id="main"></main>
+ <aside class="side-info" aria-label="Thông tin">
+  <div class="box"><h3>Trường mình</h3><div class="stats" id="heroStats"></div></div>
+  <div class="box" id="sideMonth"></div>
+  <div class="box" id="sideNew"></div>
+ </aside>
+</div>
 <footer class="wrap"><span>Mô hình thuộc Kế hoạch số 17/KH-MNNT ngày 03/11/2026. Ảnh trên trang do nhà trường duyệt, không đăng ảnh rõ mặt trẻ khi chưa có đồng ý của cha mẹ; video và giọng nói của trẻ lưu trong thư mục lớp trên Google Drive tổ chức của nhà trường.</span><a href="#quan-tri" id="adminLink" hidden>Quản trị</a></footer>
 <div class="viewer" id="viewer" hidden role="dialog" aria-modal="true" aria-labelledby="vTitle">
  <div class="card" id="vCard">
@@ -359,7 +388,18 @@ root.innerHTML=`
 const DEFAULT_STATS=[{n:'3',l:'điểm trường'},{n:'24',l:'nhóm, lớp'},{n:'',l:'cô giáo'},{n:'526',l:'bé'}];
 const STAT_C=['var(--coral)','var(--leaf)','var(--lilac)','var(--indigo)','var(--teal)','var(--coral)'];
 const statsOf=()=>Array.isArray(data.settings.stats)?data.settings.stats:DEFAULT_STATS;
+function sidePanel(){
+ const now=NOW.getFullYear()*12+NOW.getMonth()+1;
+ const mo=MONTHS.find(o=>o.y*12+o.m===now)||MONTHS.find(o=>o.y*12+o.m>now)||MONTHS[MONTHS.length-1];
+ const isNow=mo.y*12+mo.m===now;
+ $('sideMonth').innerHTML=`<h3>${isNow?'Tháng này':'Sắp tới'}</h3><span class="m">Tháng ${mo.m}/${mo.y}</span><b>${esc(mo.t)}</b><p>${esc(mo.d)}</p><button type="button" class="chip" style="justify-self:start;cursor:pointer" data-go="${mo.room}">Xem ở ${esc(roomOf(mo.room).name)} →</button>`;
+ const real=data.exhibits.filter(e=>!e.sample),list=(real.length?real:data.exhibits).slice(-4).reverse().map(e=>({...e,roomName:roomOf(e.room).name,c:roomOf(e.room).c}));
+ $('sideNew').innerHTML=`<h3>Mới thêm</h3>${list.length?`<div class="newlist">${list.map((e,i)=>`<button type="button" data-n="${i}" style="--c:${e.c}">${pic(e)}<span><b>${esc(e.name)}</b><small>${esc(e.roomName)}</small></span></button>`).join('')}</div>`:'<p>Chưa có hiện vật.</p>'}`;
+ $('sideNew').querySelectorAll('[data-n]').forEach(b=>b.onclick=()=>openViewer(list,+b.dataset.n));
+ $('sideMonth').querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{location.hash=b.dataset.go});
+}
 function heroCta(){
+ sidePanel();
  $('heroStats').innerHTML=statsOf().filter(s=>s.n).map((s,i)=>`<span style="--c:${STAT_C[i%STAT_C.length]}"><b>${esc(s.n)}</b>${esc(s.l)}</span>`).join('');
  const v=data.settings.introVideo;
  $('heroCta').innerHTML=`<button class="btn sun" id="tourBtn" type="button">▶ Bé đi tham quan</button>${okUrl(v)?`<a class="btn" href="${esc(v)}" target="_blank" rel="noopener">Xem video giới thiệu ↗</a>`:''}`;
@@ -776,12 +816,15 @@ function markTab(){[...$('rooms').children].forEach(b=>b.setAttribute('aria-sele
 function render(){
  const want=(location.hash||'').slice(1)||'loi-vao';
  let r=ROOMS.find(x=>x.id===want)||ROOMS[0];if(r.adminOnly&&!canAdmin&&mode!=='github')r=ROOMS[0];currentId=r.id;markTab();
+ $('layout').classList.toggle('wide',r.kind==='admin');
  main.innerHTML=r.kind==='intro'?intro():r.kind==='exhibits'?exhibitsRoom(r):r.kind==='timeline'?timelineRoom(r):r.kind==='calendar'?calendarRoom(r):r.kind==='guide'?guideRoom():adminRoom();
  if(r.kind==='exhibits'){const items=data.exhibits.filter(e=>e.room===r.id).map(e=>({...e,roomName:r.name,c:r.c}));main.querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>openViewer(items,+b.dataset.i))}
  main.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{location.hash=b.dataset.go});
  if(r.kind==='admin')wireAdmin();
 }
-addEventListener('hashchange',()=>{navTabs();render();document.querySelector('nav').scrollIntoView({block:'start'})});
+addEventListener('hashchange',()=>{navTabs();render();
+ if(innerWidth<=760)$('main').scrollIntoView({block:'start'});
+ else{const t=$('layout').getBoundingClientRect().top+scrollY-12;if(scrollY>t)scrollTo({top:t})}});
 
 /* ---------- viewer ---------- */
 const V=$('viewer');let list=[],pos=0,lastFocus=null;
