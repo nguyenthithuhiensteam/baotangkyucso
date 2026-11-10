@@ -4,9 +4,28 @@
   "room3d": {
    "khoanh-khac": "",
    "tri-an": "",
-   "di-san": ""
+   "di-san": "",
+   "thien-nhien": ""
   },
-  "introVideo": ""
+  "introVideo": "",
+  "stats": [
+   {
+    "n": "3",
+    "l": "Phân hiệu"
+   },
+   {
+    "n": "24",
+    "l": "nhóm, lớp"
+   },
+   {
+    "n": "64",
+    "l": "Cán bộ quản lý, giáo viên, nhân viên"
+   },
+   {
+    "n": "538",
+    "l": "bé học sinh"
+   }
+  ]
  },
  "exhibits": [
   {
@@ -23,6 +42,8 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "photo": "",
+   "photoAlt": "",
    "sample": true
   },
   {
@@ -39,6 +60,8 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "photo": "",
+   "photoAlt": "",
    "sample": true
   },
   {
@@ -55,6 +78,8 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "photo": "",
+   "photoAlt": "",
    "sample": true
   },
   {
@@ -71,6 +96,8 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "photo": "",
+   "photoAlt": "",
    "sample": true
   },
   {
@@ -87,6 +114,8 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "photo": "",
+   "photoAlt": "",
    "sample": true
   },
   {
@@ -103,6 +132,8 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "photo": "",
+   "photoAlt": "",
    "sample": true
   },
   {
@@ -119,6 +150,8 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "photo": "",
+   "photoAlt": "",
    "sample": true
   },
   {
@@ -135,6 +168,8 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "photo": "",
+   "photoAlt": "",
    "sample": true
   },
   {
@@ -151,6 +186,8 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "photo": "",
+   "photoAlt": "",
    "sample": true
   },
   {
@@ -167,6 +204,8 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "photo": "",
+   "photoAlt": "",
    "sample": true
   },
   {
@@ -183,6 +222,8 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "photo": "",
+   "photoAlt": "",
    "sample": true
   },
   {
@@ -199,6 +240,8 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "photo": "",
+   "photoAlt": "",
    "sample": true
   },
   {
@@ -215,6 +258,8 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "photo": "",
+   "photoAlt": "",
    "sample": true
   },
   {
@@ -231,6 +276,8 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "photo": "",
+   "photoAlt": "",
    "sample": true
   },
   {
@@ -247,6 +294,8 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "photo": "",
+   "photoAlt": "",
    "sample": true
   },
   {
