@@ -313,7 +313,7 @@ root.innerHTML=`
   <div class="school">Trường Mầm non Nông Tiến · Tuyên Quang</div>
   <h1><span>Bảo tàng</span> <span>ký ức</span> số</h1>
   <p class="motto">Nơi lưu giữ hành trình lớn khôn và tri ân</p>
-  <div class="stats"><span style="--c:var(--coral)"><b>3</b>điểm trường</span><span style="--c:var(--leaf)"><b>24</b>nhóm, lớp</span><span style="--c:var(--indigo)"><b>526</b>bé</span></div>
+  <div class="stats" id="heroStats"></div>
   <div class="cta" id="heroCta"></div>
  </div>
  <svg class="sun" viewBox="0 0 160 160" aria-hidden="true"><g stroke="var(--turmeric-fill)" stroke-width="9" stroke-linecap="round">${Array.from({length:12},(_,i)=>{const a=i*Math.PI/6,x1=80+Math.cos(a)*52,y1=80+Math.sin(a)*52,x2=80+Math.cos(a)*70,y2=80+Math.sin(a)*70;return `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}"/>`}).join('')}</g><circle cx="80" cy="80" r="40" fill="var(--turmeric-fill)"/><circle cx="66" cy="74" r="5" fill="#3a2a00"/><circle cx="94" cy="74" r="5" fill="#3a2a00"/><path d="M64 90c8 10 24 10 32 0" stroke="#3a2a00" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="58" cy="88" r="6" fill="var(--coral)" opacity=".7"/><circle cx="102" cy="88" r="6" fill="var(--coral)" opacity=".7"/></svg>
@@ -341,7 +341,11 @@ root.innerHTML=`
  </div>
 </div>`;
 
+const DEFAULT_STATS=[{n:'3',l:'điểm trường'},{n:'24',l:'nhóm, lớp'},{n:'',l:'cô giáo'},{n:'526',l:'bé'}];
+const STAT_C=['var(--coral)','var(--leaf)','var(--lilac)','var(--indigo)','var(--teal)','var(--coral)'];
+const statsOf=()=>Array.isArray(data.settings.stats)?data.settings.stats:DEFAULT_STATS;
 function heroCta(){
+ $('heroStats').innerHTML=statsOf().filter(s=>s.n).map((s,i)=>`<span style="--c:${STAT_C[i%STAT_C.length]}"><b>${esc(s.n)}</b>${esc(s.l)}</span>`).join('');
  const v=data.settings.introVideo;
  $('heroCta').innerHTML=`<button class="btn sun" id="tourBtn" type="button">▶ Bé đi tham quan</button>${okUrl(v)?`<a class="btn" href="${esc(v)}" target="_blank" rel="noopener">Xem video giới thiệu ↗</a>`:''}`;
  $('tourBtn').onclick=()=>openViewer(data.exhibits.map(e=>({...e,roomName:roomOf(e.room).name,c:roomOf(e.room).c})),0);
@@ -456,8 +460,8 @@ function adminRoom(){
  if(mode==='github'&&!canAdmin)return loginRoom();
  if(!canAdmin)return `<section class="room"><div class="empty">Khu quản trị chỉ dành cho người được cấp quyền chỉnh sửa trang.</div></section>`;
  const A=isAdmin(), local=mode!=='github';
- const tabs=local?[['exhibits','Hiện vật'],['timeline','Mốc lịch sử'],['links','Phòng 3D & video chung']]
-  :A?[['exhibits','Hiện vật'],['timeline','Mốc lịch sử'],['links','Phòng 3D & video chung'],['pending','Duyệt bài'+(pendingList?` (${pendingList.filter(p=>p.status==='pending').length})`:'')],['users','Tài khoản'],['pw','Đổi mật khẩu']]
+ const tabs=local?[['exhibits','Hiện vật'],['timeline','Mốc lịch sử'],['links','Giới thiệu & link chung']]
+  :A?[['exhibits','Hiện vật'],['timeline','Mốc lịch sử'],['links','Giới thiệu & link chung'],['pending','Duyệt bài'+(pendingList?` (${pendingList.filter(p=>p.status==='pending').length})`:'')],['users','Tài khoản'],['pw','Đổi mật khẩu']]
   :[['exhibits','Hiện vật'],...(me.timeline?[['timeline','Mốc lịch sử']]:[]),['mine','Bài đã gửi'],['pw','Đổi mật khẩu']];
  if(!tabs.some(t=>t[0]===aTab))aTab=tabs[0][0];
  const lead=local||A?`Thêm, sửa, xóa hiện vật và mốc lịch sử; gắn link phòng 3D, video, âm thanh. Thay đổi chỉ hiện với phụ huynh sau khi bấm <b>Lưu lên trang</b>.`
@@ -513,7 +517,9 @@ function adminTimeline(){
  return `<div class="admin-grid"><div class="alist">${list}</div>${form}</div>`;
 }
 function adminLinks(){
- return `<form class="edit" id="lForm" novalidate style="position:static;max-width:720px"><h3>Link dùng chung</h3><p style="margin:0;color:var(--muted);font-size:15px">Mỗi phòng có thể gắn một phòng trưng bày 3D trên Artsteps; nút “Vào phòng trưng bày 3D” hiện ở đầu phòng.</p>
+ return `<form class="edit" id="lForm" novalidate style="position:static;max-width:720px"><h3>Số liệu đầu trang</h3><p style="margin:0;color:var(--muted);font-size:15px">Các con số hiện dưới tên bảo tàng: số điểm trường, phân hiệu, nhóm lớp, cô giáo, học sinh… Để trống ô <b>Số</b> thì dòng đó không hiện.</p>
+ ${[0,1,2,3,4,5].map(i=>{const s=statsOf()[i]||{n:'',l:''};return `<div class="two" style="grid-template-columns:120px 1fr">${fld('st_n_'+i,'Số',s.n,{ph:'VD: 526'})}${fld('st_l_'+i,'Ghi chú',s.l,{ph:'VD: học sinh'})}</div>`}).join('')}
+ <h3 style="margin-top:10px">Link dùng chung</h3><p style="margin:0;color:var(--muted);font-size:15px">Mỗi phòng có thể gắn một phòng trưng bày 3D trên Artsteps; nút “Vào phòng trưng bày 3D” hiện ở đầu phòng.</p>
  ${EXROOMS.map(r=>fld('l_'+r.id,`Phòng ${r.n} · ${r.name}: phòng 3D`,data.settings.room3d[r.id]||'',{url:1,ph:'https://www.artsteps.com/view/…'})).join('')}
  ${fld('l_intro','Video giới thiệu trường (hiện ở đầu trang)',data.settings.introVideo,{url:1,ph:'https://youtu.be/…'})}
  <div><button type="submit" class="btn primary">Đưa vào danh sách</button></div></form>`;
@@ -628,7 +634,9 @@ function wireAdmin(){
   if(teacher()){submitItem('timeline',{...draft},before||null);return}
   const rest=data.timeline.filter(t=>t.id!==draft.id),at=before?rest.findIndex(t=>t.id===before):-1;if(at<0)rest.push({...draft});else rest.splice(at,0,{...draft});data.timeline=rest;draft=null;editId=null;markDirty();render()};
  const lf=$('lForm');if(lf)lf.onsubmit=e=>{e.preventDefault();errors={};checkUrls(EXROOMS.map(r=>'l_'+r.id).concat('l_intro'));if(Object.keys(errors).length){render();return}
-  EXROOMS.forEach(r=>data.settings.room3d[r.id]=val('l_'+r.id));data.settings.introVideo=val('l_intro');markDirty();heroCta();render();setMsg('Đã cập nhật link. Bấm Lưu lên trang để phụ huynh thấy.')};
+  EXROOMS.forEach(r=>data.settings.room3d[r.id]=val('l_'+r.id));data.settings.introVideo=val('l_intro');
+  data.settings.stats=[0,1,2,3,4,5].map(i=>({n:val('st_n_'+i).slice(0,12),l:val('st_l_'+i).slice(0,40)})).filter(s=>s.n||s.l);
+  markDirty();heroCta();render();setMsg('Đã cập nhật. Bấm Lưu lên trang để phụ huynh thấy.')};
  /* duyệt bài */
  const pr=$('pendReload');if(pr)pr.onclick=()=>{pendingList=null;render();loadPending()};
  main.querySelectorAll('[data-ok]').forEach(b=>b.onclick=async()=>{

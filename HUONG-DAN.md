@@ -25,7 +25,7 @@ Khu quản trị: **https://baotang.nguyenhiensteam.vn/#quan-tri**
 | Thêm, sửa hiện vật | Mọi phòng | Chỉ phòng được giao |
 | Xóa hiện vật, mốc | Có | Không |
 | Thêm, sửa mốc lịch sử (Phòng 4) | Có | Khi được bật quyền |
-| Link phòng 3D, video chung | Có | Không |
+| Số liệu đầu trang, link phòng 3D, video chung | Có | Không |
 | Bài lên trang | Ngay khi bấm Lưu | Chờ quản trị duyệt (hoặc đăng thẳng nếu quản trị tắt “cần duyệt”) |
 | Tạo, sửa, khóa, xóa tài khoản | Có | Không |
 | Tự đổi mật khẩu | Có | Có |
@@ -73,6 +73,7 @@ Tên đăng nhập quản trị mặc định là `quantri` (muốn đổi: thê
 **Quản trị:** mở `#quan-tri`, đăng nhập `quantri`.
 - Thẻ **Tài khoản**: tạo tài khoản giáo viên, giao phòng, bật/tắt “cần duyệt”, quyền dòng thời gian; khóa hoặc xóa tài khoản.
 - Thẻ **Duyệt bài**: xem nội dung giáo viên gửi › **Duyệt, đưa lên trang** hoặc **Trả lại** kèm lý do.
+- Thẻ **Giới thiệu & link chung**: sửa các con số đầu trang (điểm trường, phân hiệu, nhóm lớp, cô giáo, học sinh), link phòng 3D, video giới thiệu.
 - Sửa trực tiếp hiện vật, mốc, link › **Lưu lên trang**.
 
 **Giáo viên:** mở `#quan-tri`, đăng nhập bằng tài khoản được cấp › thêm/sửa hiện vật › **Gửi để duyệt**. Theo dõi kết quả ở thẻ **Bài đã gửi**.

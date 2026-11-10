@@ -130,7 +130,9 @@ function cleanData(d) {
   const room3d = {};
   for (const r of ROOMS) { const u = str(s.room3d?.[r], 1000); if (u && !okUrl(u)) throw new HttpErr(400, 'Link phòng 3D phải bắt đầu bằng https://'); room3d[r] = u; }
   const intro = str(s.introVideo, 1000); if (intro && !okUrl(intro)) throw new HttpErr(400, 'Link video phải bắt đầu bằng https://');
-  return { v: 1, settings: { room3d, introVideo: intro }, exhibits: d.exhibits.map(cleanExhibit), timeline: d.timeline.map(cleanTimeline) };
+  const settings = { room3d, introVideo: intro };
+  if (Array.isArray(s.stats)) settings.stats = s.stats.slice(0, 6).map(x => ({ n: str(x?.n, 12), l: str(x?.l, 40) })).filter(x => x.n || x.l);
+  return { v: 1, settings, exhibits: d.exhibits.map(cleanExhibit), timeline: d.timeline.map(cleanTimeline) };
 }
 function applyItem(data, kind, item, beforeId) {
   if (kind === 'exhibit') {
