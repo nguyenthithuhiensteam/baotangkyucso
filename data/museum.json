@@ -423,6 +423,24 @@
    "photo": "anh/a360c06acf695aee8e08.jpg",
    "photoAlt": "https://drive.google.com/drive/folders/1p4LQO6TsVjD2aZWsuMujs6fyJc_RVTka?usp=drive_link",
    "sample": true
+  },
+  {
+   "id": "emwatbp20",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Cây trầu bà đế Vương",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp 25-36 tháng B. Hương Sen",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/folders/1wVIuRyvDAJQs46aongpf2NHhwvSPX6m6?usp=drive_link",
+   "photo": "anh/8ea592bd49cd1f5c39bb.jpg",
+   "photoAlt": "Cây trầu bà đế vương",
+   "sample": false
   }
  ],
  "timeline": [
