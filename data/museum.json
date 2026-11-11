@@ -477,6 +477,24 @@
    "photo": "",
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwaspl6p",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Cây hoa mẫu đơn",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "lớp 3-4 tuổi HS",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/folders/1Jy1NP9vizZetpNaJRa53LJRBHlJrwCpn?usp=drive_link",
+   "photo": "anh/c0c6cfbb97f9b047eb6b.jpg",
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
