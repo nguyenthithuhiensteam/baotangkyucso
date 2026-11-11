@@ -351,6 +351,24 @@
    "photo": "",
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwavto5p",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "https://drive.google.com/drive/folders/1wVIuRyvDAJQs46aongpf2NHhwvSPX6m6?usp=drive_link",
+   "era": "",
+   "plan": "",
+   "from": "Lớp nhà trẻ 24-36 tháng B",
+   "story": "https://drive.google.com/drive/folders/1wVIuRyvDAJQs46aongpf2NHhwvSPX6m6?usp=drive_link",
+   "ask": "",
+   "video": "https://drive.google.com/drive/folders/1wVIuRyvDAJQs46aongpf2NHhwvSPX6m6?usp=drive_link",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/folders/1wVIuRyvDAJQs46aongpf2NHhwvSPX6m6?usp=drive_link",
+   "photo": "anh/4153d8e53ce2343c36eb.jpg",
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
