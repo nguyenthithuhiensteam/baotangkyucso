@@ -138,6 +138,8 @@ function cleanExhibit(x) {
     o[k] = str(x[k], 1000);
     if (o[k] && !okUrl(o[k])) throw new HttpErr(400, 'Link phải bắt đầu bằng https://');
   }
+  o.cls = str(x.cls, 20);
+  if (o.cls && !/^[a-z0-9]{1,20}$/.test(o.cls)) o.cls = '';
   o.photo = str(x.photo, 80);
   if (o.photo && !PHOTO_RE.test(o.photo)) throw new HttpErr(400, 'Đường dẫn ảnh không hợp lệ.');
   o.photoAlt = str(x.photoAlt, 200);
@@ -158,6 +160,9 @@ function cleanData(d) {
   for (const r of ROOMS) { const u = str(s.room3d?.[r], 1000); if (u && !okUrl(u)) throw new HttpErr(400, 'Link phòng 3D phải bắt đầu bằng https://'); room3d[r] = u; }
   const intro = str(s.introVideo, 1000); if (intro && !okUrl(intro)) throw new HttpErr(400, 'Link video phải bắt đầu bằng https://');
   const settings = { room3d, introVideo: intro };
+  if (Array.isArray(s.sites)) settings.sites = s.sites.slice(0, 6).map(x => str(x, 60)).filter(Boolean);
+  if (Array.isArray(s.classes)) settings.classes = s.classes.slice(0, 120).map(c => ({ id: str(c?.id, 20), name: str(c?.name, 60), site: str(c?.site, 60) }))
+    .filter(c => /^[a-z0-9]{1,20}$/.test(c.id) && c.name);
   if (Array.isArray(s.stats)) settings.stats = s.stats.slice(0, 6).map(x => ({ n: str(x?.n, 12), l: str(x?.l, 40) })).filter(x => x.n || x.l);
   return { v: 1, settings, exhibits: d.exhibits.map(cleanExhibit), timeline: d.timeline.map(cleanTimeline) };
 }
