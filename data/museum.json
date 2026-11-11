@@ -513,6 +513,24 @@
    "photo": "",
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwat83uk",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Cây hoa hồng",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp 25-36 tháng B. Hương Sen",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/folders/18vB3JWqRUSmCvdP0ynq-8f81tUBXOcGR?usp=drive_link",
+   "photo": "anh/2b1ca86f1e943e0f030e.jpg",
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
