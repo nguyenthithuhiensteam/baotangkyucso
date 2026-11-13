@@ -138,8 +138,7 @@ function cleanExhibit(x) {
     o[k] = str(x[k], 1000);
     if (o[k] && !okUrl(o[k])) throw new HttpErr(400, 'Link phải bắt đầu bằng https://');
   }
-  o.cls = str(x.cls, 20);
-  if (o.cls && !/^[a-z0-9]{1,20}$/.test(o.cls)) o.cls = '';
+  o.cls = [...new Set((Array.isArray(x.cls) ? x.cls : (x.cls ? [x.cls] : [])).map(c => str(c, 20)).filter(c => /^[a-z0-9]{1,20}$/.test(c)))].slice(0, 30);
   o.photo = str(x.photo, 80);
   if (o.photo && !PHOTO_RE.test(o.photo)) throw new HttpErr(400, 'Đường dẫn ảnh không hợp lệ.');
   o.photoAlt = str(x.photoAlt, 200);

@@ -74,7 +74,8 @@ Tên đăng nhập quản trị mặc định là `quantri` (muốn đổi: thê
 - Thẻ **Tài khoản**: tạo tài khoản giáo viên, giao phòng, bật/tắt “cần duyệt”, quyền dòng thời gian; khóa hoặc xóa tài khoản.
 - Thẻ **Duyệt bài**: xem nội dung giáo viên gửi › **Duyệt, đưa lên trang** hoặc **Trả lại** kèm lý do.
   - **Lọc trùng:** giáo viên gửi lại cùng một hiện vật/mốc khi bài trước còn chờ thì máy chủ tự gộp, chỉ giữ bản mới nhất (ghi “Đã gửi lại n lần”). Nếu **hai người khác nhau** cùng sửa một hiện vật, thẻ Duyệt bài hiện cảnh báo ⚠: duyệt bài sau sẽ ghi đè bài trước.
-- Thẻ **Lớp học**: nhập tên các điểm trường và danh sách lớp (mỗi dòng một lớp) › **Đưa vào danh sách** › **Lưu lên trang**. Khi thêm/sửa hiện vật, chọn **Lớp**; trong mỗi phòng phụ huynh lọc theo điểm trường và lớp.
+- Thẻ **Lớp học**: nhập tên các điểm trường và danh sách lớp (mỗi dòng một lớp) › **Đưa vào danh sách** › **Lưu lên trang**. Khi thêm/sửa hiện vật, tích **một hoặc nhiều lớp** (cây do nhiều lớp cùng chăm thì tích đủ các lớp); trong mỗi phòng phụ huynh lọc theo điểm trường và lớp, tên lớp hiện dưới từng hiện vật.
+  - **Trùng cây:** nếu trong phòng đã có hiện vật cùng tên, ô tên hiện cảnh báo ⚠. Cây riêng của lớp khác: vẫn lưu, nên đặt tên kèm lớp (VD “Cây hoa hồng – lớp A1”). Cùng một cây: sửa hiện vật cũ và tích thêm lớp, không tạo mới.
 - Thẻ **Giới thiệu & link chung**: sửa các con số đầu trang (điểm trường, phân hiệu, nhóm lớp, cô giáo, học sinh), link phòng 3D, video giới thiệu.
 - Sửa trực tiếp hiện vật, mốc, link › **Lưu lên trang**.
 
