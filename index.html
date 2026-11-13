@@ -183,6 +183,10 @@ h3.sub{font-size:26px}
 .box ol,.box ul{margin:0;padding-left:20px;color:var(--muted);font-size:15px}
 .box li{margin-bottom:5px}
 .box.warn{background:var(--wall);box-shadow:none}
+.gsteps ol{display:grid;gap:10px;padding-left:24px;color:var(--ink);font-size:16px}
+.gsteps li>b{display:block}.gsteps li>span{color:var(--muted);font-size:15px}
+.gcard{border-top:8px solid var(--c)}
+.gcard p{margin:0;font-size:15px;color:var(--muted)}.gcard p b{color:var(--ink)}
 .box p{margin:0;color:var(--muted)}
 .guide{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
 code{font-size:13px;background:var(--indigo-soft);padding:1px 6px;border-radius:6px;overflow-wrap:anywhere}
@@ -514,13 +518,49 @@ function calendarRoom(r){
  const c=NOW.getFullYear()*12+NOW.getMonth()+1;
  return `<section class="room" style="--c:${r.c}">${head(r)}<div class="cal">${MONTHS.map(o=>{const k=o.y*12+o.m,s=k<c?'done':k===c?'now':'next';return `<div class="month ${s==='now'?'is-now':''}" style="--mc:${roomOf(o.room).c}"><div class="m"><b>Tháng ${o.m}/${o.y}</b><span class="badge ${s}">${s==='done'?'Đã trưng bày':s==='now'?'Tháng này':'Sắp mở'}</span></div><h4>${o.t}</h4><p>${o.d}</p><button class="chip" style="justify-self:start;cursor:pointer" type="button" data-go="${o.room}">Xem ở ${roomOf(o.room).name} →</button></div>`}).join('')}</div></section>`;
 }
+/* Hướng dẫn giáo viên đăng bài theo từng phòng */
+const RGUIDE={
+ 'khoanh-khac':{what:'Những bước tiến bộ đầu đời của bé: ngày đầu nín khóc, lần đầu tự xúc ăn, tự cài cúc áo, xếp hàng rửa tay.',name:'Lần đầu tự xúc ăn',photo:'Bàn tay bé cầm thìa, bát cơm, đôi dép xếp ngay ngắn; chụp từ phía sau hoặc chỉ thấy tay.'},
+ 'tri-an':{what:'Tranh bé vẽ, bưu thiếp tặng cô, lời chúc ghi âm (dán link Drive), thư cảm ơn của cha mẹ.',name:'Bưu thiếp lá khô tặng cô',photo:'Chụp thẳng sản phẩm (thiệp, tranh) đặt trên nền sáng, đủ ánh sáng, không lóa.'},
+ 'di-san':{what:'Đèn Trung thu, trang phục Tày, Dao, trò chơi dân gian, đồ vật và câu chuyện ông bà kể.',name:'Đèn Trung thu Thành Tuyên',photo:'Chụp đồ vật, trang phục treo hoặc xếp; nếu có bé thì chụp từ xa, không rõ mặt.'},
+ 'thien-nhien':{what:'Mỗi cây quanh trường là một hiện vật: tên cây, lớp trồng và chăm, cây lớn lên thế nào.',name:'Cây hoa hồng – lớp A1',photo:'Một ảnh toàn cây và một ảnh cận lá/hoa. Hằng tháng bấm Sửa để thay ảnh mới, không tạo cây mới.',extra:'Cây do nhiều lớp cùng chăm: tích đủ các lớp. Nếu thấy cảnh báo ⚠ trùng tên: cây riêng của lớp khác thì đặt tên kèm lớp; cùng một cây thì sửa hiện vật cũ.'}
+};
 function guideRoom(){
- return `<section class="room" style="--c:var(--indigo)"><div class="room-head"><span class="eyebrow">Dành cho giáo viên các lớp</span><h2>Đóng góp vào bảo tàng</h2><p>Ảnh, video và giọng nói của trẻ lưu trong thư mục lớp. Trang bảo tàng chung chỉ dùng tranh minh họa, câu chuyện đã viết lại và đường link; không đăng khuôn mặt hay tên đầy đủ của trẻ.</p><span class="src">Căn cứ: Mục II.3 Kế hoạch số 17/KH-MNNT; Quy chế ban hành kèm Quyết định số 24/QĐ-MNNT</span></div>
+ const step=(t,d)=>`<li><b>${t}</b>${d?`<span>${d}</span>`:''}</li>`;
+ const roomCard=r=>{const g=RGUIDE[r.id];return `<div class="box gcard" style="--c:${r.c}"><span class="eyebrow">Phòng ${r.n}</span><h3>${esc(r.name)}</h3>
+  <p><b>Đăng gì:</b> ${g.what}</p><p><b>Tên mẫu:</b> “${g.name}”</p><p><b>Ảnh nên chụp:</b> ${g.photo}</p>${g.extra?`<p><b>Lưu ý:</b> ${g.extra}</p>`:''}
+  <button type="button" class="chip" style="justify-self:start;cursor:pointer" data-go="${r.id}">Xem phòng →</button></div>`};
+ return `<section class="room" style="--c:var(--indigo)"><div class="room-head"><span class="eyebrow">Dành cho giáo viên các lớp</span><h2>Hướng dẫn cô đưa bài lên bảo tàng</h2>
+ <p>Mỗi cô dùng tài khoản do quản trị nhà trường cấp, chỉ đăng được vào các phòng được giao. Bài gửi lên sẽ được quản trị duyệt rồi mới hiện cho phụ huynh xem.</p>
+ <div class="cta"><a class="btn primary" href="#quan-tri">Đăng nhập Khu quản trị →</a></div></div>
+
+ <div class="box gsteps"><h3>7 bước đăng một bài</h3><ol>
+  ${step('Đăng nhập','Mở <code>baotang.nguyenhiensteam.vn/#quan-tri</code>, nhập tên đăng nhập và mật khẩu được cấp. Lần đầu trong ngày có thể chờ khoảng 1 phút để máy chủ khởi động.')}
+  ${step('Bấm thẻ Hiện vật › + Thêm hiện vật','Muốn sửa bài cũ thì bấm <b>Sửa</b> ở bài đó.')}
+  ${step('Chọn Phòng và Lớp','Ô Phòng chỉ có các phòng cô được giao. Tích lớp của mình; cây hoặc sản phẩm của nhiều lớp thì tích đủ các lớp.')}
+  ${step('Viết nội dung','Tên hiện vật, hoạt động, thời gian, câu chuyện 2–4 câu (bé làm gì, tiến bộ ra sao) và câu “Cô hỏi bé”.')}
+  ${step('Thêm ảnh','Bấm <b>Chọn tệp</b> ở ô Ảnh thật, chọn ảnh trong máy hoặc điện thoại; ảnh tự thu nhỏ. Không có ảnh thì chọn một hình minh họa.')}
+  ${step('Dán link (nếu có)','Video, ghi âm lời chúc, thư mục lớp trên Drive. Link phải bắt đầu bằng <code>https://</code>.')}
+  ${step('Bấm Gửi để duyệt','Theo dõi ở thẻ <b>Bài đã gửi</b>: Chờ duyệt › Đã duyệt (hiện trên trang sau khoảng 1 phút) hoặc Bị trả lại kèm lý do. Gửi lại cùng một bài khi còn chờ duyệt thì máy tự gộp, chỉ giữ bản mới nhất.')}
+ </ol></div>
+
+ <h3 class="sub">Mỗi phòng đăng gì</h3>
+ <div class="guide">${EXROOMS.map(roomCard).join('')}
+  <div class="box gcard" style="--c:var(--indigo)"><span class="eyebrow">Phòng 4</span><h3>Hành trình của trường</h3>
+   <p><b>Ai đăng:</b> chỉ cô được quản trị bật quyền dòng thời gian, ở thẻ <b>Mốc lịch sử</b>.</p><p><b>Ghi gì:</b> thời gian, tên sự kiện, 1–2 câu nội dung và nguồn (số quyết định, báo cáo).</p>
+   <button type="button" class="chip" style="justify-self:start;cursor:pointer" data-go="hanh-trinh">Xem phòng →</button></div>
+  <div class="box gcard" style="--c:var(--lilac)"><span class="eyebrow">Phòng 5</span><h3>Lịch trưng bày năm học</h3>
+   <p>Phòng này không cần đăng bài. Cô xem chủ đề của tháng để chọn 3–5 khoảnh khắc tiêu biểu của lớp đưa lên các phòng 1, 2, 3, 6.</p>
+   <button type="button" class="chip" style="justify-self:start;cursor:pointer" data-go="lich">Xem phòng →</button></div>
+ </div>
+
  <div class="guide">
-  <div class="box"><h3>Cách lưu tư liệu</h3><ol><li>Dùng tài khoản tổ chức của trường, mở thư mục <code>Bảo tàng ký ức số / [Tên lớp]</code>.</li><li>Tạo 3 thư mục con: <code>1 Khoảnh khắc diệu kỳ</code>, <code>2 Lời tri ân thơ ngây</code>, <code>3 Di sản lớp tôi</code>.</li><li>Đặt tên tệp theo mẫu <code>2026-11-14_TriAn_BuuThiep.jpg</code>.</li><li>Mỗi tư liệu kèm 2–3 câu: bé làm gì, trong hoạt động nào, tiến bộ ra sao.</li><li>Cuối tháng chọn 3–5 tư liệu tiêu biểu gửi Phó Hiệu trưởng phụ trách để đưa lên trang chung.</li></ol></div>
-  <div class="box"><h3>Gắn phòng 3D, video, âm thanh</h3><ul><li><b>Phòng 3D:</b> dựng trên Artsteps (artsteps.com), sao chép link phòng.</li><li><b>Video:</b> YouTube chế độ “Không công khai”, hoặc tệp trên Drive tổ chức.</li><li><b>Âm thanh thuyết minh:</b> tệp mp3 trên Drive.</li><li>Gửi link cho người quản trị để gắn vào hiện vật. Link phải bắt đầu bằng <code>https://</code>.</li></ul></div>
-  <div class="box warn"><h3>An toàn dữ liệu của trẻ</h3><ul><li>Chỉ dùng ảnh, giọng nói của trẻ đã có Phiếu đồng thuận của cha mẹ.</li><li>Video, ghi âm có mặt hoặc giọng trẻ: để trên Drive tổ chức, chia sẻ nội bộ; không đăng YouTube công khai.</li><li>Không dán mã QR dẫn tới hình ảnh trẻ tại bảng tin nơi công cộng.</li><li>Không tải khuôn mặt, giọng nói của trẻ lên nền tảng AI công cộng.</li></ul></div>
- </div></section>`;
+  <div class="box"><h3>Viết bài hay</h3><ul><li>Tên ngắn, gọi đúng sự vật: “Bé tự cài cúc áo”.</li><li>Câu chuyện kể việc bé làm, không khen chung chung.</li><li>Ghi lớp, không ghi họ tên đầy đủ của trẻ.</li><li>Câu “Cô hỏi bé” để cha mẹ hỏi con ở nhà.</li><li>Kiểm tra chính tả trước khi gửi.</li></ul></div>
+  <div class="box warn"><h3>An toàn hình ảnh của trẻ</h3><ul><li>Trang bảo tàng là công khai: ảnh đã đăng ai cũng xem được.</li><li>Ưu tiên ảnh sản phẩm, đồ vật, cây; ảnh có trẻ thì chụp từ phía sau hoặc từ xa.</li><li>Ảnh rõ mặt trẻ chỉ đăng khi có Phiếu đồng thuận của cha mẹ.</li><li>Video, ghi âm giọng trẻ: để trên Drive của trường, chỉ dán link.</li><li>Không tải khuôn mặt, giọng nói của trẻ lên nền tảng AI công cộng.</li></ul></div>
+  <div class="box"><h3>Khi gặp lỗi</h3><ul><li><b>Không kết nối được máy chủ:</b> chờ 1 phút rồi thử lại.</li><li><b>Không thấy phòng cần đăng:</b> nhờ quản trị giao thêm phòng.</li><li><b>Không chọn được ảnh iPhone:</b> chọn ngay trên điện thoại hoặc đổi sang JPG.</li><li><b>Hiện cảnh báo ⚠ trùng tên:</b> xem lại mục Phòng 6 ở trên.</li><li><b>Quên mật khẩu:</b> nhờ quản trị đặt lại; đăng nhập xong vào thẻ Đổi mật khẩu.</li></ul></div>
+ </div>
+ <span class="src">Căn cứ: Mục II.3 Kế hoạch số 17/KH-MNNT; Quy chế ban hành kèm Quyết định số 24/QĐ-MNNT</span>
+ </section>`;
 }
 
 /* ---------- máy chủ quản trị (giữ mã GitHub, kiểm tra quyền) ---------- */
