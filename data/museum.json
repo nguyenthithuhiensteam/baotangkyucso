@@ -1047,35 +1047,75 @@
  ],
  "timeline": [
   {
+   "id": "t7",
+   "when": "21/9/1991",
+   "title": "Thành lập Trường Mầm non Hương Sen",
+   "text": "Trường được thành lập trên cơ sở nhà trẻ, lớp mẫu giáo thuộc Xí nghiệp Xi măng; nay là phân hiệu Hương Sen.",
+   "ref": "Quyết định số 204/TCCB ngày 21/9/1991; Chiến lược phát triển nhà trường giai đoạn 2026–2030, tầm nhìn đến năm 2045",
+   "todo": ""
+  },
+  {
    "id": "t1",
-   "when": "1991 hoặc 1993",
+   "when": "01/9/1993",
    "title": "Thành lập Trường Mầm non Nông Tiến",
-   "text": "Trường đặt tại tổ dân phố 6, phường Nông Tiến, gần nhà các bé.",
-   "ref": "Báo cáo thường niên số 02/2026",
-   "todo": "Báo cáo ghi hai năm khác nhau: mục 6 ghi năm 1991, phần hồ sơ pháp lý ghi QĐ 539/TCCB ngày 01/9/1993. Nhà trường thống nhất một mốc trước khi công bố."
+   "text": "Trường đặt tại tổ dân phố 6, phường Nông Tiến, gần nhà các bé; nay là trường chính.",
+   "ref": "Quyết định số 539/SGD ĐT ngày 01/9/1993 của Sở Giáo dục và Đào tạo; Chiến lược phát triển nhà trường giai đoạn 2026–2030, tầm nhìn đến năm 2045",
+   "todo": ""
+  },
+  {
+   "id": "t8",
+   "when": "Thành lập",
+   "title": "Thành lập Trường Mầm non Tràng Đà",
+   "text": "Trường mầm non của xã Tràng Đà; nay là phân hiệu Tràng Đà.",
+   "ref": "Chiến lược phát triển nhà trường giai đoạn 2026–2030, tầm nhìn đến năm 2045",
+   "todo": "Chiến lược ghi Trường Tràng Đà thành lập theo Quyết định số 539/SGD ĐT ngày 01/9/1993, trùng với Trường Nông Tiến. Nhà trường kiểm tra lại số, ngày quyết định thành lập trước khi công bố."
   },
   {
    "id": "t2",
    "when": "Nhiều năm liên tục",
    "title": "Tập thể lao động xuất sắc",
    "text": "Nhiều năm đạt danh hiệu Tập thể lao động tiên tiến, xuất sắc; nhận Giấy khen của UBND phường, UBND tỉnh và Bằng khen của Bộ Giáo dục và Đào tạo.",
-   "ref": "Báo cáo thường niên số 02/2026",
+   "ref": "Báo cáo thường niên số 02/2026; Chiến lược phát triển nhà trường giai đoạn 2026–2030, tầm nhìn đến năm 2045",
    "todo": "Bổ sung năm nhận Bằng khen của Bộ và ảnh tư liệu."
   },
   {
+   "id": "t9",
+   "when": "25/3/2021",
+   "title": "Phân hiệu Hương Sen đạt chuẩn quốc gia mức độ 1",
+   "text": "Trường Mầm non Hương Sen được công nhận đạt chuẩn quốc gia mức độ 1; là đơn vị đi đầu về chuyển đổi số, giáo dục STEAM, nơi hình thành hệ giá trị “Tâm – Thân – Tuệ”.",
+   "ref": "Quyết định số 229/QĐ-UBND ngày 25/3/2021 của UBND tỉnh; Chiến lược phát triển nhà trường giai đoạn 2026–2030, tầm nhìn đến năm 2045",
+   "todo": ""
+  },
+  {
+   "id": "t10",
+   "when": "Năm 2023",
+   "title": "Phân hiệu Tràng Đà đạt chuẩn quốc gia mức độ 1",
+   "text": "Trường Mầm non Tràng Đà đạt chuẩn quốc gia mức độ 1, kiểm định chất lượng giáo dục cấp độ 2; có sáng kiến được nhân rộng tới nhiều trường trong tỉnh.",
+   "ref": "Chiến lược phát triển nhà trường giai đoạn 2026–2030, tầm nhìn đến năm 2045",
+   "todo": ""
+  },
+  {
    "id": "t3",
-   "when": "Chuẩn quốc gia",
-   "title": "Trường chuẩn quốc gia mức độ 2",
-   "text": "Trường đạt kiểm định chất lượng cấp độ 3 và chuẩn quốc gia mức độ 2; năm học 2026–2027 tiếp tục duy trì, giữ vững.",
-   "ref": "Báo cáo thường niên số 02/2026",
-   "todo": "Bổ sung năm được công nhận."
+   "when": "11/2024",
+   "title": "Chuẩn quốc gia mức độ 2, kiểm định chất lượng cấp độ 3",
+   "text": "Trường Mầm non Nông Tiến đạt kiểm định chất lượng giáo dục cấp độ 3 và được công nhận trường chuẩn quốc gia mức độ 2.",
+   "ref": "Quyết định số 1491/QĐ-SGDĐT ngày 21/11/2024; Quyết định số 1302/QĐ-UBND ngày 28/11/2024 của UBND tỉnh",
+   "todo": ""
+  },
+  {
+   "id": "t11",
+   "when": "Năm 2025",
+   "title": "Hoàn thành xuất sắc nhiệm vụ, dẫn đầu chuyển đổi số",
+   "text": "Tập thể được đánh giá Hoàn thành xuất sắc nhiệm vụ. Kho học liệu số trên 500 sản phẩm, phòng STEAM Lab từ vật liệu sẵn có; 02 sản phẩm dự thi cấp tỉnh về trí tuệ nhân tạo trong giáo dục; 01 cán bộ quản lý đạt giải thưởng “Lãnh đạo chuyển đổi số xuất sắc”.",
+   "ref": "Chiến lược phát triển nhà trường giai đoạn 2026–2030, tầm nhìn đến năm 2045",
+   "todo": ""
   },
   {
    "id": "t4",
    "when": "13/8/2026",
-   "title": "Sáp nhập Trường Mầm non Tràng Đà",
-   "text": "Trường tổ chức lại gồm trường chính và hai phân hiệu Tràng Đà, Hương Sen: 3 điểm trường, 24 nhóm lớp, 526 học sinh.",
-   "ref": "Quyết định số 83/QĐ-UBND phường Nông Tiến",
+   "title": "Ba trường về chung một nhà",
+   "text": "Trường Mầm non Nông Tiến được tổ chức lại từ ngày 01/9/2026 trên cơ sở sắp xếp 03 trường Nông Tiến, Tràng Đà, Hương Sen: trường chính và hai phân hiệu Tràng Đà, Hương Sen, 24 nhóm lớp.",
+   "ref": "Quyết định số 83/QĐ-UBND ngày 13/8/2026 của UBND phường Nông Tiến",
    "todo": ""
   },
   {
@@ -1087,11 +1127,43 @@
    "todo": ""
   },
   {
+   "id": "t12",
+   "when": "18/10/2026",
+   "title": "Chiến lược phát triển nhà trường đến năm 2030, tầm nhìn 2045",
+   "text": "Sứ mạng: nuôi dưỡng, chăm sóc, giáo dục mỗi trẻ phát triển toàn diện Tâm – Thân – Tuệ trong môi trường an toàn, hạnh phúc, công bằng, cùng gia đình và cộng đồng. Giá trị cốt lõi: TÂM – THÂN – TUỆ.",
+   "ref": "Chiến lược phát triển nhà trường giai đoạn 2026–2030, tầm nhìn đến năm 2045",
+   "todo": ""
+  },
+  {
    "id": "t6",
    "when": "20/11/2026",
    "title": "Trường học hạnh phúc – Xanh, Sạch, Số",
    "text": "Chào mừng 44 năm Ngày Nhà giáo Việt Nam; Tọa đàm ngày 15/11 trình chiếu những khoảnh khắc đẹp từ Bảo tàng ký ức số.",
    "ref": "Kế hoạch số 17/KH-MNNT",
+   "todo": ""
+  },
+  {
+   "id": "t13",
+   "when": "Mục tiêu 2027",
+   "title": "Hoàn thành phổ cập giáo dục mầm non 3 – 5 tuổi",
+   "text": "Ban hành chương trình giáo dục nhà trường thống nhất, có bản sắc; cả 3 điểm trường có phòng thư viện – tin học, phòng STEAM – đa năng.",
+   "ref": "Chiến lược phát triển nhà trường giai đoạn 2026–2030, tầm nhìn đến năm 2045",
+   "todo": ""
+  },
+  {
+   "id": "t14",
+   "when": "Mục tiêu 2029 – 2030",
+   "title": "Toàn trường chuẩn quốc gia mức độ 2",
+   "text": "Cả trường chính và hai phân hiệu đạt chuẩn quốc gia mức độ 2, kiểm định chất lượng giáo dục cấp độ 3; xây dựng phòng truyền thống của nhà trường.",
+   "ref": "Chiến lược phát triển nhà trường giai đoạn 2026–2030, tầm nhìn đến năm 2045",
+   "todo": ""
+  },
+  {
+   "id": "t15",
+   "when": "Tầm nhìn 2045",
+   "title": "Trường mầm non hạnh phúc tiêu biểu của tỉnh",
+   "text": "Mọi trẻ em trong độ tuổi trên địa bàn phường có nhu cầu đều được chăm sóc, giáo dục để phát triển toàn diện “Tâm – Thân – Tuệ”; là địa chỉ tin cậy để các trường mầm non trong tỉnh học tập, chia sẻ.",
+   "ref": "Chiến lược phát triển nhà trường giai đoạn 2026–2030, tầm nhìn đến năm 2045",
    "todo": ""
   }
  ]
