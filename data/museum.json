@@ -680,13 +680,15 @@
    "audio": "",
    "link3d": "",
    "drive": "https://drive.google.com/drive/folders/1p4LQO6TsVjD2aZWsuMujs6fyJc_RVTka?usp=drive_link",
-   "cls": [],
+   "cls": [
+    "l6c9ea7"
+   ],
    "tc": [],
    "keeper": "",
    "her": "",
    "photo": "anh/a360c06acf695aee8e08.jpg",
-   "photoAlt": "https://drive.google.com/drive/folders/1p4LQO6TsVjD2aZWsuMujs6fyJc_RVTka?usp=drive_link",
-   "sample": true
+   "photoAlt": "Thu hải đường",
+   "sample": false
   },
   {
    "id": "emwbe65qt",
