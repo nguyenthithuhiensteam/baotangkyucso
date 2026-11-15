@@ -1070,11 +1070,11 @@
   },
   {
    "id": "emwht2m2b",
-   "room": "khoanh-khac",
+   "room": "thien-nhien",
    "art": "sach",
    "name": "Cây nhài nhật",
    "era": "",
-   "plan": "",
+   "plan": "Phong trào cây xanh",
    "from": "",
    "story": "",
    "ask": "",
@@ -1082,7 +1082,9 @@
    "audio": "",
    "link3d": "",
    "drive": "https://drive.google.com/drive/folders/1x6DbkjkZBa3k768MEIjRyp_DHYSmFreB?usp=drive_link",
-   "cls": [],
+   "cls": [
+    "l19ca8e"
+   ],
    "tc": [],
    "keeper": "",
    "her": "",
