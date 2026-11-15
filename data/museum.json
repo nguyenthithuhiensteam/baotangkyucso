@@ -8,24 +8,6 @@
    "thien-nhien": ""
   },
   "introVideo": "",
-  "stats": [
-   {
-    "n": "3",
-    "l": "Phân hiệu"
-   },
-   {
-    "n": "24",
-    "l": "nhóm, lớp"
-   },
-   {
-    "n": "64",
-    "l": "Cán bộ quản lý, giáo viên, nhân viên"
-   },
-   {
-    "n": "538",
-    "l": "bé học sinh"
-   }
-  ],
   "sites": [
    "Trường chính",
    "Phân hiệu Tràng Đà",
@@ -189,6 +171,24 @@
     "kind": "di tích lịch sử",
     "confirm": ""
    }
+  ],
+  "stats": [
+   {
+    "n": "3",
+    "l": "Phân hiệu"
+   },
+   {
+    "n": "24",
+    "l": "nhóm, lớp"
+   },
+   {
+    "n": "64",
+    "l": "Cán bộ quản lý, giáo viên, nhân viên"
+   },
+   {
+    "n": "538",
+    "l": "bé học sinh"
+   }
   ]
  },
  "exhibits": [
@@ -206,6 +206,10 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "anh/7bee5756a35622d1e9f4.jpg",
    "photoAlt": "Bé cùng vui hội trăng rằm",
    "sample": false
@@ -224,6 +228,10 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "",
    "photoAlt": "",
    "sample": true
@@ -242,6 +250,10 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "",
    "photoAlt": "",
    "sample": true
@@ -260,6 +272,10 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "",
    "photoAlt": "",
    "sample": true
@@ -278,6 +294,10 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "",
    "photoAlt": "",
    "sample": true
@@ -296,6 +316,10 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "",
    "photoAlt": "",
    "sample": true
@@ -314,6 +338,10 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "",
    "photoAlt": "",
    "sample": true
@@ -332,6 +360,10 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "",
    "photoAlt": "",
    "sample": true
@@ -350,6 +382,10 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "",
    "photoAlt": "",
    "sample": true
@@ -357,17 +393,21 @@
   {
    "id": "e10",
    "room": "di-san",
-   "art": "den",
+   "art": "thiep",
    "name": "Đèn Trung thu Thành Tuyên",
    "era": "Tháng 9/2026",
    "plan": "Lễ hội Thành Tuyên",
    "from": "Toàn trường, phối hợp cha mẹ trẻ",
-   "story": "Cô, bé và bố mẹ cùng làm đèn từ tre, giấy bóng kính và vật liệu tái chế. Mỗi lớp rước một chiếc đèn mang hình con vật mà các bé chọn.",
-   "ask": "Đèn của lớp mình hình con gì? Làm bằng những gì?",
+   "story": "Nhân kỷ niệm ngày nhà giáo Việt Nam 20/11 cả lớp 4-5 tuổi B1 trường chính làm giỏ hoa tặng cô giáo",
+   "ask": "Giỏ hoa của lớp mình làm bằng những gì?",
    "video": "",
    "audio": "",
    "link3d": "",
-   "drive": "",
+   "drive": "https://drive.google.com/file/d/14TDXKppZ9HvoP8yL2cS75CcgOVmVFtnp/view?usp=drive_link",
+   "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "",
    "photoAlt": "",
    "sample": true
@@ -386,6 +426,10 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "",
    "photoAlt": "",
    "sample": true
@@ -404,6 +448,10 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "",
    "photoAlt": "",
    "sample": true
@@ -422,6 +470,10 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "",
    "photoAlt": "",
    "sample": true
@@ -440,6 +492,10 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "",
    "photoAlt": "",
    "sample": true
@@ -458,6 +514,10 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "",
    "photoAlt": "",
    "sample": true
@@ -476,6 +536,10 @@
    "audio": "",
    "link3d": "",
    "drive": "https://drive.google.com/drive/folders/1A241CauBB69SnX9EeeM-OA276FzohJUD?usp=drive_link",
+   "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "anh/bd582e1a8795f8a876c2.jpg",
    "photoAlt": "",
    "sample": false
@@ -494,6 +558,10 @@
    "audio": "",
    "link3d": "",
    "drive": "https://drive.google.com/drive/folders/1nP6oWNKBGs8Hfrxnzitj8pKT_AA8M1YL?usp=sharing",
+   "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "anh/04e868c87879361e5c9a.jpg",
    "photoAlt": "",
    "sample": false
@@ -512,6 +580,10 @@
    "audio": "",
    "link3d": "",
    "drive": "https://drive.google.com/file/d/1LGDtv3myapJL2T1QhPus3swLLTTI6o7v/view?usp=drive_link",
+   "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "",
    "photoAlt": "",
    "sample": false
@@ -530,6 +602,10 @@
    "audio": "",
    "link3d": "",
    "drive": "https://drive.google.com/drive/folders/1wVIuRyvDAJQs46aongpf2NHhwvSPX6m6?usp=drive_link",
+   "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "anh/4153d8e53ce2343c36eb.jpg",
    "photoAlt": "",
    "sample": false
@@ -548,6 +624,10 @@
    "audio": "",
    "link3d": "",
    "drive": "https://drive.google.com/drive/folders/1Do30TvBZN4Syf8O1Pz7q4Us6pUD1cKuY?usp=drive_link",
+   "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "anh/92de54fe2b35726c9a4d.jpg",
    "photoAlt": "Cây cô tòng",
    "sample": false
@@ -566,6 +646,10 @@
    "audio": "",
    "link3d": "",
    "drive": "https://drive.google.com/drive/folders/1hhZcNg9TeT34yHzfAI24yQbkA0EFJsz8?usp=drive_link",
+   "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "anh/68b619bcecae20dd97da.jpg",
    "photoAlt": "",
    "sample": false
@@ -584,6 +668,10 @@
    "audio": "",
    "link3d": "",
    "drive": "https://drive.google.com/drive/folders/1p4LQO6TsVjD2aZWsuMujs6fyJc_RVTka?usp=drive_link",
+   "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "anh/a360c06acf695aee8e08.jpg",
    "photoAlt": "https://drive.google.com/drive/folders/1p4LQO6TsVjD2aZWsuMujs6fyJc_RVTka?usp=drive_link",
    "sample": true
@@ -602,6 +690,10 @@
    "audio": "",
    "link3d": "",
    "drive": "",
+   "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "",
    "photoAlt": "",
    "sample": false
@@ -620,6 +712,10 @@
    "audio": "",
    "link3d": "",
    "drive": "https://drive.google.com/drive/folders/1Jy1NP9vizZetpNaJRa53LJRBHlJrwCpn?usp=drive_link",
+   "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "anh/c0c6cfbb97f9b047eb6b.jpg",
    "photoAlt": "Cây hoa mẫu đơn",
    "sample": false
@@ -638,6 +734,10 @@
    "audio": "",
    "link3d": "",
    "drive": "https://drive.google.com/drive/folders/19AMKsGCOVxB-24u1iGsAlrYCvK9SxbRU?usp=drive_link",
+   "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "",
    "photoAlt": "",
    "sample": false
@@ -656,6 +756,10 @@
    "audio": "",
    "link3d": "",
    "drive": "https://drive.google.com/drive/folders/18vB3JWqRUSmCvdP0ynq-8f81tUBXOcGR?usp=drive_link",
+   "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "anh/2b1ca86f1e943e0f030e.jpg",
    "photoAlt": "Cây hoa hồng",
    "sample": false
@@ -674,6 +778,10 @@
    "audio": "",
    "link3d": "",
    "drive": "https://drive.google.com/drive/folders/1FDjP0vTeLKGOvwAiWXnknx1CLzSGPguv?usp=drive_link",
+   "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "anh/15328e61411be42fe844.jpg",
    "photoAlt": "Cây nguyệt quế",
    "sample": false
@@ -693,6 +801,9 @@
    "link3d": "",
    "drive": "https://drive.google.com/drive/folders/1X4_elNj7oGytzoFqoCj21juQtg_MXlYf",
    "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "",
    "photoAlt": "",
    "sample": false
@@ -712,6 +823,9 @@
    "link3d": "",
    "drive": "https://drive.google.com/drive/folders/1ve6bqNs76stdhLHgz9nqGAVUo0ok21Wq",
    "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "anh/563ef6fbf81e319f32dc.jpg",
    "photoAlt": "",
    "sample": false
@@ -731,6 +845,9 @@
    "link3d": "",
    "drive": "https://drive.google.com/drive/folders/1TT3jS40zTX6YpklK2GHnMH-pE97pOIyj",
    "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "anh/294edef65f658dec254a.jpg",
    "photoAlt": "",
    "sample": false
@@ -750,6 +867,9 @@
    "link3d": "",
    "drive": "https://drive.google.com/drive/folders/1AnYAxxsRtj4XHvCFSTjH6-eQFAZ--ACt",
    "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "anh/402c4ddded9f032b5e58.jpg",
    "photoAlt": "",
    "sample": false
@@ -769,6 +889,9 @@
    "link3d": "",
    "drive": "",
    "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "anh/97eb741c06e71903bcfd.jpg",
    "photoAlt": "Làm thịêp tặng cô ngày 20/11",
    "sample": false
@@ -788,6 +911,9 @@
    "link3d": "",
    "drive": "https://drive.google.com/drive/folders/1AnYAxxsRtj4XHvCFSTjH6-eQFAZ--ACt",
    "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "anh/d987a2f82a4c7c517320.jpg",
    "photoAlt": "",
    "sample": false
@@ -807,6 +933,9 @@
    "link3d": "",
    "drive": "https://drive.google.com/drive/folders/1TT3jS40zTX6YpklK2GHnMH-pE97pOIyj",
    "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "anh/30c8fed62e7d1ea30500.jpg",
    "photoAlt": "Làm thịêp tặng cô ngày 20/11",
    "sample": false
@@ -826,6 +955,9 @@
    "link3d": "",
    "drive": "https://drive.google.com/drive/folders/1ve6bqNs76stdhLHgz9nqGAVUo0ok21Wq",
    "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "anh/1c7c2ec59f549dafdb01.jpg",
    "photoAlt": "Bắt tay (Hand shak)",
    "sample": false
@@ -845,6 +977,9 @@
    "link3d": "",
    "drive": "https://drive.google.com/drive/folders/1X4_elNj7oGytzoFqoCj21juQtg_MXlYf",
    "cls": [],
+   "tc": [],
+   "keeper": "",
+   "her": "",
    "photo": "",
    "photoAlt": "",
    "sample": false
