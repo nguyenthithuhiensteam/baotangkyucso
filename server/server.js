@@ -139,6 +139,10 @@ function cleanExhibit(x) {
     if (o[k] && !okUrl(o[k])) throw new HttpErr(400, 'Link phải bắt đầu bằng https://');
   }
   o.cls = [...new Set((Array.isArray(x.cls) ? x.cls : (x.cls ? [x.cls] : [])).map(c => str(c, 20)).filter(c => /^[a-z0-9]{1,20}$/.test(c)))].slice(0, 30);
+  const TC_OK = ['TC1', 'TC2', 'TC3', 'TC4', 'TC5', 'TC6', 'TC7', 'TC8', 'TC9', 'MR1', 'MR2'];
+  o.tc = [...new Set((Array.isArray(x.tc) ? x.tc : []).map(c => str(c, 4)).filter(c => TC_OK.includes(c)))];
+  o.keeper = ['Cha mẹ', 'Ông bà', 'Nghệ nhân', 'Người có uy tín', 'Cán bộ văn hóa'].includes(x.keeper) ? x.keeper : '';
+  o.her = /^[a-z0-9]{1,20}$/.test(str(x.her, 20)) ? str(x.her, 20) : '';
   o.photo = str(x.photo, 80);
   if (o.photo && !PHOTO_RE.test(o.photo)) throw new HttpErr(400, 'Đường dẫn ảnh không hợp lệ.');
   o.photoAlt = str(x.photoAlt, 200);
@@ -162,6 +166,8 @@ function cleanData(d) {
   if (Array.isArray(s.sites)) settings.sites = s.sites.slice(0, 6).map(x => str(x, 60)).filter(Boolean);
   if (Array.isArray(s.classes)) settings.classes = s.classes.slice(0, 120).map(c => ({ id: str(c?.id, 20), name: str(c?.name, 60), site: str(c?.site, 60) }))
     .filter(c => /^[a-z0-9]{1,20}$/.test(c.id) && c.name);
+  if (Array.isArray(s.heritage)) settings.heritage = s.heritage.slice(0, 60).map(h => ({ id: str(h?.id, 20), site: str(h?.site, 60), name: str(h?.name, 100), kind: str(h?.kind, 100), confirm: str(h?.confirm, 100) }))
+    .filter(h => /^[a-z0-9]{1,20}$/.test(h.id) && h.name);
   if (Array.isArray(s.stats)) settings.stats = s.stats.slice(0, 6).map(x => ({ n: str(x?.n, 12), l: str(x?.l, 40) })).filter(x => x.n || x.l);
   return { v: 1, settings, exhibits: d.exhibits.map(cleanExhibit), timeline: d.timeline.map(cleanTimeline) };
 }

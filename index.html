@@ -288,6 +288,16 @@ h3.fsel{font-size:22px}h3.fsel small{font-size:14px;color:var(--muted);font-fami
 .toplist b{font-size:14px}.toplist small{color:var(--muted);font-size:12px}
 .toplist .bar{height:8px;border-radius:8px;background:var(--leaf)}
 #sideTop:empty{display:none}
+.tcrow{display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
+.tcchip{display:inline-block;font-size:11px;font-weight:800;color:var(--ink);background:color-mix(in srgb,var(--p) 22%,var(--frame));border:1.5px solid var(--p);border-radius:6px;padding:0 5px;line-height:17px}
+.chang{display:block;font-size:13px;font-weight:700;color:var(--ink);background:color-mix(in srgb,var(--turmeric-fill) 25%,var(--frame));border-radius:10px;padding:4px 8px}
+.skknbox{display:grid;gap:6px}
+.skkn{display:grid;gap:16px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.kpis div{background:var(--wall);border-radius:14px;padding:10px;display:grid;gap:2px}
+.kpis b{font-family:var(--f-display);font-size:26px;color:var(--indigo)}.kpis span{font-size:13px;color:var(--muted);font-weight:700}
+.ctable td.ok{color:var(--now);font-weight:800}.ctable td.low{color:var(--danger);font-weight:800}
+.hmap ul{list-style:none;padding:0;display:grid;gap:8px}.hmap li b{color:var(--ink)}.hmap li small{color:var(--muted)}.hmap li span{display:block;font-size:13px}
 .clsgrp{display:grid;gap:4px;margin-top:6px}.clsgrp>b{font-size:14px;color:var(--muted)}
 .clsopts{display:flex;flex-wrap:wrap;gap:4px 16px}
 .dupwarn{color:var(--turmeric);font-weight:700;font-size:14px}.dupwarn:empty{display:none}
@@ -402,6 +412,7 @@ const MONTHS=[
  {y:2026,m:10,t:"Thực hành kỹ năng PCCC, thoát hiểm",d:"Gắn với ngày truyền thống PCCC 4/10, phối hợp Công an phường.",room:"khoanh-khac"},
  {y:2026,m:11,t:"Ngày hội dinh dưỡng · Ngày hội văn hóa Việt Nam · 20/11",d:"Bé tự phục vụ, trang phục và trò chơi dân gian, lời tri ân tặng cô.",room:"tri-an"},
  {y:2026,m:12,t:"Bé làm quen môi trường số an toàn · Bé tập làm chú bộ đội",d:"Kỹ năng số phù hợp độ tuổi; lòng biết ơn, vận động.",room:"khoanh-khac"},
+ {y:2027,m:1,t:"Chuẩn bị Tết · Bé với bạn các dân tộc",d:"Chào hỏi, trò chơi, trang phục của bạn các dân tộc; đón Tết cùng gia đình.",room:"di-san"},
  {y:2027,m:2,t:"Tết và mùa xuân",d:"Phong tục, món ăn, trò chơi ngày Tết cùng cha mẹ và cộng đồng.",room:"di-san"},
  {y:2027,m:3,t:"Tôi yêu Việt Nam · Bé với ATGT · Ngày hội thể thao",d:"Tình yêu quê hương, giữ gìn môi trường.",room:"di-san"},
  {y:2027,m:4,t:"Bé tập làm học sinh lớp 1",d:"Khối 5 tuổi trải nghiệm, tự tin bước vào lớp 1.",room:"khoanh-khac"},
@@ -459,6 +470,21 @@ const clsOf=id=>classesOf().find(c=>c.id===id);
 const clsList=e=>(Array.isArray(e.cls)?e.cls:(e.cls?[e.cls]:[])).filter(id=>clsOf(id));
 const clsNames=e=>clsList(e).map(id=>clsOf(id).name);
 const inSite=(e,s)=>clsList(e).some(id=>clsOf(id).site===s);
+/* Hành trình di sản – Bộ tiêu chí "Trẻ em Tuyên Quang: Khỏe, An toàn, Tự tin giao tiếp, Yêu quê hương" */
+const TCS={TC1:['Khỏe','Vận động tích cực qua trò chơi dân gian'],TC2:['Khỏe','Tự phục vụ, ăn uống và vệ sinh lành mạnh'],TC3:['An toàn','Nhận biết nguy hiểm và tự bảo vệ'],
+ TC4:['Tự tin giao tiếp','Lễ phép, trung thực và nền nếp'],TC5:['Tự tin giao tiếp','Đoàn kết các dân tộc, tôn trọng sự khác biệt'],TC6:['Tự tin giao tiếp','Nghe hiểu và sử dụng tiếng Việt'],
+ TC7:['Yêu quê hương','Khám phá STEAM với vật liệu và sản vật quê hương'],TC8:['Yêu quê hương','Hiểu biết, tự hào về quê hương Tuyên Quang và sống xanh'],TC9:['Yêu quê hương','Nghệ thuật truyền thống và sáng tạo với vật liệu quê hương'],
+ MR1:['Tự tin giao tiếp','Làm quen với tiếng Anh'],MR2:['An toàn','Sử dụng thiết bị số an toàn']};
+const PILLARS={'Khỏe':'var(--leaf)','An toàn':'var(--coral)','Tự tin giao tiếp':'var(--indigo)','Yêu quê hương':'var(--turmeric)'};
+const CHANGS=[{n:1,y:2026,m:11,tc:['TC3','TC4']},{n:2,y:2026,m:11,tc:['TC7']},{n:3,y:2026,m:12,tc:['TC2']},{n:4,y:2027,m:1,tc:['TC5']},
+ {n:5,y:2027,m:2,tc:['TC8']},{n:6,y:2027,m:3,tc:['TC1']},{n:7,y:2027,m:4,tc:['TC9']},{n:8,y:2027,m:5,tc:['TC6']}];
+const KEEPERS=['Cha mẹ','Ông bà','Nghệ nhân','Người có uy tín','Cán bộ văn hóa'];
+const tcList=e=>(Array.isArray(e.tc)?e.tc:[]).filter(c=>TCS[c]);
+const heritageOf=()=>Array.isArray(data.settings.heritage)?data.settings.heritage:[];
+const herOf=id=>heritageOf().find(h=>h.id===id);
+const isDigital=e=>okUrl(e.video)||okUrl(e.audio)||okUrl(e.link3d);
+const changsOfMonth=(y,m)=>CHANGS.filter(c=>c.y===y&&c.m===m);
+const tcChips=e=>tcList(e).slice(0,3).map(c=>`<span class="tcchip" style="--p:${PILLARS[TCS[c][0]]}" title="${esc(c+' – '+TCS[c][1])}">${c}</span>`).join('');
 const clsShort=e=>{const n=clsNames(e);return n.length>2?`${n.length} lớp`:n.join(', ')};
 const normName=n=>String(n||'').toLowerCase().replace(/\s*[–-]\s*l[ớo]p\b.*$/u,'').replace(/\s+/g,' ').trim();
 function dupInfo(d){
@@ -508,6 +534,21 @@ function goClass(id,room){
  if(!room){const x=classStats().find(y=>y.c.id===id);room=x?EXROOMS.reduce((m,r)=>x.by[r.id]>x.by[m.id]?r:m,EXROOMS[0]).id:EXROOMS[0].id}
  if(location.hash==='#'+room)render();else location.hash=room;
 }
+function skknFields(d){
+ const v=tcList(d),H=heritageOf();
+ const grp=Object.keys(PILLARS).map(p=>`<div class="clsgrp"><b>${p}</b><div class="clsopts">${Object.entries(TCS).filter(([,t])=>t[0]===p).map(([c,t])=>`<label class="check" title="${esc(t[1])}"><input type="checkbox" data-xtc="${c}" ${v.includes(c)?'checked':''}> ${c} · ${esc(t[1])}</label>`).join('')}</div></div>`).join('');
+ return `<fieldset id="x_skkn" class="skknbox"><legend>Hành trình di sản (minh chứng)</legend>
+  <span class="hint">Tích tiêu chí mà hoạt động này hướng tới. Tháng này trọng tâm: ${changsOfMonth(NOW.getFullYear(),NOW.getMonth()+1).map(c=>'Chặng '+c.n+' · '+c.tc.join(', ')).join('; ')||'(xem Lịch trưng bày)'}.</span>${grp}
+  <div class="two"><div class="f"><label for="x_keeper">Người giữ chặng tham gia</label><select id="x_keeper"><option value="">(Không có)</option>${KEEPERS.map(k=>`<option ${d.keeper===k?'selected':''}>${k}</option>`).join('')}</select><span class="hint">Chỉ ghi vai trò, không ghi họ tên.</span></div>
+  <div class="f"><label for="x_her">Di sản trên bản đồ di sản gần trẻ</label><select id="x_her"><option value="">(Không gắn)</option>${sitesOf().map(st=>{const g=H.filter(h=>h.site===st);return g.length?`<optgroup label="${esc(st)}">${g.map(h=>`<option value="${h.id}" ${d.her===h.id?'selected':''}>${esc(h.name)}</option>`).join('')}</optgroup>`:''}).join('')}</select></div></div>
+ </fieldset>`;
+}
+function heritageMap(){
+ const H=heritageOf();if(!H.length)return '';
+ const n=h=>data.exhibits.filter(e=>e.her===h.id).length;
+ return `<div style="display:grid;gap:12px"><h3 class="sub">Bản đồ di sản gần trẻ</h3><p style="margin:0;color:var(--muted)">Mỗi điểm trường chọn 3–5 di sản gần gũi với trẻ (trò chơi, làn điệu, nghề, sản vật, tri thức dân gian), có người am hiểu xác nhận nội dung.</p>
+ <div class="guide">${sitesOf().filter(st=>H.some(h=>h.site===st)).map(st=>`<div class="box hmap"><h3>${esc(st)}</h3><ul>${H.filter(h=>h.site===st).map(h=>`<li><b>${esc(h.name)}</b>${h.kind?` <small>${esc(h.kind)}</small>`:''}<span>${n(h)?n(h)+' hiện vật':'chưa có hiện vật'}${h.confirm?' · Xác nhận: '+esc(h.confirm):''}</span></li>`).join('')}</ul></div>`).join('')}</div></div>`;
+}
 function classSelect(d){
  const cs=classesOf(),v=clsList(d);
  if(!cs.length)return `<div class="f"><label>Lớp</label><span class="hint">Quản trị chưa nhập danh sách lớp (thẻ <b>Lớp học</b>).</span></div>`;
@@ -517,7 +558,7 @@ function sidePanel(){
  const now=NOW.getFullYear()*12+NOW.getMonth()+1;
  const mo=MONTHS.find(o=>o.y*12+o.m===now)||MONTHS.find(o=>o.y*12+o.m>now)||MONTHS[MONTHS.length-1];
  const isNow=mo.y*12+mo.m===now;
- $('sideMonth').innerHTML=`<h3>${isNow?'Tháng này':'Sắp tới'}</h3><span class="m">Tháng ${mo.m}/${mo.y}</span><b>${esc(mo.t)}</b><p>${esc(mo.d)}</p><button type="button" class="chip" style="justify-self:start;cursor:pointer" data-go="${mo.room}">Xem ở ${esc(roomOf(mo.room).name)} →</button>`;
+ $('sideMonth').innerHTML=`<h3>${isNow?'Tháng này':'Sắp tới'}</h3><span class="m">Tháng ${mo.m}/${mo.y}</span><b>${esc(mo.t)}</b><p>${esc(mo.d)}</p>${changsOfMonth(mo.y,mo.m).map(c=>`<span class="chang">Hành trình di sản · Chặng ${c.n}: ${c.tc.map(t=>t+' '+esc(TCS[t][1])).join('; ')}</span>`).join('')}<button type="button" class="chip" style="justify-self:start;cursor:pointer" data-go="${mo.room}">Xem ở ${esc(roomOf(mo.room).name)} →</button>`;
  const real=data.exhibits.filter(e=>!e.sample),list=(real.length?real:data.exhibits).slice(-4).reverse().map(e=>({...e,roomName:roomOf(e.room).name,c:roomOf(e.room).c}));
  const top=classStats().filter(x=>x.total).slice(0,5),mx=top.length?top[0].total:1;
  $('sideTop').innerHTML=top.length?`<h3>Lớp tích cực</h3><div class="toplist">${top.map((x,i)=>`<button type="button" data-topcls="${x.c.id}"><span><b>${i+1}. ${esc(x.c.name)}</b> <small>${esc(x.c.site)} · ${x.total} bài</small></span><span class="bar" style="width:${Math.max(8,Math.round(x.total/mx*100))}%"></span></button>`).join('')}</div>`:'';
@@ -553,7 +594,7 @@ function head(r){
  return `<div class="room-head">${r.n?`<span class="eyebrow">Phòng ${r.n}</span>`:''}<h2>${esc(r.name)}</h2><p>${esc(r.lead)}</p>${r.src?`<span class="src">Căn cứ: ${esc(r.src)}</span>`:''}${okUrl(l3)?`<div class="cta"><a class="btn primary" href="${esc(l3)}" target="_blank" rel="noopener">Vào phòng trưng bày 3D ↗</a></div>`:''}</div>`;
 }
 const mediaTags=e=>{const t=[];if(okUrl(e.video))t.push('Video');if(okUrl(e.audio))t.push('Âm thanh');if(okUrl(e.link3d))t.push('3D');if(okUrl(e.drive))t.push('Drive');return t.length?`<span class="media-dots">${t.map(x=>`<span>${x}</span>`).join('')}</span>`:''};
-const piece=(e,i)=>`<button class="piece" type="button" data-i="${i}"><div class="frame ${pubPhoto(e.photo)?'ph':''}">${pic(e)}</div><div class="label"><b>${esc(e.name)}</b>${clsNames(e).length?`<span class="cl" title="${esc(clsNames(e).join(', '))}">${esc(clsShort(e))}</span>`:''}<span class="p">${esc(e.plan)}</span>${mediaTags(e)}${e.sample?'<span class="sample">Hiện vật mẫu</span>':''}</div></button>`;
+const piece=(e,i)=>`<button class="piece" type="button" data-i="${i}"><div class="frame ${pubPhoto(e.photo)?'ph':''}">${pic(e)}</div><div class="label"><b>${esc(e.name)}</b>${clsNames(e).length?`<span class="cl" title="${esc(clsNames(e).join(', '))}">${esc(clsShort(e))}</span>`:''}<span class="p">${esc(e.plan)}</span>${tcList(e).length?`<span class="tcrow">${tcChips(e)}</span>`:''}${mediaTags(e)}${e.sample?'<span class="sample">Hiện vật mẫu</span>':''}</div></button>`;
 
 function intro(){
  const ph=[
@@ -574,6 +615,7 @@ function tree(){
 function exhibitsRoom(r){
  const items=roomItems(r);
  let h=`<section class="room" style="--c:${r.c}">${head(r)}${classBar(r)}${items.length?`<div class="wall">${items.map(piece).join('')}</div>`:`<div class="empty">${cFilter.cls||cFilter.site?'Thư mục này chưa có bài trong phòng. ':''}Phòng này chưa có hiện vật. ${canAdmin?'Thêm hiện vật ở Khu quản trị.':'Các lớp đang chuẩn bị, bé quay lại sau nhé!'}</div>`}`;
+ if(r.id==='di-san')h+=heritageMap();
  if(r.tree)h+=`<div style="display:grid;gap:12px"><h3 class="sub">Cây tri ân</h3><div class="tree-room"><div class="tree">${tree()}</div><div class="notes">${NOTES.map(n=>`<div class="note"><q>${n.q}</q><small>${n.who} · <span class="sample">mẫu</span></small></div>`).join('')}<div class="box" style="border:3px dashed var(--turmeric-fill);box-shadow:none"><h3>Hộp thư gửi tương lai</h3><p>Mỗi bé lớp 5–6 tuổi vẽ một bức tranh về điều mình mong ước. Hộp được mở vào tháng 5/2027 khi các bé chia tay trường mầm non.</p></div></div></div></div>`;
  return h+'</section>';
 }
@@ -582,7 +624,7 @@ function timelineRoom(r){
 }
 function calendarRoom(r){
  const c=NOW.getFullYear()*12+NOW.getMonth()+1;
- return `<section class="room" style="--c:${r.c}">${head(r)}<div class="cal">${MONTHS.map(o=>{const k=o.y*12+o.m,s=k<c?'done':k===c?'now':'next';return `<div class="month ${s==='now'?'is-now':''}" style="--mc:${roomOf(o.room).c}"><div class="m"><b>Tháng ${o.m}/${o.y}</b><span class="badge ${s}">${s==='done'?'Đã trưng bày':s==='now'?'Tháng này':'Sắp mở'}</span></div><h4>${o.t}</h4><p>${o.d}</p><button class="chip" style="justify-self:start;cursor:pointer" type="button" data-go="${o.room}">Xem ở ${roomOf(o.room).name} →</button></div>`}).join('')}</div></section>`;
+ return `<section class="room" style="--c:${r.c}">${head(r)}<div class="cal">${MONTHS.map(o=>{const k=o.y*12+o.m,s=k<c?'done':k===c?'now':'next';return `<div class="month ${s==='now'?'is-now':''}" style="--mc:${roomOf(o.room).c}"><div class="m"><b>Tháng ${o.m}/${o.y}</b><span class="badge ${s}">${s==='done'?'Đã trưng bày':s==='now'?'Tháng này':'Sắp mở'}</span></div><h4>${o.t}</h4><p>${o.d}</p>${changsOfMonth(o.y,o.m).map(c=>`<span class="chang">Chặng ${c.n} · ${c.tc.map(t=>`${t} ${esc(TCS[t][1])}`).join('; ')}</span>`).join('')}<button class="chip" style="justify-self:start;cursor:pointer" type="button" data-go="${o.room}">Xem ở ${roomOf(o.room).name} →</button></div>`}).join('')}</div></section>`;
 }
 /* Hướng dẫn giáo viên đăng bài theo từng phòng */
 const RGUIDE={
@@ -600,10 +642,11 @@ function guideRoom(){
  <p>Mỗi cô dùng tài khoản do quản trị nhà trường cấp, chỉ đăng được vào các phòng được giao. Bài gửi lên sẽ được quản trị duyệt rồi mới hiện cho phụ huynh xem.</p>
  <div class="cta"><a class="btn primary" href="#quan-tri">Đăng nhập Khu quản trị →</a></div></div>
 
- <div class="box gsteps"><h3>7 bước đăng một bài</h3><ol>
+ <div class="box gsteps"><h3>8 bước đăng một bài</h3><ol>
   ${step('Đăng nhập','Mở <code>baotang.nguyenhiensteam.vn/#quan-tri</code>, nhập tên đăng nhập và mật khẩu được cấp. Lần đầu trong ngày có thể chờ khoảng 1 phút để máy chủ khởi động.')}
   ${step('Bấm thẻ Hiện vật › + Thêm hiện vật','Muốn sửa bài cũ thì bấm <b>Sửa</b> ở bài đó.')}
   ${step('Chọn Phòng và Lớp','Ô Phòng chỉ có các phòng cô được giao. Tích lớp của mình; cây hoặc sản phẩm của nhiều lớp thì tích đủ các lớp.')}
+  ${step('Tích tiêu chí Hành trình di sản','Trong khung <b>Hành trình di sản</b>, tích tiêu chí (TC1–TC9) mà hoạt động hướng tới, ưu tiên tiêu chí trọng tâm của tháng; nếu có cha mẹ, ông bà, nghệ nhân cùng tham gia thì chọn ở ô <b>Người giữ chặng</b>; nếu gắn với di sản của điểm trường thì chọn ở ô <b>Di sản</b>.')}
   ${step('Viết nội dung','Tên hiện vật, hoạt động, thời gian, câu chuyện 2–4 câu (bé làm gì, tiến bộ ra sao) và câu “Cô hỏi bé”.')}
   ${step('Thêm ảnh','Bấm <b>Chọn tệp</b> ở ô Ảnh thật, chọn ảnh trong máy hoặc điện thoại; ảnh tự thu nhỏ. Không có ảnh thì chọn một hình minh họa.')}
   ${step('Dán link (nếu có)','Video, ghi âm lời chúc, thư mục lớp trên Drive. Link phải bắt đầu bằng <code>https://</code>.')}
@@ -681,7 +724,7 @@ function adminRoom(){
  if(!canAdmin)return `<section class="room"><div class="empty">Khu quản trị chỉ dành cho người được cấp quyền chỉnh sửa trang.</div></section>`;
  const A=isAdmin(), local=mode!=='github';
  const tabs=local?[['exhibits','Hiện vật'],['timeline','Mốc lịch sử'],['links','Giới thiệu & link chung']]
-  :A?[['exhibits','Hiện vật'],['timeline','Mốc lịch sử'],['links','Giới thiệu & link chung'],['classes','Lớp học'],['pending','Duyệt bài'+(pendingList?` (${pendingList.filter(p=>p.status==='pending').length})`:'')],['users','Tài khoản'],['pw','Đổi mật khẩu']]
+  :A?[['exhibits','Hiện vật'],['timeline','Mốc lịch sử'],['links','Giới thiệu & link chung'],['classes','Lớp học'],['skkn','Minh chứng SKKN'],['pending','Duyệt bài'+(pendingList?` (${pendingList.filter(p=>p.status==='pending').length})`:'')],['users','Tài khoản'],['pw','Đổi mật khẩu']]
   :[['exhibits','Hiện vật'],...(me.timeline?[['timeline','Mốc lịch sử']]:[]),['mine','Bài đã gửi'],['pw','Đổi mật khẩu']];
  if(!tabs.some(t=>t[0]===aTab))aTab=tabs[0][0];
  const lead=local||A?`Thêm, sửa, xóa hiện vật và mốc lịch sử; gắn link phòng 3D, video, âm thanh. Thay đổi chỉ hiện với phụ huynh sau khi bấm <b>Lưu lên trang</b>.`
@@ -689,7 +732,7 @@ function adminRoom(){
  return `<section class="room" style="--c:var(--muted)"><div class="room-head"><span class="eyebrow">${A||local?'Chỉ người quản trị mới thấy mục này':'Dành cho giáo viên'}</span><h2>Khu quản trị</h2><p>${lead}</p></div>
  ${mode==='github'?`<div class="ghinfo"><span>Đang đăng nhập: <b>${esc(me.name)}</b> (${A?'Quản trị':'Giáo viên'} · ${esc(me.username)})</span><span style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="btn small" id="ghReload">Tải bản mới nhất</button><button type="button" class="btn small" id="ghOut">Đăng xuất</button></span></div>`:''}
  <div class="atabs" role="tablist">${tabs.map(([k,l])=>`<button type="button" role="tab" data-atab="${k}" aria-selected="${aTab===k}">${l}</button>`).join('')}</div>
- ${aTab==='exhibits'?adminExhibits():aTab==='timeline'?adminTimeline():aTab==='links'?adminLinks():aTab==='classes'?adminClasses():aTab==='pending'?adminPending():aTab==='users'?adminUsers():aTab==='mine'?myPosts():pwForm()}
+ ${aTab==='exhibits'?adminExhibits():aTab==='timeline'?adminTimeline():aTab==='links'?adminLinks():aTab==='classes'?adminClasses():aTab==='skkn'?adminSkkn():aTab==='pending'?adminPending():aTab==='users'?adminUsers():aTab==='mine'?myPosts():pwForm()}
  ${readOnly?`<div class="box warn"><p>Tài khoản này chỉ có quyền xem, nên không lưu được thay đổi.</p></div>`:''}
  </section>`;
 }
@@ -710,6 +753,7 @@ function adminExhibits(){
    <div class="two"><div class="f"><label for="x_room">Phòng trưng bày</label><select id="x_room">${rooms.map(r=>`<option value="${r.id}" ${d.room===r.id?'selected':''}>Phòng ${r.n} · ${esc(r.name)}</option>`).join('')}</select></div>
    ${fld('x_plan','Gắn với hoạt động / kế hoạch',d.plan,{ph:'VD: Ngày hội văn hóa Việt Nam'})}</div>
    ${classSelect(d)}
+   ${skknFields(d)}
    <div class="f"><label>Hình minh họa</label><div class="artpick">${Object.entries(ART).map(([k,[n,s]])=>`<button type="button" data-art="${k}" aria-pressed="${d.art===k}" title="${n}" aria-label="${n}">${s}</button>`).join('')}</div></div>
    ${mode==='github'?`<div class="f"><label for="x_photo">Ảnh thật (không bắt buộc)</label>
     ${d.photo?`<div class="phprev">${pic(d)}<button type="button" class="btn small danger" id="phDel">Bỏ ảnh</button></div>`:''}
@@ -749,6 +793,46 @@ function adminLinks(){
  ${EXROOMS.map(r=>fld('l_'+r.id,`Phòng ${r.n} · ${r.name}: phòng 3D`,data.settings.room3d[r.id]||'',{url:1,ph:'https://www.artsteps.com/view/…'})).join('')}
  ${fld('l_intro','Video giới thiệu trường (hiện ở đầu trang)',data.settings.introVideo,{url:1,ph:'https://youtu.be/…'})}
  <div><button type="submit" class="btn primary">Đưa vào danh sách</button></div></form>`;
+}
+function skknData(){
+ const ex=data.exhibits.filter(e=>!e.sample),withTc=ex.filter(e=>tcList(e).length);
+ const changs=CHANGS.map(c=>{const it=withTc.filter(e=>tcList(e).some(t=>c.tc.includes(t)));return {...c,n_ex:it.length,n_cls:new Set(it.flatMap(clsList)).size}});
+ const classes=classesOf().map(c=>{const it=ex.filter(e=>clsList(e).includes(c.id));
+  return {c,ex:it.length,tc:it.filter(e=>tcList(e).length).length,chang:changs.filter(ch=>it.some(e=>tcList(e).some(t=>ch.tc.includes(t)))).length,keeper:it.filter(e=>e.keeper).length,digital:it.filter(isDigital).length}});
+ const sites=sitesOf().map(st=>{const it=ex.filter(e=>inSite(e,st));return {st,her:heritageOf().filter(h=>h.site===st).length,digital:it.filter(isDigital).length,keeper:it.filter(e=>e.keeper).length}});
+ const tcs=Object.keys(TCS).map(c=>({c,n:withTc.filter(e=>tcList(e).includes(c)).length}));
+ return {ex,withTc,changs,classes,sites,tcs,keepers:ex.filter(e=>e.keeper).length};
+}
+function adminSkkn(){
+ const D=skknData(),H=heritageOf();
+ const td=(v,ok)=>`<td class="${ok===undefined?'':ok?'ok':'low'}">${v}</td>`;
+ const herBlocks=sitesOf().map((st,i)=>`<div class="clsedit"><b>${esc(st)}</b><div class="f"><label for="hm_${i}">Mỗi dòng một di sản: Tên | loại | người xác nhận</label><textarea id="hm_${i}" data-site="${esc(st)}" placeholder="VD:&#10;Trò chơi ném còn | trò chơi dân gian | Bà Hoàng Thị A, nghệ nhân&#10;Lễ hội Thành Tuyên | lễ hội | Cán bộ văn hóa phường">${esc(H.filter(h=>h.site===st).map(h=>[h.name,h.kind,h.confirm].join(' | ').replace(/( \| )+$/,'')).join('\n'))}</textarea></div></div>`).join('');
+ return `<div class="skkn">
+ <div class="box"><h3>Tổng quan minh chứng</h3><p style="margin:0;color:var(--muted);font-size:15px">Số liệu tự tính từ các hiện vật đã đăng (không tính hiện vật mẫu). Dùng cho Giấy xác nhận áp dụng sáng kiến, báo cáo học kỳ I và cuối năm.</p>
+  <div class="kpis"><div><b>${D.withTc.length}/${D.ex.length}</b><span>hiện vật gắn tiêu chí</span></div><div><b>${D.changs.filter(c=>c.n_ex).length}/8</b><span>chặng đã có minh chứng</span></div><div><b>${D.keepers}</b><span>lượt người giữ chặng</span></div><div><b>${D.ex.filter(isDigital).length}</b><span>sản phẩm số (video, âm thanh, 3D)</span></div><div><b>${H.length}</b><span>di sản trên bản đồ</span></div></div>
+  <div><button type="button" class="btn small primary" id="skknCsv">Tải bảng minh chứng (Excel/CSV)</button></div></div>
+ <div class="box"><h3>Theo chặng “Hành trình di sản”</h3><div class="ctable-wrap"><table class="ctable"><thead><tr><th>Chặng</th><th>Tháng</th><th>Tiêu chí</th><th>Hiện vật</th><th>Số lớp</th></tr></thead><tbody>${D.changs.map(c=>`<tr><td>${c.n}</td><td>${c.m}/${c.y}</td><td style="text-align:left">${c.tc.map(t=>t+' '+esc(TCS[t][1])).join('<br>')}</td>${td(c.n_ex,c.n_ex>0)}${td(c.n_cls)}</tr>`).join('')}</tbody></table></div></div>
+ <div class="box"><h3>Theo lớp</h3>${D.classes.length?`<div class="ctable-wrap"><table class="ctable"><thead><tr><th>Lớp</th><th>Hiện vật</th><th>Gắn tiêu chí</th><th>Chặng có minh chứng</th><th>Người giữ chặng (≥3)</th><th>Sản phẩm số</th></tr></thead><tbody>${D.classes.map(x=>`<tr><td><b>${esc(x.c.name)}</b><small>${esc(x.c.site)}</small></td>${td(x.ex)}${td(x.tc)}${td(x.chang+'/8',x.chang>0)}${td(x.keeper,x.keeper>=3)}${td(x.digital)}</tr>`).join('')}</tbody></table></div>`:'<p>Chưa nhập danh sách lớp (thẻ Lớp học).</p>'}</div>
+ <div class="box"><h3>Theo điểm trường</h3><div class="ctable-wrap"><table class="ctable"><thead><tr><th>Điểm trường</th><th>Di sản trên bản đồ (3–5)</th><th>Sản phẩm số (≥1)</th><th>Người giữ chặng</th></tr></thead><tbody>${D.sites.map(x=>`<tr><td><b>${esc(x.st)}</b></td>${td(x.her,x.her>=3&&x.her<=5)}${td(x.digital,x.digital>=1)}${td(x.keeper)}</tr>`).join('')}</tbody></table></div></div>
+ <div class="box"><h3>Theo tiêu chí</h3><div class="ctable-wrap"><table class="ctable"><thead><tr><th>Mã</th><th>Trụ cột</th><th>Tiêu chí</th><th>Hiện vật</th></tr></thead><tbody>${D.tcs.map(x=>`<tr><td><span class="tcchip" style="--p:${PILLARS[TCS[x.c][0]]}">${x.c}</span></td><td>${TCS[x.c][0]}</td><td style="text-align:left">${esc(TCS[x.c][1])}</td>${td(x.n)}</tr>`).join('')}</tbody></table></div></div>
+ <form class="edit" id="hForm" novalidate style="position:static"><h3>Bản đồ di sản gần trẻ</h3><p style="margin:0;color:var(--muted);font-size:15px">Mỗi điểm trường 3–5 di sản gần gũi, có người am hiểu xác nhận. Bản đồ hiện ở Phòng 3; giáo viên gắn hiện vật vào di sản khi đăng bài.</p>
+  <div class="admin-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">${herBlocks}</div>
+  <div><button type="submit" class="btn primary">Đưa vào danh sách</button></div></form>
+ </div>`;
+}
+function skknCsv(){
+ const D=skknData(),q=v=>'"'+String(v??'').replace(/"/g,'""')+'"',L=[];
+ const row=a=>L.push(a.map(q).join(','));
+ row(['MINH CHỨNG ÁP DỤNG SÁNG KIẾN – HÀNH TRÌNH DI SẢN','Xuất ngày '+new Date().toLocaleDateString('vi-VN')]);row([]);
+ row(['TỔNG QUAN']);row(['Hiện vật đã đăng',D.ex.length]);row(['Hiện vật gắn tiêu chí',D.withTc.length]);row(['Chặng đã có minh chứng',D.changs.filter(c=>c.n_ex).length+'/8']);row(['Lượt người giữ chặng',D.keepers]);row(['Sản phẩm số',D.ex.filter(isDigital).length]);row(['Di sản trên bản đồ',heritageOf().length]);row([]);
+ row(['THEO CHẶNG']);row(['Chặng','Tháng','Tiêu chí','Số hiện vật','Số lớp']);D.changs.forEach(c=>row([c.n,c.m+'/'+c.y,c.tc.map(t=>t+' '+TCS[t][1]).join('; '),c.n_ex,c.n_cls]));row([]);
+ row(['THEO LỚP']);row(['Lớp','Điểm trường','Hiện vật','Gắn tiêu chí','Chặng có minh chứng','Lượt người giữ chặng','Sản phẩm số']);D.classes.forEach(x=>row([x.c.name,x.c.site,x.ex,x.tc,x.chang,x.keeper,x.digital]));row([]);
+ row(['THEO ĐIỂM TRƯỜNG']);row(['Điểm trường','Di sản trên bản đồ','Sản phẩm số','Lượt người giữ chặng']);D.sites.forEach(x=>row([x.st,x.her,x.digital,x.keeper]));row([]);
+ row(['THEO TIÊU CHÍ']);row(['Mã','Trụ cột','Tiêu chí','Số hiện vật']);D.tcs.forEach(x=>row([x.c,TCS[x.c][0],TCS[x.c][1],x.n]));row([]);
+ row(['BẢN ĐỒ DI SẢN GẦN TRẺ']);row(['Điểm trường','Di sản','Loại','Người xác nhận','Số hiện vật']);heritageOf().forEach(h=>row([h.site,h.name,h.kind,h.confirm,data.exhibits.filter(e=>e.her===h.id).length]));row([]);
+ row(['DANH SÁCH HIỆN VẬT LÀM MINH CHỨNG']);row(['Phòng','Tên hiện vật','Lớp','Tiêu chí','Thời gian','Hoạt động','Người giữ chặng','Di sản','Video','Âm thanh','Thư mục Drive']);
+ D.ex.forEach(e=>row([roomOf(e.room).name,e.name,clsNames(e).join('; '),tcList(e).join('; '),e.era,e.plan,e.keeper,(herOf(e.her)||{}).name,e.video,e.audio,e.drive]));
+ const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['﻿'+L.join('\r\n')],{type:'text/csv;charset=utf-8'}));a.download='Minh-chung-Hanh-trinh-di-san.csv';document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500);
 }
 function adminClasses(){
  const S=sitesOf(),cs=classesOf();
@@ -885,6 +969,14 @@ function wireAdmin(){
   if(!draft.when)errors.t_when='Hãy nhập thời gian.';if(!draft.title)errors.t_title='Hãy nhập tiêu đề.';if(Object.keys(errors).length){render();return}
   if(teacher()){submitItem('timeline',{...draft},before||null);return}
   const rest=data.timeline.filter(t=>t.id!==draft.id),at=before?rest.findIndex(t=>t.id===before):-1;if(at<0)rest.push({...draft});else rest.splice(at,0,{...draft});data.timeline=rest;draft=null;editId=null;markDirty();render()};
+ const sc=$('skknCsv');if(sc)sc.onclick=skknCsv;
+ const hf=$('hForm');if(hf)hf.onsubmit=e=>{e.preventDefault();
+  const old=heritageOf(),list=[];
+  hf.querySelectorAll('textarea[data-site]').forEach(t=>{const st=t.dataset.site;(t.value||'').split('\n').map(x=>x.trim()).filter(Boolean).forEach(line=>{
+   const [name,kind,confirm]=line.split('|').map(x=>(x||'').trim().slice(0,100));if(!name)return;
+   const o=old.find(h=>h.name===name&&h.site===st)||old.find(h=>h.name===name);
+   list.push({id:o&&!list.some(h=>h.id===o.id)?o.id:'h'+Math.random().toString(36).slice(2,8),site:st,name,kind:kind||'',confirm:confirm||''})})});
+  data.settings.heritage=list.slice(0,60);markDirty();render();setMsg('Đã cập nhật bản đồ di sản. Bấm Lưu lên trang để áp dụng.')};
  const cf=$('cForm');if(cf)cf.onsubmit=e=>{e.preventDefault();
   const old=classesOf(),sites=[],classes=[];
   [0,1,2,3].forEach(i=>{const s=val('cs_'+i).slice(0,60);if(!s)return;sites.push(s);
@@ -942,7 +1034,7 @@ function wireAdmin(){
   try{const r=await api('/api/password',{old:o,new:n});sessStore({token:r.token});errors={};render();setMsg('Đã đổi mật khẩu.')}catch(err){setMsg(err.msg)}};
 }
 let confirmOut=false;
-function captureEx(){if(!draft||!$('exForm'))return;Object.assign(draft,{room:val('x_room'),plan:val('x_plan'),name:val('x_name'),era:val('x_era'),from:val('x_from'),story:val('x_story'),ask:val('x_ask'),video:val('x_video'),audio:val('x_audio'),link3d:val('x_link3d'),drive:val('x_drive'),cls:$('x_clsbox')?[...document.querySelectorAll('[data-xcls]')].filter(x=>x.checked).map(x=>x.dataset.xcls):clsList(draft),photoAlt:$('x_palt')?val('x_palt'):(draft.photoAlt||''),sample:$('x_sample').checked})}
+function captureEx(){if(!draft||!$('exForm'))return;Object.assign(draft,{room:val('x_room'),plan:val('x_plan'),name:val('x_name'),era:val('x_era'),from:val('x_from'),story:val('x_story'),ask:val('x_ask'),video:val('x_video'),audio:val('x_audio'),link3d:val('x_link3d'),drive:val('x_drive'),tc:$('x_skkn')?[...document.querySelectorAll('[data-xtc]')].filter(x=>x.checked).map(x=>x.dataset.xtc):tcList(draft),keeper:$('x_keeper')?val('x_keeper'):(draft.keeper||''),her:$('x_her')?val('x_her'):(draft.her||''),cls:$('x_clsbox')?[...document.querySelectorAll('[data-xcls]')].filter(x=>x.checked).map(x=>x.dataset.xcls):clsList(draft),photoAlt:$('x_palt')?val('x_palt'):(draft.photoAlt||''),sample:$('x_sample').checked})}
 /** Thu nhỏ ảnh (cạnh dài tối đa 1600px), bỏ thông tin vị trí, xuất JPEG dưới ~900 KB. */
 async function shrink(file){
  let src;try{src=await createImageBitmap(file,{imageOrientation:'from-image'})}catch{src=await new Promise((ok,no)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=no;i.src=URL.createObjectURL(file)})}
@@ -1020,7 +1112,7 @@ addEventListener('hashchange',()=>{navTabs();render();
 const V=$('viewer');let list=[],pos=0,lastFocus=null;
 function openViewer(items,i){if(!items.length)return;list=items;pos=i;lastFocus=document.activeElement;show();V.hidden=false;$('vNext').focus()}
 function show(){const e=list[pos];$('vCard').style.setProperty('--c',e.c||'var(--indigo)');$('vArt').innerHTML=pic(e);$('vPlan').textContent=e.plan||e.roomName;$('vTitle').textContent=e.name;
- $('vMeta').textContent=[e.roomName,e.era,e.from,e.sample?'nội dung mẫu':''].filter(Boolean).join(' · ');$('vStory').textContent=e.story;$('vAsk').textContent=e.ask;$('vAsk').parentElement.hidden=!e.ask;
+ $('vMeta').textContent=[e.roomName,e.era,e.from,tcList(e).length?'Tiêu chí '+tcList(e).join(', '):'',e.keeper?'Người giữ chặng: '+e.keeper:'',herOf(e.her)?'Di sản: '+herOf(e.her).name:'',e.sample?'nội dung mẫu':''].filter(Boolean).join(' · ');$('vStory').textContent=e.story;$('vAsk').textContent=e.ask;$('vAsk').parentElement.hidden=!e.ask;
  const L=[[e.video,'▶ Xem video'],[e.audio,'♪ Nghe thuyết minh'],[e.link3d,'Xem phòng 3D'],[e.drive,'Mở thư mục lớp']].filter(([u])=>okUrl(u));
  $('vLinks').innerHTML=L.map(([u,t],i)=>`<a class="btn small ${i===0?'primary':''}" href="${esc(u)}" target="_blank" rel="noopener">${t} ↗</a>`).join('')+(L.length?'<span class="note-d">Mở ở tab mới.'+(okUrl(e.drive)?' Thư mục Drive chỉ mở được với tài khoản đã được cấp quyền.':'')+'</span>':'');
  $('vPos').textContent=`${pos+1} / ${list.length}`;$('vPrev').disabled=pos===0;$('vNext').textContent=pos===list.length-1?'Kết thúc':'Tiếp →'}
