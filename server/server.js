@@ -73,6 +73,7 @@ async function writeFile(repo, file, data, sha, message) {
 /* Ảnh: kho công khai anh/<tên>.jpg; ảnh chờ duyệt nằm ở kho riêng tư anh/<tên>.jpg (đường dẫn trong bài: cho-duyet/<tên>.jpg). */
 const PHOTO_RE = /^(anh|cho-duyet)\/([a-z0-9]{8,40})\.jpg$/;
 const MAX_PHOTO = 1024 * 1024;
+const MAX_PHOTOS = 12;
 async function putBinary(repo, file, b64, message) {
   const r = await gh(`/repos/${enc(OWNER)}/${enc(repo)}/contents/${file}`, { method: 'PUT', body: JSON.stringify({ message, branch: BRANCH, content: b64 }) });
   if (r.status === 401 || r.status === 403) throw new HttpErr(500, 'Mã GitHub trên máy chủ không có quyền ghi. Cần quyền Contents: Read and write.');
@@ -145,6 +146,10 @@ function cleanExhibit(x) {
   o.her = /^[a-z0-9]{1,20}$/.test(str(x.her, 20)) ? str(x.her, 20) : '';
   o.photo = str(x.photo, 80);
   if (o.photo && !PHOTO_RE.test(o.photo)) throw new HttpErr(400, 'Đường dẫn ảnh không hợp lệ.');
+  // Nhiều ảnh: photos là danh sách, ảnh đầu tiên là ảnh bìa (photo).
+  const ph = [...new Set((Array.isArray(x.photos) ? x.photos : []).map(p => str(p, 80)).filter(p => PHOTO_RE.test(p)))].slice(0, MAX_PHOTOS);
+  if (!ph.length && o.photo) ph.push(o.photo);
+  o.photos = ph; o.photo = ph[0] || '';
   o.photoAlt = str(x.photoAlt, 200);
   o.sample = !!x.sample;
   return o;
@@ -275,7 +280,7 @@ const routes = {
   'POST /api/save': async (req, body, user) => {
     needAdmin(user);
     const clean = cleanData(body.data);
-    for (const e of clean.exhibits) if (e.photo.startsWith('cho-duyet/')) throw new HttpErr(400, `Ảnh của “${e.name}” còn chờ duyệt.`);
+    for (const e of clean.exhibits) if (e.photos.some(p => p.startsWith('cho-duyet/'))) throw new HttpErr(400, `Ảnh của “${e.name}” còn chờ duyệt.`);
     const cur = await readFile(DATA_REPO, DATA_FILE);
     if (body.sha && cur.sha && body.sha !== cur.sha) throw new HttpErr(409, 'Có người vừa lưu hoặc vừa có bài được duyệt. Bấm “Tải bản mới nhất” rồi làm lại thay đổi.');
     const sha = await writeFile(DATA_REPO, DATA_FILE, clean, cur.sha, 'Cập nhật Bảo tàng ký ức (quản trị) ' + new Date().toISOString().slice(0, 16).replace('T', ' '));
@@ -290,7 +295,7 @@ const routes = {
     canTouch(user, cur.data, kind, item);
     const old = kind === 'exhibit' ? cur.data.exhibits.find(e => e.id === item.id) : cur.data.timeline.find(t => t.id === item.id);
     if (user.role === 'admin' || !user.review) {
-      if (kind === 'exhibit') item.photo = await publishPhoto(item.photo, user.username);
+      if (kind === 'exhibit') { item.photos = await Promise.all(item.photos.map(p => publishPhoto(p, user.username))); item.photo = item.photos[0] || ''; }
       const r = await updateData(d => { canTouch(user, d, kind, item); applyItem(d, kind, item, beforeId); },
         `${user.username}: ${old ? 'sửa' : 'thêm'} ${kind === 'exhibit' ? 'hiện vật' : 'mốc'} “${item.name || item.title}”`);
       return { status: 'published', sha: r.sha, data: r.data };
@@ -321,7 +326,7 @@ const routes = {
     const it = p.pending.find(x => x.id === body.id && x.status === 'pending');
     if (!it) throw new HttpErr(404, 'Bài này không còn chờ duyệt.');
     const item = it.kind === 'exhibit' ? cleanExhibit(it.item) : cleanTimeline(it.item);
-    if (it.kind === 'exhibit') item.photo = await publishPhoto(item.photo, it.by);
+    if (it.kind === 'exhibit') { item.photos = await Promise.all(item.photos.map(p => publishPhoto(p, it.by))); item.photo = item.photos[0] || ''; }
     const r = await updateData(d => applyItem(d, it.kind, item, it.beforeId),
       `Duyệt bài của ${it.by}: “${it.item.name || it.item.title}”`);
     await updatePriv(q => { const x = q.pending.find(y => y.id === it.id); if (x) { x.status = 'approved'; x.decidedAt = new Date().toISOString(); } prune(q); }, 'Đã duyệt ' + it.id);
