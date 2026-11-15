@@ -1185,6 +1185,30 @@
    "photo": "anh/246990f51f0ad54532fa.jpg",
    "photoAlt": "",
    "sample": true
+  },
+  {
+   "id": "emwhv5ce9",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây trầu bà",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/folders/1Dy8IiyQcacpEI6T1dF0_jqAvo9LPFGZu?usp=drive_link",
+   "cls": [
+    "l19ca8e"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/1430c3fea61cc55e5f9b.jpg",
+   "photoAlt": "",
+   "sample": true
   }
  ],
  "timeline": [
