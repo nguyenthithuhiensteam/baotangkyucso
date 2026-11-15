@@ -1405,6 +1405,33 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwhw02up",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Cảm xúc của bé",
+   "era": "Tháng 11/2026",
+   "plan": "Lớp học hạnh phúc",
+   "from": "Lớp 4-5 tuổi B2 trường chính",
+   "story": "Câu chuyện: Chiếc kẹo dâu của bé Na\nHôm nay đi học về, Na được cô giáo khen vì vẽ bức tranh gia đình rất đẹp. Phần thưởng của Na là một chiếc kẹo mút vị dâu đỏ au, thơm lừng. Na vui lắm, định bụng sẽ mang về nhà khoe với mẹ ngay.\nTrên đường về, Na đi ngang qua ghế đá đầu ngõ. Ở đó, bé Bi hàng xóm đang ngồi thút thít khóc vì vừa bị ngã trầy đầu gối. Nhìn đôi mắt ướt nhòe của Bi, lòng Na bỗng chùng xuống. Cơn háo hức được ăn kẹo ban nãy biến mất, thay vào đó là cảm giác thương bạn vô cùng.\nNa ngập ngừng nhìn chiếc kẹo trong tay, rồi khẽ bước lại gần. Em đưa chiếc kẹo dâu ra trước mặt Bi và nói nhỏ: \"Bi đừng khóc nữa, tớ cho cậu chiếc kẹo này nè, ăn vào sẽ hết đau ngay\".\nBi ngước lên, nín khóc và mỉm cười nhận lấy chiếc kẹo. Nhìn bạn vui vẻ trở lại, Na thấy trong lòng ấm áp và hạnh phúc lạ thường. Hôm đó, dù không được ăn chiếc kẹo dâu, nhưng Na vẫn thấy đây là ngày vui nhất của mình.",
+   "ask": "Hôm nay đến lớp con cảm thấy như thế nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb4ed25"
+   ],
+   "tc": [],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/71b30857cc6692308dc0.jpg",
+   "photos": [
+    "anh/71b30857cc6692308dc0.jpg"
+   ],
+   "photoAlt": "Bạn nhỏ chọn 1 biểu tượng cảm xúc sau đó tương tác với cô giáo cảm xúc đã chọn",
+   "sample": false
   }
  ],
  "timeline": [
