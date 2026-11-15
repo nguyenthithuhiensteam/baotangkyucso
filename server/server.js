@@ -188,6 +188,13 @@ function canTouch(user, data, kind, item) {
   if (!user.rooms.includes(item.room)) throw new HttpErr(403, 'Tài khoản chưa được giao phòng này.');
   const old = data.exhibits.find(e => e.id === item.id);
   if (old && !user.rooms.includes(old.room)) throw new HttpErr(403, 'Hiện vật này thuộc phòng chưa được giao cho tài khoản.');
+  // Giao lớp: giáo viên chỉ đăng, sửa bài của lớp mình (không giao lớp = không giới hạn theo lớp).
+  const mine = user.classes || [];
+  if (mine.length) {
+    const has = e => (Array.isArray(e.cls) ? e.cls : (e.cls ? [e.cls] : [])).some(c => mine.includes(c));
+    if (!has(item)) throw new HttpErr(403, 'Hãy tích lớp của mình cho bài này (tài khoản chỉ đăng bài cho lớp được giao).');
+    if (old && !has(old)) throw new HttpErr(403, 'Bài này của lớp khác, tài khoản không sửa được.');
+  }
 }
 
 /* ---------------- Tài khoản & phiên ---------------- */
@@ -215,7 +222,7 @@ const hashPw = (pw, salt) => crypto.scryptSync(String(pw), salt, 32).toString('h
 function checkPw(pw, u) { const h = Buffer.from(hashPw(pw, u.salt), 'hex'), w = Buffer.from(u.hash, 'hex'); return h.length === w.length && crypto.timingSafeEqual(h, w); }
 function safeEq(a, b) { const x = crypto.createHash('sha256').update(String(a)).digest(), y = crypto.createHash('sha256').update(String(b)).digest(); return crypto.timingSafeEqual(x, y); }
 const ADMIN = () => ({ username: ADMIN_USER, name: 'Quản trị nhà trường', role: 'admin' });
-const pubUser = u => ({ username: u.username, name: u.name, role: 'teacher', rooms: u.rooms || [], timeline: !!u.timeline, review: u.review !== false, active: u.active !== false });
+const pubUser = u => ({ username: u.username, name: u.name, role: 'teacher', rooms: u.rooms || [], classes: u.classes || [], timeline: !!u.timeline, review: u.review !== false, active: u.active !== false });
 
 async function who(req) {
   const p = verifyToken((req.headers.authorization || '').replace(/^Bearer\s+/i, ''));
@@ -366,6 +373,7 @@ const routes = {
     if (username === ADMIN_USER) throw new HttpErr(400, 'Tên đăng nhập này dành cho người quản trị.');
     const name = str(body.name, 100); if (!name) throw new HttpErr(400, 'Hãy nhập họ tên.');
     const rooms = (Array.isArray(body.rooms) ? body.rooms : []).filter(r => ROOMS.includes(r));
+    const classes = [...new Set((Array.isArray(body.classes) ? body.classes : []).map(c => str(c, 20)).filter(c => /^[a-z0-9]{1,20}$/.test(c)))].slice(0, 30);
     const pw = String(body.password || '');
     if (pw && pw.length < 6) throw new HttpErr(400, 'Mật khẩu cần ít nhất 6 ký tự.');
     await updatePriv(q => {
@@ -373,7 +381,7 @@ const routes = {
       if (body.isNew && u) throw new HttpErr(400, 'Tên đăng nhập đã có người dùng.');
       if (!u) { if (!pw) throw new HttpErr(400, 'Hãy đặt mật khẩu cho tài khoản mới.'); u = { username, ver: 1 }; q.users.push(u); }
       const wasActive = u.active !== false;
-      Object.assign(u, { name, rooms, timeline: !!body.timeline, review: body.review !== false, active: body.active !== false });
+      Object.assign(u, { name, rooms, classes, timeline: !!body.timeline, review: body.review !== false, active: body.active !== false });
       if (pw) { u.salt = crypto.randomBytes(16).toString('hex'); u.hash = hashPw(pw, u.salt); }
       if (pw || (wasActive && !u.active)) u.ver = (u.ver || 0) + 1;
     }, 'Cập nhật tài khoản ' + username);

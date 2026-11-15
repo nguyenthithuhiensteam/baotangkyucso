@@ -642,7 +642,7 @@ function heritageMap(){
  <div class="guide">${sitesOf().filter(st=>H.some(h=>h.site===st)).map(st=>`<div class="box hmap"><h3>${esc(st)}</h3><ul>${H.filter(h=>h.site===st).map(h=>`<li><b>${esc(h.name)}</b>${h.kind?` <small>${esc(h.kind)}</small>`:''}<span>${n(h)?n(h)+' hiện vật':'chưa có hiện vật'}${h.confirm?' · Xác nhận: '+esc(h.confirm):''}</span></li>`).join('')}</ul></div>`).join('')}</div></div>`;
 }
 function classSelect(d){
- const cs=classesOf(),v=clsList(d);
+ const cs=myClasses().length?classesOf().filter(c=>myClasses().includes(c.id)):classesOf(),v=clsList(d);
  if(!cs.length)return `<div class="f"><label>Lớp</label><span class="hint">Quản trị chưa nhập danh sách lớp (thẻ <b>Lớp học</b>).</span></div>`;
  return `<fieldset id="x_clsbox"><legend>Lớp (tích một hoặc nhiều lớp; để trống nếu là của toàn trường)</legend>${sitesOf().map(s=>{const g=cs.filter(c=>c.site===s);return g.length?`<div class="clsgrp"><b>${esc(s)}</b><div class="clsopts">${g.map(c=>`<label class="check"><input type="checkbox" data-xcls="${c.id}" ${v.includes(c.id)?'checked':''}> ${esc(c.name)}</label>`).join('')}</div></div>`:''}).join('')}</fieldset>`;
 }
@@ -794,9 +794,12 @@ async function apiSave(){
 /* ---------- admin ---------- */
 let aTab='exhibits', editId=null, confirmDel=null, draft=null, errors={}, loginMsg='';
 let pendingList=null, usersList=null, userDraft=null, rejectOpen=null, busy=false;
-const blankEx=room=>({id:'e'+Date.now().toString(36),room:room||(isAdmin()?'khoanh-khac':(me&&me.rooms[0])||'khoanh-khac'),art:'sach',name:'',era:'',plan:'',from:'',story:'',ask:'',video:'',audio:'',link3d:'',drive:'',photo:'',photoAlt:'',sample:false});
+const blankEx=room=>({cls:myClasses().length===1?[myClasses()[0]]:[],id:'e'+Date.now().toString(36),room:room||(isAdmin()?'khoanh-khac':(me&&me.rooms[0])||'khoanh-khac'),art:'sach',name:'',era:'',plan:'',from:'',story:'',ask:'',video:'',audio:'',link3d:'',drive:'',photo:'',photoAlt:'',sample:false});
 const blankT=()=>({id:'t'+Date.now().toString(36),when:'',title:'',text:'',ref:'',todo:''});
 const fld=(id,label,v,o={})=>`<div class="f ${errors[id]?'bad':''}"><label for="${id}">${label}</label>${o.area?`<textarea id="${id}">${esc(v)}</textarea>`:`<input id="${id}" type="${o.type||(o.url?'url':'text')}" value="${esc(v)}" ${o.ph?`placeholder="${esc(o.ph)}"`:''} ${o.ac?`autocomplete="${o.ac}"`:''}>`}${o.hint?`<span class="hint">${o.hint}</span>`:''}${errors[id]?`<span class="err">${errors[id]}</span>`:''}</div>`;
+/* Giáo viên được giao lớp: chỉ thấy và sửa bài của lớp mình. */
+const myClasses=()=>(!isAdmin()&&me&&Array.isArray(me.classes))?me.classes:[];
+const canEditEx=e=>isAdmin()||mode!=='github'||!myClasses().length||clsList(e).some(id=>myClasses().includes(id));
 const myRooms=()=>isAdmin()?EXROOMS:EXROOMS.filter(r=>me&&me.rooms.includes(r.id));
 const roomShort=id=>{const r=roomOf(id);return r.n?`Phòng ${r.n}`:r.name};
 const when=s=>{try{return new Date(s).toLocaleString('vi-VN',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'})}catch(_){return s}};
@@ -838,7 +841,7 @@ const sendLabel=()=>teacher()?(me.review?'Gửi để duyệt':'Đăng lên tran
 function adminExhibits(){
  const rooms=mode==='github'?myRooms():EXROOMS;
  if(!rooms.length)return `<div class="box"><h3>Chưa được giao phòng</h3><p>Tài khoản của chị/cô chưa được giao phòng trưng bày nào. Hãy liên hệ người quản trị.</p></div>`;
- const list=rooms.map(r=>{const it=data.exhibits.filter(e=>e.room===r.id);return `<div class="agroup" style="--c:${r.c}"><h4>Phòng ${r.n} · ${esc(r.name)} (${it.length})</h4>${it.map(e=>`<div class="arow ${editId===e.id?'on':''}">${pic(e)}<div style="min-width:0"><b>${esc(e.name||'(chưa đặt tên)')}</b><small>${clsNames(e).length?esc(clsShort(e))+' · ':''}${esc(e.plan)}${e.sample?' · mẫu':''}</small>${mediaTags(e)?`<div style="text-align:left">${mediaTags(e)}</div>`:''}</div>${rowActs(e.id)}</div>`).join('')||'<small style="color:var(--muted)">Chưa có hiện vật.</small>'}</div>`}).join('');
+ const list=(myClasses().length?`<p class="dnote" style="margin:0 0 8px">Chỉ hiện bài của lớp được giao: <b>${myClasses().map(id=>esc((clsOf(id)||{name:id}).name)).join(', ')}</b>.</p>`:'')+rooms.map(r=>{const it=data.exhibits.filter(e=>e.room===r.id&&canEditEx(e));return `<div class="agroup" style="--c:${r.c}"><h4>Phòng ${r.n} · ${esc(r.name)} (${it.length})</h4>${it.map(e=>`<div class="arow ${editId===e.id?'on':''}">${pic(e)}<div style="min-width:0"><b>${esc(e.name||'(chưa đặt tên)')}</b><small>${clsNames(e).length?esc(clsShort(e))+' · ':''}${esc(e.plan)}${e.sample?' · mẫu':''}</small>${mediaTags(e)?`<div style="text-align:left">${mediaTags(e)}</div>`:''}</div>${rowActs(e.id)}</div>`).join('')||'<small style="color:var(--muted)">Chưa có hiện vật.</small>'}</div>`}).join('');
  const d=draft;
  const form=d?`<form class="edit" id="exForm" novalidate>
    <h3>${data.exhibits.some(e=>e.id===d.id)?'Sửa hiện vật':'Thêm hiện vật mới'}</h3>
@@ -975,11 +978,11 @@ function pwForm(){
   ${fld('pw_new2','Nhập lại mật khẩu mới','',{type:'password',ac:'new-password'})}
   <div><button type="submit" class="btn primary">Đổi mật khẩu</button></div></form>`;
 }
-const blankUser=()=>({isNew:true,username:'',name:'',rooms:[],timeline:false,review:true,active:true});
+const blankUser=()=>({isNew:true,username:'',name:'',rooms:[],classes:[],timeline:false,review:true,active:true});
 function adminUsers(){
  if(!usersList)return `<div class="empty">Đang tải danh sách tài khoản…</div>`;
  const list=`<div class="agroup"><h4>Tài khoản giáo viên (${usersList.length})</h4>
-  ${usersList.map(u=>`<div class="arow ${userDraft&&userDraft.username===u.username&&!userDraft.isNew?'on':''}" style="grid-template-columns:minmax(0,1fr) auto"><div style="min-width:0"><b>${esc(u.name)} ${u.active?'':'<span class="st rejected">Đã khóa</span>'}</b><small>${esc(u.username)} · ${u.rooms.length?u.rooms.map(roomShort).join(', '):'chưa giao phòng'}${u.timeline?' · sửa dòng thời gian':''} · ${u.review?'cần duyệt':'đăng thẳng'}</small></div>
+  ${usersList.map(u=>`<div class="arow ${userDraft&&userDraft.username===u.username&&!userDraft.isNew?'on':''}" style="grid-template-columns:minmax(0,1fr) auto"><div style="min-width:0"><b>${esc(u.name)} ${u.active?'':'<span class="st rejected">Đã khóa</span>'}</b><small>${esc(u.username)} · ${(u.classes||[]).length?'lớp '+u.classes.map(id=>esc((clsOf(id)||{name:'?'}).name)).join(', ')+' · ':''}${u.rooms.length?u.rooms.map(roomShort).join(', '):'chưa giao phòng'}${u.timeline?' · sửa dòng thời gian':''} · ${u.review?'cần duyệt':'đăng thẳng'}</small></div>
    ${confirmDel==='u:'+u.username?`<span class="confirm">Xóa tài khoản? <button type="button" class="btn small danger primary" data-udelok="${esc(u.username)}">Xóa</button><button type="button" class="btn small" data-delno>Không</button></span>`
    :`<span class="acts"><button type="button" class="btn small" data-uedit="${esc(u.username)}">Sửa</button><button type="button" class="btn small danger" data-udel="${esc(u.username)}">Xóa</button></span>`}</div>`).join('')||'<small style="color:var(--muted)">Chưa có tài khoản giáo viên nào.</small>'}</div>`;
  const d=userDraft;
@@ -987,6 +990,7 @@ function adminUsers(){
   ${fld('u_name','Họ tên *',d.name,{ph:'VD: Cô Nguyễn Thị Lan'})}
   ${d.isNew?fld('u_user','Tên đăng nhập *',d.username,{ph:'VD: colan',hint:'3–32 ký tự: chữ không dấu, số, dấu chấm, gạch ngang. Không đổi được sau khi tạo.',ac:'off'}):`<div class="f"><label>Tên đăng nhập</label><b>${esc(d.username)}</b></div>`}
   ${fld('u_pass',d.isNew?'Mật khẩu *':'Mật khẩu mới',d.password||'',{ac:'new-password',hint:d.isNew?'Ít nhất 6 ký tự. Gửi riêng cho giáo viên, không gửi vào nhóm chung.':'Để trống nếu giữ mật khẩu cũ. Đặt mật khẩu mới sẽ đăng xuất giáo viên trên mọi máy.'})}
+  <fieldset><legend>Lớp được giao (giáo viên chỉ đăng, sửa bài của các lớp này)</legend>${classesOf().length?sitesOf().map(st=>{const g=classesOf().filter(c=>c.site===st);return g.length?`<div class="clsgrp"><b>${esc(st)}</b><div class="clsopts">${g.map(c=>`<label class="check"><input type="checkbox" data-uclass="${c.id}" ${(d.classes||[]).includes(c.id)?'checked':''}> ${esc(c.name)}</label>`).join('')}</div></div>`:''}).join(''):'<span class="hint">Chưa có danh sách lớp (thẻ Lớp học).</span>'}<span class="hint">Không tích lớp nào thì tài khoản sửa được bài của mọi lớp trong phòng được giao.</span></fieldset>
   <fieldset><legend>Phòng được giao</legend><div class="checks">${EXROOMS.map(r=>`<label class="check"><input type="checkbox" data-uroom="${r.id}" ${d.rooms.includes(r.id)?'checked':''}> Phòng ${r.n} · ${esc(r.name)}</label>`).join('')}</div></fieldset>
   <fieldset><legend>Quyền khác</legend><div class="checks">
    <label class="check"><input type="checkbox" id="u_tl" ${d.timeline?'checked':''}> Được thêm, sửa mốc ở dòng thời gian (Phòng ${roomOf('hanh-trinh').n})</label>
@@ -1054,7 +1058,7 @@ function wireAdmin(){
  const addT=$('addT');if(addT)addT.onclick=()=>{draft=blankT();editId=draft.id;errors={};render();$('t_when').focus()};
  const cancel=$('x_cancel');if(cancel)cancel.onclick=()=>{draft=null;editId=null;errors={};render()};
  main.querySelectorAll('[data-art]').forEach(b=>b.onclick=()=>{captureEx();draft.art=b.dataset.art;render()});
- const ef=$('exForm');if(ef)ef.onsubmit=e=>{e.preventDefault();captureEx();if(!clsList(draft).length){const gc=guessClass(draft.from,classesOf());if(gc)draft.cls=[gc]}errors={};if(!draft.name)errors.x_name='Hãy nhập tên hiện vật.';checkUrls(['x_video','x_audio','x_link3d','x_drive']);if(Object.keys(errors).length){render();return}
+ const ef=$('exForm');if(ef)ef.onsubmit=e=>{e.preventDefault();captureEx();if(!clsList(draft).length){const gc=guessClass(draft.from,myClasses().length?classesOf().filter(c=>myClasses().includes(c.id)):classesOf());if(gc)draft.cls=[gc]}errors={};if(!draft.name)errors.x_name='Hãy nhập tên hiện vật.';checkUrls(['x_video','x_audio','x_link3d','x_drive']);if(Object.keys(errors).length){render();return}
   if(teacher()){submitItem('exhibit',{...draft});return}
   const i=data.exhibits.findIndex(x=>x.id===draft.id);if(i>=0)data.exhibits[i]={...draft};else data.exhibits.push({...draft});draft=null;editId=null;markDirty();render()};
  const tf=$('tForm');if(tf)tf.onsubmit=e=>{e.preventDefault();const before=val('t_pos');Object.assign(draft,{when:val('t_when'),title:val('t_title'),text:val('t_text'),ref:val('t_ref'),todo:val('t_todo')});errors={};
@@ -1105,7 +1109,7 @@ function wireAdmin(){
   try{await api('/api/users/delete',{username:b.dataset.udelok});if(userDraft&&userDraft.username===b.dataset.udelok)userDraft=null;confirmDel=null;setMsg('Đã xóa tài khoản.');await loadUsers()}
   catch(e){setMsg(e.msg);b.disabled=false}finally{busy=false}});
  const uf=$('uForm');if(uf)uf.onsubmit=async e=>{e.preventDefault();
-  const d=userDraft;Object.assign(d,{name:val('u_name'),password:val('u_pass'),rooms:[...main.querySelectorAll('[data-uroom]')].filter(x=>x.checked).map(x=>x.dataset.uroom),timeline:$('u_tl').checked,review:$('u_rv').checked,active:$('u_on').checked});
+  const d=userDraft;Object.assign(d,{name:val('u_name'),password:val('u_pass'),rooms:[...main.querySelectorAll('[data-uroom]')].filter(x=>x.checked).map(x=>x.dataset.uroom),classes:[...main.querySelectorAll('[data-uclass]')].filter(x=>x.checked).map(x=>x.dataset.uclass),timeline:$('u_tl').checked,review:$('u_rv').checked,active:$('u_on').checked});
   if(d.isNew)d.username=val('u_user').toLowerCase();
   errors={};if(!d.name)errors.u_name='Hãy nhập họ tên.';if(d.isNew&&!/^[a-z0-9._-]{3,32}$/.test(d.username))errors.u_user='3–32 ký tự: chữ không dấu, số, dấu chấm, gạch ngang.';
   if((d.isNew||d.password)&&d.password.length<6)errors.u_pass='Mật khẩu cần ít nhất 6 ký tự.';

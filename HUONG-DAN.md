@@ -23,6 +23,7 @@ Khu quản trị: **https://baotang.nguyenhiensteam.vn/#quan-tri**
 | | Quản trị (1 tài khoản) | Giáo viên |
 |---|---|---|
 | Thêm, sửa hiện vật | Mọi phòng | Chỉ phòng được giao |
+| Phạm vi bài được sửa | Mọi bài | Chỉ bài của **lớp được giao** (nếu quản trị đã giao lớp); không thấy, không sửa được bài lớp khác |
 | Xóa hiện vật, mốc | Có | Không |
 | Thêm, sửa mốc lịch sử (Phòng 1) | Có | Khi được bật quyền |
 | Số liệu đầu trang, link phòng 3D, video chung | Có | Không |
