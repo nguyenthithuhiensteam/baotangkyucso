@@ -178,7 +178,7 @@ h3.sub{font-size:26px}
 .tslide.future{background:repeating-linear-gradient(135deg,var(--frame) 0 14px,color-mix(in srgb,var(--turmeric-fill) 10%,var(--frame)) 14px 28px)}
 .tslide.future .twhen{background:var(--turmeric);color:var(--paper)}
 .tcount{position:absolute;top:14px;right:18px;font-size:13px;font-weight:800;color:var(--muted)}
-.tctrl{display:flex;gap:8px;justify-content:center}
+.tctrl{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}.tshow{min-width:0}.tstage,.tslide,.trail{min-width:0}
 .trail{display:flex;gap:4px;overflow-x:auto;scrollbar-width:thin;padding:8px 2px 2px;position:relative}
 .tdot{all:unset;cursor:pointer;flex:1 0 56px;display:grid;justify-items:center;gap:4px;font-size:12px;font-weight:800;color:var(--muted)}
 .tdot i{width:14px;height:14px;border-radius:50%;background:var(--frame);border:3px solid var(--indigo)}
@@ -186,6 +186,9 @@ h3.sub{font-size:26px}
 .tdot[aria-selected="true"]{color:var(--ink)}.tdot[aria-selected="true"] i{background:var(--turmeric-fill);transform:scale(1.35)}
 .tdot:focus-visible{outline:3px solid var(--turmeric-fill);border-radius:8px}
 .tbar{height:4px;border-radius:4px;background:color-mix(in srgb,var(--indigo) 15%,transparent);overflow:hidden}.tbar em{display:block;height:100%;width:0;background:var(--indigo);transition:width .12s linear}
+.ishow .tslide{border-left:10px solid var(--sc)}.ishow .twhen{background:var(--sc)}.ishow .tyear{color:color-mix(in srgb,var(--sc) 18%,transparent)}
+.ishow .tdot i{border-color:var(--sc)}.ishow .tdot span{white-space:nowrap}.ishow .tdot{flex:1 0 74px}
+.ishow .tstage{min-height:270px}
 .tlist summary{cursor:pointer;font-weight:800;color:var(--indigo);padding:4px 0}.tlist .timeline{margin-top:12px}
 @media (max-width:560px){.tstage{min-height:360px}.tslide{padding:20px 18px 18px}.tslide p{font-size:16px}}
 @media (prefers-reduced-motion:reduce){.tslide.in{animation:none}}
@@ -729,6 +732,7 @@ function intro(){
  const cnt=r=>r.kind==='exhibits'?`${data.exhibits.filter(e=>e.room===r.id).length} hiện vật`:r.kind==='timeline'?`${data.timeline.length} mốc`:`${MONTHS.length} tháng`;
  return `<section class="room" style="--c:var(--indigo)"><div class="room-head"><span class="eyebrow">Lối vào</span><h2>Chào mừng cô, bé và gia đình!</h2>
  <p>Bảo tàng ký ức số là mô hình của đợt hoạt động chào mừng 44 năm Ngày Nhà giáo Việt Nam, chủ đề “Trường học hạnh phúc – Xanh, Sạch, Số; Lan tỏa yêu thương và tri ân”. Mời bé chọn một căn phòng để vào thăm nhé.</p></div>
+ ${introShow()}
  <div class="index">${ROOMS.filter(x=>x.n).map(x=>`<button class="door" type="button" data-go="${x.id}" style="--c:${x.c}"><span class="n">Phòng ${x.n}</span><b>${esc(x.name)}</b><span>${cnt(x)}</span></button>`).join('')}</div>
  ${classTable()}
  <div style="display:grid;gap:12px"><h3 class="sub">Tiến độ đợt cao điểm 04–20/11/2026</h3><div class="phases">${ph.map(p=>{const s=stateOf(p.a,p.b);return `<div class="phase ${s==='now'?'is-now':''}"><span class="badge ${s}">${BADGE[s]}</span><span class="d">${fmt(p.a)} – ${fmt(p.b)}/2026</span><h4>${p.t}</h4><ul>${p.li.map(l=>`<li>${l}</li>`).join('')}</ul></div>`}).join('')}</div></div></section>`;
@@ -743,6 +747,27 @@ function exhibitsRoom(r){
  if(r.id==='di-san')h+=heritageMap();
  if(r.tree)h+=`<div style="display:grid;gap:12px"><h3 class="sub">Cây tri ân</h3><div class="tree-room"><div class="tree">${tree()}</div><div class="notes">${NOTES.map(n=>`<div class="note"><q>${n.q}</q><small>${n.who} · <span class="sample">mẫu</span></small></div>`).join('')}<div class="box" style="border:3px dashed var(--turmeric-fill);box-shadow:none"><h3>Hộp thư gửi tương lai</h3><p>Mỗi bé lớp 5–6 tuổi vẽ một bức tranh về điều mình mong ước. Hộp được mở vào tháng 5/2027 khi các bé chia tay trường mầm non.</p></div></div></div></div>`;
  return h+'</section>';
+}
+/* Trang chủ: trình chiếu giới thiệu ba điểm trường (nguồn: trang web của từng trường, Chiến lược phát triển nhà trường). */
+const INTRO_SLIDES=[
+ {k:'Ba ngôi trường · Một mái nhà',s:'Một mái nhà',y:'2026',t:'Trường Mầm non Nông Tiến',p:'Từ ngày 01/9/2026, ba trường mầm non Nông Tiến, Tràng Đà, Hương Sen về chung một mái nhà: trường chính và hai phân hiệu, 24 nhóm lớp, cùng chung giá trị cốt lõi Tâm – Thân – Tuệ.',src:'Quyết định số 83/QĐ-UBND ngày 13/8/2026 của UBND phường Nông Tiến',c:'var(--indigo)'},
+ {k:'Trường chính',s:'Nông Tiến',y:'1993',t:'Trường Mầm non Nông Tiến',p:'“Những năm từ 0 đến 6 tuổi là những năm tháng vàng.” Thành lập ngày 01/9/1993, trường đã khẳng định thương hiệu tại Tuyên Quang; năm 2024 đạt chuẩn quốc gia mức độ 2 và kiểm định chất lượng giáo dục cấp độ 3.',src:'Quyết định số 539/SGD ĐT ngày 01/9/1993; c0nongtien.tuyenquang.edu.vn; Quyết định số 1302/QĐ-UBND ngày 28/11/2024',c:'var(--coral)'},
+ {k:'Phân hiệu Tràng Đà',s:'Tràng Đà',y:'1993',t:'Trường Mầm non Tràng Đà',p:'Thành lập ngày 01/9/1993, trường nằm trong khu dân cư xóm 7, xã Tràng Đà. Môi trường học thân thiện, năng động, đảm bảo an toàn cho trẻ; cô giáo tận tâm, đoàn kết. Năm 2023 đạt chuẩn quốc gia mức độ 1, kiểm định chất lượng cấp độ 2.',src:'Quyết định số 539/SGD ĐT ngày 01/9/1993; c0trangda.tuyenquang.edu.vn; Chiến lược phát triển nhà trường',c:'var(--leaf)'},
+ {k:'Phân hiệu Hương Sen',s:'Hương Sen',y:'1991',t:'Trường Mầm non Hương Sen',p:'Thành lập ngày 21/9/1991 theo Quyết định số 204/TCCB của Sở Giáo dục tỉnh Hà Tuyên, rộng 2.239 m². Mục tiêu “Xây dựng trường học hạnh phúc”: giáo dục trẻ biết yêu thương, phát triển thể chất toàn diện; đạt chuẩn quốc gia mức độ 1.',src:'c0huongsen.tuyenquang.edu.vn; Quyết định số 229/QĐ-UBND ngày 25/3/2021',c:'var(--teal)'},
+ {k:'Giá trị cốt lõi',s:'Tâm – Thân – Tuệ',y:'',t:'TÂM – THÂN – TUỆ',p:'Tâm: chăm sóc, giáo dục trẻ bằng tình thương yêu, “cô giáo là người mẹ thứ hai”. Thân: nền tảng sức khỏe, tầm vóc, ý chí. Tuệ: luôn đổi mới, phát huy sáng tạo và tinh thần học tập suốt đời.',src:'c0huongsen.tuyenquang.edu.vn; Chiến lược phát triển nhà trường 2026–2030',c:'var(--lilac)'},
+ {k:'Tầm nhìn 2045',s:'Tầm nhìn 2045',y:'2045',t:'Trường mầm non hạnh phúc tiêu biểu của tỉnh',p:'Nơi mỗi trẻ được yêu thương, tôn trọng, bảo vệ và phát huy tiềm năng; mỗi cô giáo được cống hiến, phát triển; mỗi gia đình yên tâm, đồng hành và tự hào về nhà trường.',src:'Chiến lược phát triển nhà trường giai đoạn 2026–2030, tầm nhìn đến năm 2045',c:'var(--turmeric)'}
+];
+function introShow(){
+ const S=INTRO_SLIDES;
+ return `<div class="tshow ishow" id="tshow" role="region" aria-roledescription="trình chiếu" aria-label="Giới thiệu nhà trường">
+  <div class="tstage">${S.map((x,i)=>`<article class="tslide" style="--sc:${x.c}" data-ts="${i}" aria-roledescription="trang" aria-label="${i+1} / ${S.length}" ${i?'hidden':''}>
+   <div class="tyear" aria-hidden="true">${esc(x.y||'★')}</div>
+   <div class="tbody"><span class="twhen">${esc(x.k)}</span><h3>${esc(x.t)}</h3><p>${esc(x.p)}</p><small>Nguồn: ${esc(x.src)}</small></div>
+   <span class="tcount">${i+1} / ${S.length}</span></article>`).join('')}</div>
+  <div class="tctrl"><button type="button" class="btn small" data-tnav="-1" aria-label="Trang trước">←</button><button type="button" class="btn small" id="tplay" aria-label="Dừng trình chiếu">❚❚ Dừng</button><button type="button" class="btn small" data-tnav="1" aria-label="Trang sau">→</button><button type="button" class="btn small primary" data-go="hanh-trinh">Xem toàn bộ hành trình →</button></div>
+  <div class="trail" role="tablist" aria-label="Chọn trang">${S.map((x,i)=>`<button type="button" role="tab" class="tdot" style="--sc:${x.c}" data-tgo="${i}" aria-selected="${!i}" title="${esc(x.k)}"><i></i><span>${esc(x.s||x.k)}</span></button>`).join('')}</div>
+  <div class="tbar"><em id="tbar"></em></div>
+ </div>`;
 }
 /* Phòng 1: trình chiếu tự chạy các mốc, kèm dải mốc thời gian; bản danh sách đầy đủ ở dưới. */
 const isFuture=t=>/^(mục tiêu|tầm nhìn)/i.test(t.when||'');
@@ -1283,7 +1308,7 @@ function render(){
   main.querySelectorAll('[data-fcls]').forEach(b=>b.onclick=()=>{const c=clsOf(b.dataset.fcls);cFilter=cFilter.cls===b.dataset.fcls?{site:'',cls:''}:{site:c?c.site:'',cls:b.dataset.fcls};render()})}
  main.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{location.hash=b.dataset.go});
  main.querySelectorAll('[data-gocls]').forEach(b=>b.onclick=()=>goClass(b.dataset.gocls,b.dataset.room));
- if(r.kind==='timeline')initShow();else{clearInterval(tTimer);tTimer=null}
+ if(r.kind==='timeline'||r.kind==='intro')initShow();else{clearInterval(tTimer);tTimer=null}
  if(r.kind==='admin')wireAdmin();
 }
 addEventListener('hashchange',()=>{navTabs();render();
