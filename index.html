@@ -246,6 +246,41 @@ legend{font-size:14px;font-weight:800;color:var(--indigo);padding:0 6px}
 .cfilter button[aria-pressed="true"]{background:color-mix(in srgb,var(--c) 30%,var(--frame))}
 .cfilter button small{color:var(--muted);font-weight:700;margin-left:4px}
 .cfilter .row.cls button{border-width:1.5px;font-size:13px;padding:3px 11px}
+.folders-wrap{display:grid;gap:10px;background:color-mix(in srgb,var(--c) 9%,var(--frame));border-radius:22px;padding:14px 14px 16px}
+.fhead{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center}.fhead h3.sub{font-size:22px}
+.fhead span{color:var(--muted);font-size:14px;font-weight:700}.fhead .chip{margin-left:auto;cursor:pointer}
+.fhead .chip[aria-pressed="true"]{background:var(--indigo);color:var(--paper)}
+.fsite{display:grid;gap:6px}
+.fsite-name{all:unset;cursor:pointer;font-weight:800;font-size:15px;justify-self:start}
+.fsite-name[aria-pressed="true"]{color:var(--indigo);text-decoration:underline}
+.folders{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.folder{all:unset;cursor:pointer;position:relative;display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;align-items:center;background:var(--frame);border:2px solid color-mix(in srgb,var(--c) 45%,transparent);border-radius:12px;padding:6px 8px}
+.folder:focus-visible{outline:3px solid var(--turmeric-fill)}
+.folder svg{width:26px;height:26px;color:var(--c)}
+.folder b{display:block;font-size:14px;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.folder small{font-size:12px;color:var(--muted);font-weight:700}
+.folder.empty{opacity:.55}.folder.empty svg{color:var(--muted)}
+.folder[aria-pressed="true"]{background:color-mix(in srgb,var(--c) 30%,var(--frame));border-color:var(--c);opacity:1}
+.folder i{position:absolute;top:-9px;right:-5px;font-style:normal;color:var(--turmeric-fill);font-size:19px;text-shadow:0 1px 0 #0004}
+.fnote{color:var(--muted)}
+h3.fsel{font-size:22px}h3.fsel small{font-size:14px;color:var(--muted);font-family:var(--f-body)}
+@media (max-width:560px){.folders{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.ctable-wrap{overflow-x:auto;border-radius:16px}
+.ctable{width:100%;border-collapse:collapse;font-size:15px;background:var(--frame)}
+.ctable th,.ctable td{padding:6px 8px;text-align:center;border-bottom:1px solid var(--line)}
+.ctable th{font-size:13px;color:var(--muted)}
+.ctable th:nth-child(2),.ctable td:nth-child(2){text-align:left}
+.ctable td small{display:block;color:var(--muted);font-size:12px}
+.ctable .dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--c);margin-right:3px}
+.ctable tr.zero{opacity:.5}
+.cnum{all:unset;cursor:pointer;font-weight:800;color:var(--indigo);text-decoration:underline;padding:0 6px}
+.ctable .z{color:var(--muted)}
+.toplist{display:grid;gap:8px}
+.toplist button{all:unset;cursor:pointer;display:grid;gap:4px}
+.toplist button:focus-visible{outline:3px solid var(--turmeric-fill)}
+.toplist b{font-size:14px}.toplist small{color:var(--muted);font-size:12px}
+.toplist .bar{height:8px;border-radius:8px;background:var(--leaf)}
+#sideTop:empty{display:none}
 .clsgrp{display:grid;gap:4px;margin-top:6px}.clsgrp>b{font-size:14px;color:var(--muted)}
 .clsopts{display:flex;flex-wrap:wrap;gap:4px 16px}
 .dupwarn{color:var(--turmeric);font-weight:700;font-size:14px}.dupwarn:empty{display:none}
@@ -386,6 +421,7 @@ root.innerHTML=`
  <aside class="side-info" aria-label="Thông tin">
   <div class="box"><h3>Trường mình</h3><div class="stats" id="heroStats"></div></div>
   <div class="box" id="sideMonth"></div>
+  <div class="box" id="sideTop"></div>
   <div class="box" id="sideNew"></div>
  </aside>
 </div>
@@ -436,15 +472,39 @@ function roomItems(r){
  if(cFilter.site)return all.filter(e=>inSite(e,cFilter.site));
  return all;
 }
+const FOLDER=`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5A2.5 2.5 0 0 1 5.5 4H9l2 2.2h7.5A2.5 2.5 0 0 1 21 8.7v8.8a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5z" fill="currentColor"/></svg>`;
+/* Thư mục lớp trong mỗi phòng: mỗi lớp một thư mục kèm số bài, ★ cho 3 lớp nhiều bài nhất phòng. */
 function classBar(r){
- const all=data.exhibits.filter(e=>e.room===r.id),used=classesOf().filter(c=>all.some(e=>clsList(e).includes(c.id)));
- if(!used.length)return '';
- const sites=sitesOf().filter(s=>used.some(c=>c.site===s));
- const n=f=>all.filter(f).length;
- const btn=(attr,on,label,count)=>`<button type="button" ${attr} aria-pressed="${on}">${esc(label)}<small>${count}</small></button>`;
- const showCls=used.filter(c=>!cFilter.site||c.site===cFilter.site);
- return `<div class="cfilter" role="group" aria-label="Lọc theo lớp"><div class="row">${btn('data-fsite=""',!cFilter.site&&!cFilter.cls,'Tất cả',all.length)}${sites.map(s=>btn(`data-fsite="${esc(s)}"`,cFilter.site===s&&!cFilter.cls,s,n(e=>inSite(e,s)))).join('')}</div>
- <div class="row cls">${showCls.map(c=>btn(`data-fcls="${c.id}"`,cFilter.cls===c.id,c.name,n(e=>clsList(e).includes(c.id)))).join('')}</div></div>`;
+ const cs=classesOf();if(!cs.length)return '';
+ const all=data.exhibits.filter(e=>e.room===r.id);
+ const cnt=c=>all.filter(e=>clsList(e).includes(c.id)).length;
+ const ranked=cs.map(c=>({c,n:cnt(c)})).filter(x=>x.n).sort((x,y)=>y.n-x.n);
+ const top=new Set(ranked.slice(0,3).map(x=>x.c.id));
+ const none=all.filter(e=>!clsList(e).length).length;
+ const folder=c=>{const n=cnt(c);return `<button type="button" class="folder ${n?'':'empty'}" data-fcls="${c.id}" aria-pressed="${cFilter.cls===c.id}">${FOLDER}<span><b title="${esc(c.name)}">${esc(c.name)}</b><small>${n?n+' bài':'chưa có bài'}</small></span>${top.has(c.id)?'<i title="Lớp tích cực nhất phòng">★</i>':''}</button>`};
+ const sites=sitesOf().filter(s=>cs.some(c=>c.site===s));
+ const sel=cFilter.cls?clsOf(cFilter.cls):null;
+ return `<div class="folders-wrap"><div class="fhead"><h3 class="sub">Thư mục các lớp</h3><span>${ranked.length}/${cs.length} lớp đã có bài trong phòng này</span><button type="button" class="chip" data-fsite="" aria-pressed="${!cFilter.cls&&!cFilter.site}">Xem tất cả (${all.length})</button></div>
+ ${sites.map(st=>`<div class="fsite"><button type="button" class="fsite-name" data-fsite="${esc(st)}" aria-pressed="${cFilter.site===st&&!cFilter.cls}">${esc(st)} · ${all.filter(e=>inSite(e,st)).length} bài</button><div class="folders">${cs.filter(c=>c.site===st).map(folder).join('')}</div></div>`).join('')}
+ ${none?`<small class="fnote">${none} hiện vật chung của trường (chưa gắn lớp) chỉ hiện khi bấm “Xem tất cả”.</small>`:''}
+ </div>${sel?`<h3 class="sub fsel">📂 ${esc(sel.name)} <small>${esc(sel.site)}</small></h3>`:cFilter.site?`<h3 class="sub fsel">📁 ${esc(cFilter.site)}</h3>`:''}`;
+}
+/* Thống kê đóng góp của các lớp trên toàn bảo tàng. */
+function classStats(){
+ return classesOf().map(c=>{const by={};EXROOMS.forEach(r=>by[r.id]=data.exhibits.filter(e=>e.room===r.id&&clsList(e).includes(c.id)).length);
+  return {c,by,total:EXROOMS.reduce((t,r)=>t+by[r.id],0)}}).sort((x,y)=>y.total-x.total);
+}
+function classTable(){
+ const st=classStats();if(!st.length)return '';
+ const active=st.filter(x=>x.total).length;
+ return `<div style="display:grid;gap:12px"><h3 class="sub">Đóng góp của các lớp</h3><p style="margin:0;color:var(--muted)">${active}/${st.length} lớp đã có bài. Bấm vào con số để mở thư mục lớp trong phòng đó.</p>
+ <div class="ctable-wrap"><table class="ctable"><thead><tr><th>#</th><th>Lớp</th>${EXROOMS.map(r=>`<th title="${esc(r.name)}"><span class="dot" style="--c:${r.c}"></span>P${r.n}</th>`).join('')}<th>Tổng</th></tr></thead>
+ <tbody>${st.map((x,i)=>`<tr class="${x.total?'':'zero'}"><td>${x.total?i+1:'–'}</td><td><b>${esc(x.c.name)}</b><small>${esc(x.c.site)}</small></td>${EXROOMS.map(r=>`<td>${x.by[r.id]?`<button type="button" class="cnum" data-gocls="${x.c.id}" data-room="${r.id}">${x.by[r.id]}</button>`:'<span class="z">·</span>'}</td>`).join('')}<td><b>${x.total}</b></td></tr>`).join('')}</tbody></table></div></div>`;
+}
+function goClass(id,room){
+ const c=clsOf(id);cFilter={site:c?c.site:'',cls:id};
+ if(!room){const x=classStats().find(y=>y.c.id===id);room=x?EXROOMS.reduce((m,r)=>x.by[r.id]>x.by[m.id]?r:m,EXROOMS[0]).id:EXROOMS[0].id}
+ if(location.hash==='#'+room)render();else location.hash=room;
 }
 function classSelect(d){
  const cs=classesOf(),v=clsList(d);
@@ -457,6 +517,9 @@ function sidePanel(){
  const isNow=mo.y*12+mo.m===now;
  $('sideMonth').innerHTML=`<h3>${isNow?'Tháng này':'Sắp tới'}</h3><span class="m">Tháng ${mo.m}/${mo.y}</span><b>${esc(mo.t)}</b><p>${esc(mo.d)}</p><button type="button" class="chip" style="justify-self:start;cursor:pointer" data-go="${mo.room}">Xem ở ${esc(roomOf(mo.room).name)} →</button>`;
  const real=data.exhibits.filter(e=>!e.sample),list=(real.length?real:data.exhibits).slice(-4).reverse().map(e=>({...e,roomName:roomOf(e.room).name,c:roomOf(e.room).c}));
+ const top=classStats().filter(x=>x.total).slice(0,5),mx=top.length?top[0].total:1;
+ $('sideTop').innerHTML=top.length?`<h3>Lớp tích cực</h3><div class="toplist">${top.map((x,i)=>`<button type="button" data-topcls="${x.c.id}"><span><b>${i+1}. ${esc(x.c.name)}</b> <small>${esc(x.c.site)} · ${x.total} bài</small></span><span class="bar" style="width:${Math.max(8,Math.round(x.total/mx*100))}%"></span></button>`).join('')}</div>`:'';
+ $('sideTop').querySelectorAll('[data-topcls]').forEach(b=>b.onclick=()=>goClass(b.dataset.topcls));
  $('sideNew').innerHTML=`<h3>Mới thêm</h3>${list.length?`<div class="newlist">${list.map((e,i)=>`<button type="button" data-n="${i}" style="--c:${e.c}">${pic(e)}<span><b>${esc(e.name)}</b><small>${esc(e.roomName)}</small></span></button>`).join('')}</div>`:'<p>Chưa có hiện vật.</p>'}`;
  $('sideNew').querySelectorAll('[data-n]').forEach(b=>b.onclick=()=>openViewer(list,+b.dataset.n));
  $('sideMonth').querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{location.hash=b.dataset.go});
@@ -499,6 +562,7 @@ function intro(){
  return `<section class="room" style="--c:var(--indigo)"><div class="room-head"><span class="eyebrow">Lối vào</span><h2>Chào mừng cô, bé và gia đình!</h2>
  <p>Bảo tàng ký ức số là mô hình của đợt hoạt động chào mừng 44 năm Ngày Nhà giáo Việt Nam, chủ đề “Trường học hạnh phúc – Xanh, Sạch, Số; Lan tỏa yêu thương và tri ân”. Mời bé chọn một căn phòng để vào thăm nhé.</p></div>
  <div class="index">${ROOMS.filter(x=>x.n).map(x=>`<button class="door" type="button" data-go="${x.id}" style="--c:${x.c}"><span class="n">Phòng ${x.n}</span><b>${esc(x.name)}</b><span>${cnt(x)}</span></button>`).join('')}</div>
+ ${classTable()}
  <div style="display:grid;gap:12px"><h3 class="sub">Tiến độ đợt cao điểm 04–20/11/2026</h3><div class="phases">${ph.map(p=>{const s=stateOf(p.a,p.b);return `<div class="phase ${s==='now'?'is-now':''}"><span class="badge ${s}">${BADGE[s]}</span><span class="d">${fmt(p.a)} – ${fmt(p.b)}/2026</span><h4>${p.t}</h4><ul>${p.li.map(l=>`<li>${l}</li>`).join('')}</ul></div>`}).join('')}</div></div></section>`;
 }
 function tree(){
@@ -507,7 +571,7 @@ function tree(){
 }
 function exhibitsRoom(r){
  const items=roomItems(r);
- let h=`<section class="room" style="--c:${r.c}">${head(r)}${classBar(r)}${items.length?`<div class="wall">${items.map(piece).join('')}</div>`:`<div class="empty">Phòng này chưa có hiện vật. ${canAdmin?'Thêm hiện vật ở Khu quản trị.':'Các lớp đang chuẩn bị, bé quay lại sau nhé!'}</div>`}`;
+ let h=`<section class="room" style="--c:${r.c}">${head(r)}${classBar(r)}${items.length?`<div class="wall">${items.map(piece).join('')}</div>`:`<div class="empty">${cFilter.cls||cFilter.site?'Thư mục này chưa có bài trong phòng. ':''}Phòng này chưa có hiện vật. ${canAdmin?'Thêm hiện vật ở Khu quản trị.':'Các lớp đang chuẩn bị, bé quay lại sau nhé!'}</div>`}`;
  if(r.tree)h+=`<div style="display:grid;gap:12px"><h3 class="sub">Cây tri ân</h3><div class="tree-room"><div class="tree">${tree()}</div><div class="notes">${NOTES.map(n=>`<div class="note"><q>${n.q}</q><small>${n.who} · <span class="sample">mẫu</span></small></div>`).join('')}<div class="box" style="border:3px dashed var(--turmeric-fill);box-shadow:none"><h3>Hộp thư gửi tương lai</h3><p>Mỗi bé lớp 5–6 tuổi vẽ một bức tranh về điều mình mong ước. Hộp được mở vào tháng 5/2027 khi các bé chia tay trường mầm non.</p></div></div></div></div>`;
  return h+'</section>';
 }
@@ -934,6 +998,7 @@ const main=$('main');
 let currentId='loi-vao';
 function markTab(){[...$('rooms').children].forEach(b=>b.setAttribute('aria-selected',b.dataset.id===currentId))}
 function render(){
+ sidePanel();
  const want=(location.hash||'').slice(1)||'loi-vao';
  let r=ROOMS.find(x=>x.id===want)||ROOMS[0];if(r.adminOnly&&!canAdmin&&mode!=='github')r=ROOMS[0];currentId=r.id;markTab();
  $('layout').classList.toggle('wide',r.kind==='admin');
@@ -942,6 +1007,7 @@ function render(){
   main.querySelectorAll('[data-fsite]').forEach(b=>b.onclick=()=>{cFilter={site:b.dataset.fsite,cls:''};render()});
   main.querySelectorAll('[data-fcls]').forEach(b=>b.onclick=()=>{const c=clsOf(b.dataset.fcls);cFilter=cFilter.cls===b.dataset.fcls?{site:'',cls:''}:{site:c?c.site:'',cls:b.dataset.fcls};render()})}
  main.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{location.hash=b.dataset.go});
+ main.querySelectorAll('[data-gocls]').forEach(b=>b.onclick=()=>goClass(b.dataset.gocls,b.dataset.room));
  if(r.kind==='admin')wireAdmin();
 }
 addEventListener('hashchange',()=>{navTabs();render();
