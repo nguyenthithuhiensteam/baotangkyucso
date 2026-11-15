@@ -1043,6 +1043,30 @@
    "photo": "",
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwht717x",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Cây hoa sen cạn",
+   "era": "tháng 11/2026",
+   "plan": "",
+   "from": "nhóm/lớp: 24 - 36 tháng A Tràng Đà",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/u/0/folders/1CUnOAFTfMHVU5G_v9e_41W1ZJSPm57FN",
+   "cls": [
+    "lc16f31"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/8fac376e4f6d8b07bd24.jpg",
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
