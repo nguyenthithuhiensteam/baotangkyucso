@@ -1133,6 +1133,30 @@
    "photo": "anh/843916beb62a9aba76ef.jpg",
    "photoAlt": "",
    "sample": true
+  },
+  {
+   "id": "emwhuh3ik",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây phú quý",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/folders/12rYSOzCJOY4SJ-gt2b0u7D04GqEyImSc?usp=drive_link",
+   "cls": [
+    "l19ca8e"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/a301fbd52c7899b3418a.jpg",
+   "photoAlt": "",
+   "sample": true
   }
  ],
  "timeline": [
