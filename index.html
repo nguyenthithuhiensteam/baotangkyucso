@@ -288,6 +288,28 @@ h3.fsel{font-size:22px}h3.fsel small{font-size:14px;color:var(--muted);font-fami
 .toplist b{font-size:14px}.toplist small{color:var(--muted);font-size:12px}
 .toplist .bar{height:8px;border-radius:8px;background:var(--leaf)}
 #sideTop:empty{display:none}
+.dash{display:grid;gap:14px}
+.dhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}.dhead span{color:var(--muted);font-size:13px;font-weight:700}
+.dkpi{grid-template-columns:repeat(4,minmax(0,1fr))}
+.dkpi div{background:var(--frame);box-shadow:0 3px 0 var(--line)}
+.dkpi b small{font-size:16px;color:var(--muted)}
+.dkpi b.t{font-size:17px;line-height:1.2;font-family:var(--f-body)}
+.meter{display:block;height:8px;border-radius:8px;background:var(--wall);overflow:hidden}
+.meter em{display:block;height:100%;border-radius:8px;background:var(--leaf)}
+.dgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.dcard{background:var(--frame);border-radius:18px;padding:14px;display:grid;gap:10px;box-shadow:0 3px 0 var(--line)}
+.dcard h4{font-family:var(--f-display);font-size:18px}
+.drow{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) 38px;gap:10px;align-items:center}
+.dl b{display:flex;align-items:center;gap:5px;font-size:14px}.dl small{display:block;color:var(--muted);font-size:12px;line-height:1.3}
+.dv{font-weight:800;font-size:14px;text-align:right;font-variant-numeric:tabular-nums}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--c);flex:none}
+.dnote{margin:0;color:var(--muted);font-size:13px}
+.dclasses{display:grid;gap:10px}
+.hsite{display:grid;gap:8px}.hsite>b{font-size:15px}
+.cdoor b{font-size:19px}
+.cdoor.zero{opacity:.62;cursor:default;box-shadow:none}.cdoor.zero:hover{transform:none}
+.dtable summary{cursor:pointer;font-weight:800;color:var(--indigo);padding:4px 0}
+@media (max-width:900px){.dkpi{grid-template-columns:repeat(2,minmax(0,1fr))}.dgrid{grid-template-columns:minmax(0,1fr)}}
 .tcrow{display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
 .tcchip{display:inline-block;font-size:11px;font-weight:800;color:var(--ink);background:color-mix(in srgb,var(--p) 22%,var(--frame));border:1.5px solid var(--p);border-radius:6px;padding:0 5px;line-height:17px}
 .chang{display:block;font-size:13px;font-weight:700;color:var(--ink);background:color-mix(in srgb,var(--turmeric-fill) 25%,var(--frame));border-radius:10px;padding:4px 8px}
@@ -525,12 +547,35 @@ function classStats(){
  return classesOf().map(c=>{const by={};EXROOMS.forEach(r=>by[r.id]=data.exhibits.filter(e=>e.room===r.id&&clsList(e).includes(c.id)).length);
   return {c,by,total:EXROOMS.reduce((t,r)=>t+by[r.id],0)}}).sort((x,y)=>y.total-x.total);
 }
+/* Bảng điều khiển đóng góp của các lớp (Lối vào) */
 function classTable(){
  const st=classStats();if(!st.length)return '';
- const active=st.filter(x=>x.total).length;
- return `<div style="display:grid;gap:12px"><h3 class="sub">Đóng góp của các lớp</h3><p style="margin:0;color:var(--muted)">${active}/${st.length} lớp đã có bài. Bấm vào con số để mở thư mục lớp trong phòng đó.</p>
+ const all=data.exhibits.filter(e=>!e.sample),active=st.filter(x=>x.total),mx=Math.max(1,...st.map(x=>x.total));
+ const tagged=all.filter(e=>clsList(e).length).length;
+ const sites=sitesOf().filter(s=>st.some(x=>x.c.site===s)).map(s=>{const cs=st.filter(x=>x.c.site===s);return {s,cs,act:cs.filter(x=>x.total).length,n:all.filter(e=>inSite(e,s)).length}});
+ const rooms=EXROOMS.map(r=>({r,n:all.filter(e=>e.room===r.id).length})),rmx=Math.max(1,...rooms.map(x=>x.n));
+ const top=active[0];
+ const pct=(a,b)=>b?Math.round(a/b*100):0;
+ const SITE_C=['var(--coral)','var(--indigo)','var(--teal)','var(--lilac)'];
+ const tip=x=>esc(`${x.c.name} – ${x.c.site}: ${x.total} bài`+(x.total?' ('+EXROOMS.filter(r=>x.by[r.id]).map(r=>`P${r.n}: ${x.by[r.id]}`).join(', ')+')':''));
+ return `<div class="dash"><div class="dhead"><h3 class="sub">Đóng góp của các lớp</h3><span>Cập nhật theo bài đã đăng · không tính hiện vật mẫu</span></div>
+ <div class="kpis dkpi">
+  <div><b>${active.length}<small>/${st.length}</small></b><span>lớp đã có bài</span><i class="meter"><em style="width:${pct(active.length,st.length)}%"></em></i></div>
+  <div><b>${all.length}</b><span>bài trên bảo tàng</span></div>
+  <div><b>${pct(tagged,all.length)}<small>%</small></b><span>bài đã gắn lớp (${tagged}/${all.length})</span></div>
+  <div><b class="t">${top?esc(top.c.name):'—'}</b><span>${top?`lớp nhiều bài nhất · ${top.total} bài`:'chưa có lớp nào đăng bài'}</span></div>
+ </div>
+ <div class="dgrid">
+  <div class="dcard"><h4>Theo điểm trường</h4>${sites.map(x=>`<div class="drow"><div class="dl"><b>${esc(x.s)}</b><small>${x.act}/${x.cs.length} lớp có bài · ${x.n} bài</small></div><i class="meter"><em style="width:${pct(x.act,x.cs.length)}%"></em></i><span class="dv">${pct(x.act,x.cs.length)}%</span></div>`).join('')}</div>
+  <div class="dcard"><h4>Theo phòng</h4>${rooms.map(x=>`<div class="drow"><div class="dl"><b><span class="dot" style="--c:${x.r.c}"></span>Phòng ${x.r.n}</b><small>${esc(x.r.name)}</small></div><i class="meter"><em style="width:${Math.round(x.n/rmx*100)}%;background:${x.r.c}"></em></i><span class="dv">${x.n}</span></div>`).join('')}</div>
+ </div>
+ <div class="dclasses"><h4 class="sub" style="font-size:20px">Thư mục các lớp</h4><p class="dnote">Thẻ đậm màu là lớp đã có bài, thẻ mờ là lớp chưa có bài. Bấm vào thẻ để mở thư mục của lớp.</p>
+  ${sites.map((x,si)=>`<div class="hsite"><b>${esc(x.s)} · ${x.act}/${x.cs.length} lớp có bài</b><div class="index cdoors">${x.cs.map(y=>`<button type="button" class="door cdoor ${y.total?'':'zero'}" style="--c:${SITE_C[si%SITE_C.length]}" title="${tip(y)}" ${y.total?`data-gocls="${y.c.id}"`:'disabled'}><span class="n">${isNT(y.c)?'Nhóm nhà trẻ':'Lớp mẫu giáo'}</span><b>${esc(y.c.name.replace(/ (Tràng Đà|Hương Sen)$/,''))}</b><span>${y.total?y.total+' bài'+(y===top?' · ★ nhiều nhất':''):'Chưa có bài'}</span></button>`).join('')}</div></div>`).join('')}
+ </div>
+ <details class="dtable"><summary>Xem bảng chi tiết theo phòng</summary>
  <div class="ctable-wrap"><table class="ctable"><thead><tr><th>#</th><th>Lớp</th>${EXROOMS.map(r=>`<th title="${esc(r.name)}"><span class="dot" style="--c:${r.c}"></span>P${r.n}</th>`).join('')}<th>Tổng</th></tr></thead>
- <tbody>${st.map((x,i)=>`<tr class="${x.total?'':'zero'}"><td>${x.total?i+1:'–'}</td><td><b>${esc(x.c.name)}</b><small>${esc(x.c.site)}</small></td>${EXROOMS.map(r=>`<td>${x.by[r.id]?`<button type="button" class="cnum" data-gocls="${x.c.id}" data-room="${r.id}">${x.by[r.id]}</button>`:'<span class="z">·</span>'}</td>`).join('')}<td><b>${x.total}</b></td></tr>`).join('')}</tbody></table></div></div>`;
+ <tbody>${st.map((x,i)=>`<tr class="${x.total?'':'zero'}"><td>${x.total?i+1:'–'}</td><td><b>${esc(x.c.name)}</b><small>${esc(x.c.site)}</small></td>${EXROOMS.map(r=>`<td>${x.by[r.id]?`<button type="button" class="cnum" data-gocls="${x.c.id}" data-room="${r.id}">${x.by[r.id]}</button>`:'<span class="z">·</span>'}</td>`).join('')}<td><b>${x.total}</b></td></tr>`).join('')}</tbody></table></div></details>
+ </div>`;
 }
 function goClass(id,room){
  const c=clsOf(id);cFilter={site:c?c.site:'',cls:id};
