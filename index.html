@@ -164,6 +164,31 @@ h3.sub{font-size:26px}
 .timeline .when{font-size:14px;font-weight:800;color:var(--c)}
 .timeline h3{font-size:23px}
 .timeline p{margin:0;color:var(--muted)}
+.tshow{display:grid;gap:12px;background:linear-gradient(135deg,color-mix(in srgb,var(--indigo) 14%,var(--frame)),color-mix(in srgb,var(--turmeric-fill) 18%,var(--frame)));border-radius:28px;padding:18px;box-shadow:0 6px 0 var(--line);outline:none}
+.tstage{position:relative;min-height:300px;display:grid}
+.tslide{grid-area:1/1;display:grid;grid-template-columns:minmax(0,1fr);gap:8px;align-content:center;background:var(--frame);border-radius:22px;padding:26px 26px 22px;position:relative;overflow:hidden}
+.tslide.in{animation:tin .6s ease}
+@keyframes tin{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
+.tyear{position:absolute;right:14px;bottom:-18px;font-family:var(--f-display);font-weight:800;font-size:clamp(72px,12vw,130px);line-height:1;color:color-mix(in srgb,var(--indigo) 14%,transparent);pointer-events:none}
+.tbody{position:relative;display:grid;gap:8px;max-width:58ch}
+.twhen{justify-self:start;font-weight:800;font-size:14px;color:var(--paper);background:var(--indigo);border-radius:999px;padding:3px 12px}
+.tslide h3{font-size:clamp(24px,3.2vw,32px)}
+.tslide p{margin:0;font-size:17px;color:var(--ink)}
+.tslide small{color:var(--muted);font-size:13px}
+.tslide.future{background:repeating-linear-gradient(135deg,var(--frame) 0 14px,color-mix(in srgb,var(--turmeric-fill) 10%,var(--frame)) 14px 28px)}
+.tslide.future .twhen{background:var(--turmeric);color:var(--paper)}
+.tcount{position:absolute;top:14px;right:18px;font-size:13px;font-weight:800;color:var(--muted)}
+.tctrl{display:flex;gap:8px;justify-content:center}
+.trail{display:flex;gap:4px;overflow-x:auto;scrollbar-width:thin;padding:8px 2px 2px;position:relative}
+.tdot{all:unset;cursor:pointer;flex:1 0 56px;display:grid;justify-items:center;gap:4px;font-size:12px;font-weight:800;color:var(--muted)}
+.tdot i{width:14px;height:14px;border-radius:50%;background:var(--frame);border:3px solid var(--indigo)}
+.tdot.future i{border-style:dashed;border-color:var(--turmeric)}
+.tdot[aria-selected="true"]{color:var(--ink)}.tdot[aria-selected="true"] i{background:var(--turmeric-fill);transform:scale(1.35)}
+.tdot:focus-visible{outline:3px solid var(--turmeric-fill);border-radius:8px}
+.tbar{height:4px;border-radius:4px;background:color-mix(in srgb,var(--indigo) 15%,transparent);overflow:hidden}.tbar em{display:block;height:100%;width:0;background:var(--indigo);transition:width .12s linear}
+.tlist summary{cursor:pointer;font-weight:800;color:var(--indigo);padding:4px 0}.tlist .timeline{margin-top:12px}
+@media (max-width:560px){.tstage{min-height:360px}.tslide{padding:20px 18px 18px}.tslide p{font-size:16px}}
+@media (prefers-reduced-motion:reduce){.tslide.in{animation:none}}
 .timeline .ref{font-size:13px;color:var(--muted)}
 .todo{font-family:var(--f-hand);color:var(--turmeric);font-size:19px;line-height:1.3}
 
@@ -708,8 +733,48 @@ function exhibitsRoom(r){
  if(r.tree)h+=`<div style="display:grid;gap:12px"><h3 class="sub">Cây tri ân</h3><div class="tree-room"><div class="tree">${tree()}</div><div class="notes">${NOTES.map(n=>`<div class="note"><q>${n.q}</q><small>${n.who} · <span class="sample">mẫu</span></small></div>`).join('')}<div class="box" style="border:3px dashed var(--turmeric-fill);box-shadow:none"><h3>Hộp thư gửi tương lai</h3><p>Mỗi bé lớp 5–6 tuổi vẽ một bức tranh về điều mình mong ước. Hộp được mở vào tháng 5/2027 khi các bé chia tay trường mầm non.</p></div></div></div></div>`;
  return h+'</section>';
 }
+/* Phòng 1: trình chiếu tự chạy các mốc, kèm dải mốc thời gian; bản danh sách đầy đủ ở dưới. */
+const isFuture=t=>/^(mục tiêu|tầm nhìn)/i.test(t.when||'');
+const bigYear=t=>{const m=String(t.when||'').match(/(19|20)\d\d/g);return m?m[m.length-1]:''};
 function timelineRoom(r){
- return `<section class="room" style="--c:${r.c}">${head(r)}${data.timeline.length?`<ol class="timeline">${data.timeline.map(s=>`<li><div class="when">${esc(s.when)}</div><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p>${s.ref?`<div class="ref">Nguồn: ${esc(s.ref)}</div>`:''}${s.todo?`<div class="todo">✎ ${esc(s.todo)}</div>`:''}</li>`).join('')}</ol>`:'<div class="empty">Chưa có mốc nào.</div>'}</section>`;
+ const T=data.timeline;
+ if(!T.length)return `<section class="room" style="--c:${r.c}">${head(r)}<div class="empty">Chưa có mốc nào.</div></section>`;
+ const slide=(t,i)=>`<article class="tslide ${isFuture(t)?'future':''}" data-ts="${i}" aria-roledescription="trang" aria-label="${i+1} / ${T.length}" ${i?'hidden':''}>
+  <div class="tyear" aria-hidden="true">${esc(bigYear(t)||'★')}</div>
+  <div class="tbody"><span class="twhen">${isFuture(t)?'Chặng đường phía trước · ':''}${esc(t.when)}</span><h3>${esc(t.title)}</h3>${t.text?`<p>${esc(t.text)}</p>`:''}${t.ref?`<small>Nguồn: ${esc(t.ref)}</small>`:''}</div>
+  <span class="tcount">${i+1} / ${T.length}</span></article>`;
+ return `<section class="room" style="--c:${r.c}">${head(r)}
+ <div class="tshow" id="tshow" role="region" aria-roledescription="trình chiếu" aria-label="Hành trình của trường">
+  <div class="tstage">${T.map(slide).join('')}</div>
+  <div class="tctrl"><button type="button" class="btn small" data-tnav="-1" aria-label="Mốc trước">←</button><button type="button" class="btn small" id="tplay" aria-label="Dừng trình chiếu">❚❚ Dừng</button><button type="button" class="btn small" data-tnav="1" aria-label="Mốc sau">→</button></div>
+  <div class="trail" role="tablist" aria-label="Chọn mốc">${T.map((t,i)=>`<button type="button" role="tab" class="tdot ${isFuture(t)?'future':''}" data-tgo="${i}" aria-selected="${!i}" title="${esc(t.when+' – '+t.title)}"><i></i><span>${esc(bigYear(t)||t.when)}</span></button>`).join('')}</div>
+  <div class="tbar"><em id="tbar"></em></div>
+ </div>
+ <details class="tlist"><summary>Xem tất cả ${T.length} mốc dạng danh sách</summary>
+ <ol class="timeline">${T.map(s=>`<li><div class="when">${esc(s.when)}</div><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p>${s.ref?`<div class="ref">Nguồn: ${esc(s.ref)}</div>`:''}${s.todo?`<div class="todo">✎ ${esc(s.todo)}</div>`:''}</li>`).join('')}</ol></details></section>`;
+}
+let tTimer=null;
+function initShow(){
+ clearInterval(tTimer);tTimer=null;
+ const box=$('tshow');if(!box)return;
+ const sl=[...box.querySelectorAll('.tslide')],dots=[...box.querySelectorAll('.tdot')],bar=$('tbar'),play=$('tplay');
+ const DUR=7000,still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ let cur=0,on=!still,t0=Date.now(),hold=false;
+ const go=i=>{cur=(i+sl.length)%sl.length;sl.forEach((x,k)=>{x.hidden=k!==cur;x.classList.toggle('in',k===cur)});
+  dots.forEach((d,k)=>d.setAttribute('aria-selected',k===cur));const tr=dots[cur].parentElement;tr.scrollTo({left:dots[cur].offsetLeft-tr.clientWidth/2+dots[cur].clientWidth/2,behavior:still?'auto':'smooth'});t0=Date.now();if(bar)bar.style.width='0%'};
+ const setPlay=v=>{on=v;play.textContent=on?'❚❚ Dừng':'▶ Chạy';play.setAttribute('aria-label',on?'Dừng trình chiếu':'Chạy trình chiếu');t0=Date.now();if(bar)bar.style.width='0%'};
+ box.querySelectorAll('[data-tnav]').forEach(b=>b.onclick=()=>{go(cur+ +b.dataset.tnav)});
+ dots.forEach(d=>d.onclick=()=>go(+d.dataset.tgo));
+ play.onclick=()=>setPlay(!on);
+ box.onmouseenter=()=>hold=true;box.onmouseleave=()=>hold=false;
+ box.addEventListener('focusin',()=>hold=true);box.addEventListener('focusout',()=>hold=false);
+ box.onkeydown=e=>{if(e.key==='ArrowRight'){go(cur+1);e.preventDefault()}else if(e.key==='ArrowLeft'){go(cur-1);e.preventDefault()}};
+ let sx=null;box.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+ box.addEventListener('touchend',e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)go(cur+(dx<0?1:-1));sx=null},{passive:true});
+ setPlay(on);go(0);
+ tTimer=setInterval(()=>{if(!document.body.contains(box)){clearInterval(tTimer);return}
+  if(!on||hold||document.hidden||!$('viewer').hidden){t0=Date.now()-(bar?parseFloat(bar.style.width||0)/100*DUR:0);return}
+  const p=(Date.now()-t0)/DUR;if(bar)bar.style.width=Math.min(100,p*100)+'%';if(p>=1)go(cur+1)},120);
 }
 function calendarRoom(r){
  const c=NOW.getFullYear()*12+NOW.getMonth()+1;
@@ -1201,6 +1266,7 @@ function render(){
   main.querySelectorAll('[data-fcls]').forEach(b=>b.onclick=()=>{const c=clsOf(b.dataset.fcls);cFilter=cFilter.cls===b.dataset.fcls?{site:'',cls:''}:{site:c?c.site:'',cls:b.dataset.fcls};render()})}
  main.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{location.hash=b.dataset.go});
  main.querySelectorAll('[data-gocls]').forEach(b=>b.onclick=()=>goClass(b.dataset.gocls,b.dataset.room));
+ if(r.kind==='timeline')initShow();else{clearInterval(tTimer);tTimer=null}
  if(r.kind==='admin')wireAdmin();
 }
 addEventListener('hashchange',()=>{navTabs();render();
