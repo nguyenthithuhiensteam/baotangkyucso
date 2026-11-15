@@ -66,6 +66,13 @@ button{font:inherit;cursor:pointer}
 .btn:disabled{opacity:.45;cursor:default;transform:none}
 @media (max-width:620px){.gate{grid-template-columns:1fr}.gate svg.sun{position:absolute;right:-18px;top:-14px;width:110px;opacity:.95}.gate .txt{padding-top:44px}}
 
+/* Ảnh bìa */
+.cover{position:relative;margin-top:16px}
+.cover img{display:block;width:100%;height:auto;aspect-ratio:1024/434;object-fit:cover;border-radius:28px;background:var(--indigo-soft);box-shadow:0 6px 0 var(--line)}
+.cover .cta{position:absolute;left:clamp(14px,3vw,36px);bottom:clamp(12px,2.6vw,30px);margin:0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:620px){.cover img{border-radius:18px}.cover .cta{position:static;margin-top:12px}}
+
 /* Room nav */
 nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);padding-block:12px}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
@@ -405,15 +412,10 @@ const NOTES=[{q:"Con chúc cô luôn vui và không bị ốm.",who:"Một bé l
 /* ---------- shell ---------- */
 const root=$('root');
 root.innerHTML=`
-<header class="wrap gate">
- <div class="txt">
-  <div class="school">Trường Mầm non Nông Tiến · Tuyên Quang</div>
-  <h1><span>Bảo tàng</span> <span>ký ức</span> số</h1>
-  <p class="motto">Nơi lưu giữ hành trình lớn khôn và tri ân</p>
-  <div class="cta" id="heroCta"></div>
- </div>
- <svg class="sun" viewBox="0 0 160 160" aria-hidden="true"><g stroke="var(--turmeric-fill)" stroke-width="9" stroke-linecap="round">${Array.from({length:12},(_,i)=>{const a=i*Math.PI/6,x1=80+Math.cos(a)*52,y1=80+Math.sin(a)*52,x2=80+Math.cos(a)*70,y2=80+Math.sin(a)*70;return `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}"/>`}).join('')}</g><circle cx="80" cy="80" r="40" fill="var(--turmeric-fill)"/><circle cx="66" cy="74" r="5" fill="#3a2a00"/><circle cx="94" cy="74" r="5" fill="#3a2a00"/><path d="M64 90c8 10 24 10 32 0" stroke="#3a2a00" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="58" cy="88" r="6" fill="var(--coral)" opacity=".7"/><circle cx="102" cy="88" r="6" fill="var(--coral)" opacity=".7"/></svg>
- <div class="deco"><svg viewBox="0 0 1000 46" preserveAspectRatio="none"><path d="M0 30 Q 60 6 120 26 T 240 24 T 360 28 T 480 20 T 600 28 T 720 22 T 840 28 T 1000 22 V46 H0z" fill="var(--leaf)" opacity=".35"/><path d="M0 38 Q 80 22 160 36 T 320 34 T 480 38 T 640 32 T 800 38 T 1000 34 V46 H0z" fill="var(--leaf)" opacity=".6"/></svg></div>
+<header class="wrap cover">
+ <img src="bia.webp" alt="Bảo tàng Ký ức số – Trường Mầm non Nông Tiến, Tuyên Quang. Nơi lưu giữ hành trình lớn khôn và tri ân" width="1024" height="434" fetchpriority="high">
+ <h1 class="sr">Bảo tàng ký ức số – Trường Mầm non Nông Tiến</h1>
+ <div class="cta" id="heroCta"></div>
 </header>
 <div class="layout wrap" id="layout">
  <nav class="side-nav" aria-label="Các phòng trưng bày"><div class="eyebrow">Các phòng</div><div class="rooms" role="tablist" id="rooms"></div></nav>
