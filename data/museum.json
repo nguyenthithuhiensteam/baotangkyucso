@@ -1259,6 +1259,30 @@
    "photo": "",
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwhvyn27",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Cây trầu bà đế vương lá đỏ",
+   "era": "tháng 11/2026",
+   "plan": "",
+   "from": "nhóm/lớp: 24 - 36 tháng A Tràng Đà",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/u/0/folders/162VrzWmfbczOTVTR1kuI8KNzSlVzyIjq",
+   "cls": [
+    "lc16f31"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
