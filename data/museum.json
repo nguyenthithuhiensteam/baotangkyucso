@@ -1275,27 +1275,30 @@
   },
   {
    "id": "emwhvyn27",
-   "room": "khoanh-khac",
+   "room": "thien-nhien",
    "art": "sach",
    "name": "Cây trầu bà đế vương lá đỏ",
    "era": "tháng 11/2026",
-   "plan": "",
+   "plan": "Ngày nhà giáo Việt Nam 20/11",
    "from": "nhóm/lớp: 24 - 36 tháng A Tràng Đà",
    "story": "",
    "ask": "",
    "video": "",
    "audio": "",
    "link3d": "",
-   "drive": "https://drive.google.com/drive/u/0/folders/162VrzWmfbczOTVTR1kuI8KNzSlVzyIjq",
+   "drive": "https://drive.https://drive.google.com/drive/u/0/folders/1yXkRDIOmIOasR_zXIvnU87CzQZuS0NA1google.com/drive/u/0/folders/162VrzWmfbczOTVTR1kuI8KNzSlVzyIjq",
    "cls": [
     "lc16f31"
    ],
    "tc": [],
    "keeper": "",
    "her": "",
-   "photo": "",
+   "photo": "anh/ea2e36818265156d9075.jpg",
+   "photos": [
+    "anh/ea2e36818265156d9075.jpg"
+   ],
    "photoAlt": "",
-   "sample": false
+   "sample": true
   },
   {
    "id": "emwhwvk0m",
