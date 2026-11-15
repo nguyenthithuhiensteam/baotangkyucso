@@ -532,6 +532,25 @@
    "photo": "",
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwetrviv",
+   "room": "khoanh-khac",
+   "art": "khoc",
+   "name": "Đường tay (Way)",
+   "era": "Tháng 11",
+   "plan": "",
+   "from": "",
+   "story": "Đường tay (Way)",
+   "ask": "Đây là gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/folders/1ve6bqNs76stdhLHgz9nqGAVUo0ok21Wq",
+   "cls": [],
+   "photo": "anh/563ef6fbf81e319f32dc.jpg",
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
