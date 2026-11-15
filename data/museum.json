@@ -1319,6 +1319,34 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwhwrptq",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Thiệp tặng cô",
+   "era": "tháng 11/2026",
+   "plan": "Ngày nhà giáo Việt Nam 20/11",
+   "from": "nhóm/lớp: 24 - 36 tháng A Tràng Đà",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l92c638",
+    "lc16f31"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/67e0d8b4cf7b68336951.jpg",
+   "photos": [
+    "anh/67e0d8b4cf7b68336951.jpg"
+   ],
+   "photoAlt": "",
+   "sample": true
   }
  ],
  "timeline": [
