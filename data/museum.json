@@ -25,6 +25,170 @@
     "n": "538",
     "l": "bé học sinh"
    }
+  ],
+  "sites": [
+   "Trường chính",
+   "Phân hiệu Tràng Đà",
+   "Phân hiệu Hương Sen"
+  ],
+  "classes": [
+   {
+    "id": "l3a9b5e",
+    "name": "MG 5–6 tuổi C1",
+    "site": "Trường chính"
+   },
+   {
+    "id": "l3ee012",
+    "name": "MG 5–6 tuổi C2",
+    "site": "Trường chính"
+   },
+   {
+    "id": "lc9d4fb",
+    "name": "MG 5–6 tuổi C3",
+    "site": "Trường chính"
+   },
+   {
+    "id": "l62a027",
+    "name": "MG 4–5 tuổi B1",
+    "site": "Trường chính"
+   },
+   {
+    "id": "lb4ed25",
+    "name": "MG 4–5 tuổi B2",
+    "site": "Trường chính"
+   },
+   {
+    "id": "l8834cf",
+    "name": "MG 4–5 tuổi B3",
+    "site": "Trường chính"
+   },
+   {
+    "id": "l92c638",
+    "name": "MG 3–4 tuổi A1",
+    "site": "Trường chính"
+   },
+   {
+    "id": "lc8a1a7",
+    "name": "MG 3–4 tuổi A2",
+    "site": "Trường chính"
+   },
+   {
+    "id": "l1b1bdd",
+    "name": "MG 3–4 tuổi A3",
+    "site": "Trường chính"
+   },
+   {
+    "id": "l9f51b7",
+    "name": "Nhà trẻ 25–36 tháng A",
+    "site": "Trường chính"
+   },
+   {
+    "id": "l5f4f02",
+    "name": "Nhà trẻ 25–36 tháng B",
+    "site": "Trường chính"
+   },
+   {
+    "id": "l4e46da",
+    "name": "Nhà trẻ 25–36 tháng C",
+    "site": "Trường chính"
+   },
+   {
+    "id": "lb0bde3",
+    "name": "Nhà trẻ 25–36 tháng D",
+    "site": "Trường chính"
+   },
+   {
+    "id": "l71706c",
+    "name": "MG 5–6 tuổi Tràng Đà",
+    "site": "Phân hiệu Tràng Đà"
+   },
+   {
+    "id": "l2f96f2",
+    "name": "MG 4–5 tuổi Tràng Đà",
+    "site": "Phân hiệu Tràng Đà"
+   },
+   {
+    "id": "l73377a",
+    "name": "MG 3–4 tuổi A Tràng Đà",
+    "site": "Phân hiệu Tràng Đà"
+   },
+   {
+    "id": "ldb4f8c",
+    "name": "MG 3–4 tuổi B Tràng Đà",
+    "site": "Phân hiệu Tràng Đà"
+   },
+   {
+    "id": "lc16f31",
+    "name": "Nhà trẻ 25–36 tháng A Tràng Đà",
+    "site": "Phân hiệu Tràng Đà"
+   },
+   {
+    "id": "l1b3ceb",
+    "name": "Nhà trẻ 25–36 tháng B Tràng Đà",
+    "site": "Phân hiệu Tràng Đà"
+   },
+   {
+    "id": "l19ca8e",
+    "name": "MG 5–6 tuổi Hương Sen",
+    "site": "Phân hiệu Hương Sen"
+   },
+   {
+    "id": "l7d442e",
+    "name": "MG 4–5 tuổi Hương Sen",
+    "site": "Phân hiệu Hương Sen"
+   },
+   {
+    "id": "l5d20a2",
+    "name": "MG 3–4 tuổi Hương Sen",
+    "site": "Phân hiệu Hương Sen"
+   },
+   {
+    "id": "lc0c279",
+    "name": "Nhà trẻ 25–36 tháng A Hương Sen",
+    "site": "Phân hiệu Hương Sen"
+   },
+   {
+    "id": "l6c9ea7",
+    "name": "Nhà trẻ 25–36 tháng B Hương Sen",
+    "site": "Phân hiệu Hương Sen"
+   }
+  ],
+  "heritage": [
+   {
+    "id": "hc7d8a4",
+    "site": "Trường chính",
+    "name": "Lễ hội Thành Tuyên",
+    "kind": "lễ hội",
+    "confirm": ""
+   },
+   {
+    "id": "h1d2da3",
+    "site": "Trường chính",
+    "name": "Sông Lô",
+    "kind": "cảnh quan, tri thức dân gian",
+    "confirm": ""
+   },
+   {
+    "id": "he8a2e5",
+    "site": "Trường chính",
+    "name": "Trò chơi ném còn",
+    "kind": "trò chơi dân gian",
+    "confirm": ""
+   },
+   {
+    "id": "h9eaad4",
+    "site": "Phân hiệu Tràng Đà",
+    "name": "Trò chơi dân gian Tràng Đà",
+    "kind": "trò chơi dân gian",
+    "confirm": ""
+   },
+   {
+    "id": "h7f601e",
+    "site": "Phân hiệu Hương Sen",
+    "name": "Khu di tích ATK",
+    "kind": "di tích lịch sử",
+    "confirm": ""
+   }
   ]
  },
  "exhibits": [

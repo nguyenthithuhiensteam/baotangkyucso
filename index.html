@@ -479,6 +479,9 @@ const PILLARS={'Khỏe':'var(--leaf)','An toàn':'var(--coral)','Tự tin giao t
 const CHANGS=[{n:1,y:2026,m:11,tc:['TC3','TC4']},{n:2,y:2026,m:11,tc:['TC7']},{n:3,y:2026,m:12,tc:['TC2']},{n:4,y:2027,m:1,tc:['TC5']},
  {n:5,y:2027,m:2,tc:['TC8']},{n:6,y:2027,m:3,tc:['TC1']},{n:7,y:2027,m:4,tc:['TC9']},{n:8,y:2027,m:5,tc:['TC6']}];
 const KEEPERS=['Cha mẹ','Ông bà','Nghệ nhân','Người có uy tín','Cán bộ văn hóa'];
+/* Nhóm nhà trẻ: vẫn đăng bài lên bảo tàng nhưng không tính minh chứng SKKN (thí điểm khối mẫu giáo). */
+const isNT=c=>!!c&&/nhà trẻ|tháng/i.test(c.name);
+const ntOnly=e=>{const l=clsList(e);return l.length>0&&l.every(id=>isNT(clsOf(id)))};
 const tcList=e=>(Array.isArray(e.tc)?e.tc:[]).filter(c=>TCS[c]);
 const heritageOf=()=>Array.isArray(data.settings.heritage)?data.settings.heritage:[];
 const herOf=id=>heritageOf().find(h=>h.id===id);
@@ -535,6 +538,7 @@ function goClass(id,room){
  if(location.hash==='#'+room)render();else location.hash=room;
 }
 function skknFields(d){
+ if(ntOnly(d))return `<div class="f"><span class="hint">Nhóm nhà trẻ: bài vẫn đưa lên bảo tàng, không gắn tiêu chí Hành trình di sản (sáng kiến thí điểm ở khối mẫu giáo).</span></div>`;
  const v=tcList(d),H=heritageOf();
  const grp=Object.keys(PILLARS).map(p=>`<div class="clsgrp"><b>${p}</b><div class="clsopts">${Object.entries(TCS).filter(([,t])=>t[0]===p).map(([c,t])=>`<label class="check" title="${esc(t[1])}"><input type="checkbox" data-xtc="${c}" ${v.includes(c)?'checked':''}> ${c} · ${esc(t[1])}</label>`).join('')}</div></div>`).join('');
  return `<fieldset id="x_skkn" class="skknbox"><legend>Hành trình di sản (minh chứng)</legend>
@@ -795,9 +799,9 @@ function adminLinks(){
  <div><button type="submit" class="btn primary">Đưa vào danh sách</button></div></form>`;
 }
 function skknData(){
- const ex=data.exhibits.filter(e=>!e.sample),withTc=ex.filter(e=>tcList(e).length);
+ const ex=data.exhibits.filter(e=>!e.sample&&!ntOnly(e)),withTc=ex.filter(e=>tcList(e).length);
  const changs=CHANGS.map(c=>{const it=withTc.filter(e=>tcList(e).some(t=>c.tc.includes(t)));return {...c,n_ex:it.length,n_cls:new Set(it.flatMap(clsList)).size}});
- const classes=classesOf().map(c=>{const it=ex.filter(e=>clsList(e).includes(c.id));
+ const classes=classesOf().filter(c=>!isNT(c)).map(c=>{const it=ex.filter(e=>clsList(e).includes(c.id));
   return {c,ex:it.length,tc:it.filter(e=>tcList(e).length).length,chang:changs.filter(ch=>it.some(e=>tcList(e).some(t=>ch.tc.includes(t)))).length,keeper:it.filter(e=>e.keeper).length,digital:it.filter(isDigital).length}});
  const sites=sitesOf().map(st=>{const it=ex.filter(e=>inSite(e,st));return {st,her:heritageOf().filter(h=>h.site===st).length,digital:it.filter(isDigital).length,keeper:it.filter(e=>e.keeper).length}});
  const tcs=Object.keys(TCS).map(c=>({c,n:withTc.filter(e=>tcList(e).includes(c)).length}));
@@ -808,7 +812,7 @@ function adminSkkn(){
  const td=(v,ok)=>`<td class="${ok===undefined?'':ok?'ok':'low'}">${v}</td>`;
  const herBlocks=sitesOf().map((st,i)=>`<div class="clsedit"><b>${esc(st)}</b><div class="f"><label for="hm_${i}">Mỗi dòng một di sản: Tên | loại | người xác nhận</label><textarea id="hm_${i}" data-site="${esc(st)}" placeholder="VD:&#10;Trò chơi ném còn | trò chơi dân gian | Bà Hoàng Thị A, nghệ nhân&#10;Lễ hội Thành Tuyên | lễ hội | Cán bộ văn hóa phường">${esc(H.filter(h=>h.site===st).map(h=>[h.name,h.kind,h.confirm].join(' | ').replace(/( \| )+$/,'')).join('\n'))}</textarea></div></div>`).join('');
  return `<div class="skkn">
- <div class="box"><h3>Tổng quan minh chứng</h3><p style="margin:0;color:var(--muted);font-size:15px">Số liệu tự tính từ các hiện vật đã đăng (không tính hiện vật mẫu). Dùng cho Giấy xác nhận áp dụng sáng kiến, báo cáo học kỳ I và cuối năm.</p>
+ <div class="box"><h3>Tổng quan minh chứng</h3><p style="margin:0;color:var(--muted);font-size:15px">Số liệu tự tính từ các hiện vật đã đăng của khối mẫu giáo (không tính hiện vật mẫu và bài chỉ của nhóm nhà trẻ). Dùng cho Giấy xác nhận áp dụng sáng kiến, báo cáo học kỳ I và cuối năm.</p>
   <div class="kpis"><div><b>${D.withTc.length}/${D.ex.length}</b><span>hiện vật gắn tiêu chí</span></div><div><b>${D.changs.filter(c=>c.n_ex).length}/8</b><span>chặng đã có minh chứng</span></div><div><b>${D.keepers}</b><span>lượt người giữ chặng</span></div><div><b>${D.ex.filter(isDigital).length}</b><span>sản phẩm số (video, âm thanh, 3D)</span></div><div><b>${H.length}</b><span>di sản trên bản đồ</span></div></div>
   <div><button type="button" class="btn small primary" id="skknCsv">Tải bảng minh chứng (Excel/CSV)</button></div></div>
  <div class="box"><h3>Theo chặng “Hành trình di sản”</h3><div class="ctable-wrap"><table class="ctable"><thead><tr><th>Chặng</th><th>Tháng</th><th>Tiêu chí</th><th>Hiện vật</th><th>Số lớp</th></tr></thead><tbody>${D.changs.map(c=>`<tr><td>${c.n}</td><td>${c.m}/${c.y}</td><td style="text-align:left">${c.tc.map(t=>t+' '+esc(TCS[t][1])).join('<br>')}</td>${td(c.n_ex,c.n_ex>0)}${td(c.n_cls)}</tr>`).join('')}</tbody></table></div></div>
@@ -839,9 +843,9 @@ function adminClasses(){
  const blocks=[0,1,2,3].map(i=>{const s=S[i]||'';return `<div class="clsedit">${fld('cs_'+i,'Điểm trường '+(i+1),s,{ph:i<3?DEFAULT_SITES[i]:'(để trống nếu không có)'})}
   <div class="f"><label for="cl_${i}">Các lớp (mỗi dòng một lớp)</label><textarea id="cl_${i}" placeholder="VD:&#10;Nhà trẻ 24–36 tháng D1&#10;MG 3–4 tuổi C1&#10;MG 5–6 tuổi A1">${esc(cs.filter(c=>s&&c.site===s).map(c=>c.name).join('\n'))}</textarea></div></div>`}).join('');
  return `<form class="edit" id="cForm" novalidate style="position:static;max-width:860px"><h3>Danh sách lớp theo điểm trường</h3>
- <p style="margin:0;color:var(--muted);font-size:15px">Mỗi hiện vật chọn được một lớp; phụ huynh lọc hiện vật theo điểm trường và lớp ở từng phòng. <b>Đổi tên lớp</b> thì các hiện vật đã gắn lớp cũ sẽ mất liên kết, nên chỉ sửa khi cần.</p>
+ <p style="margin:0;color:var(--muted);font-size:15px">Mỗi hiện vật chọn được một lớp; phụ huynh lọc hiện vật theo điểm trường và lớp ở từng phòng. <b>Đổi tên lớp</b> thì các hiện vật đã gắn lớp cũ sẽ mất liên kết, nên chỉ sửa khi cần. Lớp có chữ “Nhà trẻ” hoặc “tháng” là nhóm nhà trẻ: vẫn có thư mục trên bảo tàng nhưng không tính minh chứng SKKN.</p>
  <div class="admin-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">${blocks}</div>
- ${cs.length?`<small style="color:var(--muted)">Đang có ${cs.length} lớp; ${data.exhibits.filter(e=>clsList(e).length).length} hiện vật đã gắn lớp.</small>`:''}
+ ${cs.length?`<small style="color:var(--muted)">Đang có ${cs.length} lớp (${cs.filter(c=>!isNT(c)).length} lớp mẫu giáo, ${cs.filter(isNT).length} nhóm nhà trẻ); ${data.exhibits.filter(e=>clsList(e).length).length} hiện vật đã gắn lớp.</small>`:''}
  <div><button type="submit" class="btn primary">Đưa vào danh sách</button></div></form>`;
 }
 function itemDetails(p){
@@ -1022,6 +1026,7 @@ function wireAdmin(){
   try{await api('/api/users',d,()=>setMsg(WAKE));setMsg(d.isNew?`Đã tạo tài khoản “${d.username}”. Gửi tên đăng nhập và mật khẩu riêng cho giáo viên.`:'Đã lưu tài khoản.');userDraft=null;await loadUsers()}
   catch(err){setMsg(err.msg);$('u_save').disabled=false}finally{busy=false}};
  /* đổi mật khẩu */
+ document.querySelectorAll('[data-xcls]').forEach(x=>x.onchange=()=>{captureEx();render()});
  const xn=$('x_name'),xr=$('x_room');if(xn&&draft){const upd=()=>{$('dupWarn').innerHTML=dupInfo({...draft,name:xn.value,room:xr?xr.value:draft.room})};xn.oninput=upd;if(xr)xr.addEventListener('change',upd)}
  const xp=$('x_photo');if(xp)xp.onchange=async()=>{const f=xp.files&&xp.files[0];if(!f)return;captureEx();setMsg('Đang thu nhỏ và tải ảnh lên…');
   try{const url=await shrink(f);const r=await api('/api/photo',{data:url});phPrev[r.photo]=url;draft.photo=r.photo;render();setMsg(r.photo.startsWith('anh/')?'Đã tải ảnh. Bấm '+sendLabel()+' để gắn ảnh vào hiện vật.':'Đã tải ảnh. Ảnh sẽ hiện sau khi bài được duyệt.')}
