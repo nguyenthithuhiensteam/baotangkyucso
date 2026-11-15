@@ -1376,6 +1376,35 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwhwfcll",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây hoa đỗ quyên",
+   "era": "Tháng 11",
+   "plan": "Cây xanh quanh bé",
+   "from": "MG 5-6 tuổi Tràng Đà",
+   "story": "Trong một khu vườn nhỏ, có một cây hoa Đỗ Quyên đang ngày ngày vươn mình đón nắng. Cây có những chiếc lá xanh mướt và những nụ hoa xinh xắn.\nMột buổi sáng mùa xuân, những nụ hoa từ từ hé mở, khoe sắc hồng, đỏ rực rỡ. Đàn bướm, đàn ong bay đến ríu rít:\n– Ôi! Hoa Đỗ Quyên đẹp quá!\nHoa Đỗ Quyên vui vẻ nói:\n– Cảm ơn các bạn! Nhờ có ánh nắng, nước và sự chăm sóc của mọi người mà mình mới lớn lên và nở những bông hoa đẹp như thế này.\nHằng ngày, các bạn nhỏ trong trường cùng nhau tưới nước, nhặt lá vàng và chăm sóc cây. Hoa Đỗ Quyên ngày càng xanh tốt, nở hoa rực rỡ, làm cho khu vườn thêm tươi đẹp.\nTừ đó, các bạn nhỏ hiểu rằng: Muốn cây luôn xanh tươi, hoa luôn khoe sắc, chúng ta phải biết yêu quý, chăm sóc và bảo vệ cây xanh.",
+   "ask": "Các con cần làm gì để chăm sóc và bảo vệ cây xanh?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/18AbP5--KWXg_euqEDvfmRnYc6_6dGGQf/view?usp=sharing",
+   "cls": [
+    "l71706c"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/54ad327733a76f3b4d0d.jpg",
+   "photos": [
+    "anh/54ad327733a76f3b4d0d.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
