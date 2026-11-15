@@ -304,10 +304,10 @@ h3.fsel{font-size:22px}h3.fsel small{font-size:14px;color:var(--muted);font-fami
 .dv{font-weight:800;font-size:14px;text-align:right;font-variant-numeric:tabular-nums}
 .dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--c);flex:none}
 .dnote{margin:0;color:var(--muted);font-size:13px}
-.dclasses{display:grid;gap:10px}
+.croom{display:grid;gap:10px}.croom h3.sub{font-size:22px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.croom h3 small,.hsite h3 small{font-size:14px;color:var(--muted);font-family:var(--f-body)}
 .hsite{display:grid;gap:8px}.hsite>b{font-size:15px}
 .cdoor b{font-size:19px}
-.cdoor.zero{opacity:.62;cursor:default;box-shadow:none}.cdoor.zero:hover{transform:none}
+.cdoor.zero{opacity:.62;box-shadow:none}.cdoor.zero:hover{transform:none}
 .dtable summary{cursor:pointer;font-weight:800;color:var(--indigo);padding:4px 0}
 @media (max-width:900px){.dkpi{grid-template-columns:repeat(2,minmax(0,1fr))}.dgrid{grid-template-columns:minmax(0,1fr)}}
 .tcrow{display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
@@ -424,6 +424,7 @@ const ROOMS=[
   lead:"Mỗi hoạt động trải nghiệm trong năm học là một gian trưng bày mới. Cuối mỗi tháng, các lớp chọn 3–5 khoảnh khắc tiêu biểu đưa vào bảo tàng.",src:"Mục 5.4 Kế hoạch số 01/KH-MNNT về thực hiện nhiệm vụ năm học 2026–2027"},
  {id:"thien-nhien",n:"6",name:"Góc thiên nhiên xanh",kind:"exhibits",c:"var(--teal)",
   lead:"Cây xanh, vườn hoa, vườn rau quanh trường: tên cây, lớp nào trồng và chăm sóc, cây lớn lên thế nào qua từng tháng. Bé cùng cô tưới cây, nhặt lá, quan sát và kể chuyện về cây.",src:"Chủ đề “Trường học hạnh phúc – Xanh, Sạch, Số”, Kế hoạch số 17/KH-MNNT"},
+ {id:"lop-hoc",name:"Các lớp học",kind:"classes",c:"var(--teal)"},
  {id:"huong-dan",name:"Hướng dẫn cho lớp",kind:"guide",c:"var(--indigo)"},
  {id:"quan-tri",name:"Khu quản trị",kind:"admin",adminOnly:true,c:"var(--muted)"}
 ];
@@ -569,13 +570,34 @@ function classTable(){
   <div class="dcard"><h4>Theo điểm trường</h4>${sites.map(x=>`<div class="drow"><div class="dl"><b>${esc(x.s)}</b><small>${x.act}/${x.cs.length} lớp có bài · ${x.n} bài</small></div><i class="meter"><em style="width:${pct(x.act,x.cs.length)}%"></em></i><span class="dv">${pct(x.act,x.cs.length)}%</span></div>`).join('')}</div>
   <div class="dcard"><h4>Theo phòng</h4>${rooms.map(x=>`<div class="drow"><div class="dl"><b><span class="dot" style="--c:${x.r.c}"></span>Phòng ${x.r.n}</b><small>${esc(x.r.name)}</small></div><i class="meter"><em style="width:${Math.round(x.n/rmx*100)}%;background:${x.r.c}"></em></i><span class="dv">${x.n}</span></div>`).join('')}</div>
  </div>
- <div class="dclasses"><h4 class="sub" style="font-size:20px">Thư mục các lớp</h4><p class="dnote">Thẻ đậm màu là lớp đã có bài, thẻ mờ là lớp chưa có bài. Bấm vào thẻ để mở thư mục của lớp.</p>
-  ${sites.map((x,si)=>`<div class="hsite"><b>${esc(x.s)} · ${x.act}/${x.cs.length} lớp có bài</b><div class="index cdoors">${x.cs.map(y=>`<button type="button" class="door cdoor ${y.total?'':'zero'}" style="--c:${SITE_C[si%SITE_C.length]}" title="${tip(y)}" ${y.total?`data-gocls="${y.c.id}"`:'disabled'}><span class="n">${isNT(y.c)?'Nhóm nhà trẻ':'Lớp mẫu giáo'}</span><b>${esc(y.c.name.replace(/ (Tràng Đà|Hương Sen)$/,''))}</b><span>${y.total?y.total+' bài'+(y===top?' · ★ nhiều nhất':''):'Chưa có bài'}</span></button>`).join('')}</div></div>`).join('')}
- </div>
+ <button type="button" class="btn primary" style="justify-self:start" data-go="lop-hoc">Vào thư mục các lớp học →</button>
  <details class="dtable"><summary>Xem bảng chi tiết theo phòng</summary>
  <div class="ctable-wrap"><table class="ctable"><thead><tr><th>#</th><th>Lớp</th>${EXROOMS.map(r=>`<th title="${esc(r.name)}"><span class="dot" style="--c:${r.c}"></span>P${r.n}</th>`).join('')}<th>Tổng</th></tr></thead>
  <tbody>${st.map((x,i)=>`<tr class="${x.total?'':'zero'}"><td>${x.total?i+1:'–'}</td><td><b>${esc(x.c.name)}</b><small>${esc(x.c.site)}</small></td>${EXROOMS.map(r=>`<td>${x.by[r.id]?`<button type="button" class="cnum" data-gocls="${x.c.id}" data-room="${r.id}">${x.by[r.id]}</button>`:'<span class="z">·</span>'}</td>`).join('')}<td><b>${x.total}</b></td></tr>`).join('')}</tbody></table></div></details>
  </div>`;
+}
+/* Trang "Các lớp học": thẻ các lớp theo điểm trường; trang riêng từng lớp (#lop-hoc/<mã lớp>). */
+const SITE_COLORS=['var(--coral)','var(--indigo)','var(--teal)','var(--lilac)'];
+function classesRoom(sub){
+ const st=classStats(),all=data.exhibits.filter(e=>!e.sample);
+ if(!st.length)return `<section class="room" style="--c:var(--teal)"><div class="room-head"><span class="eyebrow">Thư mục lớp</span><h2>Các lớp học</h2><p>Nhà trường chưa nhập danh sách lớp.</p></div></section>`;
+ const c=sub&&clsOf(sub);
+ if(c){
+  const si=Math.max(0,sitesOf().indexOf(c.site)),col=SITE_COLORS[si%SITE_COLORS.length];
+  const it=data.exhibits.filter(e=>clsList(e).includes(c.id)),x=st.find(y=>y.c.id===c.id);
+  const rank=x&&x.total?st.filter(y=>y.total>x.total).length+1:0;
+  return `<section class="room" style="--c:${col}"><div class="room-head"><span class="eyebrow">${esc(c.site)} · ${isNT(c)?'Nhóm nhà trẻ':'Lớp mẫu giáo'}</span><h2>${esc(c.name)}</h2>
+   <p>${it.length?`Lớp đã đưa ${it.length} hiện vật lên bảo tàng${rank?` · đứng thứ ${rank}/${st.length} lớp`:''}.`:'Lớp chưa có hiện vật nào trên bảo tàng. Các cô đăng bài và tích lớp này để hiện ở đây.'}</p>
+   <div class="cta"><button type="button" class="btn small" data-go="lop-hoc">← Tất cả các lớp</button></div></div>
+   ${EXROOMS.map(r=>{const ri=it.filter(e=>e.room===r.id);return ri.length?`<div class="croom" style="--c:${r.c}"><h3 class="sub"><span class="dot" style="--c:${r.c}"></span> Phòng ${r.n} · ${esc(r.name)} <small>${ri.length} hiện vật</small></h3><div class="wall">${ri.map(e=>piece(e,it.indexOf(e))).join('')}</div></div>`:''}).join('')}
+  </section>`;
+ }
+ const act=st.filter(y=>y.total).length;
+ return `<section class="room" style="--c:var(--teal)"><div class="room-head"><span class="eyebrow">Thư mục lớp</span><h2>Các lớp học</h2>
+  <p>Mỗi lớp một thư mục: bấm vào lớp để xem tất cả hiện vật lớp đã đưa lên các phòng. ${act}/${st.length} lớp đã có bài.</p></div>
+  ${sitesOf().filter(s=>st.some(y=>y.c.site===s)).map((s,si)=>{const cs=classesOf().filter(y=>y.site===s);return `<div class="hsite"><h3 class="sub" style="font-size:22px">${esc(s)} <small>${cs.filter(y=>st.find(z=>z.c.id===y.id).total).length}/${cs.length} lớp có bài</small></h3>
+   <div class="index">${cs.map(y=>{const z=st.find(q=>q.c.id===y.id);return `<button type="button" class="door cdoor ${z.total?'':'zero'}" style="--c:${SITE_COLORS[si%SITE_COLORS.length]}" data-go="lop-hoc/${y.id}"><span class="n">${isNT(y)?'Nhóm nhà trẻ':'Lớp mẫu giáo'}</span><b>${esc(y.name.replace(/ (Tràng Đà|Hương Sen)$/,''))}</b><span>${z.total?z.total+' hiện vật':'Chưa có bài'}</span></button>`}).join('')}</div></div>`}).join('')}
+ </section>`;
 }
 function goClass(id,room){
  const c=clsOf(id);cFilter={site:c?c.site:'',cls:id};
@@ -611,7 +633,7 @@ function sidePanel(){
  const real=data.exhibits.filter(e=>!e.sample),list=(real.length?real:data.exhibits).slice(-4).reverse().map(e=>({...e,roomName:roomOf(e.room).name,c:roomOf(e.room).c}));
  const top=classStats().filter(x=>x.total).slice(0,5),mx=top.length?top[0].total:1;
  $('sideTop').innerHTML=top.length?`<h3>Lớp tích cực</h3><div class="toplist">${top.map((x,i)=>`<button type="button" data-topcls="${x.c.id}"><span><b>${i+1}. ${esc(x.c.name)}</b> <small>${esc(x.c.site)} · ${x.total} bài</small></span><span class="bar" style="width:${Math.max(8,Math.round(x.total/mx*100))}%"></span></button>`).join('')}</div>`:'';
- $('sideTop').querySelectorAll('[data-topcls]').forEach(b=>b.onclick=()=>goClass(b.dataset.topcls));
+ $('sideTop').querySelectorAll('[data-topcls]').forEach(b=>b.onclick=()=>{location.hash='lop-hoc/'+b.dataset.topcls});
  $('sideNew').innerHTML=`<h3>Mới thêm</h3>${list.length?`<div class="newlist">${list.map((e,i)=>`<button type="button" data-n="${i}" style="--c:${e.c}">${pic(e)}<span><b>${esc(e.name)}</b><small>${esc(e.roomName)}</small></span></button>`).join('')}</div>`:'<p>Chưa có hiện vật.</p>'}`;
  $('sideNew').querySelectorAll('[data-n]').forEach(b=>b.onclick=()=>openViewer(list,+b.dataset.n));
  $('sideMonth').querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{location.hash=b.dataset.go});
@@ -1143,10 +1165,11 @@ let currentId='loi-vao';
 function markTab(){[...$('rooms').children].forEach(b=>b.setAttribute('aria-selected',b.dataset.id===currentId))}
 function render(){
  sidePanel();
- const want=(location.hash||'').slice(1)||'loi-vao';
+ const [want,sub]=((location.hash||'').slice(1)||'loi-vao').split('/');
  let r=ROOMS.find(x=>x.id===want)||ROOMS[0];if(r.adminOnly&&!canAdmin&&mode!=='github')r=ROOMS[0];currentId=r.id;markTab();
  $('layout').classList.toggle('wide',r.kind==='admin');
- main.innerHTML=r.kind==='intro'?intro():r.kind==='exhibits'?exhibitsRoom(r):r.kind==='timeline'?timelineRoom(r):r.kind==='calendar'?calendarRoom(r):r.kind==='guide'?guideRoom():adminRoom();
+ main.innerHTML=r.kind==='intro'?intro():r.kind==='exhibits'?exhibitsRoom(r):r.kind==='timeline'?timelineRoom(r):r.kind==='calendar'?calendarRoom(r):r.kind==='guide'?guideRoom():r.kind==='classes'?classesRoom(sub):adminRoom();
+ if(r.kind==='classes'&&sub&&clsOf(sub)){const it=data.exhibits.filter(e=>clsList(e).includes(sub)).map(e=>({...e,roomName:roomOf(e.room).name+' · '+clsOf(sub).name,c:roomOf(e.room).c}));main.querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>openViewer(it,+b.dataset.i))}
  if(r.kind==='exhibits'){const items=roomItems(r).map(e=>({...e,roomName:r.name+(clsNames(e).length?' · '+clsNames(e).join(', '):''),c:r.c}));main.querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>openViewer(items,+b.dataset.i));
   main.querySelectorAll('[data-fsite]').forEach(b=>b.onclick=()=>{cFilter={site:b.dataset.fsite,cls:''};render()});
   main.querySelectorAll('[data-fcls]').forEach(b=>b.onclick=()=>{const c=clsOf(b.dataset.fcls);cFilter=cFilter.cls===b.dataset.fcls?{site:'',cls:''}:{site:c?c.site:'',cls:b.dataset.fcls};render()})}
