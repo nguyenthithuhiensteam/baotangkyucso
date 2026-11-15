@@ -1283,6 +1283,35 @@
    "photo": "",
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwhwvk0m",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây trúc nhật",
+   "era": "Tháng 11",
+   "plan": "Phong trào cây xanh",
+   "from": "MG 5-6 tuổi Tràng Đà",
+   "story": "Trong một khu vườn nhỏ có một cây Trúc Nhật xinh xắn. Cây có thân mảnh mai, những chiếc lá xanh điểm đốm trắng rất đẹp mắt.\nMột hôm, trời nổi gió lớn, nhiều cây trong vườn nghiêng ngả. Cây Trúc Nhật cũng rung rinh theo gió nhưng vẫn cố gắng đứng vững.\nThấy vậy, bác Cây Đa hỏi:\n– Trúc Nhật ơi! Thân cây nhỏ bé như vậy, cháu có sợ gió lớn không?\nTrúc Nhật nhẹ nhàng trả lời:\n– Cháu có hơi lo, nhưng cháu sẽ cố gắng vươn lên và không bỏ cuộc ạ!\nSau cơn mưa, ánh nắng lại xuất hiện. Cây Trúc Nhật vui vẻ vươn những chiếc lá xanh đón nắng. Những chiếc lá nhỏ xinh lung linh trong nắng sớm.\nCác bạn cây trong vườn cùng khen:\n– Bạn Trúc Nhật thật đáng yêu và kiên cường!\nTừ đó, mọi người đều yêu quý cây Trúc Nhật. Các bạn nhỏ thường xuyên tưới nước, chăm sóc để cây luôn xanh tốt.",
+   "ask": "Con sẽ làm gì để cây mau lớn?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1loLv5rq77qEqHVybBv-63yMilY4VAxOz/view?usp=sharing",
+   "cls": [
+    "l71706c"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/36bd91e3b31a9abb8cdb.jpg",
+   "photos": [
+    "anh/36bd91e3b31a9abb8cdb.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
