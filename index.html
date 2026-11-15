@@ -193,6 +193,7 @@ h3.sub{font-size:26px}
 .gsteps ol{display:grid;gap:10px;padding-left:24px;color:var(--ink);font-size:16px}
 .gsteps li>b{display:block}.gsteps li>span{color:var(--muted);font-size:15px}
 .gcard{border-top:8px solid var(--c)}
+.vframe{position:relative;width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000}.vframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .gcard p{margin:0;font-size:15px;color:var(--muted)}.gcard p b{color:var(--ink)}
 .box p{margin:0;color:var(--muted)}
 .guide{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
@@ -729,6 +730,9 @@ function guideRoom(){
  return `<section class="room" style="--c:var(--indigo)"><div class="room-head"><span class="eyebrow">Dành cho giáo viên các lớp</span><h2>Hướng dẫn cô đưa bài lên bảo tàng</h2>
  <p>Mỗi cô dùng tài khoản do quản trị nhà trường cấp, chỉ đăng được vào các phòng được giao. Bài gửi lên sẽ được quản trị duyệt rồi mới hiện cho phụ huynh xem.</p>
  <div class="cta"><a class="btn primary" href="#quan-tri">Đăng nhập Khu quản trị →</a></div></div>
+
+ <div class="box gvideo"><h3>Video hướng dẫn đăng bài</h3><div class="vframe"><iframe src="https://www.youtube-nocookie.com/embed/xFJA2fXCqY4" title="Video hướng dẫn đăng bài lên Bảo tàng ký ức số" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+  <a href="https://youtu.be/xFJA2fXCqY4" target="_blank" rel="noopener" style="justify-self:start">Mở video trên YouTube ↗</a></div>
 
  <div class="box gsteps"><h3>8 bước đăng một bài</h3><ol>
   ${step('Đăng nhập','Mở <code>baotang.nguyenhiensteam.vn/#quan-tri</code>, nhập tên đăng nhập và mật khẩu được cấp. Lần đầu trong ngày có thể chờ khoảng 1 phút để máy chủ khởi động.')}
