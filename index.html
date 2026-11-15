@@ -505,6 +505,27 @@ const KEEPERS=['Cha mẹ','Ông bà','Nghệ nhân','Người có uy tín','Cán
 /* Nhóm nhà trẻ: vẫn đăng bài lên bảo tàng nhưng không tính minh chứng SKKN (thí điểm khối mẫu giáo). */
 const isNT=c=>!!c&&/nhà trẻ|tháng/i.test(c.name);
 const ntOnly=e=>{const l=clsList(e);return l.length>0&&l.every(id=>isNT(clsOf(id)))};
+/* Nhận diện lớp từ ô "Người / lớp gửi" khi cô quên tích lớp. */
+function guessClass(text, classes) {
+  const n = s => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/gi, 'd').toLowerCase()
+    .replace(/[–—]/g, '-').replace(/\s*-\s*/g, '-').replace(/[^a-z0-9-]+/g, ' ').trim();
+  const t = ' ' + n(text) + ' ';
+  if (!t.trim()) return '';
+  const site = /huong sen| hs /.test(t) ? 'hs' : /trang da| td /.test(t) ? 'td' : /truong chinh| tc /.test(t) ? 'tc' : '';
+  const age = /(^|\D)5-6(\D|$)/.test(t) ? '5-6' : /(^|\D)4-5(\D|$)/.test(t) ? '4-5' : /(^|\D)3-4(\D|$)/.test(t) ? '3-4'
+    : /(2[45]-36|nha tre|nhom tre)/.test(t) ? 'nt' : '';
+  if (!age) return '';
+  const letter = (t.match(/ ([abcd][1-9]?) /) || t.match(/ ([abcd][1-9]?)(?=[ .])/) || [])[1] || '';
+  const sOf = c => { const s = n(c.site); return /huong sen/.test(s) ? 'hs' : /trang da/.test(s) ? 'td' : 'tc'; };
+  const aOf = c => { const x = ' ' + n(c.name) + ' '; return /5-6/.test(x) ? '5-6' : /4-5/.test(x) ? '4-5' : /3-4/.test(x) ? '3-4' : 'nt'; };
+  const lOf = c => ((' ' + n(c.name).replace(/ (trang da|huong sen)$/, '') + ' ').match(/ ([abcd][1-9]?) $/) || [])[1] || '';
+  let cand = classes.filter(c => aOf(c) === age);
+  // Lớp có chữ + số (A3, B1, C3) chỉ có ở Trường chính
+  const effSite = site || (/^[abc][1-9]$/.test(letter) ? 'tc' : '');
+  if (effSite) cand = cand.filter(c => sOf(c) === effSite);
+  if (letter) { const m = cand.filter(c => lOf(c) === letter); if (m.length) cand = m; }
+  return cand.length === 1 ? cand[0].id : '';
+}
 const tcList=e=>(Array.isArray(e.tc)?e.tc:[]).filter(c=>TCS[c]);
 const heritageOf=()=>Array.isArray(data.settings.heritage)?data.settings.heritage:[];
 const herOf=id=>heritageOf().find(h=>h.id===id);
@@ -1029,7 +1050,7 @@ function wireAdmin(){
  const addT=$('addT');if(addT)addT.onclick=()=>{draft=blankT();editId=draft.id;errors={};render();$('t_when').focus()};
  const cancel=$('x_cancel');if(cancel)cancel.onclick=()=>{draft=null;editId=null;errors={};render()};
  main.querySelectorAll('[data-art]').forEach(b=>b.onclick=()=>{captureEx();draft.art=b.dataset.art;render()});
- const ef=$('exForm');if(ef)ef.onsubmit=e=>{e.preventDefault();captureEx();errors={};if(!draft.name)errors.x_name='Hãy nhập tên hiện vật.';checkUrls(['x_video','x_audio','x_link3d','x_drive']);if(Object.keys(errors).length){render();return}
+ const ef=$('exForm');if(ef)ef.onsubmit=e=>{e.preventDefault();captureEx();if(!clsList(draft).length){const gc=guessClass(draft.from,classesOf());if(gc)draft.cls=[gc]}errors={};if(!draft.name)errors.x_name='Hãy nhập tên hiện vật.';checkUrls(['x_video','x_audio','x_link3d','x_drive']);if(Object.keys(errors).length){render();return}
   if(teacher()){submitItem('exhibit',{...draft});return}
   const i=data.exhibits.findIndex(x=>x.id===draft.id);if(i>=0)data.exhibits[i]={...draft};else data.exhibits.push({...draft});draft=null;editId=null;markDirty();render()};
  const tf=$('tForm');if(tf)tf.onsubmit=e=>{e.preventDefault();const before=val('t_pos');Object.assign(draft,{when:val('t_when'),title:val('t_title'),text:val('t_text'),ref:val('t_ref'),todo:val('t_todo')});errors={};
@@ -1090,6 +1111,7 @@ function wireAdmin(){
   catch(err){setMsg(err.msg);$('u_save').disabled=false}finally{busy=false}};
  /* đổi mật khẩu */
  document.querySelectorAll('[data-xcls]').forEach(x=>x.onchange=()=>{captureEx();render()});
+ const xf=$('x_from');if(xf&&$('x_clsbox'))xf.onchange=()=>{if([...document.querySelectorAll('[data-xcls]')].some(x=>x.checked))return;const gc=guessClass(xf.value,classesOf());if(gc){captureEx();draft.cls=[gc];render();setMsg('Đã tự tích lớp “'+clsOf(gc).name+'” theo ô Người / lớp gửi. Kiểm tra lại nếu chưa đúng.')}};
  const xn=$('x_name'),xr=$('x_room');if(xn&&draft){const upd=()=>{$('dupWarn').innerHTML=dupInfo({...draft,name:xn.value,room:xr?xr.value:draft.room})};xn.oninput=upd;if(xr)xr.addEventListener('change',upd)}
  const xp=$('x_photo');if(xp)xp.onchange=async()=>{const f=xp.files&&xp.files[0];if(!f)return;captureEx();setMsg('Đang thu nhỏ và tải ảnh lên…');
   try{const url=await shrink(f);const r=await api('/api/photo',{data:url});phPrev[r.photo]=url;draft.photo=r.photo;render();setMsg(r.photo.startsWith('anh/')?'Đã tải ảnh. Bấm '+sendLabel()+' để gắn ảnh vào hiện vật.':'Đã tải ảnh. Ảnh sẽ hiện sau khi bài được duyệt.')}
