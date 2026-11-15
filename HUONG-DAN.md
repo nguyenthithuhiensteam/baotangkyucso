@@ -24,7 +24,7 @@ Khu quản trị: **https://baotang.nguyenhiensteam.vn/#quan-tri**
 |---|---|---|
 | Thêm, sửa hiện vật | Mọi phòng | Chỉ phòng được giao |
 | Xóa hiện vật, mốc | Có | Không |
-| Thêm, sửa mốc lịch sử (Phòng 4) | Có | Khi được bật quyền |
+| Thêm, sửa mốc lịch sử (Phòng 1) | Có | Khi được bật quyền |
 | Số liệu đầu trang, link phòng 3D, video chung | Có | Không |
 | Bài lên trang | Ngay khi bấm Lưu | Chờ quản trị duyệt (hoặc đăng thẳng nếu quản trị tắt “cần duyệt”) |
 | Tạo, sửa, khóa, xóa tài khoản | Có | Không |

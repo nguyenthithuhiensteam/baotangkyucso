@@ -412,14 +412,14 @@ const pic=e=>pubPhoto(e.photo)?`<img src="${e.photo}" alt="${esc(e.photoAlt||e.n
 
 const ROOMS=[
  {id:"loi-vao",name:"Lối vào",kind:"intro",c:"var(--indigo)"},
- {id:"khoanh-khac",n:"1",name:"Khoảnh khắc diệu kỳ",kind:"exhibits",c:"var(--coral)",
-  lead:"Những bước tiến bộ đầu đời của trẻ: ngày đầu đến lớp nín khóc, lần đầu tự xúc ăn, biết cài cúc áo, biết xếp hàng rửa tay, những nụ cười bên cô.",src:"Mục II.3, Kế hoạch số 17/KH-MNNT"},
- {id:"tri-an",n:"2",name:"Lời tri ân thơ ngây",kind:"exhibits",tree:true,c:"var(--turmeric-fill)",
-  lead:"Lời chúc ghi âm của trẻ, tranh tự vẽ, bưu thiếp tặng cô nhân ngày 20/11 và lời cảm ơn của cha mẹ học sinh.",src:"Mục II.3 và Giai đoạn 2 (12–20/11/2026), Kế hoạch số 17/KH-MNNT"},
- {id:"di-san",n:"3",name:"Hành trình di sản lớp tôi",kind:"exhibits",c:"var(--leaf)",
-  lead:"Trẻ làm đèn Trung thu Thành Tuyên, mặc trang phục dân tộc Tày, Dao, hát múa làn điệu quê hương, chơi trò dân gian và nghe ông bà kể chuyện ngày xưa.",src:"Mục II.3 Kế hoạch số 17; Lễ hội Thành Tuyên (T9), Ngày hội văn hóa Việt Nam (T11) theo Kế hoạch số 01/KH-MNNT"},
- {id:"hanh-trinh",n:"4",name:"Hành trình của trường",kind:"timeline",c:"var(--indigo)",
+ {id:"hanh-trinh",n:"1",name:"Hành trình của trường",kind:"timeline",c:"var(--indigo)",
   lead:"Những mốc đáng nhớ của Trường Mầm non Nông Tiến, theo Báo cáo thường niên và các quyết định của nhà trường.",src:"Báo cáo thường niên số 02/2026; QĐ 83/QĐ-UBND; CV 3424/SGDĐT-GDMN"},
+ {id:"khoanh-khac",n:"2",name:"Khoảnh khắc diệu kỳ",kind:"exhibits",c:"var(--coral)",
+  lead:"Những bước tiến bộ đầu đời của trẻ: ngày đầu đến lớp nín khóc, lần đầu tự xúc ăn, biết cài cúc áo, biết xếp hàng rửa tay, những nụ cười bên cô.",src:"Mục II.3, Kế hoạch số 17/KH-MNNT"},
+ {id:"tri-an",n:"3",name:"Lời tri ân thơ ngây",kind:"exhibits",tree:true,c:"var(--turmeric-fill)",
+  lead:"Lời chúc ghi âm của trẻ, tranh tự vẽ, bưu thiếp tặng cô nhân ngày 20/11 và lời cảm ơn của cha mẹ học sinh.",src:"Mục II.3 và Giai đoạn 2 (12–20/11/2026), Kế hoạch số 17/KH-MNNT"},
+ {id:"di-san",n:"4",name:"Hành trình di sản lớp tôi",kind:"exhibits",c:"var(--leaf)",
+  lead:"Trẻ làm đèn Trung thu Thành Tuyên, mặc trang phục dân tộc Tày, Dao, hát múa làn điệu quê hương, chơi trò dân gian và nghe ông bà kể chuyện ngày xưa.",src:"Mục II.3 Kế hoạch số 17; Lễ hội Thành Tuyên (T9), Ngày hội văn hóa Việt Nam (T11) theo Kế hoạch số 01/KH-MNNT"},
  {id:"lich",n:"5",name:"Lịch trưng bày năm học",kind:"calendar",c:"var(--lilac)",
   lead:"Mỗi hoạt động trải nghiệm trong năm học là một gian trưng bày mới. Cuối mỗi tháng, các lớp chọn 3–5 khoảnh khắc tiêu biểu đưa vào bảo tàng.",src:"Mục 5.4 Kế hoạch số 01/KH-MNNT về thực hiện nhiệm vụ năm học 2026–2027"},
  {id:"thien-nhien",n:"6",name:"Góc thiên nhiên xanh",kind:"exhibits",c:"var(--teal)",
@@ -725,19 +725,19 @@ function guideRoom(){
  </ol></div>
 
  <h3 class="sub">Mỗi phòng đăng gì</h3>
- <div class="guide">${EXROOMS.map(roomCard).join('')}
-  <div class="box gcard" style="--c:var(--indigo)"><span class="eyebrow">Phòng 4</span><h3>Hành trình của trường</h3>
+ <div class="guide">
+  <div class="box gcard" style="--c:var(--indigo)"><span class="eyebrow">Phòng ${roomOf('hanh-trinh').n}</span><h3>Hành trình của trường</h3>
    <p><b>Ai đăng:</b> chỉ cô được quản trị bật quyền dòng thời gian, ở thẻ <b>Mốc lịch sử</b>.</p><p><b>Ghi gì:</b> thời gian, tên sự kiện, 1–2 câu nội dung và nguồn (số quyết định, báo cáo).</p>
-   <button type="button" class="chip" style="justify-self:start;cursor:pointer" data-go="hanh-trinh">Xem phòng →</button></div>
-  <div class="box gcard" style="--c:var(--lilac)"><span class="eyebrow">Phòng 5</span><h3>Lịch trưng bày năm học</h3>
-   <p>Phòng này không cần đăng bài. Cô xem chủ đề của tháng để chọn 3–5 khoảnh khắc tiêu biểu của lớp đưa lên các phòng 1, 2, 3, 6.</p>
-   <button type="button" class="chip" style="justify-self:start;cursor:pointer" data-go="lich">Xem phòng →</button></div>
+   <button type="button" class="chip" style="justify-self:start;cursor:pointer" data-go="hanh-trinh">Xem phòng →</button></div>${EXROOMS.filter(r=>+r.n<+roomOf('lich').n).map(roomCard).join('')}
+  <div class="box gcard" style="--c:var(--lilac)"><span class="eyebrow">Phòng ${roomOf('lich').n}</span><h3>Lịch trưng bày năm học</h3>
+   <p>Phòng này không cần đăng bài. Cô xem chủ đề của tháng để chọn 3–5 khoảnh khắc tiêu biểu của lớp đưa lên các phòng ${EXROOMS.map(r=>r.n).join(', ')}.</p>
+   <button type="button" class="chip" style="justify-self:start;cursor:pointer" data-go="lich">Xem phòng →</button></div>${EXROOMS.filter(r=>+r.n>+roomOf('lich').n).map(roomCard).join('')}
  </div>
 
  <div class="guide">
   <div class="box"><h3>Viết bài hay</h3><ul><li>Tên ngắn, gọi đúng sự vật: “Bé tự cài cúc áo”.</li><li>Câu chuyện kể việc bé làm, không khen chung chung.</li><li>Ghi lớp, không ghi họ tên đầy đủ của trẻ.</li><li>Câu “Cô hỏi bé” để cha mẹ hỏi con ở nhà.</li><li>Kiểm tra chính tả trước khi gửi.</li></ul></div>
   <div class="box warn"><h3>An toàn hình ảnh của trẻ</h3><ul><li>Trang bảo tàng là công khai: ảnh đã đăng ai cũng xem được.</li><li>Ưu tiên ảnh sản phẩm, đồ vật, cây; ảnh có trẻ thì chụp từ phía sau hoặc từ xa.</li><li>Ảnh rõ mặt trẻ chỉ đăng khi có Phiếu đồng thuận của cha mẹ.</li><li>Video, ghi âm giọng trẻ: để trên Drive của trường, chỉ dán link.</li><li>Không tải khuôn mặt, giọng nói của trẻ lên nền tảng AI công cộng.</li></ul></div>
-  <div class="box"><h3>Khi gặp lỗi</h3><ul><li><b>Không kết nối được máy chủ:</b> chờ 1 phút rồi thử lại.</li><li><b>Không thấy phòng cần đăng:</b> nhờ quản trị giao thêm phòng.</li><li><b>Không chọn được ảnh iPhone:</b> chọn ngay trên điện thoại hoặc đổi sang JPG.</li><li><b>Hiện cảnh báo ⚠ trùng tên:</b> xem lại mục Phòng 6 ở trên.</li><li><b>Quên mật khẩu:</b> nhờ quản trị đặt lại; đăng nhập xong vào thẻ Đổi mật khẩu.</li></ul></div>
+  <div class="box"><h3>Khi gặp lỗi</h3><ul><li><b>Không kết nối được máy chủ:</b> chờ 1 phút rồi thử lại.</li><li><b>Không thấy phòng cần đăng:</b> nhờ quản trị giao thêm phòng.</li><li><b>Không chọn được ảnh iPhone:</b> chọn ngay trên điện thoại hoặc đổi sang JPG.</li><li><b>Hiện cảnh báo ⚠ trùng tên:</b> xem lại mục Phòng ${roomOf('thien-nhien').n} ở trên.</li><li><b>Quên mật khẩu:</b> nhờ quản trị đặt lại; đăng nhập xong vào thẻ Đổi mật khẩu.</li></ul></div>
  </div>
  <span class="src">Căn cứ: Mục II.3 Kế hoạch số 17/KH-MNNT; Quy chế ban hành kèm Quyết định số 24/QĐ-MNNT</span>
  </section>`;
@@ -847,7 +847,7 @@ function adminExhibits(){
  return `<div class="admin-grid"><div class="alist">${list}</div>${form}</div>`;
 }
 function adminTimeline(){
- const list=`<div class="agroup"><h4>Phòng 4 · Hành trình của trường (${data.timeline.length})</h4>${data.timeline.map(t=>`<div class="arow ${editId===t.id?'on':''}" style="grid-template-columns:minmax(0,1fr) auto"><div style="min-width:0"><b>${esc(t.when)} · ${esc(t.title)}</b><small>${esc(t.ref)}</small></div>${rowActs(t.id)}</div>`).join('')}</div>`;
+ const list=`<div class="agroup"><h4>Phòng ${roomOf('hanh-trinh').n} · Hành trình của trường (${data.timeline.length})</h4>${data.timeline.map(t=>`<div class="arow ${editId===t.id?'on':''}" style="grid-template-columns:minmax(0,1fr) auto"><div style="min-width:0"><b>${esc(t.when)} · ${esc(t.title)}</b><small>${esc(t.ref)}</small></div>${rowActs(t.id)}</div>`).join('')}</div>`;
  const d=draft;
  const form=d?`<form class="edit" id="tForm" novalidate><h3>${data.timeline.some(t=>t.id===d.id)?'Sửa mốc':'Thêm mốc mới'}</h3>
   <div class="two">${fld('t_when','Thời gian *',d.when,{ph:'VD: 01/9/1993'})}${fld('t_ref','Nguồn',d.ref,{ph:'VD: QĐ số …'})}</div>
@@ -886,7 +886,7 @@ function adminSkkn(){
  <div class="box"><h3>Theo lớp</h3>${D.classes.length?`<div class="ctable-wrap"><table class="ctable"><thead><tr><th>Lớp</th><th>Hiện vật</th><th>Gắn tiêu chí</th><th>Chặng có minh chứng</th><th>Người giữ chặng (≥3)</th><th>Sản phẩm số</th></tr></thead><tbody>${D.classes.map(x=>`<tr><td><b>${esc(x.c.name)}</b><small>${esc(x.c.site)}</small></td>${td(x.ex)}${td(x.tc)}${td(x.chang+'/8',x.chang>0)}${td(x.keeper,x.keeper>=3)}${td(x.digital)}</tr>`).join('')}</tbody></table></div>`:'<p>Chưa nhập danh sách lớp (thẻ Lớp học).</p>'}</div>
  <div class="box"><h3>Theo điểm trường</h3><div class="ctable-wrap"><table class="ctable"><thead><tr><th>Điểm trường</th><th>Di sản trên bản đồ (3–5)</th><th>Sản phẩm số (≥1)</th><th>Người giữ chặng</th></tr></thead><tbody>${D.sites.map(x=>`<tr><td><b>${esc(x.st)}</b></td>${td(x.her,x.her>=3&&x.her<=5)}${td(x.digital,x.digital>=1)}${td(x.keeper)}</tr>`).join('')}</tbody></table></div></div>
  <div class="box"><h3>Theo tiêu chí</h3><div class="ctable-wrap"><table class="ctable"><thead><tr><th>Mã</th><th>Trụ cột</th><th>Tiêu chí</th><th>Hiện vật</th></tr></thead><tbody>${D.tcs.map(x=>`<tr><td><span class="tcchip" style="--p:${PILLARS[TCS[x.c][0]]}">${x.c}</span></td><td>${TCS[x.c][0]}</td><td style="text-align:left">${esc(TCS[x.c][1])}</td>${td(x.n)}</tr>`).join('')}</tbody></table></div></div>
- <form class="edit" id="hForm" novalidate style="position:static"><h3>Bản đồ di sản gần trẻ</h3><p style="margin:0;color:var(--muted);font-size:15px">Mỗi điểm trường 3–5 di sản gần gũi, có người am hiểu xác nhận. Bản đồ hiện ở Phòng 3; giáo viên gắn hiện vật vào di sản khi đăng bài.</p>
+ <form class="edit" id="hForm" novalidate style="position:static"><h3>Bản đồ di sản gần trẻ</h3><p style="margin:0;color:var(--muted);font-size:15px">Mỗi điểm trường 3–5 di sản gần gũi, có người am hiểu xác nhận. Bản đồ hiện ở Phòng ${roomOf('di-san').n}; giáo viên gắn hiện vật vào di sản khi đăng bài.</p>
   <div class="admin-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">${herBlocks}</div>
   <div><button type="submit" class="btn primary">Đưa vào danh sách</button></div></form>
  </div>`;
@@ -968,7 +968,7 @@ function adminUsers(){
   ${fld('u_pass',d.isNew?'Mật khẩu *':'Mật khẩu mới',d.password||'',{ac:'new-password',hint:d.isNew?'Ít nhất 6 ký tự. Gửi riêng cho giáo viên, không gửi vào nhóm chung.':'Để trống nếu giữ mật khẩu cũ. Đặt mật khẩu mới sẽ đăng xuất giáo viên trên mọi máy.'})}
   <fieldset><legend>Phòng được giao</legend><div class="checks">${EXROOMS.map(r=>`<label class="check"><input type="checkbox" data-uroom="${r.id}" ${d.rooms.includes(r.id)?'checked':''}> Phòng ${r.n} · ${esc(r.name)}</label>`).join('')}</div></fieldset>
   <fieldset><legend>Quyền khác</legend><div class="checks">
-   <label class="check"><input type="checkbox" id="u_tl" ${d.timeline?'checked':''}> Được thêm, sửa mốc ở dòng thời gian (Phòng 4)</label>
+   <label class="check"><input type="checkbox" id="u_tl" ${d.timeline?'checked':''}> Được thêm, sửa mốc ở dòng thời gian (Phòng ${roomOf('hanh-trinh').n})</label>
    <label class="check"><input type="checkbox" id="u_rv" ${d.review?'checked':''}> Bài phải chờ quản trị duyệt mới lên trang</label>
    <label class="check"><input type="checkbox" id="u_on" ${d.active?'checked':''}> Tài khoản đang hoạt động (bỏ tích để khóa)</label>
   </div></fieldset>
