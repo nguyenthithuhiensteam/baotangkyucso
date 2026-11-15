@@ -1347,6 +1347,35 @@
    ],
    "photoAlt": "",
    "sample": true
+  },
+  {
+   "id": "emwhwnmeg",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây trầu bà leo cột",
+   "era": "tháng 11",
+   "plan": "Phong trào cây xanh",
+   "from": "MG 5-6 tuổi Tràng Đà",
+   "story": "THƠ: CÂY TRẦU BÀ XANH\nTrầu bà xanh mát\nLá tựa trái tim\nLeo quanh thân cột\nVươn mãi lên cao.\n\nLá xanh mơn mởn\nĐón nắng ban mai\nGió đưa khe khẽ\nLá hát bên tai.\n\nCây làm đẹp nhà\nKhông gian trong lành\nBé yêu chăm sóc\nCây mãi xanh tươi.",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1xj_VK8-ut75hPhRHzV32qMmkoYfJHz9j/view?usp=sharing",
+   "cls": [
+    "l71706c"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/cc83b3c1e875835faf4f.jpg",
+   "photos": [
+    "anh/cc83b3c1e875835faf4f.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
