@@ -3521,6 +3521,33 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwinb5fg",
+   "room": "thien-nhien",
+   "art": "cay",
+   "name": "Cây thiết mộc lan (25-36 tháng A HS)",
+   "era": "Tháng 11",
+   "plan": "Bé yêu thiên nhiên",
+   "from": "Lớp 25-36 tháng A (Hương Sen)",
+   "story": "Câu chuyện: \"Cây hoa thiết mộc lan\" cho bé 25-36 tháng\nLá xanh mướt dài dài,\nÔm sát thân thẳng ngay,\nThiết mộc lan xinh thế,\nVươn mình đón nắng mai.\n\nGió xuân vừa ghé qua,\nKhoe nụ hoa trắng ngà,\nHương thơm bay dịu ngọt,\nLàm bé thích hít hà.\n\nBé ngắm hoa học bài,\nTay bé xoa nhẹ nhàng,\nYêu cây xanh nhiều lắm,\nCùng chăm cây lớn nhanh.",
+   "ask": "Các con ơi! Lá cây thiết mộc lan như thế nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/folders/1w0t2K5cPMPeZeny8LMZintXiN80Rt4_P?usp=drive_link",
+   "cls": [
+    "lc0c279"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/18785a50673f8efaa729.jpg",
+   "photos": [
+    "anh/18785a50673f8efaa729.jpg"
+   ],
+   "photoAlt": "Cây thiết mộc lan, lá xanh tươi tốt quanh năm, lá cây dài, thân cây cao.",
+   "sample": false
   }
  ],
  "timeline": [
