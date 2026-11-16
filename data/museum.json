@@ -3824,6 +3824,33 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwio8981",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Cây Trầu Bà",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp 5- 6 tuổi C3 (Trường chính)",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "https://drive.google.com/file/d/1dDYSAeE__UTUyexz1JVISybeykQ81HZW/view?usp=sharing",
+   "drive": "https://drive.google.com/file/d/1dDYSAeE__UTUyexz1JVISybeykQ81HZW/view?usp=sharing",
+   "cls": [
+    "lc9d4fb"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/679600b5f2568a87ba73.jpg",
+   "photos": [
+    "anh/679600b5f2568a87ba73.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
