@@ -3797,6 +3797,33 @@
    ],
    "photoAlt": "Ngoại khóa PCCC",
    "sample": false
+  },
+  {
+   "id": "emwio7nxv",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Sinh nhật bé",
+   "era": "Tháng 9/2026",
+   "plan": "",
+   "from": "Lớp 25-36 tháng B (trường chính)",
+   "story": "",
+   "ask": "Chúng mình tham dự sinh nhật bạn nào đây?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l5f4f02"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/915985089f268a239b31.jpg",
+   "photos": [
+    "anh/915985089f268a239b31.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
