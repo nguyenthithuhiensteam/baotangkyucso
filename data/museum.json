@@ -4380,6 +4380,33 @@
    "photos": [],
    "photoAlt": "",
    "sample": true
+  },
+  {
+   "id": "emwiwwpef",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Lời yêu thương của bé",
+   "era": "16/11/2026",
+   "plan": "",
+   "from": "Lớp 5-6 tuổi C1",
+   "story": "",
+   "ask": "Yêu mẹ con sẽ làm gì?",
+   "video": "https://youtu.be/T95zX9JUo70",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l3a9b5e"
+   ],
+   "tc": [
+    "TC7"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
