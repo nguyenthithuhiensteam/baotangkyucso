@@ -1659,6 +1659,34 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwhy9sa1",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "phòng cháy chữa cháy",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l6c9ea7"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/afa7f9623e2ff83fb497.jpg",
+   "photos": [
+    "anh/afa7f9623e2ff83fb497.jpg",
+    "anh/d9f807630d3b20d43b41.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
