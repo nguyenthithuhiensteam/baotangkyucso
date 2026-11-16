@@ -5473,8 +5473,11 @@
    "cls": [
     "l71706c"
    ],
-   "tc": [],
-   "keeper": "",
+   "tc": [
+    "TC4",
+    "TC6"
+   ],
+   "keeper": "Cha mẹ",
    "her": "",
    "photo": "anh/f9f914f70ed22f8ebbd6.jpg",
    "photos": [
