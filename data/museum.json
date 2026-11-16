@@ -4407,6 +4407,35 @@
    "photos": [],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwiv8nl3",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Bé yêu tổ quốc theo cách của riêng mình",
+   "era": "Tháng 11/2026",
+   "plan": "Bé yêu tổ quốc",
+   "from": "Lớp 25-36 tháng B (trường chính)",
+   "story": "",
+   "ask": "Những bức ảnh này có gì đặc biệt?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l5f4f02"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/597ba676715a8620fa20.jpg",
+   "photos": [
+    "anh/597ba676715a8620fa20.jpg",
+    "anh/c017f4f43772116e6902.jpg",
+    "anh/a6d8113f56bf0c319ea8.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
