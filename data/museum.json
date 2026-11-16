@@ -4065,6 +4065,33 @@
    ],
    "photoAlt": "Giờ học thể dục của bé",
    "sample": false
+  },
+  {
+   "id": "emwipd52e",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây Trầu Bà (Lớp 5- 6 tuổi C3 trường chính)",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp 5- 6 tuổi C3 (Trường chính)",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1dDYSAeE__UTUyexz1JVISybeykQ81HZW/view?usp=sharing",
+   "cls": [
+    "lc9d4fb"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/16ff908e21b0145c0c7f.jpg",
+   "photos": [
+    "anh/16ff908e21b0145c0c7f.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
