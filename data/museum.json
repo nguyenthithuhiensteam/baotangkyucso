@@ -3627,6 +3627,33 @@
    "photos": [],
    "photoAlt": "",
    "sample": true
+  },
+  {
+   "id": "emwiobpti",
+   "room": "thien-nhien",
+   "art": "caylon",
+   "name": "Bé chăm socs cây",
+   "era": "Tháng 11",
+   "plan": "",
+   "from": "Lớp 3- 4 tuổi A3 (Trường chính)",
+   "story": "Bé chăm socs cây",
+   "ask": "Con đang làm gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l1b1bdd"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/55d4b062df93d1439ae2.jpg",
+   "photos": [
+    "anh/55d4b062df93d1439ae2.jpg"
+   ],
+   "photoAlt": "Bé chăm socs cây",
+   "sample": false
   }
  ],
  "timeline": [
