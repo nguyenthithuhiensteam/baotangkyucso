@@ -346,6 +346,12 @@ h3.fsel{font-size:22px}h3.fsel small{font-size:14px;color:var(--muted);font-fami
 .dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--c);flex:none}
 .dnote{margin:0;color:var(--muted);font-size:13px}
 .croom{display:grid;gap:10px}
+.cchead{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}.cchead h3.sub{font-size:22px}.cchead small{color:var(--muted);font-weight:700}
+.ccell{all:unset;cursor:pointer;display:grid;gap:4px;align-content:start;text-align:center}
+.ccimg{display:block;aspect-ratio:1;border-radius:16px;overflow:hidden;border:4px solid var(--c);background:var(--frame);box-shadow:0 4px 0 color-mix(in srgb,var(--c) 30%,transparent);transition:transform .15s}
+.ccimg img{width:100%;height:100%;object-fit:cover;display:block}.ccimg.art{display:grid;place-items:center}.ccimg.art svg{width:60%;color:var(--indigo)}
+.ccell:hover .ccimg{transform:translateY(-3px)}.ccell:focus-visible .ccimg{outline:3px solid var(--turmeric-fill)}
+.ccell b{font-family:var(--f-display);font-size:16px;line-height:1.2}.ccell small{font-size:12px;color:var(--muted)}
 .vplay{display:grid;gap:8px;margin:6px 0}.vplay:empty{display:none}.vframe.aud{aspect-ratio:auto;height:110px}.vframe.fold{aspect-ratio:auto;height:300px;background:#fff}
 .gallery{display:grid;gap:10px}
 .gitem{all:unset;cursor:pointer;display:grid;gap:5px;align-content:start}
@@ -645,8 +651,10 @@ function dupInfo(d){
  return `⚠ Phòng này đã có ${o.map(e=>`“${esc(e.name)}”${clsNames(e).length?' ('+esc(clsNames(e).join(', '))+')':' (chưa gắn lớp)'}`).join('; ')}. Nếu là cây của lớp khác thì vẫn lưu được, nên ghi thêm tên lớp vào tên, VD: “Cây hoa hồng – lớp A1”. Nếu là cùng một cây do nhiều lớp chăm, hãy sửa hiện vật cũ và tích thêm lớp.`;
 }
 let cFilter={site:'',cls:''};
+let diSel='';
 function roomItems(r){
  const all=data.exhibits.filter(e=>e.room===r.id);
+ if(r.id==='di-san'&&diSel&&diSel!=='all')return diSel==='chung'?all.filter(e=>!clsList(e).length):all.filter(e=>clsList(e).includes(diSel));
  return all;
  if(cFilter.cls)return all.filter(e=>clsList(e).includes(cFilter.cls));
  if(cFilter.site)return all.filter(e=>inSite(e,cFilter.site));
@@ -806,9 +814,23 @@ function tree(){
  const L=[[150,70],[110,92],[190,92],[80,130],[220,128],[130,128],[170,124],[100,170],[200,168],[150,108],[60,170],[240,170]],C=['var(--leaf)','var(--turmeric-fill)','var(--coral)','var(--indigo)','var(--lilac)'];
  return `<svg viewBox="0 0 300 300" role="img" aria-label="Cây tri ân, mỗi chiếc lá là một dấu tay của bé"><path d="M150 290V170M150 220l-40-40M150 205l45-45M150 180l-30-55M150 175l25-60" stroke="#9a6b3f" stroke-width="10" stroke-linecap="round" fill="none"/><path d="M100 292h100" stroke="var(--leaf)" stroke-width="7" stroke-linecap="round"/>${L.map(([x,y],i)=>`<g transform="translate(${x} ${y}) rotate(${(i*23)%50-25})" fill="${C[i%5]}"><ellipse cx="0" cy="6" rx="11" ry="12"/><rect x="-11" y="-16" width="5" height="16" rx="2.5"/><rect x="-5" y="-21" width="5" height="20" rx="2.5"/><rect x="1" y="-19" width="5" height="18" rx="2.5"/><rect x="7" y="-13" width="4.5" height="14" rx="2.2"/></g>`).join('')}</svg>`;
 }
+/* Phòng 4: chia ô theo lớp – mỗi lớp một ô, bấm vào để xem hiện vật của lớp. */
+function classCells(r){
+ const all=data.exhibits.filter(e=>e.room===r.id);
+ const cells=classesOf().map(c=>({id:c.id,name:c.name.replace(/ (Tràng Đà|Hương Sen)$/,''),site:c.site,it:all.filter(e=>clsList(e).includes(c.id))})).filter(x=>x.it.length);
+ const chung=all.filter(e=>!clsList(e).length);
+ if(chung.length)cells.push({id:'chung',name:'Toàn trường',site:'Tư liệu chung, hiện vật mẫu',it:chung});
+ const cell=x=>{const e=x.it.find(y=>pubPhoto(y.photo))||x.it[0];return `<button type="button" class="ccell" data-dicls="${x.id}">${pubPhoto(e.photo)?`<span class="ccimg">${pic(e)}</span>`:`<span class="ccimg art">${art(e.art)}</span>`}<b>${esc(x.name)}</b><small>${esc(x.site)} · ${x.it.length} hiện vật</small></button>`};
+ return `<div class="cchead"><h3 class="sub">Ô của các lớp</h3><button type="button" class="chip" data-dicls="all" style="cursor:pointer">Xem tất cả ${all.length} hiện vật</button></div>
+ <div class="wall grid9 cgrid">${cells.map(cell).join('')}</div>`;
+}
 function exhibitsRoom(r){
+ if(r.id==='di-san'&&classesOf().length&&!diSel){
+  return `<section class="room" style="--c:${r.c}">${head(r)}${classCells(r)}${heritageMap()}</section>`;
+ }
  const items=roomItems(r);
- let h=`<section class="room" style="--c:${r.c}">${head(r)}${items.length?wallBox(items.map(piece).join(''),items.length,isPhotoRoom(items)):`<div class="empty">${cFilter.cls||cFilter.site?'Thư mục này chưa có bài trong phòng. ':''}Phòng này chưa có hiện vật. ${canAdmin?'Thêm hiện vật ở Khu quản trị.':'Các lớp đang chuẩn bị, bé quay lại sau nhé!'}</div>`}`;
+ const back=r.id==='di-san'&&diSel?`<div class="cchead"><button type="button" class="btn small" data-dicls="">← Các ô lớp</button><h3 class="sub">${diSel==='all'?'Tất cả hiện vật':diSel==='chung'?'Toàn trường':'📂 '+esc((clsOf(diSel)||{name:''}).name)}</h3><small>${items.length} hiện vật</small></div>`:'';
+ let h=`<section class="room" style="--c:${r.c}">${head(r)}${back}${items.length?wallBox(items.map(piece).join(''),items.length,isPhotoRoom(items)):`<div class="empty">${cFilter.cls||cFilter.site?'Thư mục này chưa có bài trong phòng. ':''}Phòng này chưa có hiện vật. ${canAdmin?'Thêm hiện vật ở Khu quản trị.':'Các lớp đang chuẩn bị, bé quay lại sau nhé!'}</div>`}`;
  if(r.id==='di-san')h+=heritageMap();
  if(r.tree)h+=`<div style="display:grid;gap:12px"><h3 class="sub">Cây tri ân</h3><div class="tree-room"><div class="tree">${tree()}</div><div class="notes">${NOTES.map(n=>`<div class="note"><q>${n.q}</q><small>${n.who} · <span class="sample">mẫu</span></small></div>`).join('')}<div class="box" style="border:3px dashed var(--turmeric-fill);box-shadow:none"><h3>Hộp thư gửi tương lai</h3><p>Mỗi bé lớp 5–6 tuổi vẽ một bức tranh về điều mình mong ước. Hộp được mở vào tháng 5/2027 khi các bé chia tay trường mầm non.</p></div></div></div></div>`;
  return h+'</section>';
@@ -1510,6 +1532,7 @@ function render(){
   main.querySelectorAll('[data-fsite]').forEach(b=>b.onclick=()=>{cFilter={site:b.dataset.fsite,cls:''};render()});
   main.querySelectorAll('[data-fcls]').forEach(b=>b.onclick=()=>{const c=clsOf(b.dataset.fcls);cFilter=cFilter.cls===b.dataset.fcls?{site:'',cls:''}:{site:c?c.site:'',cls:b.dataset.fcls};render()})}
  main.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{location.hash=b.dataset.go});
+ main.querySelectorAll('[data-dicls]').forEach(b=>b.onclick=()=>{diSel=b.dataset.dicls;render();main.scrollIntoView({block:'start'})});
  wireWalls(main);
  main.querySelectorAll('[data-gocls]').forEach(b=>b.onclick=()=>goClass(b.dataset.gocls,b.dataset.room));
  if(r.kind==='timeline'){const L=galleryOf().filter(g=>!galF||g.site===galF);main.querySelectorAll('[data-gi]').forEach(b=>b.onclick=()=>openLightbox(L,+b.dataset.gi));main.querySelectorAll('[data-gsite]').forEach(b=>b.onclick=()=>{galF=b.dataset.gsite;render();$('gallery').scrollIntoView({block:'start'})})}
