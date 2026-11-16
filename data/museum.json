@@ -4037,6 +4037,34 @@
    ],
    "photoAlt": "Bé yêu nhorxinh tặng hoa cô",
    "sample": true
+  },
+  {
+   "id": "emwinr620",
+   "room": "khoanh-khac",
+   "art": "khoc",
+   "name": "Hoạt động của bé yêu",
+   "era": "Tháng 10/2026",
+   "plan": "",
+   "from": "Lớp 25-36 tháng B (trường chính)",
+   "story": "",
+   "ask": "Chúng mình học gì hôm nay?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l5f4f02"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/78611f0ee077cd119552.jpg",
+   "photos": [
+    "anh/78611f0ee077cd119552.jpg",
+    "anh/6396e3dec3c7d2ad3845.jpg"
+   ],
+   "photoAlt": "Giờ học thể dục của bé",
+   "sample": false
   }
  ],
  "timeline": [
