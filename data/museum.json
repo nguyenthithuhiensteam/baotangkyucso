@@ -219,14 +219,14 @@
   },
   {
    "id": "e8",
-   "room": "tri-an",
-   "art": "thu",
-   "name": "Thư cảm ơn của cha mẹ",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây Hạnh Phúc lớp 4-5 tuổi Tràng Đà",
    "era": "Tháng 11/2026",
-   "plan": "Ban đại diện cha mẹ học sinh",
+   "plan": "Phong trào cây xanh",
    "from": "Lớp 4-5 tuổi Tràng Đà",
    "story": "Truyền thuyết Cây Hạnh Phúc\nNgày xửa ngày xưa, ở một thung lũng nọ, có một cô gái tên là Lan. Dù cuộc sống bình yên, tâm hồn cô lúc nào cũng trống trải và buồn bã vì cô luôn đi tìm kiếm \"hạnh phúc\" – một thứ xa xôi mà cô nghĩ mình chưa từng có được.\nMột ngày nọ, khi trời nhá nhem tối, cô gặp một cụ già áo trắng ngồi dưới một gốc cây lạ có những chiếc lá xanh thẫm hình trái tim. Cụ già mỉm cười đưa cho cô một hạt mầm nhỏ xíu và bảo:\n– \"Đây là hạt giống của Cây Hạnh Phúc. Con hãy mang về trồng trong vườn nhà, chăm sóc nó bằng tình yêu thương và sự kiên nhẫn. Khi cây nở hoa, con sẽ thấu hiểu được bí mật của hạnh phúc.\"\nLan mang hạt giống về, vun xới đất tơi xốp, tưới nước mỗi ngày và luôn dõi theo nó với bao kỳ vọng lớn lao. Nhưng qua bao nhiêu tuần, rồi bao nhiêu tháng, cái cây chỉ lớn lên rất chậm, chẳng có bông hoa rực rỡ nào hé nở.\nVào một buổi sáng mùa đông se lạnh, khi ánh nắng ban mai vừa rọi xuống, Lan buồn bã bước ra vườn định nhổ bỏ cái cây vì nghĩ rằng mình đã tẻ nhạt phí công vô ích. Đúng lúc đó, cô bất chợt nhận ra: trong suốt những ngày tháng qua, từ một hạt mầm nhỏ, cái cây đã vươn lên thành một thân cây xanh mát, cành lá sum suê. Những giọt sương sớm mai đọng trên lá long lanh như ngọc.\nCùng lúc ấy, tiếng chim hót rộn ràng trên cành, làn gió lướt qua mang theo hương thơm dịu nhẹ của đất trời. Lần đầu tiên sau bao năm tháng ưu tư, Lan cảm nhận được một luồng ấm áp lan tỏa trong lồng ngực. Cô bỗng mỉm cười thật tươi.\nLúc đó, cụ già áo trắng xuất hiện từ phía rào vườn và ôn tồn nói:\n– \"Con đã tìm thấy nó chưa? Hạnh phúc chưa bao giờ là một cái đích xa vời ở cuối con đường. Nó chính là quá trình con sống trọn vẹn với hiện tại, biết ơn từng giọt nước, từng tia nắng và biết trân trọng những điều bình dị đang hiện hữu quanh mình.\"\nTừ ngày hôm đó, Lan không còn đi tìm hạnh phúc ở đâu xa nữa. Cô sống an yên, chăm sóc khu vườn và mỉm cười với mọi điều nhỏ bé trong cuộc sống. Và từ đó, người dân trong vùng gọi đó là Cây Hạnh Phúc – loài cây nhắc nhở con người ta rằng hạnh phúc thực chất nằm ngay trong tâm hồn biết trân quý và biết đủ.",
-   "ask": "Bố mẹ con thường nói gì về cô giáo?",
+   "ask": "Cây Hạnh Phúc giúp ích gì cho lớp học và ngôi nhà của chúng mình",
    "video": "",
    "audio": "",
    "link3d": "",
@@ -243,7 +243,7 @@
    "photos": [
     "anh/790b0c64761075862867.jpg"
    ],
-   "photoAlt": "Cây Hạnh Phúc",
+   "photoAlt": "https://drive.google.com/file/d/1fC8hecm47YNX-2CWEB_4cf1EUJOXTdJP/view?usp=drive_link",
    "sample": true
   },
   {
