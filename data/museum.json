@@ -1407,6 +1407,33 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwi14k6a",
+   "room": "khoanh-khac",
+   "art": "rua",
+   "name": "Hãy rửa tay bằng xà phòng mỗi ngày nhé.",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp 25-36 tháng B (trường chính)",
+   "story": "Bé có biết xung quanh chúng ta có rất nhiều những loại vi khuẩn gây bệnh cho bé, vậy các bé ơi chúng mình hãy rửa tay bằng xà phòng mỗi ngày. Rửa tay trước khi ăn, sau khi đi vệ sinh...để bảo vệ sức khỏe cho bản thân nhé.",
+   "ask": "Chúng mình đang làm gì đây? Tại sao phải ruwat tay bằng xà phòng?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l5f4f02"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/4f8a8cd1a9da43129df8.jpg",
+   "photos": [
+    "anh/4f8a8cd1a9da43129df8.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
