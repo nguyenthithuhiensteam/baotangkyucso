@@ -2744,6 +2744,37 @@
    ],
    "photoAlt": "",
    "sample": true
+  },
+  {
+   "id": "emwim84x2",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Bé vui Tết Trung Thu",
+   "era": "9/2026",
+   "plan": "Lễ hội Trung Thu",
+   "from": "Lớp MG 4-5T B3 Trường chính",
+   "story": "Bé cùng bày mâm ngũ quả và rước đèn tại nhóm lớp",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l8834cf"
+   ],
+   "tc": [
+    "TC9"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/1c42eccf0d3321566888.jpg",
+   "photos": [
+    "anh/1c42eccf0d3321566888.jpg",
+    "anh/2cfb021e5c6ae752fed3.jpg",
+    "anh/035b69842e7b27c09bd6.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
