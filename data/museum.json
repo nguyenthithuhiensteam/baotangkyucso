@@ -1793,6 +1793,35 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwijtbvk",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "CÂY ĐẠI PHÚ GIA",
+   "era": "Tháng 11/2026",
+   "plan": "Mầm xanh của bé",
+   "from": "Lớp 3-4 tuổi A. PH Tràng Đà",
+   "story": "CÂU CHUYỆN: CÂY ĐẠI PHÚ GIA ĐÁNG YÊU\nDành cho trẻ mầm non 3–4 tuổi\nỞ một góc sân trường mầm non có một chậu cây Đại Phú Gia rất xinh đẹp. Cây có những chiếc lá to, dài, xanh bóng và vươn ra mọi phía như những cánh tay đang dang rộng.\nMỗi buổi sáng, khi ông Mặt Trời thức dậy, cây Đại Phú Gia lại vui vẻ đón những tia nắng ấm áp.\nMột hôm, bé Na đến bên cây và reo lên:\n– Ôi! Cây Đại Phú Gia đẹp quá! Lá cây to và xanh mướt!\nCây Đại Phú Gia khẽ đung đưa những chiếc lá như muốn nói:\n– Cảm ơn bé Na! Muốn cây luôn xanh tốt, bé hãy chăm sóc cây nhé!\nNghe vậy, bé Na liền lấy bình tưới, nhẹ nhàng tưới nước vào gốc cây. Bé còn nhặt những chiếc lá vàng rụng quanh chậu cho sạch sẽ.\nMột làn gió nhẹ thổi qua làm những chiếc lá rung rinh như đang vẫy chào.\nBé Na vui vẻ nói:\n– Tớ sẽ chăm sóc để cây luôn xanh tốt!\nTừ đó, ngày nào bé Na cũng quan sát và chăm sóc cây. Cây Đại Phú Gia ngày càng xanh tươi, làm cho góc sân trường thêm đẹp.",
+   "ask": "Cây đại phú gia có những đặc điểm như thế nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1aUOFgZ023edpNkzfKcVo5x56XT3wpy2i/view?usp=drive_link",
+   "cls": [
+    "l73377a"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/fa8f612d0b9b91cae232.jpg",
+   "photos": [
+    "anh/fa8f612d0b9b91cae232.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
