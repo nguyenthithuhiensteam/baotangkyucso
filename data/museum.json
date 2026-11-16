@@ -6148,6 +6148,35 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwj144df",
+   "room": "di-san",
+   "art": "oan",
+   "name": "Các bé chơi trò chơi dân gian Lộn cầu vồng - Hoạt động chiều",
+   "era": "Thán 11",
+   "plan": "",
+   "from": "4-5 tuổi B1",
+   "story": "Trò chơi giúp trẻ phát triển khả năng vận động, sự khéo léo và phối hợp nhịp nhàng giữa tay, chân và cơ thể. Đồng thời, trẻ được rèn luyện khả năng ghi nhớ lời đồng dao, phản xạ nhanh, tinh thần đoàn kết, biết phối hợp với bạn và cảm nhận niềm vui khi tham gia các trò chơi dân gian.",
+   "ask": "Khi được tham gia trò chơi con cảm thấy thế nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1gmytzL7XsNCQDFDdVUzx5e4vubEetJYf/view?usp=drive_link",
+   "cls": [
+    "l62a027"
+   ],
+   "tc": [
+    "TC1"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/ac4be6467e6f2c863837.jpg",
+   "photos": [
+    "anh/ac4be6467e6f2c863837.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
