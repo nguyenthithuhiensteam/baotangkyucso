@@ -3682,6 +3682,31 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwio99gq",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Hoạt động ngoài trời",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp 25-36 tháng B (trường chính)",
+   "story": "",
+   "ask": "Hôm nay chúng mình được quan sát hoa gì?",
+   "video": "https://drive.google.com/file/d/10vwsk87i28UnPeJuolMcfJage3OtaLCN/view?usp=sharing",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/10vwsk87i28UnPeJuolMcfJage3OtaLCN/view?usp=sharing",
+   "cls": [
+    "l5f4f02"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
