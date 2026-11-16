@@ -2861,6 +2861,35 @@
    ],
    "photoAlt": "",
    "sample": true
+  },
+  {
+   "id": "emwils5ww",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "CÂY THIẾT MỘC LAN.",
+   "era": "Tháng 11/2026",
+   "plan": "Mầm xanh của bé",
+   "from": "Lớp 3-4 tuổi A. PH Tràng Đà",
+   "story": "CÂU CHUYỆN: BÁC THIẾT MỘC LAN CAO LỚN\n\nỞ ban công lớp học có rất nhiều chậu cây. Có anh lưỡi hổ, có những bạn cây nhỏ trồng trong chậu đỏ, chậu trắng. Nhưng cây cao nhất, to nhất là bác Thiết Mộc Lan.\n\nBác Thiết Mộc Lan đứng trong một chiếc chậu màu trắng. Thân bác to, cứng như thân gỗ. Trên ngọn có rất nhiều lá xanh. Lá của bác dài và to, rủ xuống như những dải ruy băng màu xanh đang đung đưa trong gió: “Rì rào... rì rào...”\n\nCác bạn cây nhỏ rất quý bác. Trời nắng, bác xòe lá che mát cho các bạn. Trời gió, bác đứng vững để che gió cho các bạn.\n\nMột hôm, bác Thiết Mộc Lan thở dài: “Hầy! Lá của bác bị bụi bám đầy, lại có mấy chiếc lá già bị khô rồi. Bác thấy khó chịu quá!”\n\nBạn Bin nghe thấy. Bạn Bin lấy khăn ẩm, nhẹ nhàng lau từng chiếc lá cho bác: “Lau... lau... lau...”. Bạn Na nhặt những chiếc lá khô bỏ vào thùng rác. Bạn Su tưới nước vào gốc cho bác: “Tưới... tưới... tưới...”\n\nLá của bác Thiết Mộc Lan sạch bóng, xanh mướt. Bác vui vẻ nói: “Cảm ơn các cháu! Bây giờ bác thấy mát mẻ và khỏe khoắn quá! Bác sẽ tiếp tục che nắng, che gió cho các bạn cây nhỏ và làm cho lớp học thật xanh mát!”\n\nCác bạn nhỏ vỗ tay reo: “Bác Thiết Mộc Lan xanh quá! Đẹp quá!”",
+   "ask": "Cây thiết mộc lan có đặc điểm gì? Lá của cây như thế nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1E86-bBpJFa_0Y-vzgquM8ZH3AAyhh76F/view?usp=drive_link",
+   "cls": [
+    "l73377a"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/bab3a29f51fc3d10284f.jpg",
+   "photos": [
+    "anh/bab3a29f51fc3d10284f.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
