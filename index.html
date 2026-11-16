@@ -346,6 +346,22 @@ h3.fsel{font-size:22px}h3.fsel small{font-size:14px;color:var(--muted);font-fami
 .dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--c);flex:none}
 .dnote{margin:0;color:var(--muted);font-size:13px}
 .croom{display:grid;gap:10px}
+.lcard.has{cursor:pointer;transition:transform .15s,box-shadow .15s}.lcard.has:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(20,40,80,.15)}.lcard.has:focus-visible{outline:3px solid var(--turmeric-fill);outline-offset:3px}
+.lkinds{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:13px;font-weight:700;color:var(--indigo);width:100%}
+.lsndlg{border:0;border-radius:20px;padding:0;width:min(640px,calc(100vw - 32px));max-height:calc(100vh - 48px);background:var(--frame);color:var(--ink);box-shadow:0 12px 40px rgba(20,40,80,.35)}
+.lsndlg::backdrop{background:rgba(20,30,50,.55)}
+.lsnhead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding:16px 18px;background:var(--indigo);color:var(--paper);position:sticky;top:0}
+.lsnhead h3{margin:4px 0 2px;font-family:var(--f-display);font-size:22px;line-height:1.2}.lsnhead small{opacity:.85}.lsnhead .lage{background:rgba(255,255,255,.2);color:inherit}
+.lsndlg h4{margin:14px 18px 6px;font-size:16px}
+.lsnlist{list-style:none;margin:0 18px;padding:0;display:grid;gap:8px}
+.lsnlist li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px 12px;border:2px solid var(--line);border-radius:14px;background:var(--paper)}
+.lsnlist .lk{font-size:22px}.lsnlist b{display:block;overflow-wrap:anywhere}.lsnlist small{color:var(--muted)}.lsnlist .la{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.lsndlg .asknote{display:block;padding:12px 18px 16px}
+@media (max-width:560px){.lsnlist li{grid-template-columns:auto minmax(0,1fr)}.lsnlist .la{grid-column:1/-1;justify-content:flex-start}}
+.lrows{display:grid;gap:10px}.lrow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr) minmax(0,1.6fr) auto;gap:8px;align-items:end;padding-bottom:10px;border-bottom:1px dashed var(--line)}
+.ldoc{display:block;padding:8px 0;font-size:14px;overflow-wrap:anywhere;color:var(--indigo);font-weight:700}
+@media (max-width:760px){.lrow{grid-template-columns:1fr 1fr}.lrow>.f:nth-child(3){grid-column:1/-1}}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .askbtn{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));z-index:40;border:0;border-radius:999px;padding:12px 18px;background:var(--indigo);color:var(--paper);font:inherit;font-weight:800;font-size:15px;cursor:pointer;box-shadow:0 6px 18px rgba(20,40,80,.3);display:flex;gap:8px;align-items:center}
 body:has(#viewer:not([hidden])) .askbtn,body:has(#viewer:not([hidden])) .askbox,body:has(#lightbox:not([hidden])) .askbtn{display:none}
 .askbtn:focus-visible{outline:3px solid var(--turmeric-fill);outline-offset:3px}
@@ -887,21 +903,42 @@ function introShow(){
 const AGES=[['3-4','Mẫu giáo 3 – 4 tuổi'],['4-5','Mẫu giáo 4 – 5 tuổi'],['5-6','Mẫu giáo 5 – 6 tuổi'],['chung','Dùng chung']];
 const lessonsOf=()=>Array.isArray(data.lessons)?data.lessons:[];
 let libF={age:'',pil:''};
-const linkIcon=u=>/youtu|video|\.mp4/i.test(u)?'▶':/\.mp3|audio|soundcloud/i.test(u)?'♪':/\.pdf|docs\.google|drive\.google|\.docx?/i.test(u)?'📄':'↗';
+const linkIcon=u=>/youtu|video|\.mp4/i.test(u)?'▶':/\.mp3|\.m4a|audio|soundcloud/i.test(u)?'♪':/\.pdf|docs\.google|drive\.google|\.docx?|\.pptx?|\.xlsx?/i.test(u)?'📄':'↗';
+/* Tài liệu đính kèm bài học: link https:// hoặc tệp đã tải lên kho (tailieu/…). */
+const LKINDS=[['giao-an','Giáo án','📘'],['tro-choi','Trò chơi','🎲'],['video','Video','▶'],['bai-hat','Bài hát, âm thanh','♪'],['tu-lieu','Tư liệu khác','📎']];
+const lkind=k=>LKINDS.find(x=>x[0]===k)||LKINDS[4];
+const isDoc=u=>/^tailieu\/[a-z0-9-]+\.[a-z0-9]{2,4}$/.test(String(u||''));
+const okLink=u=>okUrl(u)||isDoc(u);
+const docsOf=l=>(l.links||[]).filter(x=>okLink(x.url));
+const extOf=u=>(String(u).match(/\.([a-z0-9]{2,4})$/i)||['',''])[1].toUpperCase();
 function lessonCard(l){
- const ev=data.exhibits.filter(e=>!e.sample&&tcList(e).includes(l.tc)).length;
- return `<div class="lcard" style="--p:${PILLARS[TCS[l.tc][0]]}"><span class="lage">${esc((AGES.find(a=>a[0]===l.age)||['',l.age])[1])}</span><b>${esc(l.title)}</b>
+ const ev=data.exhibits.filter(e=>!e.sample&&tcList(e).includes(l.tc)).length,D=docsOf(l);
+ const kinds=LKINDS.map(k=>[k,D.filter(x=>lkind(x.kind)[0]===k[0]).length]).filter(x=>x[1]);
+ return `<div class="lcard ${D.length?'has':''}" style="--p:${PILLARS[TCS[l.tc][0]]}" ${D.length?`data-lsn="${esc(l.id)}" role="button" tabindex="0" aria-label="Xem ${D.length} tài liệu của bài ${esc(l.title)}"`:''}><span class="lage">${esc((AGES.find(a=>a[0]===l.age)||['',l.age])[1])}</span><b>${esc(l.title)}</b>
   ${l.week||l.month?`<small>${esc(l.week||l.month)}</small>`:''}${l.yccd?`<small>Yêu cầu cần đạt: ${esc(l.yccd)}</small>`:''}${l.desc?`<p>${esc(l.desc)}</p>`:''}
-  <div class="llinks">${(l.links||[]).filter(x=>okUrl(x.url)).map(x=>`<a class="btn small" href="${esc(x.url)}" target="_blank" rel="noopener">${linkIcon(x.url)} ${esc(x.label||'Mở học liệu')}</a>`).join('')||'<span class="lnone">Học liệu đang cập nhật</span>'}</div>
+  <div class="llinks">${D.length?`<span class="lkinds">${kinds.map(([k,n])=>`<span>${k[2]} ${esc(k[1])}${n>1?' ('+n+')':''}</span>`).join('')}</span><span class="btn small primary lopen">📂 Xem ${D.length} tài liệu</span>`:'<span class="lnone">Học liệu đang cập nhật</span>'}</div>
   ${ev?`<small class="lev">${ev} hiện vật minh chứng ${l.tc} trên bảo tàng</small>`:''}</div>`;
+}
+/* Bấm thẻ bài học: hộp liệt kê tài liệu, xem hoặc tải về. */
+function openLesson(id){
+ const l=lessonsOf().find(x=>x.id===id);if(!l)return;const D=docsOf(l);
+ let dl=$('lsnDlg');if(!dl){dl=document.createElement('dialog');dl.id='lsnDlg';dl.className='lsndlg';document.body.appendChild(dl);dl.addEventListener('click',e=>{if(e.target===dl)dl.close()})}
+ const row=x=>{const k=lkind(x.kind),doc=isDoc(x.url),ext=doc?extOf(x.url):'',name=x.label||(doc?'Tệp '+ext:'Mở học liệu');
+  const open=doc&&/^(DOCX?|PPTX?|XLSX?)$/.test(ext)?'https://view.officeapps.live.com/op/view.aspx?src='+encodeURIComponent(new URL(x.url,location.href).href):x.url;
+  return `<li><span class="lk" aria-hidden="true">${k[2]}</span><div><b>${esc(name)}</b><small>${esc(k[1])}${ext?' · '+ext:doc?'':' · link ngoài'}</small></div>
+   <span class="la"><a class="btn small" href="${esc(open)}" target="_blank" rel="noopener">Xem ↗</a>${doc?`<a class="btn small primary" href="${esc(x.url)}" download>⬇ Tải về</a>`:''}</span></li>`};
+ dl.innerHTML=`<div class="lsnhead"><div><span class="lage">${esc((AGES.find(a=>a[0]===l.age)||['',l.age])[1])} · ${esc(l.tc)}</span><h3>${esc(l.title)}</h3>${l.week||l.month?`<small>${esc(l.week||l.month)}</small>`:''}</div><button type="button" class="askx" aria-label="Đóng">✕</button></div>
+  ${LKINDS.filter(k=>D.some(x=>lkind(x.kind)[0]===k[0])).map(k=>`<h4>${k[2]} ${esc(k[1])}</h4><ul class="lsnlist">${D.filter(x=>lkind(x.kind)[0]===k[0]).map(row).join('')}</ul>`).join('')||'<p>Bài này chưa có tài liệu.</p>'}
+  <small class="asknote">Tệp Word, PowerPoint mở xem bằng trình xem của Microsoft; bấm “Tải về” để lấy tệp gốc về chỉnh sửa, dùng cho lớp mình.</small>`;
+ dl.querySelector('.askx').onclick=()=>dl.close();dl.showModal();
 }
 function libraryRoom(){
  const r=roomOf('hoc-lieu'),L=lessonsOf().filter(l=>(!libF.age||l.age===libF.age)&&(!libF.pil||TCS[l.tc][0]===libF.pil));
- const withLinks=lessonsOf().filter(l=>(l.links||[]).length).length;
+ const withLinks=lessonsOf().filter(l=>docsOf(l).length).length;
  const chip=(attr,on,label)=>`<button type="button" ${attr} aria-pressed="${on}">${label}</button>`;
  const tcs=Object.keys(TCS).filter(c=>L.some(l=>l.tc===c));
  return `<section class="room" style="--c:${r.c}">${head(r)}
- <div class="kpis dkpi"><div><b>${lessonsOf().length}</b><span>bài học (giáo án)</span></div><div><b>${new Set(lessonsOf().map(l=>l.tc)).size}</b><span>tiêu chí</span></div><div><b>${withLinks}</b><span>bài đã có học liệu số</span></div><div><b>${lessonsOf().reduce((t,l)=>t+(l.links||[]).length,0)}</b><span>tệp, video, bài hát</span></div></div>
+ <div class="kpis dkpi"><div><b>${lessonsOf().length}</b><span>bài học (giáo án)</span></div><div><b>${new Set(lessonsOf().map(l=>l.tc)).size}</b><span>tiêu chí</span></div><div><b>${withLinks}</b><span>bài đã có học liệu số</span></div><div><b>${lessonsOf().reduce((t,l)=>t+docsOf(l).length,0)}</b><span>giáo án, trò chơi, tệp, video</span></div></div>
  <div class="cfilter"><div class="row">${chip('data-lage=""',!libF.age,'Mọi độ tuổi')}${AGES.filter(a=>lessonsOf().some(l=>l.age===a[0])).map(a=>chip(`data-lage="${a[0]}"`,libF.age===a[0],a[1].replace('Mẫu giáo ','MG '))).join('')}</div>
   <div class="row">${chip('data-lpil=""',!libF.pil,'Cả 4 trụ cột')}${Object.keys(PILLARS).map(p=>chip(`data-lpil="${p}"`,libF.pil===p,p)).join('')}</div></div>
  ${tcs.length?tcs.map(c=>{const ls=L.filter(l=>l.tc===c).sort((a,b)=>AGES.findIndex(x=>x[0]===a.age)-AGES.findIndex(x=>x[0]===b.age));const ch=CHANGS.find(x=>x.tc.includes(c));
@@ -1240,7 +1277,7 @@ function adminGallery(){
 let lessonDraft=null;
 function adminLessons(){
  const L=lessonsOf(),d=lessonDraft;
- const list=Object.keys(TCS).filter(c=>L.some(l=>l.tc===c)).map(c=>`<div class="agroup"><h4>${c} · ${esc(TCS[c][1])}</h4>${L.filter(l=>l.tc===c).map(l=>`<div class="arow ${d&&d.id===l.id?'on':''}" style="grid-template-columns:minmax(0,1fr) auto"><div style="min-width:0"><b>${esc(l.title)}</b><small>${esc((AGES.find(a=>a[0]===l.age)||['',l.age])[1])} · ${(l.links||[]).length} học liệu</small></div><span class="acts"><button type="button" class="btn small" data-ledit="${l.id}">Sửa</button><button type="button" class="btn small danger" data-ldel="${l.id}">Xóa</button></span></div>`).join('')}</div>`).join('')||'<small style="color:var(--muted)">Chưa có bài học.</small>';
+ const list=Object.keys(TCS).filter(c=>L.some(l=>l.tc===c)).map(c=>`<div class="agroup"><h4>${c} · ${esc(TCS[c][1])}</h4>${L.filter(l=>l.tc===c).map(l=>`<div class="arow ${d&&d.id===l.id?'on':''}" style="grid-template-columns:minmax(0,1fr) auto"><div style="min-width:0"><b>${esc(l.title)}</b><small>${esc((AGES.find(a=>a[0]===l.age)||['',l.age])[1])} · ${docsOf(l).length} tài liệu</small></div><span class="acts"><button type="button" class="btn small" data-ledit="${l.id}">Sửa</button><button type="button" class="btn small danger" data-ldel="${l.id}">Xóa</button></span></div>`).join('')}</div>`).join('')||'<small style="color:var(--muted)">Chưa có bài học.</small>';
  const form=d?`<form class="edit" id="lsForm" novalidate><h3>${L.some(l=>l.id===d.id)?'Sửa bài học':'Thêm bài học'}</h3>
   <div class="two"><div class="f"><label for="ls_tc">Tiêu chí</label><select id="ls_tc">${Object.entries(TCS).map(([c,t])=>`<option value="${c}" ${d.tc===c?'selected':''}>${c} · ${esc(t[1])}</option>`).join('')}</select></div>
   <div class="f"><label for="ls_age">Độ tuổi</label><select id="ls_age">${AGES.map(a=>`<option value="${a[0]}" ${d.age===a[0]?'selected':''}>${a[1]}</option>`).join('')}</select></div></div>
@@ -1248,9 +1285,10 @@ function adminLessons(){
   <div class="two">${fld('ls_month','Tháng trọng tâm',d.month,{ph:'VD: Tháng 12'})}${fld('ls_week','Tuần thực hiện',d.week,{ph:'VD: Tuần 14, 07 – 11/12'})}</div>
   ${fld('ls_yccd','Yêu cầu cần đạt',d.yccd,{ph:'VD: MT9, MT10, MT11'})}
   ${fld('ls_desc','Mô tả ngắn',d.desc,{area:1})}
-  <fieldset><legend>Học liệu số (giáo án, tờ tư liệu, video, bài hát…)</legend>
-   ${[0,1,2,3,4,5].map(i=>{const x=(d.links||[])[i]||{label:'',url:''};return `<div class="two" style="grid-template-columns:minmax(0,1fr) minmax(0,2fr)">${fld('ll_'+i,'Tên',x.label,{ph:i?'VD: Video bài hát':'VD: Giáo án (PDF)'})}${fld('lu_'+i,'Link',x.url,{url:1,ph:'https://drive.google.com/…'})}</div>`}).join('')}
-   <span class="hint">Tệp để trên Google Drive của trường, chia sẻ “Bất kỳ ai có đường liên kết đều xem được”; video YouTube để chế độ không công khai. Không đưa ảnh, video rõ mặt trẻ khi chưa có đồng ý của cha mẹ.</span>
+  <fieldset><legend>Tài liệu đính kèm (giáo án, trò chơi, video, bài hát…)</legend>
+   <div class="lrows">${(d.links||[]).map((x,i)=>`<div class="lrow"><div class="f"><label for="lk_${i}">Loại</label><select id="lk_${i}">${LKINDS.map(k=>`<option value="${k[0]}" ${lkind(x.kind)[0]===k[0]?'selected':''}>${k[2]} ${k[1]}</option>`).join('')}</select></div>${fld('ll_'+i,'Tên tài liệu',x.label,{ph:'VD: Giáo án Đưa nước đến vườn'})}${isDoc(x.url)?`<div class="f"><label>Tệp</label><span class="ldoc">📎 ${esc(x.url.replace('tailieu/',''))}</span><input type="hidden" id="lu_${i}" value="${esc(x.url)}"></div>`:fld('lu_'+i,'Link',x.url,{url:1,ph:'https://drive.google.com/…'})}<button type="button" class="btn small danger" data-ldrop="${i}" aria-label="Bỏ tài liệu ${i+1}">✕</button></div>`).join('')||'<small style="color:var(--muted)">Chưa có tài liệu nào.</small>'}</div>
+   <div class="row" style="flex-wrap:wrap;gap:8px"><label class="btn small primary" for="lsFiles" style="cursor:pointer">📎 Tải tệp lên (Word, PDF, PowerPoint…)</label><input type="file" id="lsFiles" multiple accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.mp3,.m4a,.mp4,.jpg,.jpeg,.png,.zip" class="sr-only"><button type="button" class="btn small" id="lsAddLink">+ Thêm link (Drive, YouTube…)</button></div>
+   <span class="hint">Tệp tối đa 15 MB, lưu vào kho của bảo tàng để các lớp tải về dùng. Video, tệp lớn hơn: để trên Google Drive (chia sẻ “Bất kỳ ai có đường liên kết đều xem được”) hoặc YouTube không công khai rồi dán link. Không đưa ảnh, video rõ mặt trẻ khi chưa có đồng ý của cha mẹ.</span>
   </fieldset>
   <div class="actions"><button type="submit" class="btn primary">Đưa vào danh sách</button><button type="button" class="btn" id="lsCancel">Hủy</button></div></form>`
   :`<div class="box"><h3>Thêm bài học</h3><p>Mỗi bài học gắn một tiêu chí và một độ tuổi; gắn link giáo án, tờ tư liệu, video, bài hát. Bấm <b>Lưu lên trang</b> để phụ huynh, giáo viên xem ở phòng Kho học liệu số.</p><button type="button" class="btn primary" id="lsAdd" style="justify-self:start">+ Thêm bài học</button></div>`;
@@ -1443,13 +1481,29 @@ function wireAdmin(){
  const gf=$('g_files');if(gf)gf.onchange=async()=>{const fs=[...(gf.files||[])];if(!fs.length)return;const site=val('g_site');let ok=0,fail=0;
   for(const[i,f]of fs.entries()){setMsg(`Đang thu nhỏ và tải ảnh ${i+1}/${fs.length}…`);try{const url=await shrink(f);const r=await api('/api/photo',{data:url});phPrev[r.photo]=url;galEdit().unshift({photo:r.photo,site,cap:''});ok++}catch(_){fail++}}
   markDirty();render();setMsg(`Đã tải ${ok} ảnh${fail?`, ${fail} ảnh lỗi`:''}. Ghi chú thích rồi bấm Lưu lên trang.`)};
+ /* đọc các dòng tài liệu đang sửa vào bản nháp (trước khi vẽ lại) */
+ const readLinks=()=>{const d=lessonDraft;if(!d||!$('lsForm'))return;Object.assign(d,{tc:val('ls_tc'),age:val('ls_age'),title:val('ls_title'),month:val('ls_month'),week:val('ls_week'),yccd:val('ls_yccd'),desc:val('ls_desc')});d.links=(d.links||[]).map((x,i)=>({kind:val('lk_'+i)||x.kind,label:val('ll_'+i),url:val('lu_'+i)}))};
+ const lal=$('lsAddLink');if(lal)lal.onclick=()=>{readLinks();lessonDraft.links.push({kind:'video',label:'',url:''});render();$('lu_'+(lessonDraft.links.length-1))?.focus()};
+ main.querySelectorAll('[data-ldrop]').forEach(b=>b.onclick=()=>{readLinks();lessonDraft.links.splice(+b.dataset.ldrop,1);render()});
+ const lsf=$('lsFiles');if(lsf)lsf.onchange=async()=>{
+  const fs=[...lsf.files];if(!fs.length||busy)return;readLinks();busy=true;let ok=0,fail=[];
+  for(const[i,f]of fs.entries()){
+   if(f.size>15*1024*1024){fail.push(f.name+' (quá 15 MB)');continue}
+   setMsg(`Đang tải tệp ${i+1}/${fs.length}: ${f.name}…`);
+   try{const url=await new Promise((ok,no)=>{const r=new FileReader();r.onload=()=>ok(r.result);r.onerror=no;r.readAsDataURL(f)});
+    const r=await api('/api/file',{name:f.name,data:url},()=>setMsg(WAKE));
+    const k=/\.(mp4)$/i.test(f.name)?'video':/\.(mp3|m4a)$/i.test(f.name)?'bai-hat':/tr[oò] ?ch[oơ]i|game/i.test(f.name)?'tro-choi':/gi[aá]o ?[aá]n|ke ?hoach|k[eế] ho[aạ]ch/i.test(f.name.normalize('NFC'))||/\.(docx?|pdf)$/i.test(f.name)?'giao-an':'tu-lieu';
+    lessonDraft.links.push({kind:k,label:f.name.replace(/\.[^.]+$/,''),url:r.url});ok++}
+   catch(e){fail.push(f.name+(e&&e.msg?' ('+e.msg+')':''))}}
+  busy=false;render();setMsg(`Đã tải ${ok} tệp lên kho${fail.length?'. Lỗi: '+fail.join('; '):''}. Kiểm tra loại, tên tài liệu rồi bấm “Đưa vào danh sách” và Lưu lên trang.`)};
  const lsA=$('lsAdd');if(lsA)lsA.onclick=()=>{lessonDraft={id:'l'+Date.now().toString(36),tc:'TC1',age:'5-6',title:'',month:'',week:'',yccd:'',desc:'',links:[]};errors={};render()};
  const lsC=$('lsCancel');if(lsC)lsC.onclick=()=>{lessonDraft=null;errors={};render()};
  main.querySelectorAll('[data-ledit]').forEach(b=>b.onclick=()=>{const l=lessonsOf().find(x=>x.id===b.dataset.ledit);lessonDraft=JSON.parse(JSON.stringify(l));errors={};render()});
  main.querySelectorAll('[data-ldel]').forEach(b=>b.onclick=()=>{if(!confirm('Xóa bài học này khỏi kho học liệu?'))return;data.lessons=lessonsOf().filter(x=>x.id!==b.dataset.ldel);if(lessonDraft&&lessonDraft.id===b.dataset.ldel)lessonDraft=null;markDirty();render()});
  const lsF=$('lsForm');if(lsF)lsF.onsubmit=e=>{e.preventDefault();const d=lessonDraft;errors={};
-  Object.assign(d,{tc:val('ls_tc'),age:val('ls_age'),title:val('ls_title'),month:val('ls_month'),week:val('ls_week'),yccd:val('ls_yccd'),desc:val('ls_desc'),links:[0,1,2,3,4,5].map(i=>({label:val('ll_'+i),url:val('lu_'+i)})).filter(x=>x.url)});
-  if(!d.title)errors.ls_title='Hãy nhập tên bài học.';checkUrls([0,1,2,3,4,5].map(i=>'lu_'+i));if(Object.keys(errors).length){render();return}
+  readLinks();
+  if(!d.title)errors.ls_title='Hãy nhập tên bài học.';d.links.forEach((x,i)=>{if(x.url&&!okLink(x.url))errors['lu_'+i]='Link phải bắt đầu bằng https://'});if(Object.keys(errors).length){render();return}
+  d.links=d.links.filter(x=>x.url);
   const L=lessonsOf().slice(),i=L.findIndex(x=>x.id===d.id);if(i>=0)L[i]=d;else L.push(d);data.lessons=L;lessonDraft=null;markDirty();render();setMsg('Đã cập nhật kho học liệu. Bấm Lưu lên trang để áp dụng.')};
  const sc=$('skknCsv');if(sc)sc.onclick=skknCsv;
  const hf=$('hForm');if(hf)hf.onsubmit=e=>{e.preventDefault();
@@ -1595,7 +1649,7 @@ function render(){
  let r=ROOMS.find(x=>x.id===want)||ROOMS[0];if(r.adminOnly&&!canAdmin&&mode!=='github')r=ROOMS[0];currentId=r.id;markTab();
  $('layout').classList.toggle('wide',r.kind==='admin');
  main.innerHTML=r.kind==='intro'?intro():r.kind==='exhibits'?exhibitsRoom(r):r.kind==='timeline'?timelineRoom(r):r.kind==='calendar'?calendarRoom(r):r.kind==='guide'?guideRoom():r.kind==='classes'?classesRoom(sub):r.kind==='library'?libraryRoom():adminRoom();
- if(r.kind==='library'){main.querySelectorAll('[data-lage]').forEach(b=>b.onclick=()=>{libF.age=b.dataset.lage;render()});main.querySelectorAll('[data-lpil]').forEach(b=>b.onclick=()=>{libF.pil=b.dataset.lpil;render()})}
+ if(r.kind==='library'){main.querySelectorAll('[data-lsn]').forEach(c=>{c.onclick=()=>openLesson(c.dataset.lsn);c.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openLesson(c.dataset.lsn)}}});main.querySelectorAll('[data-lage]').forEach(b=>b.onclick=()=>{libF.age=b.dataset.lage;render()});main.querySelectorAll('[data-lpil]').forEach(b=>b.onclick=()=>{libF.pil=b.dataset.lpil;render()})}
  if(r.kind==='classes'&&sub&&clsOf(sub)){const it=data.exhibits.filter(e=>clsList(e).includes(sub)).map(e=>({...e,roomName:roomOf(e.room).name+' · '+clsOf(sub).name,c:roomOf(e.room).c}));main.querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>openViewer(it,+b.dataset.i))}
  if(r.kind==='exhibits'){const items=roomItems(r).map(e=>({...e,roomName:r.name+(clsNames(e).length?' · '+clsNames(e).join(', '):''),c:r.c}));main.querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>openViewer(items,+b.dataset.i));
   main.querySelectorAll('[data-fsite]').forEach(b=>b.onclick=()=>{cFilter={site:b.dataset.fsite,cls:''};render()});

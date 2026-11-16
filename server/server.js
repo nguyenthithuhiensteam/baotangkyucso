@@ -171,6 +171,11 @@ function cleanTimeline(x) {
   return o;
 }
 /* Kho học liệu số theo Bộ tiêu chí (Hành trình di sản). */
+/* Tài liệu đính kèm bài học: tệp tải lên nằm ở kho công khai tailieu/<tên>. */
+const LINK_KINDS = ['giao-an', 'tro-choi', 'video', 'bai-hat', 'tu-lieu'];
+const FILE_EXT = ['pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx', 'mp3', 'mp4', 'm4a', 'jpg', 'jpeg', 'png', 'zip'];
+const FILE_RE = new RegExp('^tailieu/[a-z0-9-]{1,80}[.](' + FILE_EXT.join('|') + ')$');
+const MAX_FILE = 15 * 1024 * 1024;
 function cleanLesson(x) {
   x = x || {};
   const o = { id: str(x.id, 40), tc: str(x.tc, 4), age: str(x.age, 8), title: str(x.title, 200), month: str(x.month, 100), week: str(x.week, 150),
@@ -179,8 +184,8 @@ function cleanLesson(x) {
   if (!['TC1', 'TC2', 'TC3', 'TC4', 'TC5', 'TC6', 'TC7', 'TC8', 'TC9', 'MR1', 'MR2'].includes(o.tc)) throw new HttpErr(400, 'Tiêu chí của học liệu không hợp lệ.');
   if (!['3-4', '4-5', '5-6', 'chung'].includes(o.age)) o.age = 'chung';
   if (!o.title) throw new HttpErr(400, 'Học liệu cần có tên bài.');
-  o.links = (Array.isArray(x.links) ? x.links : []).slice(0, 8).map(l => ({ label: str(l?.label, 60), url: str(l?.url, 1000) })).filter(l => l.url);
-  for (const l of o.links) if (!okUrl(l.url)) throw new HttpErr(400, 'Link học liệu phải bắt đầu bằng https://');
+  o.links = (Array.isArray(x.links) ? x.links : []).slice(0, 24).map(l => ({ label: str(l?.label, 120), url: str(l?.url, 1000), kind: LINK_KINDS.includes(l?.kind) ? l.kind : 'tu-lieu' })).filter(l => l.url);
+  for (const l of o.links) if (!okUrl(l.url) && !FILE_RE.test(l.url)) throw new HttpErr(400, 'Link học liệu phải bắt đầu bằng https:// (hoặc là tệp đã tải lên kho).');
   return o;
 }
 function cleanData(d) {
@@ -600,10 +605,10 @@ function send(res, status, obj) {
   res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' });
   res.end(JSON.stringify(obj));
 }
-function readBody(req) {
+function readBody(req, max = 2e6) {
   return new Promise((ok, fail) => {
     let size = 0; const chunks = [];
-    req.on('data', c => { size += c.length; if (size > 2e6) { fail(new HttpErr(413, 'Dữ liệu quá lớn.')); req.destroy(); } else chunks.push(c); });
+    req.on('data', c => { size += c.length; if (size > max) { fail(new HttpErr(413, 'Dữ liệu quá lớn.')); req.destroy(); } else chunks.push(c); });
     req.on('end', () => { if (!chunks.length) return ok({}); try { ok(JSON.parse(Buffer.concat(chunks).toString('utf8'))); } catch { fail(new HttpErr(400, 'Dữ liệu gửi lên không hợp lệ.')); } });
     req.on('error', fail);
   });
@@ -637,6 +642,20 @@ async function flushViews() {
 }
 setInterval(() => { flushViews(); const cut = Date.now() - 6 * 3600e3; for (const [k, t] of viewSeen) if (t < cut) viewSeen.delete(k); }, Number(env.VIEW_FLUSH_MS) || 5 * 60e3).unref();
 for (const sig of ['SIGTERM', 'SIGINT']) process.on(sig, () => { Promise.race([flushViews(), sleep(8000)]).finally(() => process.exit(0)); });
+/* Tải tài liệu (giáo án, trò chơi…) lên kho công khai – chỉ quản trị. */
+routes['POST /api/file'] = async (req, body, user) => {
+  needAdmin(user);
+  const name = str(body.name, 200), m = /^data:[^;,]*;base64,([A-Za-z0-9+/=]+)$/.exec(String(body.data || ''));
+  if (!m) throw new HttpErr(400, 'Tệp không hợp lệ.');
+  const ext = (name.match(/\.([A-Za-z0-9]{2,4})$/) || [])[1]?.toLowerCase();
+  if (!FILE_EXT.includes(ext)) throw new HttpErr(400, 'Chỉ nhận tệp ' + FILE_EXT.join(', ') + '.');
+  const size = Math.floor(m[1].length * 3 / 4);
+  if (size > MAX_FILE) throw new HttpErr(400, 'Tệp quá lớn (tối đa 15 MB). Tệp lớn hơn hãy để trên Google Drive rồi dán link.');
+  const base = name.replace(/\.[^.]*$/, '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[đĐ]/g, 'd').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60) || 'tai-lieu';
+  const file = `tailieu/${base}-${crypto.randomBytes(3).toString('hex')}.${ext === 'jpeg' ? 'jpg' : ext}`;
+  await putBinary(DATA_REPO, file, m[1], `Tài liệu học liệu: ${name} (${user.username})`);
+  return { url: file, size };
+};
 routes['GET /api/views'] = async () => ({ views: await viewTotals() });
 routes['POST /api/view'] = async (req, body) => {
   const id = String(body.id || '');
@@ -669,7 +688,7 @@ const server = http.createServer(async (req, res) => {
   if (!fn) return send(res, 404, { error: 'Không có đường dẫn này.' });
   try {
     if (!configured && key !== 'GET /api/health') throw new HttpErr(503, 'Máy chủ chưa được cấu hình đủ (GITHUB_TOKEN, ADMIN_PASSWORD, SESSION_SECRET).');
-    const body = req.method === 'POST' ? await readBody(req) : {};
+    const body = req.method === 'POST' ? await readBody(req, key === 'POST /api/file' ? 22e6 : 2e6) : {};
     const user = PUBLIC.has(key) ? null : await who(req);
     send(res, 200, await fn(req, body, user));
   } catch (e) {
