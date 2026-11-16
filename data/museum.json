@@ -2358,6 +2358,33 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwilgao8",
+   "room": "thien-nhien",
+   "art": "caylon",
+   "name": "Cây dừa cảnh",
+   "era": "11/2026",
+   "plan": "",
+   "from": "Lớp 24-36 tháng B phân hiệu Tràng Đà",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1aziMzIu1QKyQoo3LmM100_J8yco35iGw/view?usp=drive_link",
+   "cls": [
+    "l1b3ceb"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/1f6eb58ff297ecd0a430.jpg",
+   "photos": [
+    "anh/1f6eb58ff297ecd0a430.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
