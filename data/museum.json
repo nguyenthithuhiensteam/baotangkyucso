@@ -4436,6 +4436,34 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwiv6i94",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Hoạt động âm nhạc",
+   "era": "Tháng 10/2026",
+   "plan": "Hoạt động âm nhạc",
+   "from": "Lớp 25-36 tháng B (trường chính)",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l5f4f02"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/85b35b74b2816df458eb.jpg",
+   "photos": [
+    "anh/85b35b74b2816df458eb.jpg",
+    "anh/3c5500abaa0e962b4b64.jpg"
+   ],
+   "photoAlt": "Hoạt động âm nhạc",
+   "sample": false
   }
  ],
  "timeline": [
