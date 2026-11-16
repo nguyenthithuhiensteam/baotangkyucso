@@ -1908,6 +1908,42 @@
    ],
    "photoAlt": "Bé ăn trưa cùng các bạn trong lớp",
    "sample": true
+  },
+  {
+   "id": "emwhzog5d",
+   "room": "thien-nhien",
+   "art": "caylon",
+   "name": "Cây và hoa quanh bé",
+   "era": "Tháng 11/2026",
+   "plan": "Bé với thiên nhiên",
+   "from": "Lớp 25-36 tháng B (trường chính)",
+   "story": "",
+   "ask": "Các con ơi, chúng mình có biết đây là cây hoa gì không?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l5f4f02"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/b4b9aa043472fd0f9a0f.jpg",
+   "photos": [
+    "anh/b4b9aa043472fd0f9a0f.jpg",
+    "anh/77a64ed5dd4b1a2f264a.jpg",
+    "anh/26542bc1a39cf004fbdd.jpg",
+    "anh/87fdcb5a18386e9ac761.jpg",
+    "anh/5d7e377801e499f065cb.jpg",
+    "anh/056636f37aac60e9900e.jpg",
+    "anh/a4af09710609a4cb3428.jpg",
+    "anh/f048be5b1f9c225be6fb.jpg",
+    "anh/3dc521e139a6b2df9a46.jpg",
+    "anh/b336bf7b779458779871.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
