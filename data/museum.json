@@ -3767,6 +3767,36 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwio8uf8",
+   "room": "di-san",
+   "art": "video",
+   "name": "Ngoại khóa PCCC",
+   "era": "Tháng 10",
+   "plan": "",
+   "from": "Lớp 3- 4 tuổi A3 (Trường chính)",
+   "story": "Ngoại khóa PCCC",
+   "ask": "Đây là cây gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l1b1bdd"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/32387c049d796a99171f.jpg",
+   "photos": [
+    "anh/32387c049d796a99171f.jpg",
+    "anh/e4dd74afaa02048f16c2.jpg",
+    "anh/fe915904c7687eec888c.jpg",
+    "anh/9e6dfdb27c67e6ea527b.jpg"
+   ],
+   "photoAlt": "Ngoại khóa PCCC",
+   "sample": false
   }
  ],
  "timeline": [
