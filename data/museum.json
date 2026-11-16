@@ -2686,6 +2686,37 @@
    ],
    "photoAlt": "",
    "sample": true
+  },
+  {
+   "id": "emwim6oep",
+   "room": "khoanh-khac",
+   "art": "an",
+   "name": "Bữa trưa của bé",
+   "era": "Tháng 11",
+   "plan": "",
+   "from": "Lớp 3-4 tuổi A2",
+   "story": "",
+   "ask": "Hôm nay con ăn cơm có những món gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lc8a1a7"
+   ],
+   "tc": [
+    "TC2"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/d9b5e103f04784268b8d.jpg",
+   "photos": [
+    "anh/d9b5e103f04784268b8d.jpg",
+    "anh/a0e2c77cc973d5781fcd.jpg",
+    "anh/46e1825fbb751703daa5.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
