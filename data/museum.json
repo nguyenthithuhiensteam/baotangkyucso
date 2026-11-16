@@ -3575,6 +3575,31 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwineord",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Khám sức khoẻ chuyên khoa đầu năm học",
+   "era": "9/2026",
+   "plan": "Khám sức khoẻ chuyên khoa đầu năm học",
+   "from": "Lớp MG 4-5T B3 Trường chính",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/folders/1pRPQJEUFaTMPDSGuchMobaenhF5nmJcv",
+   "cls": [
+    "l8834cf"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
