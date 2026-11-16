@@ -2329,6 +2329,35 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwik502v",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "CÂY CỌ NHẬT",
+   "era": "Tháng 11/2026",
+   "plan": "Mầm xanh của bé",
+   "from": "Lớp 3-4 tuổi A. PH Tràng Đà",
+   "story": "Ở góc sân trường có một cây Cọ Nhật. Những chiếc lá xanh xòe ra như những chiếc quạt nhỏ.\n\nMỗi sáng, bé Na đều đến chào:\n— Chào bạn Cọ Nhật!\n\nCọ Nhật đung đưa lá:\n— Chào Na! Hôm nay chúng mình cùng đón nắng nhé!\n\nMột hôm, Na thấy đất trong chậu đã khô. Cô giáo giúp Na lấy một ít nước. Na nhẹ nhàng tưới quanh gốc cây:\n— Bạn uống nước nhé!\n\nGió thổi qua, lá cọ rung rinh, xào xạc:\n— Cảm ơn Na!\n\nÍt lâu sau, Cọ Nhật nhú thêm một chiếc lá non. Na reo lên:\n— Cô ơi, bạn Cọ có chiếc quạt mới!\n\nTừ đó, mỗi ngày Na đều cùng cô chăm sóc cây. Cọ Nhật xanh tươi, rung rinh những chiếc quạt lá chào các bạn nhỏ đến trường.",
+   "ask": "Bé Na đã làm gì để chăm sóc cây Cọ Nhật?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1AkMLB3f87t6vkUmhpqgRsNSgDOZmec9t/view?usp=drive_link",
+   "cls": [
+    "l73377a"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/40f735f27ea41fc1eb5c.jpg",
+   "photos": [
+    "anh/40f735f27ea41fc1eb5c.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
