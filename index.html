@@ -363,6 +363,7 @@ h3.fsel{font-size:22px}h3.fsel small{font-size:14px;color:var(--muted);font-fami
 .lsndlg::backdrop{background:rgba(20,30,50,.55)}
 .lsnhead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding:16px 18px;background:var(--indigo);color:var(--paper);position:sticky;top:0}
 .lsnhead h3{margin:4px 0 2px;font-family:var(--f-display);font-size:22px;line-height:1.2}.lsnhead small{opacity:.85}.lsnhead .lage{background:rgba(255,255,255,.2);color:inherit}
+.lsnempty{padding:14px 18px;display:grid;gap:8px}.lsnempty p{margin:0}
 .lsndlg h4{margin:14px 18px 6px;font-size:16px}
 .lsnlist{list-style:none;margin:0 18px;padding:0;display:grid;gap:8px}
 .lsnlist li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px 12px;border:2px solid var(--line);border-radius:14px;background:var(--paper)}
@@ -459,6 +460,20 @@ body.in-admin .askbtn,body.in-admin .askbox,body:has(#viewer:not([hidden])) .ask
 .kpis div{background:var(--wall);border-radius:14px;padding:10px;display:grid;gap:2px}
 .kpis b{font-family:var(--f-display);font-size:26px;color:var(--indigo)}.kpis span{font-size:13px;color:var(--muted);font-weight:700}
 .ctable td.ok{color:var(--now);font-weight:800}.ctable td.low{color:var(--danger);font-weight:800}
+.hmapwrap{display:grid;gap:10px;margin-top:8px}.hlead{margin:0;color:var(--muted)}
+.hboard{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:16px;padding:18px;border-radius:24px;background:radial-gradient(circle at 12% 20%,rgba(255,255,255,.7) 0 18%,transparent 19%),radial-gradient(circle at 88% 85%,rgba(255,255,255,.55) 0 14%,transparent 15%),linear-gradient(135deg,#eaf6ec,#e8f1fb 55%,#fdeef3);border:3px dashed color-mix(in srgb,var(--indigo) 25%,transparent);overflow:hidden}
+.hriver{position:absolute;left:0;right:0;top:46%;width:100%;height:120px;color:#1e88e5;pointer-events:none}
+.hsite{position:relative;display:grid;gap:10px;align-content:start}
+.hpin{display:flex;gap:8px;align-items:center;background:var(--sc);color:#fff;border-radius:16px;padding:10px 12px;box-shadow:0 4px 0 color-mix(in srgb,var(--sc) 55%,#000)}
+.hpin .pin{font-size:24px;filter:drop-shadow(0 2px 0 rgba(0,0,0,.25))}.hpin b{display:block;font-family:var(--f-display);font-size:17px;line-height:1.15}.hpin small{opacity:.9;font-size:12.5px}
+.hstamps{display:grid;gap:10px}
+.hstamp{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 10px;align-items:center;background:var(--frame);border:2px solid color-mix(in srgb,var(--sc) 35%,transparent);border-radius:16px;padding:10px 12px;box-shadow:0 3px 0 color-mix(in srgb,var(--sc) 25%,transparent);transition:transform .15s}
+.hstamp:hover{transform:translateY(-2px) rotate(-.4deg)}.hstamp:focus-visible{outline:3px solid var(--turmeric-fill);outline-offset:2px}
+.hstamp[aria-disabled=true]{cursor:default;opacity:.8;border-style:dashed}.hstamp[aria-disabled=true]:hover{transform:none}
+.hic{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-size:24px;background:color-mix(in srgb,var(--sc) 14%,#fff);border:2px dashed color-mix(in srgb,var(--sc) 55%,transparent)}
+.htx{display:grid;gap:1px;min-width:0}.htx b{font-size:16px;line-height:1.25;color:var(--ink)}.htx small{color:var(--muted);font-size:12.5px}.htx em{font-style:normal;font-weight:800;font-size:13px;color:var(--sc)}.htx .hcf{color:#2e7d32}
+.hph{grid-column:1/-1;display:flex;gap:6px}.hph>*{width:54px;height:54px;border-radius:10px;overflow:hidden;flex:none;display:block}.hph img,.hph svg{width:100%;height:100%;object-fit:cover;display:block}
+@media (max-width:820px){.hboard{grid-template-columns:1fr}.hriver{top:30%;height:200px}}
 .hmap ul{list-style:none;padding:0;display:grid;gap:8px}.hmap li b{color:var(--ink)}.hmap li small{color:var(--muted)}.hmap li span{display:block;font-size:13px}
 .clsgrp{display:grid;gap:4px;margin-top:6px}.clsgrp>b{font-size:14px;color:var(--muted)}
 .clsopts{display:flex;flex-wrap:wrap;gap:4px 16px}
@@ -792,11 +807,24 @@ function skknFields(d){
   <div class="f"><label for="x_her">Di sản trên bản đồ di sản gần trẻ</label><select id="x_her"><option value="">(Không gắn)</option>${sitesOf().map(st=>{const g=H.filter(h=>h.site===st);return g.length?`<optgroup label="${esc(st)}">${g.map(h=>`<option value="${h.id}" ${d.her===h.id?'selected':''}>${esc(h.name)}</option>`).join('')}</optgroup>`:''}).join('')}</select></div></div>
  </fieldset>`;
 }
+/* Bản đồ di sản: mỗi điểm trường một "vùng" màu riêng, mỗi di sản một con tem có biểu tượng theo loại. */
+const HER_IC=[[/lễ hội|hội/i,'🏮'],[/sông|suối|núi|cảnh quan|hồ|thác/i,'🌊'],[/trò chơi/i,'🪁'],[/di tích|lịch sử|đình|chùa|đền/i,'🏛️'],[/làn điệu|dân ca|hát|then|múa|nhạc/i,'🎶'],[/nghề|thủ công|đan|dệt/i,'🧺'],[/sản vật|ẩm thực|món|bánh|cam|chè|quả/i,'🍊'],[/tri thức|phong tục|tập quán/i,'📜']];
+const herIcon=h=>(HER_IC.find(([r])=>r.test((h.kind||'')+' '+h.name))||[0,'⭐'])[1];
+const SITE_COL={'Trường chính':'#3949ab','Phân hiệu Tràng Đà':'#2e7d32','Phân hiệu Hương Sen':'#c2185b'};
+const herItems=id=>data.exhibits.filter(e=>e.her===id);
 function heritageMap(){
  const H=heritageOf();if(!H.length)return '';
- const n=h=>data.exhibits.filter(e=>e.her===h.id).length;
- return `<div style="display:grid;gap:12px"><h3 class="sub">Bản đồ di sản gần trẻ</h3><p style="margin:0;color:var(--muted)">Mỗi điểm trường chọn 3–5 di sản gần gũi với trẻ (trò chơi, làn điệu, nghề, sản vật, tri thức dân gian), có người am hiểu xác nhận nội dung.</p>
- <div class="guide">${sitesOf().filter(st=>H.some(h=>h.site===st)).map(st=>`<div class="box hmap"><h3>${esc(st)}</h3><ul>${H.filter(h=>h.site===st).map(h=>`<li><b>${esc(h.name)}</b>${h.kind?` <small>${esc(h.kind)}</small>`:''}<span>${n(h)?n(h)+' hiện vật':'chưa có hiện vật'}${h.confirm?' · Xác nhận: '+esc(h.confirm):''}</span></li>`).join('')}</ul></div>`).join('')}</div></div>`;
+ const sites=sitesOf().filter(st=>H.some(h=>h.site===st));
+ const stamp=h=>{const it=herItems(h.id),ph=it.filter(e=>pubPhoto(e.photo)).slice(0,3);
+  return `<button type="button" class="hstamp" data-her="${esc(h.id)}" ${it.length?'':'aria-disabled="true"'} aria-label="${esc(h.name)}: ${it.length?it.length+' hiện vật, bấm để xem':'chưa có hiện vật'}">
+   <span class="hic" aria-hidden="true">${herIcon(h)}</span>
+   <span class="htx"><b>${esc(h.name)}</b>${h.kind?`<small>${esc(h.kind)}</small>`:''}<em>${it.length?`${it.length} hiện vật →`:'Chưa có hiện vật'}</em>${h.confirm?`<small class="hcf">✓ Xác nhận: ${esc(h.confirm)}</small>`:''}</span>
+   ${ph.length?`<span class="hph" aria-hidden="true">${ph.map(e=>pic(e)).join('')}</span>`:''}</button>`};
+ return `<div class="hmapwrap"><h3 class="sub">🗺️ Bản đồ di sản gần trẻ</h3><p class="hlead">Mỗi điểm trường chọn 3–5 di sản gần gũi với trẻ: trò chơi, làn điệu, nghề, sản vật, tri thức dân gian. Bấm vào một di sản để xem hiện vật của các lớp.</p>
+ <div class="hboard" style="--n:${sites.length}">
+  <svg class="hriver" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0,70 C120,20 220,110 360,60 S600,10 720,64 S900,110 1000,40" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" opacity=".18"/><path d="M0,70 C120,20 220,110 360,60 S600,10 720,64 S900,110 1000,40" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="2 14" stroke-linecap="round" opacity=".5"/></svg>
+  ${sites.map(st=>{const L=H.filter(h=>h.site===st),n=L.reduce((t,h)=>t+herItems(h.id).length,0);return `<section class="hsite" style="--sc:${SITE_COL[st]||'var(--indigo)'}"><div class="hpin"><span class="pin" aria-hidden="true">📍</span><div><b>${esc(st)}</b><small>${L.length} di sản · ${n} hiện vật</small></div></div><div class="hstamps">${L.map(stamp).join('')}</div></section>`}).join('')}
+ </div></div>`;
 }
 function classSelect(d){
  const cs=myClasses().length?classesOf().filter(c=>myClasses().includes(c.id)):classesOf(),v=clsList(d);
@@ -925,9 +953,9 @@ const extOf=u=>(String(u).match(/\.([a-z0-9]{2,4})$/i)||['',''])[1].toUpperCase(
 function lessonCard(l){
  const ev=data.exhibits.filter(e=>!e.sample&&tcList(e).includes(l.tc)).length,D=docsOf(l);
  const kinds=LKINDS.map(k=>[k,D.filter(x=>lkind(x.kind)[0]===k[0]).length]).filter(x=>x[1]);
- return `<div class="lcard ${D.length?'has':''}" style="--p:${PILLARS[TCS[l.tc][0]]}" ${D.length?`data-lsn="${esc(l.id)}" role="button" tabindex="0" aria-label="Xem ${D.length} tài liệu của bài ${esc(l.title)}"`:''}><span class="lage">${esc((AGES.find(a=>a[0]===l.age)||['',l.age])[1])}</span><b>${esc(l.title)}</b>
+ return `<div class="lcard has" style="--p:${PILLARS[TCS[l.tc][0]]}" data-lsn="${esc(l.id)}" role="button" tabindex="0" aria-label="${D.length?`Xem ${D.length} tài liệu của bài ${esc(l.title)}`:`Bài ${esc(l.title)}: học liệu đang cập nhật`}"><span class="lage">${esc((AGES.find(a=>a[0]===l.age)||['',l.age])[1])}</span><b>${esc(l.title)}</b>
   ${l.week||l.month?`<small>${esc(l.week||l.month)}</small>`:''}${l.yccd?`<small>Yêu cầu cần đạt: ${esc(l.yccd)}</small>`:''}${l.desc?`<p>${esc(l.desc)}</p>`:''}
-  <div class="llinks">${D.length?`<span class="lkinds">${kinds.map(([k,n])=>`<span>${k[2]} ${esc(k[1])}${n>1?' ('+n+')':''}</span>`).join('')}</span><span class="btn small primary lopen">📂 Xem ${D.length} tài liệu</span>`:'<span class="lnone">Học liệu đang cập nhật</span>'}</div>
+  <div class="llinks">${D.length?`<span class="lkinds">${kinds.map(([k,n])=>`<span>${k[2]} ${esc(k[1])}${n>1?' ('+n+')':''}</span>`).join('')}</span><span class="btn small primary lopen">📂 Xem ${D.length} tài liệu</span>`:'<span class="lnone">Học liệu đang cập nhật</span><span class="btn small lopen">Xem bài</span>'}</div>
   ${ev?`<small class="lev">${ev} hiện vật minh chứng ${l.tc} trên bảo tàng</small>`:''}</div>`;
 }
 /* Bấm thẻ bài học: hộp liệt kê tài liệu, xem hoặc tải về. */
@@ -939,9 +967,11 @@ function openLesson(id){
   return `<li><span class="lk" aria-hidden="true">${k[2]}</span><div><b>${esc(name)}</b><small>${esc(k[1])}${ext?' · '+ext:doc?'':' · link ngoài'}</small></div>
    <span class="la"><a class="btn small" href="${esc(open)}" target="_blank" rel="noopener">Xem ↗</a>${doc?`<a class="btn small primary" href="${esc(x.url)}" download>⬇ Tải về</a>`:''}</span></li>`};
  dl.innerHTML=`<div class="lsnhead"><div><span class="lage">${esc((AGES.find(a=>a[0]===l.age)||['',l.age])[1])} · ${esc(l.tc)}</span><h3>${esc(l.title)}</h3>${l.week||l.month?`<small>${esc(l.week||l.month)}</small>`:''}</div><button type="button" class="askx" aria-label="Đóng">✕</button></div>
-  ${LKINDS.filter(k=>D.some(x=>lkind(x.kind)[0]===k[0])).map(k=>`<h4>${k[2]} ${esc(k[1])}</h4><ul class="lsnlist">${D.filter(x=>lkind(x.kind)[0]===k[0]).map(row).join('')}</ul>`).join('')||'<p>Bài này chưa có tài liệu.</p>'}
-  <small class="asknote">Tệp Word, PowerPoint mở xem bằng trình xem của Microsoft; bấm “Tải về” để lấy tệp gốc về chỉnh sửa, dùng cho lớp mình.</small>`;
- dl.querySelector('.askx').onclick=()=>dl.close();dl.showModal();
+  ${LKINDS.filter(k=>D.some(x=>lkind(x.kind)[0]===k[0])).map(k=>`<h4>${k[2]} ${esc(k[1])}</h4><ul class="lsnlist">${D.filter(x=>lkind(x.kind)[0]===k[0]).map(row).join('')}</ul>`).join('')||`<div class="lsnempty"><p>📭 Bài này chưa có giáo án, trò chơi hay tài liệu nào.</p>${l.yccd?`<p><b>Yêu cầu cần đạt:</b> ${esc(l.yccd)}</p>`:''}${l.desc?`<p>${esc(l.desc)}</p>`:''}${isAdmin()?`<button type="button" class="btn primary" id="lsnAdd">➕ Thêm tài liệu cho bài này</button>`:'<p class="asknote" style="padding:0">Nhà trường đang cập nhật tài liệu cho bài này.</p>'}</div>`}
+  ${D.length?'<small class="asknote">Tệp Word, PowerPoint mở xem bằng trình xem của Microsoft; bấm “Tải về” để lấy tệp gốc về chỉnh sửa, dùng cho lớp mình.</small>':''}`;
+ dl.querySelector('.askx').onclick=()=>dl.close();
+ const ad=dl.querySelector('#lsnAdd');if(ad)ad.onclick=()=>{dl.close();aTab='lessons';lessonDraft=JSON.parse(JSON.stringify(l));lessonDraft.links=lessonDraft.links||[];errors={};if(location.hash==='#quan-tri')render();else location.hash='#quan-tri';setTimeout(()=>{showForm();$('lsFiles')&&setMsg('Bấm “📎 Tải tệp lên” hoặc “+ Thêm link”, rồi “Đưa vào danh sách” và Lưu lên trang.')},300)};
+ dl.showModal();
 }
 function libraryRoom(){
  const r=roomOf('hoc-lieu'),L=lessonsOf().filter(l=>(!libF.age||l.age===libF.age)&&(!libF.pil||TCS[l.tc][0]===libF.pil));
@@ -1677,6 +1707,7 @@ function render(){
   main.querySelectorAll('[data-fsite]').forEach(b=>b.onclick=()=>{cFilter={site:b.dataset.fsite,cls:''};render()});
   main.querySelectorAll('[data-fcls]').forEach(b=>b.onclick=()=>{const c=clsOf(b.dataset.fcls);cFilter=cFilter.cls===b.dataset.fcls?{site:'',cls:''}:{site:c?c.site:'',cls:b.dataset.fcls};render()})}
  main.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{location.hash=b.dataset.go});
+ main.querySelectorAll('[data-her]').forEach(b=>b.onclick=()=>{const h=heritageOf().find(x=>x.id===b.dataset.her),it=herItems(b.dataset.her);if(!it.length)return;openViewer(it.map(e=>({...e,roomName:roomOf(e.room).name+' · Di sản: '+(h?h.name:''),c:roomOf(e.room).c})),0)});
  main.querySelectorAll('[data-dicls]').forEach(b=>b.onclick=()=>{diSel=b.dataset.dicls;render();main.scrollIntoView({block:'start'})});
  wireWalls(main);
  main.querySelectorAll('[data-gocls]').forEach(b=>b.onclick=()=>goClass(b.dataset.gocls,b.dataset.room));
