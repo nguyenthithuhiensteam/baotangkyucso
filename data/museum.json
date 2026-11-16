@@ -3928,6 +3928,33 @@
    "photos": [],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwimqrm7",
+   "room": "thien-nhien",
+   "art": "caylon",
+   "name": "Cây hoa đồng tiền",
+   "era": "Tháng 11",
+   "plan": "",
+   "from": "Lớp 3-4 tuổi A2",
+   "story": "Ngày xưa, ở một ngôi làng nhỏ có cô gái tên Mai, nhà nghèo đến mức tài sản duy nhất chỉ là mảnh vườn trước hiên. Ngày ngày cô tưới nước, nhổ cỏ và trò chuyện với từng mầm cây như với người bạn, chưa một lần than trách số phận, vì cô tin người giàu nhất không phải là người có nhiều tiền nhất mà là người biết trân trọng những gì mình đang có.\n\nNăm nọ làng gặp nạn đói, ai nấy sợ hãi cất giấu lương thực riêng, còn Mai vẫn chia phần ăn ít ỏi của mình cho người già và trẻ nhỏ. Một đêm, một bà lão bí ẩn hiện ra, mỉm cười bảo: \"Con không giàu tiền bạc, nhưng con giàu lòng nhân ái, đó mới là tài sản quý giá nhất\". Sáng hôm sau, giữa mảnh vườn cũ bỗng mọc lên những bông hoa tròn xinh như đồng xu vàng đang tỏa sáng dưới nắng, cánh mỏng xếp thành nhiều lớp quanh nhụy thẫm, cuống dài vươn thẳng lên khỏi tán lá xanh đậm. Dân làng ngạc nhiên gọi đó là hoa đồng tiền, và từ ấy loài hoa theo người ta vào mỗi dịp Tết như một lời chúc may mắn, sung túc.",
+   "ask": "Đây là hoa gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lc8a1a7"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/1f2cdabc5f0be78e41a9.jpg",
+   "photos": [
+    "anh/1f2cdabc5f0be78e41a9.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
