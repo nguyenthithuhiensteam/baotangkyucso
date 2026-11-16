@@ -870,7 +870,8 @@ function libraryRoom(){
 }
 /* Khu hiện vật: băng chuyền ngang (3 hiện vật mỗi lần), có thể chuyển sang dạng lưới. */
 let wallGrid=false;try{wallGrid=localStorage.getItem('btkuc_grid')==='1'}catch(_){}
-const isPhotoRoom=items=>items.length>0&&items.filter(e=>pubPhoto(e.photo)).length*2>=items.length;
+/* Mọi phòng hiện vật dùng lưới 9 ô (3 × 3), chia trang khi nhiều hơn 9. */
+const isPhotoRoom=items=>items.length>0;
 function wallBox(html,n,photo){
  if(photo&&n>9&&!wallGrid){const pages=Math.ceil(n/9);
   return `<div class="wallwrap is-g9" data-page="0"><button type="button" class="wnav prev" aria-label="Trang trước" disabled>‹</button><button type="button" class="wnav next" aria-label="Trang sau">›</button>
