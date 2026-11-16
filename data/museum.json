@@ -1822,6 +1822,35 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwhy66dy",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Lan phi điệp",
+   "era": "Tháng 11",
+   "plan": "Hoa đẹp quanh bé",
+   "from": "MG 5-6 tuổi Tràng Đà",
+   "story": "Một ngày nọ, trong ngôi nhà nhỏ của bà, có một giò hoa Lan Phi Điệp đang lặng lẽ lớn lên. Cây có những chiếc lá xanh, thân dài mềm mại và những nụ hoa bé xinh.\nHằng ngày, bà đều chăm sóc, tưới nước và cho cây đón ánh nắng dịu nhẹ.\nMột buổi sáng mùa xuân, những nụ hoa bắt đầu hé nở. Từng chùm hoa tím hồng rủ xuống mềm mại, tỏa hương thơm dịu dàng.\nBé Mi ngạc nhiên hỏi bà:\n– Bà ơi! Sao hoa Lan Phi Điệp lại có những cành hoa dài rủ xuống đẹp thế ạ?\nBà mỉm cười trả lời:\n– Vì Lan Phi Điệp có cách lớn lên rất đặc biệt. Hoa thường mọc thành từng chùm dọc theo thân cây, vừa duyên dáng vừa thơm ngát.\nBé Mi thích thú nói:\n– Cháu sẽ cùng bà chăm sóc cây để hoa luôn nở đẹp nhé!\nTừ đó, mỗi ngày bé Mi đều cùng bà quan sát cây, nhặt lá khô và chăm sóc giò lan. Bé nhận ra rằng, chỉ cần kiên nhẫn chăm sóc, cây sẽ lớn lên và mang đến những bông hoa thật đẹp",
+   "ask": "Để cây hoa lan lớn lên và ra hoa bé cần làm gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1Qh-SyZE1wtZ7XjEQ8s8krLcKoQ-dD5vC/view?usp=drive_link",
+   "cls": [
+    "l71706c"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/4afabfba32f9f018914e.jpg",
+   "photos": [
+    "anh/4afabfba32f9f018914e.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
