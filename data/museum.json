@@ -1502,6 +1502,39 @@
    "photos": [],
    "photoAlt": "",
    "sample": true
+  },
+  {
+   "id": "emwhyq2lh",
+   "room": "khoanh-khac",
+   "art": "thiep",
+   "name": "Bé vui học toán",
+   "era": "Tháng 11/2016",
+   "plan": "Bé học toán",
+   "from": "Lớp 3 - 4 tuổi A1",
+   "story": "Hoạt động học toán ở trường mầm non giúp trẻ hình thành những biểu tượng toán học ban đầu về số lượng, chữ số, hình dạng, kích thước, vị trí và không gian. Thông qua các trò chơi và hoạt động trải nghiệm, trẻ phát triển khả năng quan sát, tư duy logic, so sánh, phân loại và giải quyết vấn đề. Đồng thời, giúp trẻ hình thành tính cẩn thận, sự tập trung, tạo nền tảng vững chắc cho việc học tập ở các bậc học tiếp theo.",
+   "ask": "Hôm nay các con được học những gì trong giờ hoạt động toán??",
+   "video": "https://drive.google.com/drive/folders/1uf_ZQlXXslyEp8dZBaucDeTGlbdVZjLJ",
+   "audio": "https://drive.google.com/drive/folders/1uf_ZQlXXslyEp8dZBaucDeTGlbdVZjLJ",
+   "link3d": "https://drive.google.com/drive/folders/1uf_ZQlXXslyEp8dZBaucDeTGlbdVZjLJ",
+   "drive": "https://drive.google.com/drive/folders/1uf_ZQlXXslyEp8dZBaucDeTGlbdVZjLJ",
+   "cls": [
+    "l92c638"
+   ],
+   "tc": [
+    "TC1",
+    "TC3",
+    "MR2",
+    "TC4",
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/da1df12029235d73431f.jpg",
+   "photos": [
+    "anh/da1df12029235d73431f.jpg"
+   ],
+   "photoAlt": "Bé vui học toán",
+   "sample": true
   }
  ],
  "timeline": [
