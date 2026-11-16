@@ -3382,6 +3382,35 @@
    "photos": [],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwimkp0t",
+   "room": "khoanh-khac",
+   "art": "oan",
+   "name": "Bé vui vận động bò trên đường ngoàn ngèo",
+   "era": "Tháng 11/2026",
+   "plan": "Bé vui vận động",
+   "from": "Lớp 25- 36 tháng A",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l9f51b7"
+   ],
+   "tc": [
+    "TC1"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/454340ea0219ad6c5ce9.jpg",
+   "photos": [
+    "anh/454340ea0219ad6c5ce9.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
