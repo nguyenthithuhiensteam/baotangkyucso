@@ -346,6 +346,10 @@ h3.fsel{font-size:22px}h3.fsel small{font-size:14px;color:var(--muted);font-fami
 .dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--c);flex:none}
 .dnote{margin:0;color:var(--muted);font-size:13px}
 .croom{display:grid;gap:10px}
+.connect{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}.connect.home{align-items:center;margin:0}.connect.home>span{font-weight:800;font-size:15px}
+.connect .btn svg{width:18px;height:18px;flex:none}
+.connect .fb{border-color:#1877f2;color:#1877f2}.connect .fb:hover{background:#1877f2;color:#fff}
+.connect .web{border-color:var(--leaf);color:var(--leaf)}.connect .web:hover{background:var(--leaf);color:#fff}
 .ltc{display:grid;gap:10px}.ltc h3.sub{font-size:21px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px}.ltc h3 small{font-size:13px;color:var(--muted);font-family:var(--f-body)}
 .lgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .lcard{background:var(--frame);border-radius:18px;border-top:6px solid var(--p);padding:12px 14px;display:grid;gap:5px;align-content:start;box-shadow:0 3px 0 var(--line)}
@@ -518,7 +522,7 @@ root.innerHTML=`
  <nav class="side-nav" aria-label="Các phòng trưng bày"><div class="eyebrow">Các phòng</div><div class="rooms" role="tablist" id="rooms"></div></nav>
  <main id="main"></main>
  <aside class="side-info" aria-label="Thông tin">
-  <div class="box"><h3>Trường mình</h3><div class="stats" id="heroStats"></div></div>
+  <div class="box"><h3>Trường mình</h3><div class="stats" id="heroStats"></div><div class="connect"><a class="btn small fb" href="https://www.facebook.com/mnntnongtien123456789" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.5 1.6-1.5h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.3H7.5V14h2.7v8z"/></svg> Fanpage nhà trường</a><a class="btn small web" href="http://c0nongtien.tuyenquang.edu.vn/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm-9 9h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3z"/></svg> Website nhà trường</a></div></div>
   <div class="box" id="sideMonth"></div>
   <div class="box" id="sideNew"></div>
  </aside>
@@ -754,6 +758,7 @@ function intro(){
  const cnt=r=>r.kind==='exhibits'?`${data.exhibits.filter(e=>e.room===r.id).length} hiện vật`:r.kind==='timeline'?`${data.timeline.length} mốc`:r.kind==='library'?`${lessonsOf().length} bài học`:`${MONTHS.length} tháng`;
  return `<section class="room" style="--c:var(--indigo)"><div class="room-head"><span class="eyebrow">Lối vào</span><h2>Chào mừng cô, bé và gia đình!</h2>
  <p>Bảo tàng ký ức số là mô hình của đợt hoạt động chào mừng 44 năm Ngày Nhà giáo Việt Nam, chủ đề “Trường học hạnh phúc – Xanh, Sạch, Số; Lan tỏa yêu thương và tri ân”. Mời bé chọn một căn phòng để vào thăm nhé.</p></div>
+ <div class="connect home"><span>Kết nối với nhà trường:</span><a class="btn small fb" href="https://www.facebook.com/mnntnongtien123456789" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.5 1.6-1.5h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.3H7.5V14h2.7v8z"/></svg> Fanpage nhà trường</a><a class="btn small web" href="http://c0nongtien.tuyenquang.edu.vn/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm-9 9h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3z"/></svg> Website nhà trường</a></div>
  ${introShow()}
  <div class="index">${ROOMS.filter(x=>x.n).map(x=>`<button class="door" type="button" data-go="${x.id}" style="--c:${x.c}"><span class="n">Phòng ${x.n}</span><b>${esc(x.name)}</b><span>${cnt(x)}</span></button>`).join('')}</div>
  ${classTable()}
