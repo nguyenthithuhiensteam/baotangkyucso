@@ -1631,6 +1631,34 @@
    ],
    "photoAlt": "Bé liên hoan trung thu ở lớp",
    "sample": false
+  },
+  {
+   "id": "emwi0zujn",
+   "room": "thien-nhien",
+   "art": "cay",
+   "name": "Bé chăm sóc cây và hoa",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp 25-36 tháng B (trường chính)",
+   "story": "",
+   "ask": "Chúng mình đang làm gì đây?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l5f4f02"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/2a87915f40ccfcd7cbfd.jpg",
+   "photos": [
+    "anh/2a87915f40ccfcd7cbfd.jpg",
+    "anh/126923e6fab59c06eaca.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
