@@ -2300,6 +2300,35 @@
    "photos": [],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwikvymx",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "CÂY HOA TRÀ",
+   "era": "Tháng 11/2026",
+   "plan": "Mầm xanh của bé",
+   "from": "Lớp 3-4 tuổi A. PH Tràng Đà",
+   "story": "CÂU CHUYỆN: BÔNG HOA TRÀ \n\nỞ ban công lớp học có một cây hoa trà nhỏ. Lá của cây hoa trà xanh mướt, bóng loáng. Cây hoa trà có những người bạn nhỏ trồng trong chai nhựa đứng hai bên. Cây hoa trà nhìn xuống sân trường. Ở đó có cầu trượt màu vàng và các bạn nhỏ đang chơi vui vẻ.\n\nMột hôm, cây hoa trà buồn lắm. Cây nói: “Ôi, tớ khát nước quá! Lá của tớ sắp héo rồi!”\n\nBạn Minh nghe thấy. Bạn Minh lấy bình tưới, tưới nước cho cây: “Rót... rót... rót... Uống nước đi cây hoa trà ơi!”\n\nChị Mưa cũng bay đến tưới: “Tí tách, tí tách!”\nÔng Mặt Trời chiếu nắng ấm áp: “Cây ơi, mau lớn nhé!”\n\nCây hoa trà uống no nước, sưởi nắng ấm, lớn thêm từng ngày. Rồi một buổi sáng, các bạn nhỏ đến lớp và reo lên: “Ồ! Cây hoa trà nở hoa rồi! Bông hoa màu đỏ thật đẹp!”\n\nCây hoa trà vui lắm, cây nói: “Cảm ơn bạn Minh, cảm ơn chị Mưa, cảm ơn ông Mặt Trời! Tớ tặng các bạn bông hoa đỏ xinh nhất của tớ!”\n\nTừ đó, ngày nào các bạn nhỏ cũng chăm sóc cây hoa trà. Cây hoa trà ngày càng xanh tốt, và ban công lớp học lúc nào cũng có hoa đẹp.",
+   "ask": "Bông hoa trà có màu gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/11BUFkujcRCDDUunMN5GDpU2SogH-wRd2/view?usp=drive_link",
+   "cls": [
+    "l73377a"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/9de9b6db129e85e29a34.jpg",
+   "photos": [
+    "anh/9de9b6db129e85e29a34.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
