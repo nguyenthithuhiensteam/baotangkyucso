@@ -2165,6 +2165,35 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwikkru8",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "CÂY HOA BỎNG",
+   "era": "Tháng 11/2026",
+   "plan": "Mầm xanh của bé",
+   "from": "Lớp 3-4 tuổi A. PH Tràng Đà",
+   "story": "Trong góc thiên nhiên của lớp có một chậu Hoa Bỏng. Cây có những chiếc lá xanh, dày và mọng nước.\n\nSáng nào, bé Bông cũng đến ngắm cây:\n— Bạn Hoa Bỏng ơi, bao giờ bạn có hoa?\n\nHoa Bỏng khẽ thì thầm:\n— Bạn chờ mình nhé!\n\nBông cùng cô giáo chăm sóc cây. Khi đất khô, cô hướng dẫn Bông tưới một ít nước. Bông còn nhắc các bạn:\n— Chúng mình đừng ngắt lá nhé, cây sẽ đau đấy!\n\nNgày qua ngày, trên ngọn cây xuất hiện những nụ hoa bé xíu. Bông vui lắm, ngày nào cũng ghé nhìn.\n\nMột sáng, những nụ hoa hé nở thành chùm hoa đỏ rực rỡ. Bông reo lên:\n— Cô ơi! Bạn Hoa Bỏng nở hoa rồi!\n\nHoa Bỏng rung rinh trong nắng:\n— Đây là món quà mình tặng các bạn đã yêu thương, chăm sóc mình!\n\nCả lớp cùng ngắm hoa. Bông mỉm cười:\n— Cảm ơn bạn Hoa Bỏng! Chúng mình sẽ chăm sóc bạn thật tốt!",
+   "ask": "Bé Bông đã làm gì để chăm sóc cây hoa bỏng",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1QeMq6MPkMRNpgAUaPIQhDXsdwbihOFWq/view?usp=drive_link",
+   "cls": [
+    "l73377a"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/9c40f4675f871bca4a5f.jpg",
+   "photos": [
+    "anh/9c40f4675f871bca4a5f.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
