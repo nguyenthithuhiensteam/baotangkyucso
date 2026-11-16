@@ -3654,6 +3654,34 @@
    ],
    "photoAlt": "Bé chăm socs cây",
    "sample": false
+  },
+  {
+   "id": "emwioe2jw",
+   "room": "khoanh-khac",
+   "art": "khoc",
+   "name": "Yêu thương - Love",
+   "era": "Tháng 11",
+   "plan": "",
+   "from": "Lớp 3- 4 tuổi A3 (Trường chính)",
+   "story": "Yêu thương - Love",
+   "ask": "Đây là gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l1b1bdd"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/fda0ef0e472d60183fff.jpg",
+   "photos": [
+    "anh/fda0ef0e472d60183fff.jpg",
+    "anh/5db022aaab2d44d4844e.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
