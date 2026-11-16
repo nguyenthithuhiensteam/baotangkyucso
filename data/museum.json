@@ -623,8 +623,10 @@
    "tc": [],
    "keeper": "",
    "her": "",
-   "photo": "",
-   "photos": [],
+   "photo": "anh/3091611d2c0c1a7c0f28.jpg",
+   "photos": [
+    "anh/3091611d2c0c1a7c0f28.jpg"
+   ],
    "photoAlt": "",
    "sample": false
   },
