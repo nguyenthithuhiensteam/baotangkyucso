@@ -7435,7 +7435,18 @@
    "week": "Tuần 24, 01 – 05/3. Thứ Sáu 05/3",
    "yccd": "MT4, MT58",
    "desc": "",
-   "links": []
+   "links": [
+    {
+     "label": "Giáo án: Ngày hội trò chơi dân gian (xem bản PDF)",
+     "url": "tailieu/giao-an-34-tc1.pdf",
+     "kind": "giao-an"
+    },
+    {
+     "label": "Giáo án: Ngày hội trò chơi dân gian (Word, tải về để chỉnh sửa)",
+     "url": "tailieu/giao-an-34-tc1.docx",
+     "kind": "giao-an"
+    }
+   ]
   },
   {
    "id": "ga-45-tc1",
@@ -7446,7 +7457,18 @@
    "week": "Tuần 24, 01 – 05/3. Thứ Sáu 05/3",
    "yccd": "MT3, MT4, MT83, MT84",
    "desc": "",
-   "links": []
+   "links": [
+    {
+     "label": "Giáo án: Ngày hội trò chơi dân gian (xem bản PDF)",
+     "url": "tailieu/giao-an-45-tc1.pdf",
+     "kind": "giao-an"
+    },
+    {
+     "label": "Giáo án: Ngày hội trò chơi dân gian (Word, tải về để chỉnh sửa)",
+     "url": "tailieu/giao-an-45-tc1.docx",
+     "kind": "giao-an"
+    }
+   ]
   },
   {
    "id": "ga-56-tc1",
@@ -7457,7 +7479,18 @@
    "week": "Tuần 24, 01 – 05/3. Thứ Sáu 05/3",
    "yccd": "MT2, MT4, MT8, MT48",
    "desc": "",
-   "links": []
+   "links": [
+    {
+     "label": "Giáo án: Ngày hội trò chơi dân gian (xem bản PDF)",
+     "url": "tailieu/giao-an-56-tc1.pdf",
+     "kind": "giao-an"
+    },
+    {
+     "label": "Giáo án: Ngày hội trò chơi dân gian (Word, tải về để chỉnh sửa)",
+     "url": "tailieu/giao-an-56-tc1.docx",
+     "kind": "giao-an"
+    }
+   ]
   },
   {
    "id": "ga-34-tc2",
@@ -7468,7 +7501,18 @@
    "week": "Tuần 15, 14 – 18/12",
    "yccd": "MT7, MT8, MT9, MT54, MT64",
    "desc": "",
-   "links": []
+   "links": [
+    {
+     "label": "Giáo án: Hôm nay bé ăn gì? (xem bản PDF)",
+     "url": "tailieu/giao-an-34-tc2.pdf",
+     "kind": "giao-an"
+    },
+    {
+     "label": "Giáo án: Hôm nay bé ăn gì? (Word, tải về để chỉnh sửa)",
+     "url": "tailieu/giao-an-34-tc2.docx",
+     "kind": "giao-an"
+    }
+   ]
   },
   {
    "id": "ga-45-tc2",
@@ -7479,7 +7523,18 @@
    "week": "Tuần 15, 14 – 18/12",
    "yccd": "MT9, MT10, MT11, MT13, MT88, MT78",
    "desc": "",
-   "links": []
+   "links": [
+    {
+     "label": "Giáo án: Món ngon quê em (xem bản PDF)",
+     "url": "tailieu/giao-an-45-tc2.pdf",
+     "kind": "giao-an"
+    },
+    {
+     "label": "Giáo án: Món ngon quê em (Word, tải về để chỉnh sửa)",
+     "url": "tailieu/giao-an-45-tc2.docx",
+     "kind": "giao-an"
+    }
+   ]
   },
   {
    "id": "ga-56-tc2",
@@ -7490,7 +7545,18 @@
    "week": "Tuần 14, 07 – 11/12",
    "yccd": "MT9, MT10, MT11, MT13, MT62",
    "desc": "",
-   "links": []
+   "links": [
+    {
+     "label": "Giáo án: Món ngon nhà em (xem bản PDF)",
+     "url": "tailieu/giao-an-56-tc2.pdf",
+     "kind": "giao-an"
+    },
+    {
+     "label": "Giáo án: Món ngon nhà em (Word, tải về để chỉnh sửa)",
+     "url": "tailieu/giao-an-56-tc2.docx",
+     "kind": "giao-an"
+    }
+   ]
   },
   {
    "id": "ga-34-tc3",
@@ -7501,7 +7567,18 @@
    "week": "Tuần 10, 09 – 13/11",
    "yccd": "MT10",
    "desc": "",
-   "links": []
+   "links": [
+    {
+     "label": "Giáo án: Chỗ này có an toàn không? (xem bản PDF)",
+     "url": "tailieu/giao-an-34-tc3.pdf",
+     "kind": "giao-an"
+    },
+    {
+     "label": "Giáo án: Chỗ này có an toàn không? (Word, tải về để chỉnh sửa)",
+     "url": "tailieu/giao-an-34-tc3.docx",
+     "kind": "giao-an"
+    }
+   ]
   },
   {
    "id": "ga-45-tc3",
@@ -7512,7 +7589,18 @@
    "week": "Tuần 10, 09 – 13/11",
    "yccd": "MT15, MT16, MT17, MT18",
    "desc": "",
-   "links": []
+   "links": [
+    {
+     "label": "Giáo án: Bản đồ an toàn của lớp em (xem bản PDF)",
+     "url": "tailieu/giao-an-45-tc3.pdf",
+     "kind": "giao-an"
+    },
+    {
+     "label": "Giáo án: Bản đồ an toàn của lớp em (Word, tải về để chỉnh sửa)",
+     "url": "tailieu/giao-an-45-tc3.docx",
+     "kind": "giao-an"
+    }
+   ]
   },
   {
    "id": "ga-56-tc3",
@@ -7523,7 +7611,18 @@
    "week": "Tuần 10, 09 – 13/11",
    "yccd": "MT12, MT14, MT36",
    "desc": "",
-   "links": []
+   "links": [
+    {
+     "label": "Giáo án: Bản đồ an toàn của trường em (xem bản PDF)",
+     "url": "tailieu/giao-an-56-tc3.pdf",
+     "kind": "giao-an"
+    },
+    {
+     "label": "Giáo án: Bản đồ an toàn của trường em (Word, tải về để chỉnh sửa)",
+     "url": "tailieu/giao-an-56-tc3.docx",
+     "kind": "giao-an"
+    }
+   ]
   },
   {
    "id": "ga-34-tc4",
@@ -7534,7 +7633,18 @@
    "week": "Tuần 11, 16 – 20/11, một buổi chiều",
    "yccd": "MT56, MT55",
    "desc": "",
-   "links": []
+   "links": [
+    {
+     "label": "Giáo án: Con chào, con cảm ơn, con nói thật (xem bản PDF)",
+     "url": "tailieu/giao-an-34-tc4.pdf",
+     "kind": "giao-an"
+    },
+    {
+     "label": "Giáo án: Con chào, con cảm ơn, con nói thật (Word, tải về để chỉnh sửa)",
+     "url": "tailieu/giao-an-34-tc4.docx",
+     "kind": "giao-an"
+    }
+   ]
   },
   {
    "id": "ga-45-tc4",
@@ -7545,7 +7655,18 @@
    "week": "Tuần 11, 16 – 20/11, một buổi chiều",
    "yccd": "MT81",
    "desc": "",
-   "links": []
+   "links": [
+    {
+     "label": "Giáo án: Bé lễ phép, bé nói thật (xem bản PDF)",
+     "url": "tailieu/giao-an-45-tc4.pdf",
+     "kind": "giao-an"
+    },
+    {
+     "label": "Giáo án: Bé lễ phép, bé nói thật (Word, tải về để chỉnh sửa)",
+     "url": "tailieu/giao-an-45-tc4.docx",
+     "kind": "giao-an"
+    }
+   ]
   },
   {
    "id": "ga-56-tc4",
@@ -7556,7 +7677,18 @@
    "week": "Tuần 11, 16 – 20/11, một buổi chiều",
    "yccd": "MT53",
    "desc": "",
-   "links": []
+   "links": [
+    {
+     "label": "Giáo án: Em giữ lời hứa (xem bản PDF)",
+     "url": "tailieu/giao-an-56-tc4.pdf",
+     "kind": "giao-an"
+    },
+    {
+     "label": "Giáo án: Em giữ lời hứa (Word, tải về để chỉnh sửa)",
+     "url": "tailieu/giao-an-56-tc4.docx",
+     "kind": "giao-an"
+    }
+   ]
   },
   {
    "id": "ga-34-tc5",
@@ -7567,7 +7699,18 @@
    "week": "Tuần 21, 25 – 29/01. Thứ Ba 26/01",
    "yccd": "MT18, MT58",
    "desc": "",
-   "links": []
+   "links": [
+    {
+     "label": "Giáo án: Món Tết nhà bạn (xem bản PDF)",
+     "url": "tailieu/giao-an-34-tc5.pdf",
+     "kind": "giao-an"
+    },
+    {
+     "label": "Giáo án: Món Tết nhà bạn (Word, tải về để chỉnh sửa)",
+     "url": "tailieu/giao-an-34-tc5.docx",
+     "kind": "giao-an"
+    }
+   ]
   },
   {
    "id": "ga-45-tc5",
@@ -7578,7 +7721,18 @@
    "week": "Tuần 21, 25 – 29/01",
    "yccd": "MT52, MT49, MT84",
    "desc": "",
-   "links": []
+   "links": [
+    {
+     "label": "Giáo án: Tết quê em có gì vui? (xem bản PDF)",
+     "url": "tailieu/giao-an-45-tc5.pdf",
+     "kind": "giao-an"
+    },
+    {
+     "label": "Giáo án: Tết quê em có gì vui? (Word, tải về để chỉnh sửa)",
+     "url": "tailieu/giao-an-45-tc5.docx",
+     "kind": "giao-an"
+    }
+   ]
   },
   {
    "id": "ga-56-tc5",
@@ -7589,7 +7743,18 @@
    "week": "Tuần 21, 25 – 29/01",
    "yccd": "MT49, MT50, Chương trình GDMN, kết quả mong đợi 3.6",
    "desc": "",
-   "links": []
+   "links": [
+    {
+     "label": "Giáo án: Tết nhà mình, Tết nhà bạn (xem bản PDF)",
+     "url": "tailieu/giao-an-56-tc5.pdf",
+     "kind": "giao-an"
+    },
+    {
+     "label": "Giáo án: Tết nhà mình, Tết nhà bạn (Word, tải về để chỉnh sửa)",
+     "url": "tailieu/giao-an-56-tc5.docx",
+     "kind": "giao-an"
+    }
+   ]
   },
   {
    "id": "ga-34-tc6",
@@ -7600,7 +7765,18 @@
    "week": "Tuần 33, 03 – 07/5. Chiều thứ Sáu 07/5",
    "yccd": "MT40, MT41, MT42",
    "desc": "",
-   "links": []
+   "links": [
+    {
+     "label": "Giáo án: Bé kể về quê em (xem bản PDF)",
+     "url": "tailieu/giao-an-34-tc6.pdf",
+     "kind": "giao-an"
+    },
+    {
+     "label": "Giáo án: Bé kể về quê em (Word, tải về để chỉnh sửa)",
+     "url": "tailieu/giao-an-34-tc6.docx",
+     "kind": "giao-an"
+    }
+   ]
   },
   {
    "id": "ga-45-tc6",
@@ -7611,7 +7787,18 @@
    "week": "Tuần 33, 03 – 07/5",
    "yccd": "MT59, MT60, MT62",
    "desc": "",
-   "links": []
+   "links": [
+    {
+     "label": "Giáo án: Bé kể chuyện quê em (xem bản PDF)",
+     "url": "tailieu/giao-an-45-tc6.pdf",
+     "kind": "giao-an"
+    },
+    {
+     "label": "Giáo án: Bé kể chuyện quê em (Word, tải về để chỉnh sửa)",
+     "url": "tailieu/giao-an-45-tc6.docx",
+     "kind": "giao-an"
+    }
+   ]
   },
   {
    "id": "ga-56-tc6",
@@ -7622,7 +7809,18 @@
    "week": "Tuần 33 – 34, 03 – 14/5",
    "yccd": "MT30, MT31, MT33, MT34",
    "desc": "",
-   "links": []
+   "links": [
+    {
+     "label": "Giáo án: Bé kể chuyện quê em (xem bản PDF)",
+     "url": "tailieu/giao-an-56-tc6.pdf",
+     "kind": "giao-an"
+    },
+    {
+     "label": "Giáo án: Bé kể chuyện quê em (Word, tải về để chỉnh sửa)",
+     "url": "tailieu/giao-an-56-tc6.docx",
+     "kind": "giao-an"
+    }
+   ]
   },
   {
    "id": "ga-34-tc7",
@@ -7633,7 +7831,18 @@
    "week": "",
    "yccd": "MT12, MT14",
    "desc": "",
-   "links": []
+   "links": [
+    {
+     "label": "Giáo án: Đưa viên sỏi sang vườn cam (xem bản PDF)",
+     "url": "tailieu/giao-an-34-tc7.pdf",
+     "kind": "giao-an"
+    },
+    {
+     "label": "Giáo án: Đưa viên sỏi sang vườn cam (Word, tải về để chỉnh sửa)",
+     "url": "tailieu/giao-an-34-tc7.docx",
+     "kind": "giao-an"
+    }
+   ]
   },
   {
    "id": "ga-45-tc7",
@@ -7644,7 +7853,18 @@
    "week": "",
    "yccd": "MT21, MT22, MT27",
    "desc": "",
-   "links": []
+   "links": [
+    {
+     "label": "Giáo án: Vườn cam của lớp em (xem bản PDF)",
+     "url": "tailieu/giao-an-45-tc7.pdf",
+     "kind": "giao-an"
+    },
+    {
+     "label": "Giáo án: Vườn cam của lớp em (Word, tải về để chỉnh sửa)",
+     "url": "tailieu/giao-an-45-tc7.docx",
+     "kind": "giao-an"
+    }
+   ]
   },
   {
    "id": "ga-56-tc7",
@@ -7655,7 +7875,18 @@
    "week": "",
    "yccd": "MT16, MT18, CS71",
    "desc": "",
-   "links": []
+   "links": [
+    {
+     "label": "Giáo án: Đưa nước đến vườn (xem bản PDF)",
+     "url": "tailieu/giao-an-56-tc7.pdf",
+     "kind": "giao-an"
+    },
+    {
+     "label": "Giáo án: Đưa nước đến vườn (Word, tải về để chỉnh sửa)",
+     "url": "tailieu/giao-an-56-tc7.docx",
+     "kind": "giao-an"
+    }
+   ]
   },
   {
    "id": "ga-34-tc8",
@@ -7666,7 +7897,18 @@
    "week": "Tuần 23, 22 – 26/02. Thứ Ba 23/02",
    "yccd": "MT18, MT30, MT34",
    "desc": "",
-   "links": []
+   "links": [
+    {
+     "label": "Giáo án: Quả ngon quê em (xem bản PDF)",
+     "url": "tailieu/giao-an-34-tc8.pdf",
+     "kind": "giao-an"
+    },
+    {
+     "label": "Giáo án: Quả ngon quê em (Word, tải về để chỉnh sửa)",
+     "url": "tailieu/giao-an-34-tc8.docx",
+     "kind": "giao-an"
+    }
+   ]
   },
   {
    "id": "ga-45-tc8",
@@ -7677,7 +7919,18 @@
    "week": "Tuần 23, 22 – 26/02",
    "yccd": "MT21, MT46, MT53, MT79",
    "desc": "",
-   "links": []
+   "links": [
+    {
+     "label": "Giáo án: Từ đâu có những quả ngọt? (xem bản PDF)",
+     "url": "tailieu/giao-an-45-tc8.pdf",
+     "kind": "giao-an"
+    },
+    {
+     "label": "Giáo án: Từ đâu có những quả ngọt? (Word, tải về để chỉnh sửa)",
+     "url": "tailieu/giao-an-45-tc8.docx",
+     "kind": "giao-an"
+    }
+   ]
   },
   {
    "id": "ga-56-tc8",
@@ -7688,7 +7941,18 @@
    "week": "Tuần 22, 15 – 19/02",
    "yccd": "MT47, MT52, MT62, Chương trình GDMN, kết quả mong đợi 3.2, 3.6",
    "desc": "",
-   "links": []
+   "links": [
+    {
+     "label": "Giáo án: Bản đồ quê em của lớp (xem bản PDF)",
+     "url": "tailieu/giao-an-56-tc8.pdf",
+     "kind": "giao-an"
+    },
+    {
+     "label": "Giáo án: Bản đồ quê em của lớp (Word, tải về để chỉnh sửa)",
+     "url": "tailieu/giao-an-56-tc8.docx",
+     "kind": "giao-an"
+    }
+   ]
   },
   {
    "id": "ga-34-tc9",
@@ -7699,7 +7963,18 @@
    "week": "Tuần 30, 12 – 16/4. Thứ Tư 14/4",
    "yccd": "MT61, MT63",
    "desc": "",
-   "links": []
+   "links": [
+    {
+     "label": "Giáo án: Nghe làn điệu quê hương (xem bản PDF)",
+     "url": "tailieu/giao-an-34-tc9.pdf",
+     "kind": "giao-an"
+    },
+    {
+     "label": "Giáo án: Nghe làn điệu quê hương (Word, tải về để chỉnh sửa)",
+     "url": "tailieu/giao-an-34-tc9.docx",
+     "kind": "giao-an"
+    }
+   ]
   },
   {
    "id": "ga-45-tc9",
@@ -7710,7 +7985,18 @@
    "week": "",
    "yccd": "MT90, MT93, MT94, MT101",
    "desc": "",
-   "links": []
+   "links": [
+    {
+     "label": "Giáo án: Ống tre nào kêu hay? (xem bản PDF)",
+     "url": "tailieu/giao-an-45-tc9.pdf",
+     "kind": "giao-an"
+    },
+    {
+     "label": "Giáo án: Ống tre nào kêu hay? (Word, tải về để chỉnh sửa)",
+     "url": "tailieu/giao-an-45-tc9.docx",
+     "kind": "giao-an"
+    }
+   ]
   },
   {
    "id": "ga-56-tc9",
@@ -7721,7 +8007,18 @@
    "week": "",
    "yccd": "MT58, MT59, MT62",
    "desc": "",
-   "links": []
+   "links": [
+    {
+     "label": "Giáo án: Nhạc cụ tre của nhóm mình (xem bản PDF)",
+     "url": "tailieu/giao-an-56-tc9.pdf",
+     "kind": "giao-an"
+    },
+    {
+     "label": "Giáo án: Nhạc cụ tre của nhóm mình (Word, tải về để chỉnh sửa)",
+     "url": "tailieu/giao-an-56-tc9.docx",
+     "kind": "giao-an"
+    }
+   ]
   }
  ]
 }
