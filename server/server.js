@@ -161,6 +161,19 @@ function cleanTimeline(x) {
   if (!o.when || !o.title) throw new HttpErr(400, 'Mốc lịch sử cần có thời gian và tiêu đề.');
   return o;
 }
+/* Kho học liệu số theo Bộ tiêu chí (Hành trình di sản). */
+function cleanLesson(x) {
+  x = x || {};
+  const o = { id: str(x.id, 40), tc: str(x.tc, 4), age: str(x.age, 8), title: str(x.title, 200), month: str(x.month, 100), week: str(x.week, 150),
+    yccd: str(x.yccd, 300), desc: str(x.desc, 3000) };
+  if (!okId(o.id)) throw new HttpErr(400, 'Mã học liệu không hợp lệ.');
+  if (!['TC1', 'TC2', 'TC3', 'TC4', 'TC5', 'TC6', 'TC7', 'TC8', 'TC9', 'MR1', 'MR2'].includes(o.tc)) throw new HttpErr(400, 'Tiêu chí của học liệu không hợp lệ.');
+  if (!['3-4', '4-5', '5-6', 'chung'].includes(o.age)) o.age = 'chung';
+  if (!o.title) throw new HttpErr(400, 'Học liệu cần có tên bài.');
+  o.links = (Array.isArray(x.links) ? x.links : []).slice(0, 8).map(l => ({ label: str(l?.label, 60), url: str(l?.url, 1000) })).filter(l => l.url);
+  for (const l of o.links) if (!okUrl(l.url)) throw new HttpErr(400, 'Link học liệu phải bắt đầu bằng https://');
+  return o;
+}
 function cleanData(d) {
   if (!d || !Array.isArray(d.exhibits) || !Array.isArray(d.timeline)) throw new HttpErr(400, 'Dữ liệu gửi lên không đúng cấu trúc.');
   const s = d.settings || {};
@@ -174,7 +187,8 @@ function cleanData(d) {
   if (Array.isArray(s.heritage)) settings.heritage = s.heritage.slice(0, 60).map(h => ({ id: str(h?.id, 20), site: str(h?.site, 60), name: str(h?.name, 100), kind: str(h?.kind, 100), confirm: str(h?.confirm, 100) }))
     .filter(h => /^[a-z0-9]{1,20}$/.test(h.id) && h.name);
   if (Array.isArray(s.stats)) settings.stats = s.stats.slice(0, 6).map(x => ({ n: str(x?.n, 12), l: str(x?.l, 40) })).filter(x => x.n || x.l);
-  return { v: 1, settings, exhibits: d.exhibits.map(cleanExhibit), timeline: d.timeline.map(cleanTimeline) };
+  return { v: 1, settings, exhibits: d.exhibits.map(cleanExhibit), timeline: d.timeline.map(cleanTimeline),
+    lessons: (Array.isArray(d.lessons) ? d.lessons : []).slice(0, 300).map(cleanLesson) };
 }
 function applyItem(data, kind, item, beforeId) {
   if (kind === 'exhibit') {
@@ -252,7 +266,7 @@ function failLogin(key) {
 
 /* ---------------- Các đường dẫn API ---------------- */
 const routes = {
-  'GET /api/health': async () => ({ ok: true, configured }),
+  'GET /api/health': async () => ({ ok: true, configured, lessons: true }),
 
   'POST /api/login': async (req, body) => {
     const username = str(body.username, 40).toLowerCase(), password = String(body.password || '');
