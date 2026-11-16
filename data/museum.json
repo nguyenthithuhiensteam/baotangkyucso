@@ -4493,6 +4493,33 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwiv020h",
+   "room": "tri-an",
+   "art": "khoc",
+   "name": "Cô đón trẻ.",
+   "era": "Tháng 11/2026",
+   "plan": "Đón trẻ",
+   "from": "Lớp 25- 36 tháng A",
+   "story": "",
+   "ask": "Sáng ai đưa các con đến lớp?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l9f51b7"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/44a2e3a258b2a0a16062.jpg",
+   "photos": [
+    "anh/44a2e3a258b2a0a16062.jpg"
+   ],
+   "photoAlt": "Bé xem tranh ảnh.",
+   "sample": false
   }
  ],
  "timeline": [
