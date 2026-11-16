@@ -3091,7 +3091,7 @@
    "plan": "Món quà yêu thương cho ngày 20/11",
    "from": "Lớp 25-36 tháng A (Hương Sen)",
    "story": "Các bé tự tay dán những trái tim từ các nguyên vật liệu khác nhau, thể hiện tình cảm yêu thương của bé dành tặng cho cô giáo của mình nhân ngày 20/11. gửi kèm lời chúc \"Con yêu cô\"",
-   "ask": "",
+   "ask": "Con đang làm gì? Con chọn nguyên vật liệu gì để làm món quà yêu thương?",
    "video": "",
    "audio": "",
    "link3d": "",
@@ -3102,9 +3102,13 @@
    "tc": [],
    "keeper": "",
    "her": "",
-   "photo": "",
-   "photos": [],
-   "photoAlt": "",
+   "photo": "anh/915cd54345b332da059f.jpg",
+   "photos": [
+    "anh/915cd54345b332da059f.jpg",
+    "anh/93a9c3bddc19cfd904a4.jpg",
+    "anh/17655b022d14be0f9c47.jpg"
+   ],
+   "photoAlt": "Các bé tự tay dán những trái tim từ các nguyên vật liệu khác nhau, thể hiện tình cảm yêu thương của bé dành tặng cho cô giáo của mình nhân ngày 20/11. gửi kèm lời chúc \"Con yêu",
    "sample": false
   },
   {
@@ -4210,11 +4214,11 @@
   },
   {
    "id": "emwipcv08",
-   "room": "khoanh-khac",
+   "room": "thien-nhien",
    "art": "sach",
    "name": "Cây hoa thu hải đường",
    "era": "Tháng 11",
-   "plan": "",
+   "plan": "Bé yêu thiên nhiên",
    "from": "Lớp 25-36 tháng A (Hương Sen)",
    "story": "Bài thơ: Bé yêu hoa thu hải đường\nThu hải đường xinh ghê,\nCánh mỏng tựa lụa mềm,\nĐỏ thắm và hồng thắm,\nBé ngắm mãi không quên.\n\nLá xanh hình trái tim,\nNằm sát bên cành nhỏ,\nHoa cười tươi rạng rỡ,\nChào đón bé đến chơi.",
    "ask": "Hoa thu hải đường có màu gì? Những cánh hoa như thế nào?",
@@ -4228,12 +4232,12 @@
    "tc": [],
    "keeper": "",
    "her": "",
-   "photo": "anh/57af59eee7c75f894e20.jpg",
+   "photo": "anh/d59e07de50f7124ca8d8.jpg",
    "photos": [
-    "anh/57af59eee7c75f894e20.jpg",
-    "anh/36d0606c4d7f12d76659.jpg"
+    "anh/d59e07de50f7124ca8d8.jpg",
+    "anh/57af59eee7c75f894e20.jpg"
    ],
-   "photoAlt": "",
+   "photoAlt": "Đặc điểm cây hoa thu hải đương: Là cây hoa cảnh đẹp, thân mọng nước, thường được trồng trong chậu; Lá: Lá to, màu xanh bóng, có gân rõ nét và mép lá có răng cưa nhỏ; Hoa: Hoa mọc thành cụm rực rỡ với",
    "sample": false
   },
   {
@@ -4627,6 +4631,719 @@
    "photo": "",
    "photos": [],
    "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwiri1fd",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây hoa nguyệt quế",
+   "era": "Tháng 11",
+   "plan": "Bé yêu thiên nhiên",
+   "from": "Lớp 25-36 tháng A (Hương Sen)",
+   "story": "Bài thơ: Cây hoa nguyệt quế\nThân cây sần sùi nâu,\nLá xanh bóng mượt mà,\nGió về đung đưa khẽ,\nRung rinh những chùm hoa.\nNụ xinh màu xanh cốm,\nNở bừng cánh trắng tinh,\nHương thơm bay ngào ngạt,\nTỏa khắp cả sân đình.\nBé đứng ngắm say sưa,\nHít hà mùi thơm mát,\nYêu cây hoa nguyệt quế,\nBé chăm tưới mỗi ngày.",
+   "ask": "Lá cây có màu gì? Hoa có màu gì? Các con cùng ngửi xem mùi hoa có thơm không?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/folders/1sCo6VsQNGSFl4bRXri5paHZyBJVR6rm-?usp=drive_link",
+   "cls": [
+    "lc0c279"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/f3bbae90b1b7b7107ed4.jpg",
+   "photos": [
+    "anh/f3bbae90b1b7b7107ed4.jpg"
+   ],
+   "photoAlt": "\"Các con ơi, hôm nay chúng mình hãy cùng làm quen với một người bạn cây vô cùng đặc biệt, đó là cây hoa nguyệt quế! Bạn ấy không chỉ xinh xắn mà còn tỏa ra mùi hương thơm ngát khiến ai đi qua cũng phả",
+   "sample": false
+  },
+  {
+   "id": "emwirn28i",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Hoa Thanh Xà - Lớp MG 4-5 Tuổi B2 Nông Tiến",
+   "era": "Tháng 11/2026",
+   "plan": "Cây xanh lớp bé",
+   "from": "Lớp 4-5 tuổi B2 trường chính",
+   "story": "Sự Tích Loài Hoa Thanh Xà\nNgày xửa ngày xưa, ở một vùng núi cao quanh năm mây phủ, có một chàng họa sĩ trẻ tên là Lâm. Chàng có niềm đam mê mãnh liệt với những sắc màu của thiên nhiên nhưng lại chưa bao giờ vẽ được một bức tranh về bầu trời khiến mình ưng ý. Chàng luôn khao khát tìm được thứ màu xanh biếc dịu dàng, vừa mang vẻ bình yên của mây trời, vừa có nét rực rỡ của nắng mai.\nMột ngày nọ, trong lúc đi tìm cảm hứng giữa rừng sâu, Lâm bắt gặp một suối nguồn nhỏ bị đất đá vùi lấp khiến dòng nước không thể chảy xuống bản làng. Không quản ngại khó khăn, chàng dùng đôi tay trần đào bới suốt nhiều giờ liền cho đến khi dòng nước trong vắt tuôn chảy trở lại. Cảm động trước tấm lòng nhân hậu của chàng trai, thần Suối đã hiện lên và tặng cho Lâm một hạt giống pha lê màu xanh ngọc bích.\nLâm mang hạt giống về trồng trước hiên nhà và chăm sóc mỗi ngày bằng nguồn nước suối tinh khiết. Chẳng bao lâu sau, hạt giống nảy mầm, vươn lên thành những cành lá mềm mại, rủ xuống như một tấm rèm xanh mướt. Rồi một buổi sáng mùa hạ, từ những cành lá ấy bỗng nở rộ vô số chùm hoa nhỏ li ti, mang sắc xanh dương dịu mát tựa như cả một khoảng trời thu nhỏ.\nNhìn những bông hoa thanh thoát đung đưa trong gió, Lâm vui sướng nhận ra đây chính là sắc xanh hoàn hảo mà chàng hằng tìm kiếm. Người dân trong vùng thấy loài hoa có sắc xanh ngọc bích kỳ lạ, cành nhánh uốn lượn mềm mại như dải lụa nên đặt tên cho nó là hoa Thanh Xà. Từ đó, hoa Thanh Xà trở thành biểu tượng của sự bình yên, lòng kiên trì và niềm hy vọng luôn vươn tới những điều tốt đẹp.",
+   "ask": "Con thấy Hoa Thanh Xà có mầu gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb4ed25"
+   ],
+   "tc": [
+    "TC6",
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/e9a83478f9f6ad3c22c3.jpg",
+   "photos": [
+    "anh/e9a83478f9f6ad3c22c3.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwirup2z",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây Cau Tiểu Trâm",
+   "era": "Tháng 11/2026",
+   "plan": "Cây xanh lớp bé",
+   "from": "Lớp 4-5 tuổi B2 trường chính",
+   "story": "Sự Tích Cây Cau Tiểu Trâm\nNgày xửa ngày xưa, dưới chân một ngọn núi cao có một ngôi làng nhỏ thường xuyên phải hứng chịu những trận gió bão dữ dội. Ở đầu làng có một cậu bé tên là Trâm, tuy vóc dáng nhỏ bé nhưng lại vô cùng dũng cảm và giàu lòng yêu thương mọi người. Cậu luôn mơ ước mình có thể lớn thật nhanh để trở thành chỗ dựa vững chắc, che chở cho gia đình và bà con dân làng.\nMột năm nọ, một cơn bão lớn bất ngờ ập tới khiến cây cối trong vùng nghiêng ngả, nhà cửa đứng trước nguy cơ bị gió cuốn bay. Thấy vậy, cậu bé Trâm không ngần ngại chạy ra đầu làng, dùng hết sức lực bé nhỏ của mình để chằng chống từng ngôi nhà và giúp đỡ người già, trẻ nhỏ tìm nơi trú ẩn an toàn. Khi cơn bão vừa tan, cả ngôi làng bình yên vô sự, nhưng cậu bé Trâm vì kiệt sức nên đã ngã xuống và chìm vào giấc ngủ sâu ngay tại đầu làng.\nCảm động trước tấm lòng quả cảm và sự hy sinh của cậu bé, thần Núi đã hóa phép biến Trâm thành một loài cây đặc biệt mọc lên ngay nơi cậu nằm. Loài cây này có dáng vẻ nhỏ nhắn, thanh tao hệt như vóc dáng của cậu bé, nhưng thân cây lại vô cùng cứng cáp, thẳng tắp và các tàu lá xanh mướt luôn xòe rộng như những bàn tay đang che chở.\nDân làng vô cùng yêu quý loài cây này, họ gọi nó là cây Cau Tiểu Trâm để tưởng nhớ cậu bé Trâm nhỏ tuổi mà chí lớn. Ngày nay, cây Cau Tiểu Trâm thường được mọi người đặt trên bàn làm việc hay góc học tập như một biểu tượng của sự bình an, ý chí kiên cường và nguồn năng lượng tích cực xua tan mọi điều không may mắn.",
+   "ask": "Con thấy lá cây như thế nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb4ed25"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/831b1fc67df0594c50cc.jpg",
+   "photos": [
+    "anh/831b1fc67df0594c50cc.jpg"
+   ],
+   "photoAlt": "Cau Tiểu Trâm là loài cây cảnh mini có dáng đứng thẳng, chiều cao trung bình chỉ từ 15 đến 40 cm, mang vẻ ngoài giống như một cây dừa hoặc cây cau thu nhỏ",
+   "sample": false
+  },
+  {
+   "id": "emwirt8d0",
+   "room": "tri-an",
+   "art": "sach",
+   "name": "Lời chúc đáng yêu 20/11 của bé",
+   "era": "Tháng 11/2026",
+   "plan": "Món quà nhỏ - Yêu thương lớn",
+   "from": "Lớp 3-4 tuổi A. PH Tràng Đà",
+   "story": "Ở lớp 3-4 tuổi A có một bạn nhỏ tên là Sữa. Sữa có đôi mắt tròn xoe và nụ cười lúc nào cũng để lộ hai chiếc răng sún.\n\nNgày đầu tiên đi học, Sữa khóc rất nhiều. Sữa ôm chặt lấy mẹ, không chịu vào lớp. Cô giáo nhẹ nhàng bế Sữa lên, vừa vỗ về vừa hát cho Sữa nghe. Dần dần, Sữa nín khóc và gục đầu vào vai cô.\n\nTừ hôm ấy, ngày nào cô giáo cũng ở bên Sữa. Cô dạy Sữa tự xúc cơm, tự đi dép, tự cất ba lô lên giá. Cô dạy Sữa hát bài “Cô và mẹ”, dạy Sữa biết khoanh tay chào ông bà, bố mẹ. Có lần Sữa chạy nhanh quá nên bị ngã, đầu gối đỏ ửng. Cô giáo vội chạy đến bế Sữa lên, thổi “phù phù” vào chỗ đau và nói:\n– Sữa giỏi lắm, Sữa không khóc nữa nhé!\n\nMột buổi tối, mẹ ngồi cạnh Sữa và nói:\n– Sữa ơi, ngày mai là ngày 20/11, ngày Nhà giáo Việt Nam đấy. Con muốn nói gì với cô giáo không?\n\nSữa ngẫm nghĩ một lúc lâu rồi gật đầu thật mạnh:\n– Có ạ! Nhưng con không nói bây giờ đâu. Mai con mới nói với cô cơ!\n\nSáng 20/11, lớp 3-4 tuổi A rộn ràng hơn mọi ngày. Sữa đến lớp với bàn tay nhỏ nắm chặt một bông hoa hồng. Vừa thấy cô giáo đứng ở cửa lớp, Sữa chạy ào tới, khoanh tay lễ phép:\n– Con chào cô ạ! Con tặng cô bông hoa này!\n\nCô giáo cúi xuống nhận hoa. Chưa kịp cảm ơn thì Sữa đã kéo tay cô, ghé sát tai cô thì thầm:\n– Cô ơi, con cảm ơn cô đã dạy con hát, dạy con tự xúc cơm, tự đi dép. Hôm con ngã, cô bế con, cô thổi cho con hết đau. Con yêu cô nhiều như yêu mẹ con ạ!\n\nNói xong, Sữa vòng tay ôm cổ cô thật chặt và hôn “chụt” lên má cô.\n\nCô giáo bỗng thấy mắt mình cay cay. Cô ôm Sữa vào lòng và nói:\n– Cô cảm ơn Sữa. Cô cũng yêu Sữa nhiều lắm!\n\nCô biết những lời Sữa nói không hề được ai dạy trước. Đó là những lời từ trái tim bé bỏng của con. Với cô, đó chính là món quà quý nhất của ngày 20/11 năm nay.",
+   "ask": "Bạn nhỏ trong câu chuyện tên là gì? Ngày đầu đi học, Sữa thế nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1sunltHO0FXUJIoWyRSNxjr5UOW9OEfCD/view?usp=drive_link",
+   "cls": [
+    "l73377a"
+   ],
+   "tc": [
+    "TC4",
+    "TC6"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwimszd2",
+   "room": "di-san",
+   "art": "khoc",
+   "name": "Cây hoa cẩm tú cầu",
+   "era": "tháng 11/2026",
+   "plan": "Ngày hội đến trường của bé",
+   "from": "Một nhóm trẻ 25–36 tháng C",
+   "story": "Cây hoa cẩm tú cầu. Cây có thân nhỏ, lá màu xanh, những chiếc lá to và xinh xắn. Hoa cẩm tú cầu có nhiều bông hoa nhỏ kết thành một chùm tròn như quả bóng. Hoa có nhiều màu sắc đẹp như màu xanh, màu hồng, màu tím. Những bông hoa thật xinh đẹp và đáng yêu phải không nào! Hoa cẩm tú cầu có cái tên thật đẹp. “Cẩm” có nghĩa là đẹp rực rỡ như gấm vóc, “tú” là xinh đẹp, “cầu” là hình tròn. Vì những bông hoa nhỏ kết lại thành một chùm tròn xinh xắn nên hoa được gọi là hoa cẩm tú cầu. Loài hoa này tượng trưng cho tình yêu thương, sự đoàn kết và những lời chúc tốt đẹp.",
+   "ask": "Chúng mình đang làm gì vậy",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/184WUyVdHSXXcazkMgraHDA_zqn2tTqn-/view?usp=sharing",
+   "cls": [
+    "l4e46da"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/28ef8e029dd70de94390.jpg",
+   "photos": [
+    "anh/28ef8e029dd70de94390.jpg",
+    "anh/d040d91b248780272af6.jpg",
+    "anh/e1c112b996ed49f44f21.jpg",
+    "anh/163d50e2af1aae4aa1f9.jpg",
+    "anh/c512aec4bdfb3f0aee5a.jpg",
+    "anh/6ea2229e547b5b9b8be9.jpg",
+    "anh/7988214dcc4f02a02157.jpg",
+    "anh/ca7bb98b4911dc06952a.jpg",
+    "anh/f0ee922871ddd48a37f0.jpg",
+    "anh/f9f249ac04f537ec7c84.jpg",
+    "anh/9bb61318be2e4a43660e.jpg",
+    "anh/7ebb25a645ff766958ee.jpg"
+   ],
+   "photoAlt": "Cây hoa cẩm tú cầu Hoa cẩm tú cầu có cái tên thật đẹp. “Cẩm” có nghĩa là đẹp rực rỡ như gấm vóc, “tú” là xinh đẹp, “cầu” là hình tròn. Vì những bông hoa nhỏ kết lại thành một chùm tròn xinh xắn nên ho",
+   "sample": false
+  },
+  {
+   "id": "emwis4e1p",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Bé tập gấp khăn",
+   "era": "Tháng 11/2026",
+   "plan": "Đôi tay khéo léo - Tự gấp khăn xinh",
+   "from": "Lớp 3-4 tuổi A. PH Tràng Đà",
+   "story": "BÀI THƠ: BÉ TẬP GẤP KHĂN\nChiếc khăn vàng xinh,\nBé đặt ngay ngắn.\nHai tay bé gấp,\nCho mép thật bằng.\nGấp đôi một lần,\nVuốt cho phẳng nhé.\nĐôi tay bé khéo,\nKhăn đẹp biết bao!\nBé vui bé hát,\nCô giáo mỉm cười.\nTự làm việc nhỏ,\nBé giỏi lắm thôi!",
+   "ask": "Trong bài thơ bạn nhỏ đang làm gì? Chiếc khăn của bạn nhỏ có màu gì?  Bạn nhỏ gấp khăn như thế nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1b_mP0nicR6AdlDtEfpgXTAfG_6KTyvgJ/view?usp=drive_link",
+   "cls": [
+    "l73377a"
+   ],
+   "tc": [
+    "TC1",
+    "TC2"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/ee088f458dd2f02bad7c.jpg",
+   "photos": [
+    "anh/ee088f458dd2f02bad7c.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwirk35g",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Bé vui đón tết trung thu",
+   "era": "Thán 10",
+   "plan": "",
+   "from": "4-5 tuổi B1",
+   "story": "Lễ hội Thành Tuyên là một lễ hội Trung thu đặc sắc và nổi tiếng của tỉnh Tuyên Quang, được tổ chức hằng năm vào dịp Tết Trung thu. Lễ hội bắt nguồn từ năm 2004, do người dân địa phương tự làm những mô hình đèn Trung thu để mang đến niềm vui cho các em thiếu nhi.\n\nĐiểm nổi bật của lễ hội là những mô hình đèn Trung thu khổng lồ, được trang trí rực rỡ với nhiều hình dáng ngộ nghĩnh, đáng yêu như: chú thỏ, cá chép, rồng, phượng, các nhân vật trong truyện cổ tích... Những mô hình đèn được các đoàn rước diễu hành trên đường phố trong tiếng trống, tiếng nhạc vui tươi, náo nhiệt. Bên cạnh đó, lễ hội còn có nhiều hoạt động hấp dẫn như múa lân, biểu diễn văn nghệ, rước đèn, phá cỗ và vui chơi dành cho thiếu nhi.\n\nLễ hội Thành Tuyên không chỉ mang đến niềm vui cho các bạn nhỏ mà còn thể hiện tình yêu thương, sự quan tâm của cộng đồng dành cho trẻ em, góp phần gìn giữ và phát huy những nét đẹp văn hóa truyền thống. Đây cũng là niềm tự hào của người dân Tuyên Quang, góp phần quảng bá hình ảnh quê hương đến với bạn bè trong nước và quốc tế.",
+   "ask": "Quê hương Tuyên Quang có lễ hội Trung thu nổi tiếng nào?    Lễ hội được tổ chức vào dịp nào?    Các con nhìn thấy những mô hình đèn Trung thu có hình gì?    Trong lễ hội có những hoạt động vui chơi nào?    Các con sẽ làm gì để giữ gìn nét đẹp văn hóa của quê hương?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l62a027"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "",
+   "her": "hc7d8a4",
+   "photo": "anh/32cae6c940269b8f2985.jpg",
+   "photos": [
+    "anh/32cae6c940269b8f2985.jpg",
+    "anh/fa64b3ae06eadd8141b6.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwispvng",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Ngày hội đến trường của bé",
+   "era": "",
+   "plan": "",
+   "from": "Một nhóm trẻ 25–36 tháng C",
+   "story": "Ngày hội đến trường của bé là ngày hội vui tươi, ý nghĩa, đánh dấu sự khởi đầu của một năm học mới. Trong không khí rộn ràng, các bé được gặp lại cô giáo, bạn bè, cùng nhau ca hát, vui chơi và khám phá những điều mới lạ. Tiếng cười trong trẻo, những ánh mắt háo hức và những nụ cười hồn nhiên đã làm cho ngày hội thêm ấm áp. Chúc các bé luôn chăm ngoan, mạnh khỏe, tự tin và có một năm học tràn đầy niềm vui, yêu thương!",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l4e46da"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/010b4e91cf0c6c8d0ca8.jpg",
+   "photos": [
+    "anh/010b4e91cf0c6c8d0ca8.jpg",
+    "anh/3ecdbc9c6f410b86fe35.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwisrj58",
+   "room": "tri-an",
+   "art": "sach",
+   "name": "Bé tài năng",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "Tháng 11 về mang theo những tình cảm yêu thương và lòng biết ơn sâu sắc dành tặng những người làm nghề giáo. Nhân ngày Nhà giáo Việt Nam 20/11, xin kính chúc các thầy giáo, cô giáo luôn mạnh khỏe, hạnh phúc và tràn đầy nhiệt huyết với sự nghiệp trồng người. Nhân ngày Nhà giáo Việt Nam 20/11, các bé xin gửi đến cô giáo những lời chúc yêu thương nhất. Chúc cô luôn mạnh khỏe, vui vẻ và hạnh phúc. Chúng con yêu cô, cảm ơn cô đã luôn yêu thương, chăm sóc và dạy dỗ chúng con mỗi ngày",
+   "ask": "Các con đang làm gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l4e46da"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/6e52f801ee3dc0179724.jpg",
+   "photos": [
+    "anh/6e52f801ee3dc0179724.jpg",
+    "anh/1a39d2baf3e53d62e179.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwisk7bj",
+   "room": "tri-an",
+   "art": "sach",
+   "name": "Tình cảm của ba mẹ giành cho cô giáo nhân ngày 20/11",
+   "era": "Tháng 11/2026",
+   "plan": "Món quà nhỏ - Yêu thương lớn",
+   "from": "Lớp 3-4 tuổi A. PH Tràng Đà",
+   "story": "Ở lớp 3-4 tuổi A có một bạn nhỏ tên là Cá. Cá có đôi má phúng phính và hai bím tóc buộc nơ hồng.\n\nMột buổi chiều, mẹ đón Cá về và nói:\n– Cá ơi, sắp đến ngày 20/11 rồi. Đó là ngày của các cô giáo đấy con.\n\nCá tròn mắt hỏi:\n– Thế con tặng cô giáo cái gì hả mẹ?\n\nMẹ bảo mẹ sẽ mua hoa cho Cá mang đến tặng cô. Nhưng Cá lắc đầu:\n– Con muốn tự làm quà cho cô cơ!\n\nTối hôm ấy, Cá lấy giấy màu và bút sáp ra bàn. Cá vẽ một bông hoa thật to, cánh màu đỏ, nhụy màu vàng. Cá vẽ thêm ông mặt trời đang cười và một cô giáo đứng cạnh một bạn nhỏ buộc tóc nơ hồng. Hình vẽ hơi nguệch ngoạc, màu tô còn lem ra ngoài, nhưng Cá rất vui.\n\nSáng 20/11, các bạn mang đến lớp nào hoa hồng, nào hoa cúc, đẹp ơi là đẹp. Cá nhìn tờ giấy của mình rồi bỗng ngại ngùng, giấu tay ra sau lưng.\n\nCô giáo nhìn thấy, cô ngồi xuống thật thấp và hỏi nhỏ:\n– Cá ơi, con cầm gì sau lưng thế?\n\nCá rụt rè đưa tờ giấy ra:\n– Con… con vẽ tặng cô ạ. Đây là cô, còn đây là con.\n\nCô giáo cầm tờ giấy lên ngắm thật lâu rồi mỉm cười:\n– Ôi, đẹp quá! Đây là món quà do chính tay Cá làm, cô quý lắm!\n\nRồi cô ôm Cá thật chặt. Cá ghé vào tai cô thì thầm:\n– Con yêu cô ạ!\n\nCô giáo đem bức tranh của Cá dán lên tường ngay cạnh bàn cô. Từ hôm ấy, sáng nào đến lớp, Cá cũng ngước lên nhìn bức tranh và cười tươi như ông mặt trời trong hình vẽ.",
+   "ask": "Trong câu chuyện có những ai nào? . Bạn Cá học lớp nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1iVwmVZwGtHJHgQ1P5c5bRt6MD5Kmcqsk/view?usp=drive_link",
+   "cls": [
+    "l73377a"
+   ],
+   "tc": [
+    "TC4"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/6ec87d65abb62cfce4e6.jpg",
+   "photos": [
+    "anh/6ec87d65abb62cfce4e6.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwisuhf6",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Giờ học của các bé",
+   "era": "",
+   "plan": "",
+   "from": "Một nhóm trẻ 25–36 tháng C",
+   "story": "Các con ơi! Hôm nay cô có một điều bất ngờ dành tặng chúng mình đấy! Các con hãy cùng hướng mắt lên màn hình thật xinh đẹp để khám phá những hình ảnh ngộ nghĩnh và đáng yêu nhé! Trên màn hình sẽ xuất hiện những nhân vật rất dễ thương cùng một câu chuyện thật thú vị. Chúng mình hãy ngồi thật ngoan, chú ý lắng nghe cô kể chuyện và cùng khám phá xem điều gì sẽ xảy ra nhé!",
+   "ask": "chúng mình đang làm gi?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l4e46da"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/1ac2695637dd3b90a066.jpg",
+   "photos": [
+    "anh/1ac2695637dd3b90a066.jpg",
+    "anh/64c935f8d9b0aa8f617e.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwisss2s",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây Trầu bà Xanh - Lớp MG 4-5 Tuổi B2 Nông Tiến",
+   "era": "Tháng 11/2026",
+   "plan": "Cây xanh lớp bé",
+   "from": "Lớp 4-5 tuổi B2 trường chính",
+   "story": "Sự Tích Cây Trầu Bà Xanh\nNgày xửa ngày xưa, ở một vùng quê yên bình có hai chị em mồ côi sống nương tựa vào nhau trong một túp lều nhỏ. Người chị tên là Xanh, tuy tuổi còn nhỏ nhưng vô cùng đảm đang, hiền hậu và hết lòng yêu thương, chăm sóc em trai. Hằng ngày, Xanh lên rừng hái củi, hái rau để đổi lấy gạo, dù cuộc sống vất vả nhưng trên môi chị luôn nở nụ cười dịu dàng để em trai yên lòng.\nMột mùa đông nọ, tiết trời trở nên lạnh giá khắc nghiệt khiến người em bị ốm nặng, sốt cao không dứt. Thương em, Xanh không quản ngại gió rét, lặn lội vào tận rừng sâu để tìm loại thảo dược quý mà các cụ già trong làng vẫn truyền tai nhau. Sau nhiều giờ vượt qua bao ghềnh đá trơn trượt, Xanh cũng tìm thấy khóm thuốc quý mọc trên vách núi cao, nhưng vì quá mệt mỏi và kiệt sức, chị đã gục ngã ngay bên vách đá sau khi kịp gửi nhành thuốc cho một bác tiều phu mang về cứu em.\nNhờ có vị thuốc ấy, người em nhanh chóng khỏi bệnh, nhưng khi chạy vào rừng tìm chị thì chỉ thấy nơi chị nằm mọc lên một loài cây dây leo vô cùng kỳ lạ. Loài cây này có thân mềm mại, vươn dài ôm lấy vách đá như vòng tay che chở, cùng những chiếc lá hình trái tim xanh mướt, bóng bẩy tràn đầy sức sống.\nCảm động trước tình cảm chị em thiêng liêng và sự hy sinh cao cả của Xanh, dân làng đã mang loài cây ấy về trồng trong nhà và gọi tên là cây Trầu Bà Xanh. Từ đó, cây Trầu Bà Xanh trở thành biểu tượng của tình yêu thương gia đình bền chặt, sức sống mãnh liệt vượt qua mọi nghịch cảnh và luôn mang lại bình an, may mắn cho mọi nhà.",
+   "ask": "Lá Cây Trầu Bà Xanh giống hình gì vậy?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb4ed25"
+   ],
+   "tc": [
+    "TC4",
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/87061a8760903f4f29c1.jpg",
+   "photos": [
+    "anh/87061a8760903f4f29c1.jpg"
+   ],
+   "photoAlt": "Cây trầu bà xanh là loài cây dây leo thân mềm, có những chiếc lá hình trái tim dày dặn, bề mặt trơn bóng và mịn màng mọc rủ xuống xung quanh.",
+   "sample": false
+  },
+  {
+   "id": "emwisz0rc",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Gờ chơi của chúng mình",
+   "era": "",
+   "plan": "",
+   "from": "Một nhóm trẻ 25–36 tháng C",
+   "story": "Câu chuyện: Những quả bóng đáng yêu\nCác con ơi! Hôm nay bạn Thỏ Trắng mang đến lớp rất nhiều quả bóng xinh xắn. Bạn Thỏ muốn rủ các bạn cùng chơi lăn bóng.\n\nNhưng ôi! Những quả bóng đang nằm ở phía bên kia rồi. Thỏ Trắng nhờ các bạn nhỏ giúp lăn bóng về cho mình.\n\nCác con hãy dùng đôi bàn tay khéo léo, lăn bóng thật nhẹ nhàng, lăn bóng về phía trước để tặng bạn Thỏ nhé!\n\nBạn Thỏ vui sướng reo lên: “Ôi! Cảm ơn các bạn nhỏ! Các bạn giỏi quá! Chúng mình cùng chơi thật vui nhé!”\n\nNào, các con đã sẵn sàng giúp bạn Thỏ chưa? Chúng mình cùng lăn bóng nào!",
+   "ask": "Quả bóng có dạng hình gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l4e46da"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/69fe892ed7496068bb29.jpg",
+   "photos": [
+    "anh/69fe892ed7496068bb29.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwisr63j",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Bò qua đường ngoằn ngoèo",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp 25- 36 tháng A",
+   "story": "",
+   "ask": "Với con đường ngoằn ngoèo này ngoài bò ra thì chúng mình còn biết có những bài vận động nào khác để đi qua không?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l9f51b7"
+   ],
+   "tc": [],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/076746a5cff1c48d7dec.jpg",
+   "photos": [
+    "anh/076746a5cff1c48d7dec.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwit47td",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Khoẳng khắc đáng yêu của bé",
+   "era": "",
+   "plan": "",
+   "from": "Một nhóm trẻ 25–36 tháng C",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l4e46da"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/e2e8e3f99f3500264c5d.jpg",
+   "photos": [
+    "anh/e2e8e3f99f3500264c5d.jpg",
+    "anh/43a88ec72a1bb9591080.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwit1e7v",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây Đuôi Công - Lớp MG 4-5 Tuổi B2 Nông Tiến",
+   "era": "Tháng 11/2026",
+   "plan": "Cây xanh lớp bé",
+   "from": "Lớp 4-5 tuổi B2 trường chính",
+   "story": "Sự Tích Cây Đuôi Công\nNgày xửa ngày xưa, trong một khu rừng mùa xuân rực rỡ, có một chú công nhỏ sở hữu bộ lông lộng lẫy nhưng tính tình lại vô cùng kiêu ngạo. Chú luôn tự hào vì vẻ đẹp óng ả của mình và thường chê bai những loài cây cỏ xung quanh chỉ có mỗi một màu xanh đơn điệu, nhàm chán. Mỗi khi có gió thổi qua, công nhỏ lại xòe rộng chiếc đuôi sặc sỡ để khoe khoang trước muôn loài.\nMột năm nọ, khu rừng bất ngờ gặp phải một trận hạn hán kéo dài, mặt trời thiêu đốt khiến cỏ cây héo úa, muôn thú khát khô cổ họng. Giữa lúc nguy nan, những loài cây xanh mướt mà công từng chê bai lại lặng lẽ dang rộng tán lá che mát cho muôn loài và chắt chiu từng giọt sương đêm để cứu sống các bạn nhỏ. Nhìn cảnh tượng ấy, chú công nhận ra vẻ đẹp bên ngoài thật nhỏ bé trước tấm lòng nhân hậu và sự hy sinh thầm lặng của cây cối.\nHối hận vì sự kiêu ngạo trước đây, chú công nhỏ đã tự nguyện rũ bỏ những chiếc lông đuôi đẹp nhất của mình, trải đều lên những khóm cây đang héo rũ để che nắng cho chúng. Cảm động trước sự thay đổi chân thành của chú công, bà Tiên Rừng đã vẩy phép thần kỳ biến những chiếc lông đuôi ấy hòa quyện vào lá cây, hồi sinh chúng thành một loài cây mới vô cùng độc đáo.\nLoài cây này có những tán lá bầu dục lớn, trên mặt lá hiện lên những đường vân sọc xanh đậm nhạt uyển chuyển hệt như hoa văn trên chiếc đuôi công rực rỡ, còn mặt dưới lại mang sắc tím dịu dàng. Người dân yêu quý gọi đó là cây Đuôi Công, xem như biểu tượng của sự khiêm nhường, lòng nhân ái và vẻ đẹp hài hòa từ bên trong tâm hồn.",
+   "ask": "lá cây Đuôi Công nhìn giống bộ phận nào của con chim công?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb4ed25"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/6899b960e4990d30f717.jpg",
+   "photos": [
+    "anh/6899b960e4990d30f717.jpg",
+    "anh/84bb3d7621d5cd3c9342.jpg"
+   ],
+   "photoAlt": "ây Đuôi Công là loài cây thân thảo mọc thành bụi thấp, nổi bật với những tán lá bầu dục lớn mang hoa văn sọc vằn độc đáo giống hệt chiếc đuôi chim công.",
+   "sample": false
+  },
+  {
+   "id": "emwit8s8d",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây hoa cẩm tú cầu",
+   "era": "",
+   "plan": "",
+   "from": "Một nhóm trẻ 25–36 tháng C",
+   "story": "",
+   "ask": "Đây là hoa gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l4e46da"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/9b85ab3544447854486e.jpg",
+   "photos": [
+    "anh/9b85ab3544447854486e.jpg"
+   ],
+   "photoAlt": "Cây hoa cẩm tú cầu. Cây có thân nhỏ, lá màu xanh, những chiếc lá to và xinh xắn. Hoa cẩm tú cầu có nhiều bông hoa nhỏ kết thành một chùm tròn như quả bóng. Hoa có nhiều màu sắc đẹp như màu xanh, màu h",
+   "sample": false
+  },
+  {
+   "id": "emwitd0jg",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Bé chăm sóc cây",
+   "era": "",
+   "plan": "",
+   "from": "Một nhóm trẻ 25–36 tháng C",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l4e46da"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/0f164eff6655b4f44304.jpg",
+   "photos": [
+    "anh/0f164eff6655b4f44304.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwitdn42",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây Trúc Nhật Lớp MG 4-5 Tuổi B2 Nông Tiến",
+   "era": "Tháng 11/2026",
+   "plan": "Cây xanh lớp bé",
+   "from": "Lớp 4-5 tuổi B2 trường chính",
+   "story": "ự Tích Cây Trúc Nhật\nNgày xửa ngày xưa, ở một ngôi làng yên bình nằm dưới chân núi Phú Sĩ quanh năm tuyết phủ, có một chàng võ sĩ trẻ tên là Nhật. Khác với vẻ ngoài rắn rỏi, chàng có tính tình vô cùng điềm đạm, ngay thẳng và luôn sẵn lòng bảo vệ những người yếu thế. Dù gặp bất kỳ khó khăn hay thử thách nào, Nhật vẫn giữ vững ý chí kiên định, không bao giờ khuất phục trước sóng gió cuộc đời.\nMột mùa đông nọ, ngôi làng bất ngờ hứng chịu một trận bão tuyết dữ dội kéo dài nhiều ngày liền. Tuyết rơi dày đặc làm gãy đổ nhiều cây cối và vùi lấp lối đi khiến dân làng rơi vào cảnh thiếu thốn lương thực, củi lửa. Không quản ngại giá rét cắt da, chàng võ sĩ trẻ đã một mình dầm mình trong bão tuyết suốt đêm ngày để dọn đường, dựng lại những mái nhà xiêu vẹo và tiếp tế lương thực cho từng hộ dân.\nKhi cơn bão vừa tan, ánh nắng ấm áp đầu tiên chiếu rọi xuống ngôi làng bình yên, nhưng chàng võ sĩ trẻ vì kiệt sức đã lặng lẽ tựa lưng vào vách đá và chìm vào giấc ngủ vĩnh hằng. Cảm động trước khí phách anh hùng và tấm lòng son sắt của chàng, thần Tuyết đã hóa phép biến chàng thành một loài cây đặc biệt mọc lên ngay bên sườn núi.\nLoài cây này mang dáng vẻ thanh tao, thân cây mảnh mai nhưng vô cùng cứng cáp, thẳng tắp như khí chất của người quân tử. Trên thân cây mọc ra những tán lá xanh bóng điểm xuyết những đốm vàng lấp lánh như ánh nắng mặt trời sưởi ấm mùa đông giá lạnh. Dân làng vô cùng trân quý loài cây ấy và đặt tên là cây Trúc Nhật để tưởng nhớ người anh hùng của làng. Từ đó, cây Trúc Nhật trở thành biểu tượng của sự ngay thẳng, ý chí kiên cường và mang lại bình an, thịnh vượng cho mọi gia đình.",
+   "ask": "Con hãy nhìn xem, thân cây Trúc Nhật mọc thẳng đứng hay bò lan dưới đất",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb4ed25"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/b034867e13625a0c2311.jpg",
+   "photos": [
+    "anh/b034867e13625a0c2311.jpg"
+   ],
+   "photoAlt": "ây Trúc Nhật là loài cây bụi thân gỗ nhỏ, mảnh mai, nổi bật với dáng đứng thẳng thanh thoát và những chiếc lá thuôn dài xanh bóng điểm xuyết đốm vàng",
+   "sample": false
+  },
+  {
+   "id": "emwit7eqo",
+   "room": "khoanh-khac",
+   "art": "an",
+   "name": "Bé tự xúc đồ ăn",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp 25- 36 tháng A",
+   "story": "",
+   "ask": "Trong khi ăn chúng mình có dành đồ ăn của nhau không?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l9f51b7"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/7f75268f695882f571c9.jpg",
+   "photos": [
+    "anh/7f75268f695882f571c9.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwiteylo",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Sinh nhật bé yêu",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "Câu chuyện: Sinh nhật vui vẻ của bé Bo\nBo là một cậu bé đáng yêu, vui vẻ và rất mạnh dạn. Bo luôn thích đến lớp chơi cùng cô giáo và các bạn. Hôm nay, mẹ tổ chức sinh nhật cho Bo ngay tại lớp. Mẹ mang đến một chiếc bánh sinh nhật thật to, thật đẹp với những ngọn nến lung linh.\n\nCô giáo và các bạn cùng hát vang bài hát chúc mừng sinh nhật. Bo vui vẻ đứng lên nói: “Con cảm ơn mẹ, cảm ơn cô và các bạn ạ!”\nBo thổi nến, cùng các bạn chia sẻ chiếc bánh sinh nhật thật ngon. Bạn Bo vui ơi là vui!",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l4e46da"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/f74eeea2808909ef0d7b.jpg",
+   "photos": [
+    "anh/f74eeea2808909ef0d7b.jpg",
+    "anh/96f628432d92ff324acc.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwittd3b",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Video hành trình lớp tôi",
+   "era": "",
+   "plan": "",
+   "from": "Một nhóm trẻ 25–36 tháng C",
+   "story": "",
+   "ask": "",
+   "video": "https://drive.google.com/file/d/193Vum2GMhpmBd5pYXZT5dxPfvDpRuAHC/view?usp=drive_link",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l4e46da"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwitonln",
+   "room": "tri-an",
+   "art": "sach",
+   "name": "Bé làm thiệp tặng cô.",
+   "era": "Tháng 11/2026",
+   "plan": "Món quà nhỏ - Yêu thương lớn",
+   "from": "Lớp 3-4 tuổi A. PH Tràng Đà",
+   "story": "Bé yêu cô giáo\n\nSáng nay đến lớp\nBé dậy thật sớm\nÔm bó hoa thơm\nTặng cô giáo hiền.\n\nCô dạy bé hát\nCô dạy bé chơi\nDạy bé nói lời\n“Con cảm ơn ạ!”\n\nBé ngã, cô đỡ\nBé khóc, cô dỗ\nVòng tay của cô\nẤm như tay mẹ.\n\nHôm nay ngày vui\nBé khoanh tay chào\nChúc cô dồi dào\nSức khỏe, niềm vui.\n\nBé hứa với cô\nNgày nào cũng ngoan\nĂn no, ngủ ngon\n“Con yêu cô lắm!”",
+   "ask": "Trong bài thơ nói về ai? Các bạn nhỏ làm gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1eQ0x8C6M3F_vdGXDaJJfpIOuV_LD8SOJ/view?usp=drive_link",
+   "cls": [
+    "l73377a"
+   ],
+   "tc": [
+    "TC4"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/aa465a28d0cbfbcadfea.jpg",
+   "photos": [
+    "anh/aa465a28d0cbfbcadfea.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwitmvjx",
+   "room": "khoanh-khac",
+   "art": "tuoi",
+   "name": "Bé chăm sóc vườn rau",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp 25- 36 tháng A",
+   "story": "Ở một ngôi trường mầm non xinh xắn, có một khu vườn nhỏ trồng rất nhiều loại rau. Nào là rau cải xanh mướt, và những cây xà lách xanh non.\nMột buổi sáng đẹp trời, cô giáo dẫn các bạn nhỏ ra thăm vườn rau.\nCô hỏi:\n- Các con ơi! Muốn cây rau lớn nhanh và xanh tốt thì chúng mình phải làm gì?\nBé Hằng nhanh nhảu trả lời:\n- Thưa cô, chúng mình phải tưới nước cho cây ạ!\nKhôi nói:\n- Chúng mình phải nhổ cỏ và bắt sâu nữa ạ!\nCô giáo mỉm cười:\n- Các con giỏi quá! Hôm nay chúng mình cùng nhau chăm sóc vườn rau nhé! Các bạn nhỏ bắt đầu công việc của mình.\nBạn Hằng cầm bình tưới, nhẹ nhàng tưới nước cho từng luống rau.\nBạn Thành An nhặt những chiếc lá vàng úa và nhổ những cây cỏ dại.\nBạn Quyên cùng các bạn xới đất thật nhẹ nhàng để đất tơi xốp hơn.\nCác bạn vừa làm vừa trò chuyện vui vẻ.\nBỗng nhiên, bé Hằng reo lên:\n- Ôi! Các bạn ơi, cây rau cải hôm trước còn bé xíu, hôm nay đã lớn hơn rồi!\nCả nhóm vui mừng vỗ tay:\n- Chúng mình cùng chăm sóc để vườn rau ngày càng xanh tốt nhé!",
+   "ask": "Khi thấy vườn rau xanh tốt, các bạn cảm thấy thế nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l9f51b7"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/2d9348f58faaf57843f1.jpg",
+   "photos": [
+    "anh/2d9348f58faaf57843f1.jpg"
+   ],
+   "photoAlt": "Bé chăm sóc vườn rau",
+   "sample": true
+  },
+  {
+   "id": "emwiu6t72",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Bé bước vào thế giới chuyện tranh.",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp 25- 36 tháng A",
+   "story": "",
+   "ask": "Khi xem truyện xong chúng mình cất sách, truyện ở đâu?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l9f51b7"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/a0c4d56c45957ba793cd.jpg",
+   "photos": [
+    "anh/a0c4d56c45957ba793cd.jpg"
+   ],
+   "photoAlt": "Bé xem tranh ảnh.",
    "sample": false
   }
  ],
