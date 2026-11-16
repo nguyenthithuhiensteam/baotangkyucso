@@ -346,6 +346,15 @@ h3.fsel{font-size:22px}h3.fsel small{font-size:14px;color:var(--muted);font-fami
 .dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--c);flex:none}
 .dnote{margin:0;color:var(--muted);font-size:13px}
 .croom{display:grid;gap:10px}
+.wallwrap{position:relative;display:grid;gap:8px}
+.wall.carousel{grid-template-columns:none!important;grid-auto-flow:column;grid-auto-columns:calc((100% - 2*16px)/3);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.wall.carousel::-webkit-scrollbar{display:none}
+.wall.carousel>.piece{scroll-snap-align:start}
+.wnav{position:absolute;top:calc(50% - 30px);z-index:2;width:42px;height:42px;border-radius:50%;border:2.5px solid var(--c);background:var(--frame);color:var(--ink);font-size:26px;line-height:1;font-weight:800;cursor:pointer;box-shadow:0 3px 0 var(--line);display:grid;place-items:center}
+.wnav.prev{left:-12px}.wnav.next{right:-12px}.wnav:disabled{opacity:.25;cursor:default}
+.wnav:focus-visible{outline:3px solid var(--turmeric-fill)}
+.wfoot{display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap}.wpage{font-size:13px;font-weight:800;color:var(--muted)}
+@media (max-width:560px){.wall.carousel{grid-auto-columns:calc((100% - 14px)/2)}.wnav{width:36px;height:36px;font-size:22px}.wnav.prev{left:-6px}.wnav.next{right:-6px}}
 .connect{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}.connect.home{align-items:center;margin:0}.connect.home>span{font-weight:800;font-size:15px}
 .connect .btn svg{width:18px;height:18px;flex:none}
 .connect .fb{border-color:#1877f2;color:#1877f2}.connect .fb:hover{background:#1877f2;color:#fff}
@@ -674,7 +683,7 @@ function classesRoom(sub){
   return `<section class="room" style="--c:${col}"><div class="room-head"><span class="eyebrow">${esc(c.site)} · ${isNT(c)?'Nhóm nhà trẻ':'Lớp mẫu giáo'}</span><h2>${esc(c.name)}</h2>
    <p>${it.length?`Lớp đã đưa ${it.length} hiện vật lên bảo tàng${rank?` · đứng thứ ${rank}/${st.length} lớp`:''}.`:'Lớp chưa có hiện vật nào trên bảo tàng. Các cô đăng bài và tích lớp này để hiện ở đây.'}</p>
    <div class="cta"><button type="button" class="btn small" data-go="lop-hoc">← Tất cả các lớp</button></div></div>
-   ${EXROOMS.map(r=>{const ri=it.filter(e=>e.room===r.id);return ri.length?`<div class="croom" style="--c:${r.c}"><h3 class="sub"><span class="dot" style="--c:${r.c}"></span> Phòng ${r.n} · ${esc(r.name)} <small>${ri.length} hiện vật</small></h3><div class="wall">${ri.map(e=>piece({...e,plan:e.plan||r.name},it.indexOf(e))).join('')}</div></div>`:''}).join('')}
+   ${EXROOMS.map(r=>{const ri=it.filter(e=>e.room===r.id);return ri.length?`<div class="croom" style="--c:${r.c}"><h3 class="sub"><span class="dot" style="--c:${r.c}"></span> Phòng ${r.n} · ${esc(r.name)} <small>${ri.length} hiện vật</small></h3>${wallBox(ri.map(e=>piece({...e,plan:e.plan||r.name},it.indexOf(e))).join(''),ri.length)}</div>`:''}).join('')}
   </section>`;
  }
  const act=st.filter(y=>y.total).length,top=st.filter(y=>y.total).slice(0,5),mx=top.length?top[0].total:1;
@@ -770,7 +779,7 @@ function tree(){
 }
 function exhibitsRoom(r){
  const items=roomItems(r);
- let h=`<section class="room" style="--c:${r.c}">${head(r)}${items.length?`<div class="wall">${items.map(piece).join('')}</div>`:`<div class="empty">${cFilter.cls||cFilter.site?'Thư mục này chưa có bài trong phòng. ':''}Phòng này chưa có hiện vật. ${canAdmin?'Thêm hiện vật ở Khu quản trị.':'Các lớp đang chuẩn bị, bé quay lại sau nhé!'}</div>`}`;
+ let h=`<section class="room" style="--c:${r.c}">${head(r)}${items.length?wallBox(items.map(piece).join(''),items.length):`<div class="empty">${cFilter.cls||cFilter.site?'Thư mục này chưa có bài trong phòng. ':''}Phòng này chưa có hiện vật. ${canAdmin?'Thêm hiện vật ở Khu quản trị.':'Các lớp đang chuẩn bị, bé quay lại sau nhé!'}</div>`}`;
  if(r.id==='di-san')h+=heritageMap();
  if(r.tree)h+=`<div style="display:grid;gap:12px"><h3 class="sub">Cây tri ân</h3><div class="tree-room"><div class="tree">${tree()}</div><div class="notes">${NOTES.map(n=>`<div class="note"><q>${n.q}</q><small>${n.who} · <span class="sample">mẫu</span></small></div>`).join('')}<div class="box" style="border:3px dashed var(--turmeric-fill);box-shadow:none"><h3>Hộp thư gửi tương lai</h3><p>Mỗi bé lớp 5–6 tuổi vẽ một bức tranh về điều mình mong ước. Hộp được mở vào tháng 5/2027 khi các bé chia tay trường mầm non.</p></div></div></div></div>`;
  return h+'</section>';
@@ -829,6 +838,25 @@ function libraryRoom(){
   return `<div class="ltc" style="--p:${PILLARS[TCS[c][0]]}"><h3 class="sub"><span class="tcchip" style="--p:${PILLARS[TCS[c][0]]}">${c}</span> ${esc(TCS[c][1])} <small>${esc(TCS[c][0])}${ch?` · Chặng ${ch.n}, tháng ${ch.m}/${ch.y}`:''}</small></h3><div class="lgrid">${ls.map(lessonCard).join('')}</div></div>`}).join('')
  :'<div class="empty">Chưa có học liệu phù hợp bộ lọc.</div>'}
  </section>`;
+}
+/* Khu hiện vật: băng chuyền ngang (3 hiện vật mỗi lần), có thể chuyển sang dạng lưới. */
+let wallGrid=false;try{wallGrid=localStorage.getItem('btkuc_grid')==='1'}catch(_){}
+function wallBox(html,n){
+ const many=n>3;
+ return `<div class="wallwrap ${many&&!wallGrid?'is-car':''}">${many&&!wallGrid?'<button type="button" class="wnav prev" aria-label="Xem các hiện vật trước">‹</button><button type="button" class="wnav next" aria-label="Xem các hiện vật sau">›</button>':''}
+  <div class="wall ${many&&!wallGrid?'carousel':''}">${html}</div>
+  ${many?`<div class="wfoot">${wallGrid?'':`<span class="wpage" aria-live="polite">1–3 / ${n}</span>`}<button type="button" class="chip" data-wgrid style="cursor:pointer">${wallGrid?'Thu gọn thành hàng ngang':`Xem tất cả ${n} hiện vật`}</button></div>`:''}</div>`;
+}
+function wireWalls(root){
+ root.querySelectorAll('[data-wgrid]').forEach(b=>b.onclick=()=>{wallGrid=!wallGrid;try{localStorage.setItem('btkuc_grid',wallGrid?'1':'0')}catch(_){}render()});
+ root.querySelectorAll('.wallwrap.is-car').forEach(w=>{
+  const t=w.querySelector('.wall'),pg=w.querySelector('.wpage'),n=t.children.length,prev=w.querySelector('.prev'),next=w.querySelector('.next');
+  const per=()=>{const c=t.children[0];return c?Math.max(1,Math.round(t.clientWidth/(c.getBoundingClientRect().width+14))):3};
+  const upd=()=>{const c=t.children[0];if(!c)return;const step=c.getBoundingClientRect().width+parseFloat(getComputedStyle(t).columnGap||0);const i=Math.round(t.scrollLeft/step),k=per();
+   if(pg)pg.textContent=`${i+1}–${Math.min(n,i+k)} / ${n}`;prev.disabled=t.scrollLeft<4;next.disabled=t.scrollLeft+t.clientWidth>=t.scrollWidth-4};
+  prev.onclick=()=>t.scrollBy({left:-t.clientWidth,behavior:'smooth'});next.onclick=()=>t.scrollBy({left:t.clientWidth,behavior:'smooth'});
+  t.addEventListener('scroll',()=>requestAnimationFrame(upd),{passive:true});upd();
+ });
 }
 /* Phòng 1: trình chiếu tự chạy các mốc, kèm dải mốc thời gian; bản danh sách đầy đủ ở dưới. */
 const isFuture=t=>/^(mục tiêu|tầm nhìn)/i.test(t.when||'');
@@ -1396,6 +1424,7 @@ function render(){
   main.querySelectorAll('[data-fsite]').forEach(b=>b.onclick=()=>{cFilter={site:b.dataset.fsite,cls:''};render()});
   main.querySelectorAll('[data-fcls]').forEach(b=>b.onclick=()=>{const c=clsOf(b.dataset.fcls);cFilter=cFilter.cls===b.dataset.fcls?{site:'',cls:''}:{site:c?c.site:'',cls:b.dataset.fcls};render()})}
  main.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{location.hash=b.dataset.go});
+ wireWalls(main);
  main.querySelectorAll('[data-gocls]').forEach(b=>b.onclick=()=>goClass(b.dataset.gocls,b.dataset.room));
  if(r.kind==='timeline'||r.kind==='intro')initShow();else{clearInterval(tTimer);tTimer=null}
  if(r.kind==='admin')wireAdmin();
