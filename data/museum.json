@@ -1944,6 +1944,33 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwhxuybl",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "cây ngọc ngân",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l6c9ea7"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/2c87d84a01fd7246b01b.jpg",
+   "photos": [
+    "anh/2c87d84a01fd7246b01b.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
