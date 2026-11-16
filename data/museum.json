@@ -3023,6 +3023,33 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwimizkm",
+   "room": "thien-nhien",
+   "art": "caylon",
+   "name": "Góc thiên nhiên xanh lớp 4-5T B3",
+   "era": "11/2026",
+   "plan": "Ngày Nhà giáo Việt Nam 20/11",
+   "from": "Lớp MG 4-5T B3 Trường chính",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l8834cf"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/ac5337c440af21c63b9c.jpg",
+   "photos": [
+    "anh/ac5337c440af21c63b9c.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
