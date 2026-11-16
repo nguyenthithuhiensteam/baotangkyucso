@@ -4520,6 +4520,31 @@
    ],
    "photoAlt": "Bé xem tranh ảnh.",
    "sample": false
+  },
+  {
+   "id": "emwiwkcsx",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Khoảnh khắc các bé C1 bên cô giáo",
+   "era": "16/11/2026",
+   "plan": "",
+   "from": "Lớp 5-6 tuổi C1",
+   "story": "",
+   "ask": "Con có yêu cô giáo của mình không?",
+   "video": "https://youtu.be/nJAZHCnJFc8",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l3a9b5e"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
