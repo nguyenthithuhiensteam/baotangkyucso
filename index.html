@@ -346,6 +346,22 @@ h3.fsel{font-size:22px}h3.fsel small{font-size:14px;color:var(--muted);font-fami
 .dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--c);flex:none}
 .dnote{margin:0;color:var(--muted);font-size:13px}
 .croom{display:grid;gap:10px}
+.gallery{display:grid;gap:10px}
+.gitem{all:unset;cursor:pointer;display:grid;gap:5px;align-content:start}
+.gitem img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:14px;border:4px solid var(--frame);box-shadow:0 4px 0 var(--line);display:block;transition:transform .15s}
+.gitem:hover img{transform:translateY(-3px)}.gitem:focus-visible img{outline:3px solid var(--turmeric-fill)}
+.gitem span{font-size:13px;font-weight:700;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.gwall{background:color-mix(in srgb,var(--indigo) 8%,var(--frame))}
+.lightbox{position:fixed;inset:0;z-index:50;background:rgba(10,16,30,.9);display:grid;place-items:center;padding:16px}
+.lightbox[hidden]{display:none}
+.lightbox figure{margin:0;display:grid;gap:10px;max-width:min(1100px,100%);max-height:100%}
+.lightbox img{max-width:100%;max-height:calc(100vh - 110px);object-fit:contain;border-radius:12px;margin:0 auto;display:block}
+.lightbox figcaption{color:#fff;text-align:center;font-size:15px}.lightbox figcaption span{opacity:.7;margin-left:8px}
+.lbx{position:absolute;width:46px;height:46px;border-radius:50%;border:0;background:rgba(255,255,255,.15);color:#fff;font-size:26px;cursor:pointer;display:grid;place-items:center}
+.lbx:hover{background:rgba(255,255,255,.3)}.lbx.close{top:14px;right:14px;font-size:20px}.lbx.prev{left:14px;top:calc(50% - 23px)}.lbx.next{right:14px;top:calc(50% - 23px)}
+.gadmin{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:12px}
+.gaitem{background:var(--frame);border-radius:14px;padding:8px;display:grid;gap:6px;box-shadow:0 3px 0 var(--line)}
+.gathumb img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;display:block}
 .wallwrap{position:relative;display:grid;gap:8px}
 .wall.grid9{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px!important;padding:14px!important}
 .wall.grid9 .piece{gap:6px}
@@ -882,6 +898,32 @@ function wireWalls(root){
   t.addEventListener('scroll',()=>requestAnimationFrame(upd),{passive:true});upd();
  });
 }
+/* Ảnh nổi bật của ba nhà trường (Phòng 1). */
+const SITE_OF={nt:'Trường chính',td:'Phân hiệu Tràng Đà',hs:'Phân hiệu Hương Sen'};
+const DEFAULT_GALLERY=[['hs-1','hs','Tham quan trường tiểu học của trẻ 5 – 6 tuổi'],['hs-2','hs','Bé với an toàn giao thông – ngày hội STEAM'],['hs-3','hs','Hoạt động trải nghiệm “Bé tập làm chiến sĩ”'],['hs-4','hs','Hội thảo chuyên đề chuẩn bị cho trẻ 5 – 6 tuổi vào lớp 1'],['hs-5','hs','Hội thi giáo viên dạy giỏi cấp trường'],
+ ...['nt-1','nt-2','nt-3','nt-4','nt-5','nt-6','nt-7','nt-8'].map(k=>[k,'nt','']),...['td-1','td-2','td-3'].map(k=>[k,'td',''])].map(([k,s,c])=>({photo:`anh/gioithieu/${k}.jpg`,site:SITE_OF[s],cap:c}));
+const galleryOf=()=>Array.isArray(data.settings.gallery)?data.settings.gallery:DEFAULT_GALLERY;
+let galF='';
+const gimg=(p,alt,lazy)=>`<img src="${esc(p)}" alt="${esc(alt)}" ${lazy?'loading="lazy"':''} onerror="if(!this.dataset.r){this.dataset.r=1;this.src='${RAW}'+'${esc(p)}'}">`;
+function gallerySection(){
+ const G=galleryOf();if(!G.length)return '';
+ const sites=sitesOf().filter(st=>G.some(g=>g.site===st)),L=G.filter(g=>!galF||g.site===galF);
+ return `<div class="gallery" id="gallery"><h3 class="sub">Ảnh nổi bật của ba nhà trường</h3>
+  <div class="cfilter"><div class="row"><button type="button" data-gsite="" aria-pressed="${!galF}">Tất cả <small>${G.length}</small></button>${sites.map(st=>`<button type="button" data-gsite="${esc(st)}" aria-pressed="${galF===st}">${esc(st)} <small>${G.filter(g=>g.site===st).length}</small></button>`).join('')}</div></div>
+  <div class="wallwrap ${L.length>9?'is-g9':''}" data-page="0">${L.length>9?'<button type="button" class="wnav prev" aria-label="Trang trước" disabled>‹</button><button type="button" class="wnav next" aria-label="Trang sau">›</button>':''}
+   <div class="wall grid9 gwall">${L.map((g,i)=>`<button type="button" class="gitem" data-gi="${i}" aria-label="${esc(g.cap||g.site)}">${gimg(g.photo,g.cap||g.site,i>=9)}<span>${esc(g.cap||g.site)}</span></button>`).join('')}</div>
+   ${L.length>9?`<div class="wfoot"><span class="wdots">${Array.from({length:Math.ceil(L.length/9)},(_,i)=>`<button type="button" class="wdot" data-wp="${i}" aria-label="Trang ${i+1}" aria-pressed="${!i}"></button>`).join('')}</span><span class="wpage" aria-live="polite">1–9 / ${L.length}</span></div>`:''}</div>
+  <small class="pnote">Ảnh: trang thông tin điện tử và hoạt động của Trường Mầm non Nông Tiến, Tràng Đà, Hương Sen.</small></div>`;
+}
+function openLightbox(L,i){
+ let lb=$('lightbox');if(!lb){lb=document.createElement('div');lb.id='lightbox';lb.className='lightbox';lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');document.body.appendChild(lb)}
+ const draw=()=>{const g=L[i];lb.innerHTML=`<figure>${gimg(g.photo,g.cap||g.site)}<figcaption><b>${esc(g.site)}</b>${g.cap?' · '+esc(g.cap):''} <span>${i+1} / ${L.length}</span></figcaption></figure>
+  <button type="button" class="lbx close" aria-label="Đóng">✕</button>${L.length>1?'<button type="button" class="lbx prev" aria-label="Ảnh trước">‹</button><button type="button" class="lbx next" aria-label="Ảnh sau">›</button>':''}`;
+  lb.querySelector('.close').onclick=close;const p=lb.querySelector('.prev'),n=lb.querySelector('.next');if(p)p.onclick=()=>{i=(i-1+L.length)%L.length;draw()};if(n)n.onclick=()=>{i=(i+1)%L.length;draw()};lb.querySelector('.close').focus()};
+ const key=e=>{if(e.key==='Escape')close();else if(e.key==='ArrowRight'&&L.length>1){i=(i+1)%L.length;draw()}else if(e.key==='ArrowLeft'&&L.length>1){i=(i-1+L.length)%L.length;draw()}};
+ const close=()=>{lb.hidden=true;document.removeEventListener('keydown',key)};
+ lb.onclick=e=>{if(e.target===lb)close()};document.addEventListener('keydown',key);lb.hidden=false;draw();
+}
 /* Phòng 1: trình chiếu tự chạy các mốc, kèm dải mốc thời gian; bản danh sách đầy đủ ở dưới. */
 const isFuture=t=>/^(mục tiêu|tầm nhìn)/i.test(t.when||'');
 const bigYear=t=>{const m=String(t.when||'').match(/(19|20)\d\d/g);return m?m[m.length-1]:''};
@@ -899,6 +941,7 @@ function timelineRoom(r){
   <div class="trail" role="tablist" aria-label="Chọn mốc">${T.map((t,i)=>`<button type="button" role="tab" class="tdot ${isFuture(t)?'future':''}" data-tgo="${i}" aria-selected="${!i}" title="${esc(t.when+' – '+t.title)}"><i></i><span>${esc(bigYear(t)||t.when)}</span></button>`).join('')}</div>
   <div class="tbar"><em id="tbar"></em></div>
  </div>
+ ${gallerySection()}
  <details class="tlist"><summary>Xem tất cả ${T.length} mốc dạng danh sách</summary>
  <ol class="timeline">${T.map(s=>`<li><div class="when">${esc(s.when)}</div><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p>${s.ref?`<div class="ref">Nguồn: ${esc(s.ref)}</div>`:''}${s.todo?`<div class="todo">✎ ${esc(s.todo)}</div>`:''}</li>`).join('')}</ol></details></section>`;
 }
@@ -1033,7 +1076,7 @@ function adminRoom(){
  if(!canAdmin)return `<section class="room"><div class="empty">Khu quản trị chỉ dành cho người được cấp quyền chỉnh sửa trang.</div></section>`;
  const A=isAdmin(), local=mode!=='github';
  const tabs=local?[['exhibits','Hiện vật'],['timeline','Mốc lịch sử'],['links','Giới thiệu & link chung']]
-  :A?[['exhibits','Hiện vật'],['timeline','Mốc lịch sử'],['links','Giới thiệu & link chung'],['classes','Lớp học'],['skkn','Minh chứng SKKN'],['lessons','Học liệu'],['pending','Duyệt bài'+(pendingList?` (${pendingList.filter(p=>p.status==='pending').length})`:'')],['users','Tài khoản'],['pw','Đổi mật khẩu']]
+  :A?[['exhibits','Hiện vật'],['timeline','Mốc lịch sử'],['links','Giới thiệu & link chung'],['classes','Lớp học'],['skkn','Minh chứng SKKN'],['lessons','Học liệu'],['gallery','Ảnh nổi bật'],['pending','Duyệt bài'+(pendingList?` (${pendingList.filter(p=>p.status==='pending').length})`:'')],['users','Tài khoản'],['pw','Đổi mật khẩu']]
   :[['exhibits','Hiện vật'],...(me.timeline?[['timeline','Mốc lịch sử']]:[]),['mine','Bài đã gửi'],['pw','Đổi mật khẩu']];
  if(!tabs.some(t=>t[0]===aTab))aTab=tabs[0][0];
  const lead=local||A?`Thêm, sửa, xóa hiện vật và mốc lịch sử; gắn link phòng 3D, video, âm thanh. Thay đổi chỉ hiện với phụ huynh sau khi bấm <b>Lưu lên trang</b>.`
@@ -1041,7 +1084,7 @@ function adminRoom(){
  return `<section class="room" style="--c:var(--muted)"><div class="room-head"><span class="eyebrow">${A||local?'Chỉ người quản trị mới thấy mục này':'Dành cho giáo viên'}</span><h2>Khu quản trị</h2><p>${lead}</p></div>
  ${mode==='github'?`<div class="ghinfo"><span>Đang đăng nhập: <b>${esc(me.name)}</b> (${A?'Quản trị':'Giáo viên'} · ${esc(me.username)})</span><span style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="btn small" id="ghReload">Tải bản mới nhất</button><button type="button" class="btn small" id="ghOut">Đăng xuất</button></span></div>`:''}
  <div class="atabs" role="tablist">${tabs.map(([k,l])=>`<button type="button" role="tab" data-atab="${k}" aria-selected="${aTab===k}">${l}</button>`).join('')}</div>
- ${aTab==='exhibits'?adminExhibits():aTab==='timeline'?adminTimeline():aTab==='links'?adminLinks():aTab==='classes'?adminClasses():aTab==='skkn'?adminSkkn():aTab==='lessons'?adminLessons():aTab==='pending'?adminPending():aTab==='users'?adminUsers():aTab==='mine'?myPosts():pwForm()}
+ ${aTab==='exhibits'?adminExhibits():aTab==='timeline'?adminTimeline():aTab==='links'?adminLinks():aTab==='classes'?adminClasses():aTab==='skkn'?adminSkkn():aTab==='lessons'?adminLessons():aTab==='gallery'?adminGallery():aTab==='pending'?adminPending():aTab==='users'?adminUsers():aTab==='mine'?myPosts():pwForm()}
  ${readOnly?`<div class="box warn"><p>Tài khoản này chỉ có quyền xem, nên không lưu được thay đổi.</p></div>`:''}
  </section>`;
 }
@@ -1103,6 +1146,13 @@ function adminLinks(){
  ${EXROOMS.map(r=>fld('l_'+r.id,`Phòng ${r.n} · ${r.name}: phòng 3D`,data.settings.room3d[r.id]||'',{url:1,ph:'https://www.artsteps.com/view/…'})).join('')}
  ${fld('l_intro','Video giới thiệu trường (hiện ở đầu trang)',data.settings.introVideo,{url:1,ph:'https://youtu.be/…'})}
  <div><button type="submit" class="btn primary">Đưa vào danh sách</button></div></form>`;
+}
+function adminGallery(){
+ const G=galleryOf(),opt=v=>sitesOf().map(st=>`<option ${v===st?'selected':''}>${esc(st)}</option>`).join('');
+ return `<div class="box"><h3>Ảnh nổi bật của ba nhà trường</h3><p style="margin:0;color:var(--muted);font-size:15px">Hiện ở Phòng 1, dưới trình chiếu Hành trình của trường. Chọn trường rồi tải ảnh (chọn được nhiều ảnh); sửa chú thích, đổi thứ tự, xóa ảnh ngay trong danh sách, sau đó bấm <b>Lưu lên trang</b>. Không đăng ảnh rõ mặt trẻ khi chưa có đồng ý của cha mẹ.</p>
+  <div class="two" style="align-items:end"><div class="f"><label for="g_site">Ảnh của trường</label><select id="g_site">${opt(sitesOf()[0])}</select></div><div class="f"><label for="g_files">Tải ảnh lên</label><input type="file" id="g_files" multiple accept="image/jpeg,image/png,image/webp,image/heic"></div></div></div>
+ <div class="gadmin">${G.map((g,i)=>`<div class="gaitem"><div class="gathumb">${gimg(g.photo,'',true)}</div><div class="f"><select data-gsite-i="${i}" aria-label="Trường">${opt(g.site)}</select></div><div class="f"><input data-gcap-i="${i}" value="${esc(g.cap)}" placeholder="Chú thích (không bắt buộc)" aria-label="Chú thích"></div>
+  <div class="acts"><button type="button" class="btn small" data-gup="${i}" ${i?'':'disabled'} aria-label="Đưa lên trước">↑</button><button type="button" class="btn small danger" data-gdel="${i}">Xóa</button></div></div>`).join('')||'<small style="color:var(--muted)">Chưa có ảnh.</small>'}</div>`;
 }
 let lessonDraft=null;
 function adminLessons(){
@@ -1299,6 +1349,14 @@ function wireAdmin(){
   if(!draft.when)errors.t_when='Hãy nhập thời gian.';if(!draft.title)errors.t_title='Hãy nhập tiêu đề.';if(Object.keys(errors).length){render();return}
   if(teacher()){submitItem('timeline',{...draft},before||null);return}
   const rest=data.timeline.filter(t=>t.id!==draft.id),at=before?rest.findIndex(t=>t.id===before):-1;if(at<0)rest.push({...draft});else rest.splice(at,0,{...draft});data.timeline=rest;draft=null;editId=null;markDirty();render()};
+ const galEdit=()=>{if(!Array.isArray(data.settings.gallery))data.settings.gallery=galleryOf().map(g=>({...g}));return data.settings.gallery};
+ main.querySelectorAll('[data-gsite-i]').forEach(x=>x.onchange=()=>{galEdit()[+x.dataset.gsiteI].site=x.value;markDirty()});
+ main.querySelectorAll('[data-gcap-i]').forEach(x=>x.onchange=()=>{galEdit()[+x.dataset.gcapI].cap=x.value.trim().slice(0,200);markDirty()});
+ main.querySelectorAll('[data-gdel]').forEach(b=>b.onclick=()=>{galEdit().splice(+b.dataset.gdel,1);markDirty();render()});
+ main.querySelectorAll('[data-gup]').forEach(b=>b.onclick=()=>{const G=galEdit(),i=+b.dataset.gup;[G[i-1],G[i]]=[G[i],G[i-1]];markDirty();render()});
+ const gf=$('g_files');if(gf)gf.onchange=async()=>{const fs=[...(gf.files||[])];if(!fs.length)return;const site=val('g_site');let ok=0,fail=0;
+  for(const[i,f]of fs.entries()){setMsg(`Đang thu nhỏ và tải ảnh ${i+1}/${fs.length}…`);try{const url=await shrink(f);const r=await api('/api/photo',{data:url});phPrev[r.photo]=url;galEdit().unshift({photo:r.photo,site,cap:''});ok++}catch(_){fail++}}
+  markDirty();render();setMsg(`Đã tải ${ok} ảnh${fail?`, ${fail} ảnh lỗi`:''}. Ghi chú thích rồi bấm Lưu lên trang.`)};
  const lsA=$('lsAdd');if(lsA)lsA.onclick=()=>{lessonDraft={id:'l'+Date.now().toString(36),tc:'TC1',age:'5-6',title:'',month:'',week:'',yccd:'',desc:'',links:[]};errors={};render()};
  const lsC=$('lsCancel');if(lsC)lsC.onclick=()=>{lessonDraft=null;errors={};render()};
  main.querySelectorAll('[data-ledit]').forEach(b=>b.onclick=()=>{const l=lessonsOf().find(x=>x.id===b.dataset.ledit);lessonDraft=JSON.parse(JSON.stringify(l));errors={};render()});
@@ -1450,6 +1508,7 @@ function render(){
  main.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{location.hash=b.dataset.go});
  wireWalls(main);
  main.querySelectorAll('[data-gocls]').forEach(b=>b.onclick=()=>goClass(b.dataset.gocls,b.dataset.room));
+ if(r.kind==='timeline'){const L=galleryOf().filter(g=>!galF||g.site===galF);main.querySelectorAll('[data-gi]').forEach(b=>b.onclick=()=>openLightbox(L,+b.dataset.gi));main.querySelectorAll('[data-gsite]').forEach(b=>b.onclick=()=>{galF=b.dataset.gsite;render();$('gallery').scrollIntoView({block:'start'})})}
  if(r.kind==='timeline'||r.kind==='intro')initShow();else{clearInterval(tTimer);tTimer=null}
  if(r.kind==='admin')wireAdmin();
 }

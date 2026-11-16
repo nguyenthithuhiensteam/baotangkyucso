@@ -186,6 +186,9 @@ function cleanData(d) {
     .filter(c => /^[a-z0-9]{1,20}$/.test(c.id) && c.name);
   if (Array.isArray(s.heritage)) settings.heritage = s.heritage.slice(0, 60).map(h => ({ id: str(h?.id, 20), site: str(h?.site, 60), name: str(h?.name, 100), kind: str(h?.kind, 100), confirm: str(h?.confirm, 100) }))
     .filter(h => /^[a-z0-9]{1,20}$/.test(h.id) && h.name);
+  // Ảnh nổi bật của ba nhà trường (Phòng 1)
+  if (Array.isArray(s.gallery)) settings.gallery = s.gallery.slice(0, 80).map(g => ({ photo: str(g?.photo, 80), site: str(g?.site, 60), cap: str(g?.cap, 200) }))
+    .filter(g => /^anh\/(gioithieu\/[a-z0-9-]{1,40}|[a-z0-9]{8,40})\.jpg$/.test(g.photo));
   if (Array.isArray(s.stats)) settings.stats = s.stats.slice(0, 6).map(x => ({ n: str(x?.n, 12), l: str(x?.l, 40) })).filter(x => x.n || x.l);
   return { v: 1, settings, exhibits: d.exhibits.map(cleanExhibit), timeline: d.timeline.map(cleanTimeline),
     lessons: (Array.isArray(d.lessons) ? d.lessons : []).slice(0, 300).map(cleanLesson) };
@@ -266,7 +269,7 @@ function failLogin(key) {
 
 /* ---------------- Các đường dẫn API ---------------- */
 const routes = {
-  'GET /api/health': async () => ({ ok: true, configured, lessons: true }),
+  'GET /api/health': async () => ({ ok: true, configured, lessons: true, gallery: true }),
 
   'POST /api/login': async (req, body) => {
     const username = str(body.username, 40).toLowerCase(), password = String(body.password || '');
