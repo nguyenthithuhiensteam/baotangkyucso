@@ -3326,6 +3326,37 @@
    "photos": [],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwin9s2k",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Tiết học: KPXH: Tình cảm, cảm xúc của bé",
+   "era": "10/2026",
+   "plan": "Tiết học: KPXH: Tình cảm, cảm xúc của bé",
+   "from": "Lớp MG 4-5T B3 Trường chính",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l8834cf"
+   ],
+   "tc": [
+    "TC6"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/3e31883753edfbdea478.jpg",
+   "photos": [
+    "anh/3e31883753edfbdea478.jpg",
+    "anh/6e67ed1f707d1aae03cf.jpg",
+    "anh/ba2983528a4eb0c6a2c9.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
