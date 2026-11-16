@@ -1712,6 +1712,33 @@
    ],
    "photoAlt": "Cây kim tiền mọc thành bụi thẳng đứng với những cọng thân mọng nước chắc nịch, dọc hai bên xếp đều tăm tắp các cặp lá bầu dục dày dặn, trơn bóng và mát lạnh khi chạm vào.",
    "sample": false
+  },
+  {
+   "id": "emwhxulgc",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây dứa nam mỹ",
+   "era": "tháng 11/2026",
+   "plan": "Ngày nhà giáo Việt Nam 20/11",
+   "from": "lớp: 24 - 36 tháng A Tràng Đà",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/u/0/folders/1vWvU83wfNSedmIxUsZS3gAq3REim0TK2",
+   "cls": [
+    "lc16f31"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/075fdff9cecaf7e17225.jpg",
+   "photos": [
+    "anh/075fdff9cecaf7e17225.jpg"
+   ],
+   "photoAlt": "",
+   "sample": true
   }
  ],
  "timeline": [
