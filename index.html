@@ -945,10 +945,16 @@ const DEFAULT_GALLERY=[['hs-6','hs','Tham quan trường tiểu học của tr�
  ...['nt-1','nt-2','nt-3','nt-4','nt-5','nt-6','nt-7','nt-8'].map(k=>[k,'nt','']),...['td-1','td-2','td-3'].map(k=>[k,'td','']),['td-4','td','Hoạt động ngoại khóa “Tôi yêu Việt Nam” – an toàn giao thông'],['td-5','td','Bé thực hành đi đúng luật giao thông'],['td-6','td','Bé làm chú bộ đội bên xe tăng'],['td-7','td','Không gian trải nghiệm chào mừng ngày Quân đội nhân dân Việt Nam'],['td-8','td','Sinh hoạt chuyên môn: tiết kể chuyện “Chú vịt xám”'],['td-9','td','Sinh hoạt chuyên môn: hoạt động “Vũ điệu của sữa”'],['td-10','td','Ngày hội đọc sách – bé bên góc sách'],['td-11','td','Ngày hội đọc sách của các bé'],['td-12','td','Phối hợp Trung tâm Y tế khám sức khỏe cho trẻ'],['td-13','td','Trải nghiệm ngày Quân đội nhân dân: bé tập làm chiến sĩ'],['td-14','td','Trải nghiệm “Cánh đồng quê em” cho trẻ mẫu giáo'],['td-15','td','Bé dạo cánh đồng, vườn cây quê hương']].map(([k,s,c])=>({photo:`anh/gioithieu/${k}.jpg`,site:SITE_OF[s],cap:c}));
 const galleryOf=()=>Array.isArray(data.settings.gallery)?data.settings.gallery:DEFAULT_GALLERY;
 let galF='';
+/* Mục "Tất cả": xen kẽ lần lượt ảnh của từng điểm trường. */
+function galList(){
+ const G=galleryOf();if(galF)return G.filter(g=>g.site===galF);
+ const by=new Map();G.forEach(g=>{if(!by.has(g.site))by.set(g.site,[]);by.get(g.site).push(g)});
+ const ord=sitesOf(),Q=[...by.keys()].sort((x,y)=>(ord.indexOf(x)+1||99)-(ord.indexOf(y)+1||99)).map(k=>by.get(k)),out=[];for(let i=0;out.length<G.length;i++)Q.forEach(q=>{if(q[i])out.push(q[i])});return out;
+}
 const gimg=(p,alt,lazy)=>`<img src="${esc(p)}" alt="${esc(alt)}" ${lazy?'loading="lazy"':''} onerror="if(!this.dataset.r){this.dataset.r=1;this.src='${RAW}'+'${esc(p)}'}">`;
 function gallerySection(){
  const G=galleryOf();if(!G.length)return '';
- const sites=sitesOf().filter(st=>G.some(g=>g.site===st)),L=G.filter(g=>!galF||g.site===galF);
+ const sites=sitesOf().filter(st=>G.some(g=>g.site===st)),L=galList();
  return `<div class="gallery" id="gallery"><h3 class="sub">Ảnh nổi bật của ba nhà trường</h3>
   <div class="cfilter"><div class="row"><button type="button" data-gsite="" aria-pressed="${!galF}">Tất cả <small>${G.length}</small></button>${sites.map(st=>`<button type="button" data-gsite="${esc(st)}" aria-pressed="${galF===st}">${esc(st)} <small>${G.filter(g=>g.site===st).length}</small></button>`).join('')}</div></div>
   <div class="wallwrap ${L.length>9?'is-g9':''}" data-page="0">${L.length>9?'<button type="button" class="wnav prev" aria-label="Trang trước" disabled>‹</button><button type="button" class="wnav next" aria-label="Trang sau">›</button>':''}
@@ -1582,7 +1588,7 @@ function render(){
  main.querySelectorAll('[data-dicls]').forEach(b=>b.onclick=()=>{diSel=b.dataset.dicls;render();main.scrollIntoView({block:'start'})});
  wireWalls(main);
  main.querySelectorAll('[data-gocls]').forEach(b=>b.onclick=()=>goClass(b.dataset.gocls,b.dataset.room));
- if(r.kind==='timeline'){const L=galleryOf().filter(g=>!galF||g.site===galF);main.querySelectorAll('[data-gi]').forEach(b=>b.onclick=()=>openLightbox(L,+b.dataset.gi));main.querySelectorAll('[data-gsite]').forEach(b=>b.onclick=()=>{galF=b.dataset.gsite;render();$('gallery').scrollIntoView({block:'start'})})}
+ if(r.kind==='timeline'){const L=galList();main.querySelectorAll('[data-gi]').forEach(b=>b.onclick=()=>openLightbox(L,+b.dataset.gi));main.querySelectorAll('[data-gsite]').forEach(b=>b.onclick=()=>{galF=b.dataset.gsite;render();$('gallery').scrollIntoView({block:'start'})})}
  if(r.kind==='timeline'||r.kind==='intro')initShow();else{clearInterval(tTimer);tTimer=null}
  if(r.kind==='admin')wireAdmin();
 }
