@@ -1343,7 +1343,9 @@
    "cls": [
     "lb4ed25"
    ],
-   "tc": [],
+   "tc": [
+    "TC4"
+   ],
    "keeper": "Cha mẹ",
    "her": "",
    "photo": "anh/71b30857cc6692308dc0.jpg",
@@ -1658,7 +1660,7 @@
     "anh/2a87915f40ccfcd7cbfd.jpg",
     "anh/126923e6fab59c06eaca.jpg"
    ],
-   "photoAlt": "",
+   "photoAlt": "Bé chăm sóc cây hoa trong vườn",
    "sample": false
   },
   {
