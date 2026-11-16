@@ -550,13 +550,13 @@
   {
    "id": "emwavggq1",
    "room": "thien-nhien",
-   "art": "sach",
-   "name": "CÂY THU HẢI ĐƯỜNG",
+   "art": "caylon",
+   "name": "Cây Lưỡi Hổ. Lớp 4-5 tuổi Tràng Đà",
    "era": "Tháng 11/2026",
    "plan": "Phong trào cây xanh",
    "from": "Lớp 4-5 tuổi Tràng Đa",
-   "story": "Ngày xửa ngày xưa, dưới chân một ngọn núi quanh năm sương phủ, có một chàng thư sinh nghèo tên là Minh sống bằng nghề chép sách. Trong góc vườn nhỏ trước hiên nhà, chàng trồng một khóm hoa lạ do một vị khách qua đường tặng. Cây có thân mềm mại, lá xanh mướt và nở ra những đóa hoa màu hồng phớt dịu dàng mỗi độ thu về.\nMùa thu năm ấy, quê hương gặp trận đại hạn, mùa màng thất bát. Dân làng lâm vào cảnh đói kém, riêng Minh vẫn chắt chiu từng gáo nước suối xa xôi để tưới cho khóm hoa nhỏ. Cảm động trước tấm lòng nhân hậu và sự trân trọng của chàng, nàng tiên hoa của loài cây ấy đã hiện thân thành một thiếu nữ xinh đẹp, dịu dàng ở bên chăm sóc, giúp chàng vượt qua những ngày gian khó.\nKhi mùa xuân sang, vạn vật hồi sinh, nàng tiên phải trở về trời theo quy luật của tự nhiên. Trước lúc chia xa, nàng nhỏ một giọt lệ lên cánh hoa hồng thắm rồi biến mất vào làn sương sớm, để lại hương thơm thanh khiết vấn vương khắp khu vườn.\nTừ đó, người đời gọi loài hoa ấy là Thu Hải Đường. Loài cây không chỉ mang vẻ đẹp mong manh, thuần khiết của mùa thu mà còn là biểu tượng cho sự quan tâm chân thành, tình cảm thủy chung và lòng biết ơn sâu sắc.",
-   "ask": "Vì sao cây này lại tên là Thu Hải Đường ạ?",
+   "story": "Ngày xửa ngày xưa, tại một ngôi làng nhỏ ven rừng, người dân thường hay lo lắng về những đêm dài tối tăm và bầu không khí oi bức, nặng nề.\n\nMột hôm, có một vị sứ giả từ miền đất lạ ghé qua và để lại trước hiên nhà một chậu cây có dáng vẻ vô cùng đặc biệt: những chiếc lá mọc thẳng đứng, cứng cáp, mang màu xanh thẫm xen lẫn đường vằn ngang sắc nét giống hệt chiếc vằn trên lưng chú hổ dũng mãnh. Vị sứ giả mỉm cười nói:\n– \"Đây là Cây Lưỡi Hổ. Dù mang dáng vẻ kiên cường, mạnh mẽ như những thanh gươm, loài cây này lại có tấm lòng vô cùng dịu êm, âm thầm bảo vệ giấc ngủ và bầu không khí trong lành cho gia đình.\"\n\nQuả nhiên, từ khi có chậu cây xanh mát ấy, không gian trong nhà trở nên thoáng đãng hơn hẳn. Đặc biệt, ngay cả khi màn đêm buông xuống, cây vẫn chăm chỉ nhả ra luồng oxy tinh khiết, giúp mọi người có những giấc ngủ sâu và ngon giấc. Sức sống mãnh liệt, bền bỉ của cây dù ở nơi ít ánh sáng hay thiếu nước khiến ai nấy đều thán phục.\n\nTừ đó, cây Lưỡi Hổ trở thành người gác đêm thầm lặng trong mỗi gia đình, tượng trưng cho ý chí kiên cường vươn lên, mang lại sự bình an và may mắn cho gia chủ.",
+   "ask": "Các con nhìn xem những chiếc lá của cây Lưỡi Hổ mọc theo hướng nào, thẳng đứng hay rủ xuống nhỉ?",
    "video": "",
    "audio": "",
    "link3d": "",
@@ -571,9 +571,10 @@
    "her": "",
    "photo": "anh/ab0fc543c29e02f43f52.jpg",
    "photos": [
-    "anh/ab0fc543c29e02f43f52.jpg"
+    "anh/ab0fc543c29e02f43f52.jpg",
+    "anh/52959283b1db7c2de842.jpg"
    ],
-   "photoAlt": "https://drive.google.com/file/d/1gYfiyPM6uHBZGf6Ly-JWh_aI_HJZ_ogE/view?usp=drive_link",
+   "photoAlt": "https://drive.google.com/file/d/1uNGCHPBrMjTTze6ik_EmjD_eKRI5_dyL/view?usp=drive_link",
    "sample": true
   },
   {
@@ -6177,6 +6178,740 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwiolmwx",
+   "room": "di-san",
+   "art": "ao",
+   "name": "Bé khám phá góc văn hoá dân tộc",
+   "era": "11/2026",
+   "plan": "Khám phá góc văn hoá dân tộc",
+   "from": "Lớp MG 4-5T B3 Trường chính",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l8834cf"
+   ],
+   "tc": [
+    "TC8",
+    "TC9"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/a74ac178f264dc321be0.jpg",
+   "photos": [
+    "anh/a74ac178f264dc321be0.jpg",
+    "anh/9090c34529cb621bcba9.jpg",
+    "anh/fc018af3a5e35e0c4c47.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwj122dm",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Trò chơi Dân gian: Ô ăn quan Lớp MG 4-5 tuổi B2 Nông Tiến",
+   "era": "Tháng 11/2026",
+   "plan": "Hoạt động chiều",
+   "from": "Lớp 4-5 tuổi B2 trường chính",
+   "story": "Sự Tích Trò Chơi Ô Ăn Quan\nNgày xửa ngày xưa, ở một ngôi làng thanh bình ven sông, có hai anh em nhà nông tên là An và Bình. Nhà nghèo nên hai anh em không có những món đồ chơi đắt tiền, nhưng cả hai đều rất thông minh, nhanh nhẹn và luôn yêu thương, nhường nhịn nhau. Mỗi buổi chiều sau khi phụ giúp cha mẹ chăn trâu, cắt cỏ, An và Bình thường ngồi dưới bóng đa đầu làng tìm cách tự tạo ra niềm vui từ những vật dụng quen thuộc xung quanh.\nMột hôm, nhìn thấy những viên sỏi cuội tròn nhẵn bên bờ suối và nền đất phẳng lì dưới gốc đa, cậu anh tên An bỗng nảy ra một ý tưởng thú vị. Cậu dùng một nhánh cây khô vạch lên mặt đất một hình chữ nhật lớn, chia thành mười ô nhỏ ở giữa tượng trưng cho ruộng đồng của dân làng, và vẽ thêm hai ô hình bán nguyệt lớn ở hai đầu tượng trưng cho kho lương thực của hai vị quan. Sau đó, hai anh em nhặt những viên sỏi nhỏ xếp đều vào các ô ruộng, còn hai viên đá cuội to nhất được đặt vào hai ô quan lớn.\nHai anh em cùng nhau đặt ra luật chơi vô cùng độc đáo: người chơi sẽ bốc sỏi từ một ô dân bất kỳ và rải đều từng viên sang các ô bên cạnh, nếu gặp khoảng trống thì được \"ăn\" phần sỏi ở ô tiếp theo. Trò chơi đòi hỏi người chơi phải biết tính toán khéo léo, biết chia sẻ từng viên sỏi cho đều tay và biết kiên nhẫn chờ đợi thời cơ để thu về thật nhiều \"lương thực\" nhất.\nTiếng cười giòn tan cùng những màn tính toán đầy hào hứng của An và Bình nhanh chóng thu hút lũ trẻ khắp làng đến xem và cùng tham gia. Chẳng bao lâu sau, trò chơi giản dị mà trí tuệ ấy lan rộng ra khắp mọi miền quê, được người dân gọi bằng cái tên thân thuộc là Ô Ăn Quan. Từ đó, trò chơi Ô Ăn Quan không chỉ mang lại niềm vui tuổi thơ trong sáng mà còn dạy cho các bạn nhỏ bài học về sự thông minh, tính kiên trì và tinh thần chia sẻ công bằng trong cuộc sống.",
+   "ask": "Mỗi ô có mấy viên sỏi? Con đếm cùng cô nhé!",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb4ed25"
+   ],
+   "tc": [
+    "TC1",
+    "TC4",
+    "TC6",
+    "TC9"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/2334954a3eaca610d0fc.jpg",
+   "photos": [
+    "anh/2334954a3eaca610d0fc.jpg",
+    "anh/1f4e134cfd36c8978dbf.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwj1al6b",
+   "room": "khoanh-khac",
+   "art": "caylon",
+   "name": "Cây Hoa Giấy",
+   "era": "Thán 11",
+   "plan": "",
+   "from": "4-5 tuổi B1",
+   "story": "Cây hoa giấy là loại cây thân leo, có nhiều cành và gai nhọn. Lá cây có màu xanh, hình bầu dục. Hoa giấy thường có nhiều màu sắc như hồng, đỏ, tím, trắng, vàng; cánh hoa mỏng, nhẹ giống như những tờ giấy. Cây thường được trồng làm cảnh, trang trí sân vườn, cổng nhà và trường học. Các bé cần biết yêu quý, chăm sóc cây, không ngắt hoa, bẻ cành, góp phần giữ gìn môi trường xanh, sạch, đẹp",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l62a027"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/ad4366f05c47724753e9.jpg",
+   "photos": [
+    "anh/ad4366f05c47724753e9.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwj16kef",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Bé chăm sóc cây xanh",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp: 4-5 tuổi Hương Sen",
+   "story": "GÓC THIÊN NHIÊN XANH – BÉ HỌC YÊU THƯƠNG VÀ TRÁCH NHIỆM\n\nTrong hoạt động chăm sóc góc thiên nhiên, các bé đã tự tay nâng niu từng mầm xanh của lớp mình. Bằng đôi bàn tay nhỏ nhắn, khéo léo, các con nhẹ nhàng dùng khăn ẩm lau sạch từng chiếc lá để cây luôn tươi tốt và quang hợp tốt hơn.\nKhông chỉ vậy, các bé còn cẩn thận tưới từng dòng nước mát vừa đủ vào gốc cho các chậu cây cảnh. Những hành động tuy nhỏ bé nhưng giúp trẻ rèn luyện sự tỉ mỉ, kiên nhẫn và kỹ năng lao động tự phục vụ vừa sức. Qua trải nghiệm thực tế, các con dần hiểu được cây xanh cũng cần được quan tâm, chăm sóc như những người bạn thân thiết. Từ đó, tình yêu thiên nhiên và ý thức giữ gìn, bảo vệ môi trường xanh – sạch – đẹp được gieo mầm tự nhiên trong tâm hồn trẻ thơ.\nNiềm vui hiện rõ trên từng ánh mắt khi các bé thấy góc thiên nhiên của lớp ngày càng xanh mướt và tràn đầy sức sống.",
+   "ask": "1. Các con đã làm những việc gì để chăm sóc các bạn cây ở góc thiên nhiên? 2. Vì sao chúng mình phải lau sạch bụi trên lá và tưới nước vừa đủ cho cây mỗi ngày nhỉ? 3. Khi tự tay chăm sóc cho cây xanh tươi tốt, con cảm thấy thế nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l7d442e"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/673bb2492ca04b8fd3ac.jpg",
+   "photos": [
+    "anh/673bb2492ca04b8fd3ac.jpg",
+    "anh/63c95e742aded85acb44.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwj1ekf8",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "HĐVĐ: Ném xa bằng 1 tay",
+   "era": "11/2026",
+   "plan": "",
+   "from": "Lớp Mẫu giáo 5-6 tuổi C2",
+   "story": "HĐVĐ: Ném xa bằng 1 tay - TC: Tiếp sức",
+   "ask": "Các con đã thực hiện vận động gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/folders/10OHn7EN7Sv7bgJuPeGDHM89W0Eqj7ZLf?usp=drive_link",
+   "cls": [
+    "l3ee012"
+   ],
+   "tc": [
+    "TC1"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwj1g2yi",
+   "room": "thien-nhien",
+   "art": "caylon",
+   "name": "Cây Đế Vương Đỏ",
+   "era": "Thán 11",
+   "plan": "",
+   "from": "4-5 tuổi B1",
+   "story": "Cây Đế Vương Đỏ là cây cảnh thân thảo, thường mọc thành bụi, có lá to, hình bầu dục, màu đỏ tía, đỏ nâu hoặc xanh đậm khi lá trưởng thành. Cuống lá chắc khỏe, mọc tập trung từ gốc, tạo dáng cây đẹp mắt. Cây thường được trồng trong chậu để trang trí nhà ở, văn phòng và trường học, giúp không gian thêm xanh mát, sinh động. Các bé cần biết yêu quý, chăm sóc cây, không ngắt lá, bẻ cành và giữ gìn môi trường xanh, sạch, đẹp.",
+   "ask": "Đây là cây gì? Cây Đế Vương Đỏ có những bộ phận nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l62a027"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/58cf05b0b4079d53f553.jpg",
+   "photos": [
+    "anh/58cf05b0b4079d53f553.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwj1qb9b",
+   "room": "tri-an",
+   "art": "sach",
+   "name": "Nến thơm tặng mẹ",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/folders/1Zs7AIkS40vpgzOX8Elu_aMvhxPJ8xwnF?usp=drive_link",
+   "cls": [
+    "l3a9b5e"
+   ],
+   "tc": [
+    "TC7"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwj1epi6",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Trò chơi Dân gian: Rồng rắn lên mây Lớp MG 4-5 tuổi B2 Nông Tiến",
+   "era": "Tháng 11/2026",
+   "plan": "Hoạt động chiều",
+   "from": "Lớp 4-5 tuổi B2 trường chính",
+   "story": "Sự Tích Trò Chơi Rồng Rắn Lên Mây\nNgày xửa ngày xưa, ở một ngôi làng nhỏ ven sông, mùa màng bỗng nhiên gặp hạn hán kéo dài, ruộng đồng nứt nẻ, cây cối héo khô khiến cuộc sống của người dân vô cùng khó khăn. Thấy cha mẹ và bà con lo lắng, lũ trẻ trong làng đã cùng nhau rủ lên ngọn núi cao nhất gần làng để tìm vị thần Mây, cầu xin thần ban mưa xuống giúp dân.\nĐường lên núi quanh co, gập ghềnh với nhiều dốc đá hiểm trở. Để không bạn nào bị lạc hay ngã, các bạn nhỏ đã nghĩ ra một cách rất thông minh: bạn lớn nhất và khỏe nhất đứng ở đầu hàng làm \"đầu rồng\" dẫn đường, các bạn nhỏ hơn nối đuôi nhau phía sau, tay nắm chặt vạt áo của người đi trước tạo thành một \"thân rồng\" dài uốn lượn. Cả đoàn vừa đi vừa đồng thanh hát vang những câu đồng dao vui nhộn để cổ vũ tinh thần nhau vượt qua mệt mỏi.\nKhi lên đến đỉnh núi, đoàn rồng rắn gặp một ông lão râu tóc bạc phơ đang ngồi bên tảng đá lớn, đó chính là thần Mây. Thần Mây thử lòng các bạn nhỏ bằng cách hóa thành một vị thầy thuốc khó tính, giả vờ hỏi xin \"khúc đầu\", \"khúc giữa\" hay \"khúc đuôi\" của đoàn rồng. Bạn đứng đầu hàng dũng cảm đứng ra đối đáp trôi chảy, khéo léo bảo vệ các em nhỏ phía sau và khẳng định cả đoàn luôn đoàn kết, không bao giờ rời xa nhau.\nCảm động trước sự thông minh, dũng cảm và tinh thần đoàn kết của lũ trẻ, thần Mây mỉm cười hiền hậu và lập tức vẩy phép thần ban xuống một cơn mưa rào mát lành tưới tắm khắp cánh đồng quê. Kể từ ngày đó, mỗi buổi chiều trên sân đình hay bãi cỏ đầu làng, lũ trẻ lại nắm áo nhau xếp thành hàng dài, vừa đi vừa hát bài đồng dao quen thuộc để tái hiện hành trình lên núi cầu mưa. Trò chơi Rồng Rắn Lên Mây ra đời từ đó, mang theo bài học quý giá về tình bạn, sự đoàn kết và lòng dũng cảm bảo vệ lẫn nhau.",
+   "ask": "Lớp mình có muốn cùng nhau nắm áo xếp hàng dài để chơi trò chơi \"Rồng rắn lên mây\"  không?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb4ed25"
+   ],
+   "tc": [
+    "TC1",
+    "TC4",
+    "TC6",
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/f38e2143c8c5bda01680.jpg",
+   "photos": [
+    "anh/f38e2143c8c5bda01680.jpg",
+    "anh/d9e62c15feb65ab57dbf.jpg",
+    "anh/3d2526415d85e7e4f63b.jpg",
+    "anh/d523044f69a653c356b4.jpg"
+   ],
+   "photoAlt": "Rồng Rắn Lên Mây là trò chơi vận động tập thể vui nhộn, trong đó các người chơi nối đuôi nhau thành một hàng dài bằng cách nắm chặt vạt áo hoặc đặt tay lên vai người phía trước, vừa di chuyển uốn lượn",
+   "sample": false
+  },
+  {
+   "id": "emwj1rchs",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Bé vui học chữ",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/folders/1KvJAGQb3X4jAsK6kMoixUJhRU42krNBU?usp=drive_link",
+   "cls": [
+    "l3a9b5e"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwj1xfi5",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Bé tham gia HĐTN phòng cháy chữa cháy",
+   "era": "16/11/2026",
+   "plan": "",
+   "from": "Lớp 5-6 tuổi C1",
+   "story": "",
+   "ask": "Khi có cháy con phải làm gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/folders/1gjJmp15qBuQZmvm2Plee7MnLLx0Y5inq?usp=drive_link",
+   "cls": [
+    "l3a9b5e"
+   ],
+   "tc": [
+    "TC3"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwj26pzx",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Bé với trò chơi bịt mắt bắt dê",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp 5- 6 tuổi C3 (Trường chính)",
+   "story": "Trong không khí vui tươi, hào hứng, các bé lớp 5–6 tuổi cùng tham gia trò chơi “Bịt mắt bắt dê” vô cùng sôi nổi. Với đôi mắt được bịt kín, các bé khéo léo lắng nghe tiếng gọi, tiếng bước chân của bạn để tìm và bắt dê. Tiếng cười giòn tan, những bước chân ngộ nghĩnh cùng sự cổ vũ nhiệt tình của cô giáo và các bạn đã tạo nên một giờ hoạt động vui vẻ, đầy ắp niềm vui. Trò chơi không chỉ mang đến những giây phút thư giãn mà còn giúp các bé rèn luyện sự nhanh nhẹn, khả năng định hướng, phản xạ và tinh thần đoàn kết khi vui chơi cùng tập thể. ❤️",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/folders/1xIbX5x-9FJFR4YzmJfss86PSuiJgaSeM?usp=sharing",
+   "cls": [
+    "lc9d4fb"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/b93dc667ded13c6e7c87.jpg",
+   "photos": [
+    "anh/b93dc667ded13c6e7c87.jpg",
+    "anh/f0b9d35e2790f6a396ce.jpg",
+    "anh/664a5f7a48bb66449a6a.jpg",
+    "anh/a5212f1351a18e9b3699.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwj2gfqn",
+   "room": "thien-nhien",
+   "art": "cay",
+   "name": "Bé chăm sóc cây xanh góc thiên nhiên tại lớp A1",
+   "era": "Tháng 11/2016",
+   "plan": "Bé chăm sóc cây",
+   "from": "Lớp 3 - 4 tuổi A1",
+   "story": "Mỗi ngày đến lớp là 1 ngày vui. Trước khi ra hoạt động ngoài trời bé cùng trò chuyện quan sát cây hoa giấy sau đó cùng chăm sóc với cô góc thiên nhiên tại chính lớp của mình. Qua đó, trẻ biết yêu quý bảo vệ các loài cây",
+   "ask": "Hôm nay các con được chăm sóc những gì?",
+   "video": "https://drive.google.com/drive/folders/1dZnuE6314fgWxHyf9esEZRjZUn_6qI7Y",
+   "audio": "https://drive.google.com/drive/folders/1dZnuE6314fgWxHyf9esEZRjZUn_6qI7Y",
+   "link3d": "https://drive.google.com/drive/folders/1dZnuE6314fgWxHyf9esEZRjZUn_6qI7Y",
+   "drive": "https://drive.google.com/drive/folders/1dZnuE6314fgWxHyf9esEZRjZUn_6qI7Y",
+   "cls": [
+    "l92c638"
+   ],
+   "tc": [
+    "TC1",
+    "TC3",
+    "TC4",
+    "TC5",
+    "TC6",
+    "TC8",
+    "TC9"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/16df47f4ac3a6c41f89c.jpg",
+   "photos": [
+    "anh/16df47f4ac3a6c41f89c.jpg"
+   ],
+   "photoAlt": "Bé chăm sóc cây xanh",
+   "sample": true
+  },
+  {
+   "id": "emwj2lru6",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây xanh quanh bé",
+   "era": "11/2026",
+   "plan": "",
+   "from": "Lớp Mẫu giáo 5-6 tuổi C2",
+   "story": "Góc thiên nhiên",
+   "ask": "Bé phải làm gì để cây luôn xanh tươi?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/folders/16-ESTPijcoqYsbIMHQR2sYbfaYmBfqjD?usp=drive_link",
+   "cls": [
+    "l3ee012"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwj2l70e",
+   "room": "khoanh-khac",
+   "art": "khoc",
+   "name": "Bé với cảm xúc buổi sáng",
+   "era": "Tháng 11/2016",
+   "plan": "Bé với cảm xúc buổi sáng",
+   "from": "Lớp 3 - 4 tuổi A1",
+   "story": "Mỗi ngày đến trường mầm non, bé mang theo những cảm xúc thật đáng yêu. Có lúc bé vui vẻ, háo hức được gặp cô giáo và các bạn; có lúc còn bẽn lẽn, lưu luyến khi rời vòng tay bố mẹ. Nhưng nhờ sự yêu thương, ân cần của cô giáo và những hoạt động vui chơi bổ ích, bé dần cảm thấy tự tin, vui vẻ, yêu trường, yêu lớp và mong chờ mỗi ngày được đến trường. ❤️",
+   "ask": "Hôm nay các con được ăn những gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l92c638"
+   ],
+   "tc": [
+    "TC1",
+    "TC2",
+    "TC3",
+    "TC4",
+    "TC5",
+    "TC6",
+    "TC8",
+    "TC9"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/e687717c61d60cf7c862.jpg",
+   "photos": [
+    "anh/e687717c61d60cf7c862.jpg"
+   ],
+   "photoAlt": "Bé với cảm xúc buổi sáng",
+   "sample": false
+  },
+  {
+   "id": "emwj2m4gc",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Trò chơi nhảy vào ô chữ",
+   "era": "16/11/2026",
+   "plan": "",
+   "from": "Lớp 5-6 tuổi C1",
+   "story": "",
+   "ask": "Đây là chữ cái gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://youtu.be/nY2_0MI6_Gc",
+   "cls": [
+    "l3a9b5e"
+   ],
+   "tc": [
+    "TC6"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwj2oxqg",
+   "room": "khoanh-khac",
+   "art": "khoc",
+   "name": "Bé vui học làm quen với tiếng anh",
+   "era": "Tháng 11/2016",
+   "plan": "Bé vui học làm quen với tiếng anh",
+   "from": "Lớp 3 - 4 tuổi A1",
+   "story": "Bé vui học làm quen với tiếng anh rất hứng thú, tích cực khi được cô giáo gọi lên tự dùng chuột máy tính để chọn đáp áp",
+   "ask": "Hôm nay các con được học những gì?",
+   "video": "https://drive.google.com/drive/folders/1Mio19TmjoycGeWJBC1pFDKJiSeo2Li_t",
+   "audio": "https://drive.google.com/drive/folders/1Mio19TmjoycGeWJBC1pFDKJiSeo2Li_t",
+   "link3d": "https://drive.google.com/drive/folders/1Mio19TmjoycGeWJBC1pFDKJiSeo2Li_t",
+   "drive": "https://drive.google.com/drive/folders/1Mio19TmjoycGeWJBC1pFDKJiSeo2Li_t",
+   "cls": [
+    "l92c638"
+   ],
+   "tc": [
+    "TC2",
+    "TC3",
+    "MR2",
+    "TC4",
+    "MR1",
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/8f8af9d002182744f880.jpg",
+   "photos": [
+    "anh/8f8af9d002182744f880.jpg"
+   ],
+   "photoAlt": "Bé vui học làm quen với tiếng anh",
+   "sample": true
+  },
+  {
+   "id": "emwj2s94v",
+   "room": "khoanh-khac",
+   "art": "truong",
+   "name": "Bé chuẩn bị vào chơi góc xây dựng",
+   "era": "Tháng 11/2016",
+   "plan": "Bé chuẩn bị vào chơi góc xây dựng",
+   "from": "Lớp 3 - 4 tuổi A1",
+   "story": "Sau mỗi giờ hoạt đọng học, trẻ được đi vệ sinh và uống nước theo nhu cầu, Sau đó các con dọn dẹp và hào hứng tham gia vào các góc chơi. Trong đó có góc chơi xây dựng mà các con rất thích. Ở đây các con được thỏa sức sáng tạo xây nên những công trình phù hợp với chủ đề đang học theo hướng dẫn của giáo viên",
+   "ask": "Hôm nay các con được học những gì?",
+   "video": "https://drive.google.com/drive/folders/1M1b8NEjca1neJEZvRI6aAgGuhIzgsd4M",
+   "audio": "https://drive.google.com/drive/folders/1M1b8NEjca1neJEZvRI6aAgGuhIzgsd4M",
+   "link3d": "https://drive.google.com/drive/folders/1M1b8NEjca1neJEZvRI6aAgGuhIzgsd4M",
+   "drive": "https://drive.google.com/drive/folders/1M1b8NEjca1neJEZvRI6aAgGuhIzgsd4M",
+   "cls": [
+    "l92c638"
+   ],
+   "tc": [
+    "TC1",
+    "TC2",
+    "TC3",
+    "TC4",
+    "TC5",
+    "TC6",
+    "TC7",
+    "TC8",
+    "TC9"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": true
+  },
+  {
+   "id": "emwj2yf1h",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Giờ ăn vui vẻ",
+   "era": "16/11/2026",
+   "plan": "",
+   "from": "Lớp 5-6 tuổi C1",
+   "story": "",
+   "ask": "Khi ăn các con phải ăn như thế nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/folders/1xdQCo8SoGbNO8a4D3ulRJ8KRvi38slvp?usp=drive_link",
+   "cls": [
+    "l3a9b5e"
+   ],
+   "tc": [
+    "TC2"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwj30pzg",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Những nôt nhạc vui",
+   "era": "16/11/2026",
+   "plan": "",
+   "from": "Lớp 5-6 tuổi C1",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/folders/1xdQCo8SoGbNO8a4D3ulRJ8KRvi38slvp?usp=drive_link",
+   "cls": [
+    "l3a9b5e"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwj2ylnf",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Tết trung thu",
+   "era": "11/2026",
+   "plan": "Tết Trung Thu",
+   "from": "Lớp Mẫu giáo 5-6 tuổi C2",
+   "story": "Sự tích chú Cuội cung trăng: Câu chuyện bắt đầu với một anh tiều phu tên là Cuội. Trong một lần vào rừng, anh tình cờ phát hiện ra một con cọp mẹ đang sử dụng lá cây thần để cứu sống đàn cọp con bị thương. Cuội đã mang gốc cây thuốc quý này về trồng trong vườn nhà và dùng lá của nó để chữa trị cho nhiều người nghèo \nCuội đã dặn vợ không được tưới nước bẩn cho cây. Tuy nhiên, một ngày khi Cuội đi vắng, vợ anh đã quên lời dặn và tưới nước bẩn vào gốc cây. Ngay lập tức, cây đa rung chuyển, bật gốc và bay lên trời. Khi Cuội trở về, anh thấy cây đang bay lên và vội vàng níu rễ lại, nhưng không thể ngăn cản được. Cây đã kéo Cuội bay lên cung trăng, và từ đó, chú Cuội sống mãi trên đó cùng với gốc cây quýNgô Tộc\nSự tích chị Hằng Nga: Hình ảnh của chị Hằng (hay Hằng Nga) có nguồn gốc từ truyền thuyết về cung trăng trong văn hóa phương Đông, sau đó đã hòa quyện vào đời sống tinh thần và văn hóa dân gian Việt \nChị Hằng được coi là biểu tượng của vẻ đẹp trong sáng, hiền dịu và tình yêu thương dành cho trẻ em. Vào đêm rằm tháng Tám (Tết Trung thu), khi ánh trăng đạt độ sáng đẹp nhất trong năm, người ta tin rằng chị Hằng cùng chú Cuội từ trên cao mỉm cười và xuống trần gian để vui hội trăng rằm với các em nhỏ",
+   "ask": "Chú cuội, chị hằng xuất hiện vào dịp nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1_0U5AlQAmGh5w2lR4bg5GoPGagk-GWve/view?usp=drive_link",
+   "cls": [
+    "l3ee012"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwj3hjj3",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây trầu bà lá xẻ",
+   "era": "11/2026",
+   "plan": "",
+   "from": "Lớp Mẫu giáo 5-6 tuổi C2",
+   "story": "Đặc điểm của cây: \nCây trầu bà lá xẻ là loại cây cảnh, thường được trồng trong chậu để trang trí.\nThân cây mềm, có màu xanh, thường mọc leo hoặc bò và có nhiều rễ phụ.\nLá cây to, màu xanh đậm, có hình trái tim.\nMép lá có những đường xẻ sâu và trên phiến lá có các lỗ tự nhiên rất đẹp.\nLá cây có bề mặt nhẵn, hơi bóng.\nCây có rễ mọc dưới đất và một số rễ phụ mọc từ thân cây.",
+   "ask": "Tên của cây là gì? Cây có công dụng gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1QlDXLnvXGhG4m5GGv3guIFDTRrHIz7Jm/view?usp=sharing",
+   "cls": [
+    "l3ee012"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwj3mdgd",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Tết trung thu của bé",
+   "era": "11/2026",
+   "plan": "Tết Trung Thu",
+   "from": "Lớp Mẫu giáo 5-6 tuổi C2",
+   "story": "Sự tích chú Cuội cung trăng: Câu chuyện bắt đầu với một anh tiều phu tên là Cuội. Trong một lần vào rừng, anh tình cờ phát hiện ra một con cọp mẹ đang sử dụng lá cây thần để cứu sống đàn cọp con bị thương. Cuội đã mang gốc cây thuốc quý này về trồng trong vườn nhà và dùng lá của nó để chữa trị cho nhiều người nghèo \nCuội đã dặn vợ không được tưới nước bẩn cho cây. Tuy nhiên, một ngày khi Cuội đi vắng, vợ anh đã quên lời dặn và tưới nước bẩn vào gốc cây. Ngay lập tức, cây đa rung chuyển, bật gốc và bay lên trời. Khi Cuội trở về, anh thấy cây đang bay lên và vội vàng níu rễ lại, nhưng không thể ngăn cản được. Cây đã kéo Cuội bay lên cung trăng, và từ đó, chú Cuội sống mãi trên đó cùng với gốc cây quýNgô Tộc\nSự tích chị Hằng Nga: Hình ảnh của chị Hằng (hay Hằng Nga) có nguồn gốc từ truyền thuyết về cung trăng trong văn hóa phương Đông, sau đó đã hòa quyện vào đời sống tinh thần và văn hóa dân gian Việt \nChị Hằng được coi là biểu tượng của vẻ đẹp trong sáng, hiền dịu và tình yêu thương dành cho trẻ em. Vào đêm rằm tháng Tám (Tết Trung thu), khi ánh trăng đạt độ sáng đẹp nhất trong năm, người ta tin rằng chị Hằng cùng chú Cuội từ trên cao mỉm cười và xuống trần gian để vui hội trăng rằm với các em nhỏ",
+   "ask": "Chú cuội, chị hằng xuất hiện vào dịp nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1_0U5AlQAmGh5w2lR4bg5GoPGagk-GWve/view?usp=drive_link",
+   "cls": [
+    "l3ee012"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwj41hvr",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây phú quý",
+   "era": "11/2026",
+   "plan": "",
+   "from": "Lớp Mẫu giáo 5-6 tuổi C2",
+   "story": "Đặc điểm của cây phú quý\n- Cây phú quý là loại cây cảnh, thường được trồng trong chậu.\n- Thân cây nhỏ, mọc thành bụi, có màu trắng hồng hoặc xanh nhạt.\n- Lá cây có hình bầu dục, hơi thuôn nhọn ở hai đầu.\n- Lá có màu xanh, viền lá hoặc phần gân lá có màu đỏ hồng rất đẹp.\n- Lá cây mềm, bề mặt nhẵn và bóng.\n- Rễ cây mọc thành chùm ở dưới đất.\n- Cây có thể sống tốt ở nơi có ánh sáng nhẹ, không cần quá nhiều ánh nắng trực tiếp.",
+   "ask": "Đây là cây gì? Có đặc điểm như thế nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1nUsVNeVm203KsBjMbKrm0tLenXHVvlg5/view?usp=drive_link",
+   "cls": [
+    "l3ee012"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwj45kn3",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây khế",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "CÂY KHẾ\nMột nhà kia có hai anh em, cha mẹ đều chết cả. Hai anh em chăm lo làm lụng, nên trong nhà cũng đủ ăn. Muốn cho vui cửa vui nhà, hai người cùng lấy vợ. Nhưng từ khi có vợ, người anh sinh ra lười biếng, bao nhiêu công việc khó nhọc, đều trút cả cho hai vợ chồng người em.\nHai vợ chồng người em thức khuya dậy sớm, lại cố gắng cày cấy, làm cỏ, bỏ phân, lúa tốt hơn trước, nên đến mùa, được bội thu. Thấy thế, người anh sợ em kể công chiếm lấy phần hơn, vội bàn với vợ cho hai vợ chồng người em ra ở riêng.\nRa ở riêng với vợ, người em được người anh chia cho có một căn nhà tranh lụp xụp, trước nhà có một cây khế ngọt. Hai vợ chồng người em không phàn nàn một lời, hết vào rừng đốn củi đem ra chợ bán, lại đi gánh mướn, làm thuê.\nCòn người anh có bao nhiêu ruộng nương đều cho làm rẽ, để ngồi không hưởng sung sướng với vợ. Thấy em không ca thán, người anh cho em là ngu si, lại càng lên mặt, không lui tới nhà em và cũng không để ý gì đến em nữa.\nNhững ngày sung sướng nhất của hai vợ chồng người em là những ngày khế chín. Quanh năm, hai vợ chồng đã chăm bón và bắt sâu, đuổi kiến cho cây khế, nên cây khế xanh mơn mởn, bóng rợp khắp mảnh vườn nhỏ bé, quả lúc lỉu cả ở những cành là sát mặt đất, trẻ lên ba cũng với tay được.\nMột buổi sáng, hai vợ chồng mang quang gánh và thúng bị ra gốc khế, định trèo lên hái quả đem ra chợ bán thì thấy trên ngọn cây rung động rất mạnh, như có người đang trèo. Hai vợ chồng nhìn lên thì thấy một con chim rất lớn đang ăn những quả khế chín vàng. Hai vợ chồng đứng dưới gốc cây xem chim ăn, đợi chim bay đi rồi mới trèo lên cây hái quả. Từ đấy, cứ mỗi buổi sáng tinh mơ, hai vợ chồng ra hái khế, thì đã lại thấy chim ở trên cây rồi. Thấy có người, chim vẫn cứ ăn, ung dung một lúc lâu, rồi mới vỗ cánh bay đi. Chim ăn ròng rã như thế ngót một tháng trời, cây khế vợi hẳn quả.\nMột hôm, đứng đợi cho chim ăn xong, người vợ nói nửa bỡn nửa thật với chim: “Chim ơi, chim ăn như thế thì còn gì là khế của nhà tôi nữa! Cây khế nhà tôi cũng sắp hết quả rồi đấy, chim ạ!”. Chim bỗng nghển cổ, nheo mắt như cười, đáp lại: “Ăn một quả, trả cục vàng! May túi ba gang, đem đi mà đựng”. Chim nhắc đi nhắc lại câu ấy ba lần, rồi mới vỗ cánh bay đi.\nHai vợ chồng thấy chim biết nói đã lấy làm lạ, lại thấy chim bảo mình như thế, nhắc lại cho mình đến ba lần, nghe rõ mồn một, nên càng suy nghĩ, phân vân.\nNhưng rồi hai vợ chồng cũng làm theo lời chim. Người vợ lấy vài vuông vải nâu may cho chồng một cái túi, ngang dọc đúng ba gang.\nSáng hôm sau, hai vợ chồng vừa ăn xong thì thấy một luồng gió mạnh cuốn cả cát bụi trước sân nhà, rồi trong chớp mắt một con chim cực kỳ lớn hạ xuống giữa sân, quay đầu vào nhà kêu lên mấy tiếng như chào hỏi. Người chồng xách cái túi ba gang ra sân, chim nằm rạp xuống, quay cổ ra hiệu cho anh ngồi lên lưng mình. Anh ngồi lên lưng chim, bám vào cổ chim thật chặt. Chim đứng dậy vươn cổ, vỗ cánh bay bổng lên trời xanh. Chim lúc bay cao, lẩn vào mây bạc; lúc bay thấp, là là trên rừng xanh, đồi núi trập trùng. Rồi chim bay ra biển cả mênh mông, sóng biếc cao ngất vật vào sườn những hòn đảo nhỏ, làm tung lên những bọt trắng xóa. Anh ngồi trên lưng chim thấy biển tuyệt mù, không biết đâu là bờ… Thốt nhiên chim bay vào một hòn đảo toàn đá trắng, đá xanh, đá đỏ, đá ngũ sắc, phản chiếu ánh sáng rực rỡ, anh chưa từng thấy bao giờ. Chim bay một vòng thật rộng xung quanh đảo như muốn tìm một nơi hạ cánh, rồi bay những vòng hẹp hơn, là là trên các ngọn đá, lắm lúc anh tưởng như mình sắp bị va vào những tảng đá khổng lồ. Bay đến trước mặt cái hang rộng và sâu, chim từ từ hạ xuống. Ðặt chân xuống đảo, anh nhìn ngó khắp nơi, tuyệt nhiên không thấy một sinh vật nào, không có đến một ngọn cỏ hay một mống chim sâu.\nChim ra hiệu bảo anh vào hang, muốn lấy gì thì lấy. Ở ngay cửa hang, anh đã thấy toàn những thứ đá trong như thủy tinh và hổ phách đủ các màu; có thứ xanh như mắt mèo, có thứ đỏ ối như mặt trời, còn vàng bạc thì nhiều như sỏi đá. Thấy hang sâu và rộng, anh không dám vào sợ lạc. Anh nhặt một ít vàng và kim cương bỏ vào túi",
+   "ask": "Đây là cây gì? Có đặc điểm như thế nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1Z8pDq1F98lL2sWexzV47-H8sEKO5gZgz/view?usp=drive_link",
+   "cls": [
+    "l3ee012"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwj7j5ep",
+   "room": "khoanh-khac",
+   "art": "rua",
+   "name": "Bé xếp hàng rửa tay",
+   "era": "",
+   "plan": "",
+   "from": "Lớp 4-5 tuổi Tràng Đà",
+   "story": "BÉ XẾP HÀNG RỬA TAY\n\nTừng hàng ngay ngắn\nBé nối đuôi nhau\nChẳng chen, chẳng lấn\nBạn trước, mình sau.\n\nVặn vòi nước mát\nXoa xà phòng thơm\nKẽ tay, mu bàn\nXoa tròn thật kỹ.\n\nBọt trắng lung linh\nNhư mây bồng bềnh\nRửa sạch vi khuẩn\nĐôi tay xinh xinh!",
+   "ask": "Con đang làm gì đấy?",
+   "video": "https://drive.google.com/file/d/1z28uJESb76RNTSaaSfHI09fZMMw5OIVN/view?usp=sharing",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l2f96f2"
+   ],
+   "tc": [
+    "TC2"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/4229576c49ebcd168970.jpg",
+   "photos": [
+    "anh/4229576c49ebcd168970.jpg",
+    "anh/37ddaa4e1968468bad9d.jpg",
+    "anh/d64d435707fba396b1ca.jpg"
+   ],
+   "photoAlt": "",
+   "sample": true
   }
  ],
  "timeline": [
