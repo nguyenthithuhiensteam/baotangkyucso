@@ -3158,6 +3158,38 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwimfrsu",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Bé vui tết trung thu",
+   "era": "Tháng 9",
+   "plan": "",
+   "from": "Lớp 3-4 tuổi A2",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lc8a1a7"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/a1f6bf81a6160818f694.jpg",
+   "photos": [
+    "anh/a1f6bf81a6160818f694.jpg",
+    "anh/8e9bb792d146b6231c9f.jpg",
+    "anh/70f1dd8500bd9b516572.jpg",
+    "anh/4145d75c51a95f0dfc19.jpg",
+    "anh/097b6d9778c35b962866.jpg",
+    "anh/90a18bb77804607b1f6b.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
