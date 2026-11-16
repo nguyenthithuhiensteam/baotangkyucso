@@ -3955,6 +3955,34 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwio5w86",
+   "room": "di-san",
+   "art": "non",
+   "name": "Trung Thu",
+   "era": "Tháng 10",
+   "plan": "",
+   "from": "Lớp 3- 4 tuổi A3 (Trường chính)",
+   "story": "Trung thu",
+   "ask": "Đây là gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l1b1bdd"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/e4d86ee456aac683dc60.jpg",
+   "photos": [
+    "anh/e4d86ee456aac683dc60.jpg",
+    "anh/3225bc48f9b9053a8fb0.jpg"
+   ],
+   "photoAlt": "Trung thu 2026",
+   "sample": false
   }
  ],
  "timeline": [
