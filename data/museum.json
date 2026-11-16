@@ -4207,6 +4207,34 @@
    "photos": [],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwipcv08",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Cây hoa thu hải đường",
+   "era": "Tháng 11",
+   "plan": "",
+   "from": "Lớp 25-36 tháng A (Hương Sen)",
+   "story": "Bài thơ: Bé yêu hoa thu hải đường\nThu hải đường xinh ghê,\nCánh mỏng tựa lụa mềm,\nĐỏ thắm và hồng thắm,\nBé ngắm mãi không quên.\n\nLá xanh hình trái tim,\nNằm sát bên cành nhỏ,\nHoa cười tươi rạng rỡ,\nChào đón bé đến chơi.",
+   "ask": "Hoa thu hải đường có màu gì? Những cánh hoa như thế nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/folders/1P_26dPfU_QW0-Uz0VaicnqdkXlwmCrNc?usp=drive_link",
+   "cls": [
+    "lc0c279"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/57af59eee7c75f894e20.jpg",
+   "photos": [
+    "anh/57af59eee7c75f894e20.jpg",
+    "anh/36d0606c4d7f12d76659.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
