@@ -3851,6 +3851,33 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwinsd3k",
+   "room": "thien-nhien",
+   "art": "cay",
+   "name": "Cây hoa đồng tiền",
+   "era": "Tháng 11",
+   "plan": "Bé yêu thiên nhiên",
+   "from": "Lớp 25-36 tháng A (Hương Sen)",
+   "story": "Câu chuyện: \"Bé khám phá hoa đồng tiền\" cho trẻ 25-36 tháng\nMàu hoa tươi thắm ghê,\nĐỏ thắm và vàng hoe,\nTròn xoe như chiếc ví,\nBé ngắm cứ mê mẩn.\n\nCánh hoa dài xinh xắn,\nXòe tròn quanh nhụy vàng,\nGió đùa vui nắng ấm,\nHoa khoe sắc huy hoàng.\n\nBé nâng niu nhẹ nhàng,\nYêu sao hoa đồng tiền,\nCùng tươi cười rạng rỡ,\nTặng bé một ngày ngoan.",
+   "ask": "Các con ơi! Cánh hoa đồng tiền như thế nào? cánh nhỏ và dài rung rinh trong gió...",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/folders/1FW0dFssvAIClWRSVjUDtFZNNcD3Djj9s?usp=drive_link",
+   "cls": [
+    "lc0c279"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/72b31e406e0e95f93770.jpg",
+   "photos": [
+    "anh/72b31e406e0e95f93770.jpg"
+   ],
+   "photoAlt": "Hoa đồng tiền có cánh nhỏ và dài rung rinh trong gió, Bé yêu hoa quá",
+   "sample": false
   }
  ],
  "timeline": [
