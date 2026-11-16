@@ -1568,6 +1568,34 @@
    ],
    "photoAlt": "Cây Đế Vương",
    "sample": true
+  },
+  {
+   "id": "emwhymwre",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "sâu vòng",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l6c9ea7"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/ba19e6fc4a470e5e6f3b.jpg",
+   "photos": [
+    "anh/ba19e6fc4a470e5e6f3b.jpg",
+    "anh/cba503d8509ac3282ad6.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
