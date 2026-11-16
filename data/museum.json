@@ -1881,6 +1881,33 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwhxwd97",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Bé ăn trưa ở trường",
+   "era": "Tháng 11/2016",
+   "plan": "",
+   "from": "Lớp mẫu giáo 3 - 4 tuổi A1",
+   "story": "Bé hào hứng ăn trưa ở lớp cùng các bạn",
+   "ask": "Hôm nay các con được ăn những gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l92c638"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/d71dffb705c52fa2dd95.jpg",
+   "photos": [
+    "anh/d71dffb705c52fa2dd95.jpg"
+   ],
+   "photoAlt": "Bé ăn trưa cùng các bạn trong lớp",
+   "sample": true
   }
  ],
  "timeline": [
