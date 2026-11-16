@@ -4010,6 +4010,33 @@
    "photos": [],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwinnpvd",
+   "room": "tri-an",
+   "art": "sach",
+   "name": "Ngày 20/11  với cô và bé",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp 25-36 tháng B (trường chính)",
+   "story": "",
+   "ask": "Bé tặng gì cho cô đấy?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l5f4f02"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/17f68cb1c7bc46fac1d0.jpg",
+   "photos": [
+    "anh/17f68cb1c7bc46fac1d0.jpg"
+   ],
+   "photoAlt": "Bé yêu nhorxinh tặng hoa cô",
+   "sample": true
   }
  ],
  "timeline": [
