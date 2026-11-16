@@ -3357,6 +3357,31 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwinh4sj",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Lễ Hội trung thu cho bé",
+   "era": "Tháng 9/2026",
+   "plan": "Trung thu của bé",
+   "from": "Lớp 25-36 tháng B (trường chính)",
+   "story": "",
+   "ask": "",
+   "video": "https://drive.google.com/file/d/1GP5oS23TDT0saYxKlOh4djz_QWhVVN9o/view?usp=sharing",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l5f4f02"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
