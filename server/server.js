@@ -74,10 +74,19 @@ async function writeFile(repo, file, data, sha, message) {
 const PHOTO_RE = /^(anh|cho-duyet)\/([a-z0-9]{8,40})\.jpg$/;
 const MAX_PHOTO = 1024 * 1024;
 const MAX_PHOTOS = 12;
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+/* Lưu ảnh; tự thử lại khi kho vừa có người ghi cùng lúc (409) hoặc GitHub tạm lỗi (5xx, 429). */
 async function putBinary(repo, file, b64, message) {
-  const r = await gh(`/repos/${enc(OWNER)}/${enc(repo)}/contents/${file}`, { method: 'PUT', body: JSON.stringify({ message, branch: BRANCH, content: b64 }) });
-  if (r.status === 401 || r.status === 403) throw new HttpErr(500, 'Mã GitHub trên máy chủ không có quyền ghi. Cần quyền Contents: Read and write.');
-  if (!r.ok && r.status !== 422) throw new HttpErr(502, `GitHub báo lỗi ${r.status} khi lưu ảnh.`);
+  for (let i = 0; ; i++) {
+    const r = await gh(`/repos/${enc(OWNER)}/${enc(repo)}/contents/${file}`, { method: 'PUT', body: JSON.stringify({ message, branch: BRANCH, content: b64 }) });
+    if (r.ok || r.status === 422) return;
+    if (r.status === 401) throw new HttpErr(500, 'Mã GitHub trên máy chủ không có quyền ghi. Cần quyền Contents: Read and write.');
+    const retry = r.status === 409 || r.status === 429 || r.status >= 500 || (r.status === 403 && /rate limit/i.test(await r.clone().text()));
+    if (retry && i < 4) { await sleep(800 * (i + 1) + Math.random() * 400); continue; }
+    if (r.status === 403) throw new HttpErr(500, 'Mã GitHub trên máy chủ không có quyền ghi. Cần quyền Contents: Read and write.');
+    console.error('putBinary', r.status, (await r.text()).slice(0, 300));
+    throw new HttpErr(502, `GitHub báo lỗi ${r.status} khi lưu ảnh. Vui lòng thử lại.`);
+  }
 }
 async function getBinary(repo, file) {
   const r = await gh(`/repos/${enc(OWNER)}/${enc(repo)}/contents/${file}?ref=${enc(BRANCH)}`);
