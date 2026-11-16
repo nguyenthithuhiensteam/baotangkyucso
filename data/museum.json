@@ -6468,8 +6468,10 @@
    ],
    "keeper": "",
    "her": "",
-   "photo": "",
-   "photos": [],
+   "photo": "anh/714ced11d1467bc5c976.jpg",
+   "photos": [
+    "anh/714ced11d1467bc5c976.jpg"
+   ],
    "photoAlt": "",
    "sample": false
   },
@@ -6912,6 +6914,328 @@
    ],
    "photoAlt": "",
    "sample": true
+  },
+  {
+   "id": "emwj8wmfb",
+   "room": "di-san",
+   "art": "tranh",
+   "name": "Bé vui chơi hoạt động góc",
+   "era": "Tháng 11/2026",
+   "plan": "Hoạt động vui chơi",
+   "from": "Lớp MG 3- 4 tuổi B",
+   "story": "Nắng thu dịu dàng len qua khung cửa sổ lớp Mẫu Giáo 3-4 Tuổi B, chiếu rọi lên những góc chơi rực rỡ sắc màu. Hôm nay, cả lớp cùng bước vào giờ hoạt động góc với một chủ đề vô cùng ấm áp và gần gũi: Gia đình thân yêu.\nGiai điệu quen thuộc của bài hát “Cả nhà thương nhau” nhẹ nhàng vang lên báo hiệu giờ chơi đã kết thúc. Không cần nhắc nhiều, các bé lớp 3-4 Tuổi B tự giác cùng nhau thu dọn đồ dùng: bố mẹ nhí cất gọn bát đĩa vào tủ bếp, các kỹ sư nhỏ xếp ngay ngắn từng khối gỗ vào kệ, những bức tranh xinh xắn được treo lên góc trưng bày của lớp.\nGiờ hoạt động góc chủ đề Gia đình khép lại trong những cái ôm ấm áp và lời khen ngợi dịu dàng của cô giáo. Qua từng vai chơi ngây thơ, các thiên thần nhỏ của lớp 3-4 Tuổi B không chỉ được thỏa sức sáng tạo mà còn học cách yêu thương, quan tâm và sẻ chia với những người thân yêu nhất trong tổ ấm của mình.",
+   "ask": "Hôm nay con sẽ chọn góc chơi nào cho mình?",
+   "video": "",
+   "audio": "",
+   "link3d": "https://drive.google.com/file/d/1knlf14-XuXIlbMfVarDT7J8-Hipi5oL7/view?usp=sharing",
+   "drive": "",
+   "cls": [
+    "ldb4f8c"
+   ],
+   "tc": [
+    "TC4"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": true
+  },
+  {
+   "id": "emwj9up7h",
+   "room": "tri-an",
+   "art": "thiep",
+   "name": "Thiệp tặng Thầy cô",
+   "era": "",
+   "plan": "",
+   "from": "Lớp 4-5 tuổi Tràng Đà",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l2f96f2"
+   ],
+   "tc": [
+    "TC4"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/48aed0d4d9bd58c9d984.jpg",
+   "photos": [
+    "anh/48aed0d4d9bd58c9d984.jpg"
+   ],
+   "photoAlt": "",
+   "sample": true
+  },
+  {
+   "id": "emwja7kcf",
+   "room": "khoanh-khac",
+   "art": "truong",
+   "name": "Bé trải ngiệm PCCC",
+   "era": "",
+   "plan": "",
+   "from": "Lớp 4-5 tuổi Tràng Đà",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l2f96f2"
+   ],
+   "tc": [
+    "TC3"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/10522c2ceea3d1239ccf.jpg",
+   "photos": [
+    "anh/10522c2ceea3d1239ccf.jpg",
+    "anh/1867259bd533b45c23c6.jpg",
+    "anh/b87fa52e301af892b849.jpg",
+    "anh/a691b2ea4ab70b5d87e9.jpg"
+   ],
+   "photoAlt": "",
+   "sample": true
+  },
+  {
+   "id": "emwjagsce",
+   "room": "thien-nhien",
+   "art": "tuoi",
+   "name": "Bé tưới cây, lau lá cây",
+   "era": "",
+   "plan": "phong trào cây xanh",
+   "from": "Lớp 4-5 tuổi Tràng Đà",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l2f96f2"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/d0f801446929e5614c3b.jpg",
+   "photos": [
+    "anh/d0f801446929e5614c3b.jpg",
+    "anh/49ddde03fe7f4f2ff3f9.jpg"
+   ],
+   "photoAlt": "",
+   "sample": true
+  },
+  {
+   "id": "emwjb3nd8",
+   "room": "thien-nhien",
+   "art": "caylon",
+   "name": "Cây bạch mã hoàng tử. Lớp 4-5 tuổi Tràng Đà",
+   "era": "",
+   "plan": "Phong trào cây xanh",
+   "from": "Lớp 4-5 tuổi Tràng Đà",
+   "story": "Ngày xửa ngày xưa, ở một vương quốc xanh tươi, có một chàng hoàng tử khôi ngô, tuấn tú và vô cùng nhân hậu. Chàng thường cưỡi trên lưng một chú tuấn mã trắng muốt đi khắp nơi để giúp đỡ dân lành vượt qua khó khăn.\n\nMột năm nọ, vùng đất ấy gặp phải trận sương mù u ám khiến cây cối héo úa, lòng người âu lo. Chàng hoàng tử liền một mình tiến sâu vào khu rừng thiêng để tìm cách xua tan bóng tối. Cảm động trước tấm lòng dũng cảm và trái tim thuần khiết của chàng, thần rừng đã ban tặng một loài cây kỳ diệu: thân cây trắng muốt vươn thẳng đầy khí phách, nâng đỡ những tán lá xanh mướt điểm xuyết đường gân trắng bạc tinh khôi.\n\nKhi hoàng tử mang loài cây ấy về đặt tại quảng trường kinh thành, một luồng sinh khí tươi mới lan tỏa khắp nơi, xua tan màn sương mù dày đặc và mang lại ánh sáng ấm áp cho muôn dân.\n\nĐể tưởng nhớ công ơn và vẻ đẹp thanh cao của chàng, người dân gọi đó là Cây Bạch Mã Hoàng Tử. Từ đó, loài cây này trở thành biểu tượng của sự lịch lãm, khí chất vương giả và mang lại may mắn, thuận lợi cho mọi người.",
+   "ask": "Đây là cây gì? Cây này có hoa không?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l2f96f2"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/7b793cea6675afa6f2aa.jpg",
+   "photos": [
+    "anh/7b793cea6675afa6f2aa.jpg"
+   ],
+   "photoAlt": "https://drive.google.com/file/d/1-WoplCrjuxJTeSdjO8A-RAppO_ccadgu/view?usp=drive_link",
+   "sample": true
+  },
+  {
+   "id": "emwjbcucb",
+   "room": "thien-nhien",
+   "art": "caylon",
+   "name": "Cây Thanh Lam. Lớp 4-5 tuổi Tràng Đà",
+   "era": "",
+   "plan": "Phong trào cây xanh",
+   "from": "Lớp 4-5 tuổi Tràng Đà",
+   "story": "Ngày xửa ngày xưa, trong một khu vườn nhỏ ngập tràn ánh nắng, có một người thợ gốm thường xuyên lo lắng vì những tác phẩm của mình thiếu đi sự thanh tao.\n\nMột buổi chiều mùa hạ, khi mặt trời vừa khuất, anh tình cờ nhìn thấy một chùm lá mọc bên hiên nhà. Cây có dáng vẻ mềm mại, mang một sắc xanh lam thẳm pha lẫn ngọc bích vô cùng mát mắt.\n\nMỗi khi ngồi ngắm khóm cây ấy trước lúc làm việc, tâm trí người thợ gốm bỗng trở nên tĩnh lặng như mặt hồ. Từ sự tĩnh tại đó, đôi bàn tay anh uyển chuyển hơn, tạo nên những sản phẩm gốm tinh xảo.\n\nCảm kích trước nguồn năng lượng bình yên ấy, anh gọi đó là Cây Thanh Lam. Từ đó, loài cây trở thành biểu tượng cho sự tĩnh tâm, trong trẻo và mang lại không gian thư thái cho mọi nhà.",
+   "ask": "Đố các con cây này có hoa không?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l2f96f2"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/ee888a2df09315a31372.jpg",
+   "photos": [
+    "anh/ee888a2df09315a31372.jpg"
+   ],
+   "photoAlt": "",
+   "sample": true
+  },
+  {
+   "id": "emwjbhzre",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Bé thích sách truyện",
+   "era": "",
+   "plan": "",
+   "from": "Lớp 4-5 tuổi Tràng Đà",
+   "story": "",
+   "ask": "Con thích truyện nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l2f96f2"
+   ],
+   "tc": [
+    "TC6"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/296f04104ba164cac0dd.jpg",
+   "photos": [
+    "anh/296f04104ba164cac0dd.jpg",
+    "anh/de16ca4706af0ace97dc.jpg"
+   ],
+   "photoAlt": "",
+   "sample": true
+  },
+  {
+   "id": "emwjbu8m1",
+   "room": "thien-nhien",
+   "art": "caylon",
+   "name": "Cây hồng tước san hô. Lớp 4-5 tuổi Tràng Đà",
+   "era": "",
+   "plan": "phong trào cây xanh",
+   "from": "Lớp 4-5 tuổi Tràng Đà",
+   "story": "Ngày xửa ngày xưa, dưới lòng đại dương sâu thẳm, có một rạn san hô hồng rực rỡ luôn ước ao được một lần ngắm nhìn ánh nắng mặt trời và lắng nghe tiếng chim hót trên mặt đất.\n\nCảm động trước ước mơ trong trẻo ấy, nàng tiên biển cả đã biến hóa một nhánh san hô đẹp nhất thành một loài cây nhỏ xinh xắn và đặt trên vách đá ven bờ. Loài cây ấy mang dáng vẻ vô cùng độc đáo: những chiếc lá mọng nước màu xanh ngọc bích viền hồng phấn, mọc đan xen duyên dáng như những cánh san hô mềm mại đang uốn lượn theo sóng nước.\n\nMỗi khi gió biển thổi qua, các nhánh cây khẽ đung đưa nhịp nhàng, phát ra âm thanh xào xạc vui tai như tiếng hót líu lo của những chú chim hồng tước nhỏ. Dù nắng gió khắc nghiệt, cây vẫn kiên cường vươn lên, mang sắc hồng ấm áp tô điểm cho vùng đất cằn cỗi.\n\nNgười dân vùng biển vô cùng yêu quý và đặt tên cho cây là Hồng Tước San Hô. Từ đó, loài cây này trở thành biểu tượng của sức sống bền bỉ, sự dịu dàng và mang lại niềm vui, may mắn cho mọi ngôi nhà.",
+   "ask": "Đây là cây gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l2f96f2"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/6eaf04bf2771363902e9.jpg",
+   "photos": [
+    "anh/6eaf04bf2771363902e9.jpg"
+   ],
+   "photoAlt": "",
+   "sample": true
+  },
+  {
+   "id": "emwjc040h",
+   "room": "thien-nhien",
+   "art": "caylon",
+   "name": "Cây Phú Quý. Lớp 4-5 tuổi Tràng Đà",
+   "era": "",
+   "plan": "phong trào cây xanh",
+   "from": "Lớp 4-5 tuổi Tràng Đà",
+   "story": "Ngày xửa ngày xưa, ở một ngôi làng thanh bình ven sông, có hai vợ chồng người nông dân tuy cuộc sống còn nhiều vất vả nhưng luôn giữ tấm lòng lương thiện, hay giúp đỡ mọi người xung quanh.\n\nMột buổi sáng mùa xuân, khi ra thăm mảnh vườn nhỏ, họ phát hiện một khóm cây lạ mọc lên bên hiên nhà. Cây có thân trắng hồng thanh thoát, nâng đỡ những chiếc lá xanh mướt viền đỏ rực rỡ như những dải lụa đào thắm tươi trong nắng sớm. Thấy cây đẹp và tràn đầy sức sống, hai vợ chồng liền nâng niu chăm sóc, tưới mát mỗi ngày.\n\nKỳ lạ thay, từ ngày khóm cây ấy bén rễ, khu vườn của họ luôn xanh tươi tốt, mùa màng bội thu, công việc làm ăn ngày càng thuận lợi và gia đình lúc nào cũng rộn rã tiếng cười hạnh phúc.\n\nCảm kích trước món quà kỳ diệu của thiên nhiên, người dân trong làng gọi loài cây ấy là Cây Phú Quý. Từ đó, sắc đỏ may mắn của cây trở thành biểu tượng cho sự sung túc, bình an và niềm vui ấm áp trong mỗi ngôi nhà.",
+   "ask": "Các con nhìn xem chiếc lá của cây Phú Quý có những màu sắc gì nổi bật nhỉ?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l2f96f2"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/326afb067719a6096877.jpg",
+   "photos": [
+    "anh/326afb067719a6096877.jpg"
+   ],
+   "photoAlt": "https://drive.google.com/file/d/1p9jxw9cVT9mD8ak00Yc_EO3FvhHLf_WM/view?usp=drive_link",
+   "sample": true
+  },
+  {
+   "id": "emwjby6ev",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây hoa giấy",
+   "era": "Tháng 11",
+   "plan": "Hoa đẹp quanh bé",
+   "from": "MG 5-6 tuổi Tràng Đà",
+   "story": "🌸 Hoa giấy trước sân\nHoa giấy khoe sắc bên thềm,\nHồng tươi, tím thắm êm đềm nắng mai.\nCành vươn đón gió ban mai,\nMỏng manh cánh giấy, đẹp hoài sắc xuân. 🌸",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1rpeYoLAKhQZQXe6WkQtwCinm6HDPtQd6/view?usp=drive_link",
+   "cls": [
+    "l71706c"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/f61acd2fe6fc67407872.jpg",
+   "photos": [
+    "anh/f61acd2fe6fc67407872.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwjc69bt",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "cô tòng vàng anh",
+   "era": "Tháng 11",
+   "plan": "Phong trào cây xanh",
+   "from": "MG 5-6 tuổi Tràng Đà",
+   "story": "🌿 Câu chuyện: Chiếc áo rực rỡ của cây cô tòng vàng anh\nTrong một khu vườn nhỏ, có một cây cô tòng mang những chiếc lá vàng óng xen lẫn màu xanh và đỏ rất đẹp. Mỗi khi có ánh nắng chiếu vào, những chiếc lá lại lấp lánh như được khoác lên mình chiếc áo cầu vồng.\nMột hôm, cây hoa nhỏ bên cạnh tò mò hỏi:\n– Cô tòng ơi! Vì sao lá của bạn lại có nhiều màu sắc đẹp thế?\nCô tòng vui vẻ trả lời:\n– Vì mình luôn được đón ánh nắng, uống nước đầy đủ và được mọi người chăm sóc đấy!\nNghe vậy, các bạn cây cùng nhắc nhau chăm chỉ đón nắng, uống nước và giữ cho khu vườn luôn sạch đẹp.\nTừ đó, khu vườn trở nên rực rỡ và tràn ngập tiếng cười.\nBài học: Mỗi loài cây đều có vẻ đẹp riêng. Chúng ta hãy biết yêu quý, chăm sóc và bảo vệ cây xanh nhé! 🌱",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1ohGFUpWeqb1-_EBOGt-vOAnfxhtZo46W/view?usp=drive_link",
+   "cls": [
+    "l71706c"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/5af5786c7f7e44888af1.jpg",
+   "photos": [
+    "anh/5af5786c7f7e44888af1.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
