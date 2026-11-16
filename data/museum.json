@@ -4149,6 +4149,39 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwioshnm",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Bé làm quen với Tiếng Anh",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "lớp 3-4 tuổi Hương Sen",
+   "story": "Giờ học làm quen với tiếng Anh cùng Babilala School luôn là khoảng thời gian đầy hào hứng và sôi nổi của các bé tại lớp. Không còn những tiết học khô khan, các con được đắm mình vào thế giới ngôn ngữ đầy màu sắc thông qua các video hoạt hình sinh động, những giai điệu bài hát vui nhộn và các trò chơi tương tác thú vị. Dưới sự đồng hành của cô giáo, từng từ vựng mới, từng mẫu câu chào hỏi giản đơn được các bé tiếp thu một cách tự nhiên nhất theo đúng tinh thần \"học mà chơi, chơi mà học\". Nhìn những ánh mắt chăm chú, nụ cười rạng rỡ khi con tự tin phát âm theo ứng dụng giúp gieo mầm tình yêu ngoại ngữ và sự dạn dĩ cho bé ngay từ những năm tháng đầu đời.",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l5d20a2"
+   ],
+   "tc": [
+    "MR1"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/812b758b300d0e06ff69.jpg",
+   "photos": [
+    "anh/812b758b300d0e06ff69.jpg",
+    "anh/9ce7376f0bbfd265e6d6.jpg",
+    "anh/db51434c595201bd1843.jpg",
+    "anh/a889565de1ec663b8000.jpg",
+    "anh/22723582c6fe6ec461f7.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
