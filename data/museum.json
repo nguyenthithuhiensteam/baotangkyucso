@@ -2890,6 +2890,31 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwimpf3c",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Cây xanh của bé",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Phụ huynh một nhóm trẻ",
+   "story": "Ở một góc ban công ngập tràn nắng ấm, có một chậu cây nhỏ xíu tên là Phú Quý. Sở dĩ bạn ấy có cái tên lạ và kêu thế, là vì trông bạn ấy lúc nào cũng sang trọng và rực rỡ như mang theo tài lộc, may mắn vậy đó.\nCác bé có biết bạn Phú Quý mặc chiếc áo màu gì không nào?\nÔi, áo của bạn ấy đẹp lắm cơ! Ở giữa là một màu xanh mát rượi giống như màu lá cây ngoài vườn, nhưng viền xung quanh lá lại được thêu một đường màu hồng đỏ thắm rất xinh, trông cứ như ai vừa chấm những giọt màu điều rực rỡ lên mép lá vậy.\nMỗi buổi sáng, khi ông mặt trời thức dậy và chiếu những tia nắng vàng óng ánh xuống ban công, bạn Phú Quý lại vươn mình thật cao. Bạn ấy thì thầm với gió: \"Hôm nay mình lại lớn thêm một chút rồi đấy!\".\nỞ trong ngôi nhà ấy, có một bạn nhỏ hay bị mệt mỏi sau những giờ học bài và vẽ tranh. Thế nhưng, cứ mỗi lần bước ra ban công nhìn thấy chiếc áo đỏ thắm lung linh của bạn Phú Quý, bạn nhỏ lại thấy vui vẻ hẳn lên. Bạn nhỏ thường hay đến gần, nhẹ nhàng chạm tay vào chiếc lá mịn màng và thủ thế:",
+   "ask": "Các con có biết vì sao cây lại được gọi là cây phú quý không?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1RJUL62GO7Ax--6AFrXhG5Y0AS9de5pT1/view?usp=sharing",
+   "cls": [
+    "l71706c"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
