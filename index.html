@@ -347,6 +347,7 @@ h3.fsel{font-size:22px}h3.fsel small{font-size:14px;color:var(--muted);font-fami
 .dnote{margin:0;color:var(--muted);font-size:13px}
 .croom{display:grid;gap:10px}
 .askbtn{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));z-index:40;border:0;border-radius:999px;padding:12px 18px;background:var(--indigo);color:var(--paper);font:inherit;font-weight:800;font-size:15px;cursor:pointer;box-shadow:0 6px 18px rgba(20,40,80,.3);display:flex;gap:8px;align-items:center}
+body:has(#viewer:not([hidden])) .askbtn,body:has(#viewer:not([hidden])) .askbox,body:has(#lightbox:not([hidden])) .askbtn{display:none}
 .askbtn:focus-visible{outline:3px solid var(--turmeric-fill);outline-offset:3px}
 .askbox{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:76px;z-index:41;width:min(380px,calc(100vw - 32px));height:min(560px,calc(100vh - 110px));background:var(--frame);border-radius:20px;box-shadow:0 12px 40px rgba(20,40,80,.35);display:grid;grid-template-rows:auto 1fr auto auto;overflow:hidden;border:2px solid var(--line)}
 .askbox[hidden]{display:none}
@@ -454,6 +455,8 @@ h3.fsel{font-size:22px}h3.fsel small{font-size:14px;color:var(--muted);font-fami
 .vthumbs button{all:unset;cursor:pointer;aspect-ratio:1;border-radius:8px;overflow:hidden;border:2px solid transparent}
 .vthumbs button[aria-pressed="true"]{border-color:var(--c)}.vthumbs button:focus-visible{outline:3px solid var(--turmeric-fill)}
 .vthumbs img{width:100%;height:100%;object-fit:cover;display:block}
+.vwn{position:absolute;left:8px;bottom:8px;background:rgba(0,0,0,.6);color:#fff;font-size:12px;font-weight:800;border-radius:999px;padding:1px 8px}
+.vviews{color:var(--muted);font-size:14px;font-weight:700;margin-top:2px}
 .phn{position:absolute;right:8px;bottom:8px;background:rgba(0,0,0,.6);color:#fff;font-size:12px;font-weight:800;border-radius:999px;padding:1px 8px}
 .piece .frame{position:relative}
 .phgal{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin-top:6px}
@@ -593,6 +596,7 @@ root.innerHTML=`
    <span class="chip" id="vPlan"></span>
    <h3 id="vTitle"></h3>
    <div class="meta" id="vMeta"></div>
+   <div class="vviews" id="vViews" aria-live="polite"></div>
    <p class="story" id="vStory"></p>
    <div class="ask"><b>Cô hỏi bé:</b> <span id="vAsk"></span></div>
    <div class="vplay" id="vVideo"></div>
@@ -809,7 +813,7 @@ function head(r){
  return `<div class="room-head">${r.n?`<span class="eyebrow">Phòng ${r.n}</span>`:''}<h2>${esc(r.name)}</h2><p>${esc(r.lead)}</p>${r.src?`<span class="src">Căn cứ: ${esc(r.src)}</span>`:''}${okUrl(l3)?`<div class="cta"><a class="btn primary" href="${esc(l3)}" target="_blank" rel="noopener">Vào phòng trưng bày 3D ↗</a></div>`:''}</div>`;
 }
 const mediaTags=e=>{const t=[];if(okUrl(e.video))t.push('Video');if(okUrl(e.audio))t.push('Âm thanh');if(okUrl(e.link3d))t.push('3D');if(okUrl(e.drive))t.push('Drive');return t.length?`<span class="media-dots">${t.map(x=>`<span>${x}</span>`).join('')}</span>`:''};
-const piece=(e,i)=>`<button class="piece" type="button" data-i="${i}"><div class="frame ${pubPhoto(e.photo)?'ph':''}">${pic(e)}${photosOf(e).length>1?`<span class="phn">📷 ${photosOf(e).length}</span>`:''}</div><div class="label"><b>${esc(e.name)}</b>${clsNames(e).length?`<span class="cl" title="${esc(clsNames(e).join(', '))}">${esc(clsShort(e))}</span>`:''}<span class="p">${esc(e.plan)}</span>${tcList(e).length?`<span class="tcrow">${tcChips(e)}</span>`:''}${mediaTags(e)}${e.sample?'<span class="sample">Hiện vật mẫu</span>':''}</div></button>`;
+const piece=(e,i)=>`<button class="piece" type="button" data-i="${i}"><div class="frame ${pubPhoto(e.photo)?'ph':''}">${pic(e)}${photosOf(e).length>1?`<span class="phn">📷 ${photosOf(e).length}</span>`:''}${VIEWS[e.id]?`<span class="vwn" aria-label="${VIEWS[e.id]} lượt xem">👁 ${fmtN(VIEWS[e.id])}</span>`:''}</div><div class="label"><b>${esc(e.name)}</b>${clsNames(e).length?`<span class="cl" title="${esc(clsNames(e).join(', '))}">${esc(clsShort(e))}</span>`:''}<span class="p">${esc(e.plan)}</span>${tcList(e).length?`<span class="tcrow">${tcChips(e)}</span>`:''}${mediaTags(e)}${e.sample?'<span class="sample">Hiện vật mẫu</span>':''}</div></button>`;
 
 function intro(){
  const ph=[
@@ -1610,6 +1614,15 @@ addEventListener('hashchange',()=>{navTabs();render();
 
 /* ---------- viewer ---------- */
 const V=$('viewer');let list=[],pos=0,lastFocus=null;
+/* Lượt xem: lấy tổng một lần khi tải trang; mở bài thì cộng 1 (máy chủ chỉ tính 1 lần / 6 giờ mỗi máy). */
+var VIEWS={};
+const fmtN=n=>n>=1000?(n/1000).toFixed(n>=10000?0:1).replace('.',',')+'k':String(n);
+const viewTxt=e=>{const n=VIEWS[e.id]||0;return n?`👁 ${n.toLocaleString('vi-VN')} lượt xem`:''};
+async function loadViews(){try{const r=await fetch(API+'/api/views');if(!r.ok)return;VIEWS=(await r.json()).views||{};if($('viewer').hidden&&!/^#quan-tri/.test(location.hash)&&!document.querySelector('main input:focus,main textarea:focus'))render()}catch(_){}}
+function viewHit(e){
+ if(!e||!e.id||e.sample)return;$('vViews').textContent=viewTxt(e);
+ fetch(API+'/api/view',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:e.id})}).then(r=>r.ok?r.json():null).then(j=>{if(!j)return;VIEWS[j.id]=j.views;if(list[pos]&&list[pos].id===j.id)$('vViews').textContent=viewTxt(list[pos])}).catch(()=>{});
+}
 function openViewer(items,i){if(!items.length)return;list=items;pos=i;lastFocus=document.activeElement;show();V.hidden=false;$('vNext').focus()}
 /* Phát video, âm thanh ngay trong khung xem: YouTube và Google Drive. */
 function embedOf(u){u=String(u||'');if(!okUrl(u))return '';
@@ -1617,7 +1630,7 @@ function embedOf(u){u=String(u||'');if(!okUrl(u))return '';
  m=u.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?(?:.*&)?id=)([\w-]{20,})/);if(m)return 'https://drive.google.com/file/d/'+m[1]+'/preview';
  m=u.match(/drive\.google\.com\/drive\/(?:u\/\d+\/)?folders\/([\w-]{20,})/);if(m)return 'https://drive.google.com/embeddedfolderview?id='+m[1]+'#grid';
  return ''}
-function show(){const e=list[pos];
+function show(){const e=list[pos];viewHit(e);
  {const ev=embedOf(e.video),ea=embedOf(e.audio),fold=x=>/embeddedfolderview/.test(x);$('vVideo').innerHTML=(ev?`<div class="vframe ${fold(ev)?'fold':''}"><iframe src="${ev}" title="Video: ${esc(e.name)}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>`:'')+(ea&&ea!==ev?`<div class="vframe aud"><iframe src="${ea}" title="Âm thanh: ${esc(e.name)}" loading="lazy" allow="autoplay" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>`:'')}$('vCard').style.setProperty('--c',e.c||'var(--indigo)');$('vArt').innerHTML=pic(e);
  const P=photosOf(e).filter(pubPhoto);$('vThumbs').innerHTML=P.length>1?P.map((p,i)=>`<button type="button" data-vph="${i}" aria-pressed="${!i}" aria-label="Ảnh ${i+1}/${P.length}">${imgOf(p,'')}</button>`).join(''):'';
  $('vThumbs').querySelectorAll('[data-vph]').forEach(b=>b.onclick=()=>{$('vArt').innerHTML=imgOf(P[+b.dataset.vph],e.photoAlt||e.name);$('vThumbs').querySelectorAll('[data-vph]').forEach(x=>x.setAttribute('aria-pressed',x===b))});$('vPlan').textContent=e.plan||e.roomName;$('vTitle').textContent=e.name;
@@ -1641,7 +1654,7 @@ heroCta();navTabs();render();
  }catch(_){}
  if(mode==='github'){
   heroCta();navTabs();render();
-  freshen();askInit();
+  freshen();askInit();loadViews();
   if(location.hash==='#quan-tri'||sess())api('/api/health').catch(()=>{});
   if(sess()){try{const r=await api('/api/me');await afterLogin(r)}catch(_){if(!sess()){canAdmin=false;me=null}}}
   return;

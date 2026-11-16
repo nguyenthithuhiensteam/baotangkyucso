@@ -608,7 +608,50 @@ function readBody(req) {
     req.on('error', fail);
   });
 }
-const PUBLIC = new Set(['GET /api/health', 'POST /api/login', 'POST /api/ask']);
+/* ---------------- Lượt xem bài ----------------
+   Đếm trong bộ nhớ, cứ 5 phút cộng dồn vào kho riêng (luotxem.json) một lần, và khi máy chủ tắt.
+   Mỗi máy chỉ tính 1 lượt cho cùng một bài trong 6 giờ. */
+const VIEW_FILE = 'luotxem.json';
+let viewBase = null, viewBaseAt = 0, flushing = null;
+const viewDelta = new Map(), viewSeen = new Map();
+async function viewTotals() {
+  if (!viewBase || Date.now() - viewBaseAt > 10 * 60e3) {
+    const r = await readFile(PRIV_REPO, VIEW_FILE).catch(() => ({ data: null }));
+    viewBase = (r.data && r.data.views) || viewBase || {}; viewBaseAt = Date.now();
+  }
+  const out = { ...viewBase };
+  for (const [k, n] of viewDelta) out[k] = (out[k] || 0) + n;
+  return out;
+}
+async function flushViews() {
+  if (flushing || !viewDelta.size) return flushing;
+  const batch = new Map(viewDelta); viewDelta.clear();
+  flushing = updateFile(PRIV_REPO, VIEW_FILE, () => ({ views: {} }), d => {
+    d.views = d.views || {};
+    for (const [k, n] of batch) d.views[k] = (d.views[k] || 0) + n;
+  }, `Lượt xem (+${[...batch.values()].reduce((a, b) => a + b, 0)})`)
+    .then(r => { viewBase = r.data.views; viewBaseAt = Date.now(); })
+    .catch(e => { console.error('flushViews', e.message); for (const [k, n] of batch) viewDelta.set(k, (viewDelta.get(k) || 0) + n); })
+    .finally(() => { flushing = null; });
+  return flushing;
+}
+setInterval(() => { flushViews(); const cut = Date.now() - 6 * 3600e3; for (const [k, t] of viewSeen) if (t < cut) viewSeen.delete(k); }, Number(env.VIEW_FLUSH_MS) || 5 * 60e3).unref();
+for (const sig of ['SIGTERM', 'SIGINT']) process.on(sig, () => { Promise.race([flushViews(), sleep(8000)]).finally(() => process.exit(0)); });
+routes['GET /api/views'] = async () => ({ views: await viewTotals() });
+routes['POST /api/view'] = async (req, body) => {
+  const id = String(body.id || '');
+  if (!/^[A-Za-z0-9_-]{1,40}$/.test(id)) throw new HttpErr(400, 'Bài không hợp lệ.');
+  const ip = String(req.headers['x-forwarded-for'] || req.socket.remoteAddress || '').split(',')[0].trim();
+  const k = ip + '|' + id, now = Date.now();
+  if (!(viewSeen.get(k) > now - 6 * 3600e3)) {
+    if (viewSeen.size > 50000) viewSeen.clear();
+    viewSeen.set(k, now); viewDelta.set(id, (viewDelta.get(id) || 0) + 1);
+  }
+  const t = await viewTotals();
+  return { id, views: t[id] || 0 };
+};
+
+const PUBLIC = new Set(['GET /api/health', 'POST /api/login', 'POST /api/ask', 'GET /api/views', 'POST /api/view']);
 const server = http.createServer(async (req, res) => {
   const origin = (req.headers.origin || '').replace(/\/$/, '');
   if (origin && ORIGINS.includes(origin)) {
