@@ -4406,8 +4406,10 @@
    ],
    "keeper": "",
    "her": "",
-   "photo": "",
-   "photos": [],
+   "photo": "anh/f5e4fc8683576fa8b40d.jpg",
+   "photos": [
+    "anh/f5e4fc8683576fa8b40d.jpg"
+   ],
    "photoAlt": "",
    "sample": false
   },
@@ -7235,6 +7237,65 @@
     "anh/5af5786c7f7e44888af1.jpg"
    ],
    "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwjdgd0c",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Bé chăm sóc cây xanh mỗi ngày",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp MG 3- 4 tuổi B",
+   "story": "Mỗi buổi chiều râm mát, các bạn nhỏ lớp mẫu giáo 3-4 tuổi B lại hào hứng rủ nhau ra góc thiên nhiên của lớp để chăm sóc những chậu cây xanh xinh xắn. Bạn thì cầm bình tưới nhỏ gọn, cẩn thận rót từng dòng nước mát lành để tưới cho gốc cây. Bạn khác lại khéo léo dùng chiếc xẻng nhựa nhỏ xíu để xới tơi lớp đất quanh chậu. Các bé chăm chú nhặt từng chiếc lá vàng rơi rụng và lau sạch bụi bẩn bám trên lá. Cô giáo luôn ở bên cạnh ân cần hướng dẫn cách cầm bình tưới sao cho nước không bị bắn ra ngoài. Nhìn những mầm cây vươn lên xanh tốt, khuôn mặt bạn nào cũng rạng rỡ nụ cười tươi tắn và đầy tự hào. Qua hoạt động thú vị này, các bé được rèn luyện sự khéo léo và thói quen yêu thiên nhiên. Trẻ em lớp 3-4 tuổi B ai nấy đều hứa sẽ chăm chỉ tưới cây mỗi ngày để vườn cây của lớp ngày càng xanh mướt.",
+   "ask": "Hàng ngày con sẽ làm gì để cho cây xanh mau lớn và khoẻ mạnh",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/19mpMKjgWI50CNE2LTVzRmrTYwkOcCLpD/view?usp=sharing",
+   "cls": [
+    "ldb4f8c"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwjd9sj9",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Bé tìm hiểu về Cây Đa Tân trào, Cột cờ lũng cú tại góc truyền thống văn hóa.",
+   "era": "Tháng 11",
+   "plan": "",
+   "from": "Lớp 25-36 tháng A (Hương Sen)",
+   "story": "Mục đích giáo dục: Cụ thể hóa nội dung giáo dục phát triển tình cảm và kỹ năng xã hội; giúp trẻ nhận biết các biểu tượng đặc trưng của quê hương, đất nước (Quốc kỳ, Bản đồ Việt Nam, di tích lịch sử Cây đa Tân Trào).\nPhương pháp tiếp cận: Lấy trẻ làm trung tâm thông qua hình thức trải nghiệm thực tế và trò chuyện gợi mở. Sử dụng giáo cụ trực quan sinh động tại Góc truyền thống để chuyển tải kiến thức lịch sử, địa lý khô khan thành những câu chuyện nhẹ nhàng, phù hợp với tâm sinh lý lứa tuổi mầm non.\nKết quả mong đợi: Hình thành ở trẻ thái độ tôn trọng, lễ phép, niềm tự hào dân tộc và ý thức giữ gìn, bảo vệ các biểu tượng văn hóa, lịch sử.",
+   "ask": "Các con thấy cột cờ Lũng cú như thế nào?;  Đã bạn nào được bố mẹ cho đi thăm các di tích lịch sử này chưa?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lc0c279"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/caed04a242d73526730a.jpg",
+   "photos": [
+    "anh/caed04a242d73526730a.jpg",
+    "anh/97e1c683ef9dc4bce2b0.jpg",
+    "anh/187425ce30ff1a7ef51a.jpg",
+    "anh/fb3a73fcf2c8e9b5d456.jpg",
+    "anh/9c1992ec7b3704685cd9.jpg",
+    "anh/87ec0a9e19b3ee844e9f.jpg",
+    "anh/d67de45360918feaea65.jpg",
+    "anh/4e04f512e42897c30b0c.jpg"
+   ],
+   "photoAlt": "Chào các bé! Hôm nay cô trò mình cùng ghé thăm Góc truyền thống của trường để khám phá những điều thật đặc biệt về đất nước Việt Nam nhé:  🌳 Cây đa Tân Trào xanh mát: Gợi nhắc cho chúng ta về cội ngu",
    "sample": false
   }
  ],
