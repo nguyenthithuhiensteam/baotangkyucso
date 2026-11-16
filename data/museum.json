@@ -5861,6 +5861,293 @@
    "photos": [],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwizz4uk",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Hoạt động trải nghiệm\"Phòng cháy chữa cháy\"",
+   "era": "Tháng 10/2026",
+   "plan": "Hoạt động ngoại khóa",
+   "from": "Lớp: 4-5 tuổi Hương Sen",
+   "story": "Ý nghĩa của việc tổ chức hoạt động trải nghiệm “Phòng cháy chữa cháy” cho trẻ mầm non:\n\n1. Giúp trẻ nhận biết một số nguyên nhân, nguy cơ gây cháy và những nơi có thể xảy ra cháy.\n2. Trang bị cho trẻ kiến thức, kỹ năng cơ bản để nhận biết và phòng tránh nguy cơ cháy nổ.\n3. Giúp trẻ biết cách xử lý tình huống khi có cháy: bình tĩnh, hô to báo động, gọi người lớn và di chuyển theo hướng dẫn đến nơi an toàn.\n4. Rèn luyện kỹ năng tự bảo vệ bản thân, ý thức tuân thủ các quy định về an toàn phòng cháy chữa cháy.\n5. Giúp trẻ tự tin, chủ động trong các tình huống trải nghiệm, góp phần hình thành kỹ năng sống và bảo đảm an toàn cho bản thân.",
+   "ask": "1. Hôm nay các con đã được tham gia vào hoạt động gì? 2. Khi phát hiện có cháy, các con cần làm gì để bảo vệ bản thân? 3.Các con cần làm gì để phòng tránh cháy xảy ra ở nhà và ở trường?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l7d442e"
+   ],
+   "tc": [
+    "TC3"
+   ],
+   "keeper": "Người có uy tín",
+   "her": "",
+   "photo": "anh/8baf6def8c764d420283.jpg",
+   "photos": [
+    "anh/8baf6def8c764d420283.jpg",
+    "anh/ca18da5817f2f774f7a8.jpg",
+    "anh/aac2cb131a4fc8a9fffe.jpg",
+    "anh/509597e6b4df7eb52bcc.jpg",
+    "anh/538b155ffef1aee1a65d.jpg",
+    "anh/076ad164182b651ea350.jpg",
+    "anh/3f238eed3836882807ba.jpg",
+    "anh/cc6f03070ddf46ca7bab.jpg",
+    "anh/815037486f72a5e22474.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwj07vip",
+   "room": "khoanh-khac",
+   "art": "rua",
+   "name": "Bé tham gia PCCC tại trường",
+   "era": "Thán 11",
+   "plan": "",
+   "from": "4-5 tuổi B1",
+   "story": "Hoạt động trải nghiệm phòng cháy, chữa cháy giúp trẻ bước đầu nhận biết những nguy cơ có thể gây ra cháy, nổ trong cuộc sống; Biết được tác hại của hỏa hoạn và tầm quan trọng của việc phòng tránh cháy. Thông qua hoạt động thực hành, trẻ được làm quen với một số kỹ năng thoát hiểm cơ bản như: bình tĩnh khi có cháy, biết cúi thấp người, dùng khăn che mũi miệng, di chuyển theo hướng dẫn của người lớn, không chen lấn, xô đẩy và biết gọi người lớn khi gặp nguy hiểm.\nĐặc biệt, hoạt động còn giúp trẻ hình thành ý thức tự bảo vệ bản thân, biết giữ an toàn khi sử dụng các thiết bị điện, không nghịch lửa, diêm, bật lửa; đồng thời mạnh dạn, tự tin và có ý thức phối hợp với cô giáo, bạn bè khi tham gia các tình huống giả định.",
+   "ask": "Khi có cháy xảy ra con sẽ làm như thế nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l62a027"
+   ],
+   "tc": [
+    "TC3"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/7e8b89af074d1fc3faea.jpg",
+   "photos": [
+    "anh/7e8b89af074d1fc3faea.jpg",
+    "anh/c4d977481b1724fa0160.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwj0k4zz",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Thăm quan trường mầm non Nông Tiến",
+   "era": "11/2026",
+   "plan": "",
+   "from": "Lớp Mẫu giáo 5-6 tuổi C2",
+   "story": "Thăm quan trường mầm non Nông tiến",
+   "ask": "Tên trường các con đang học là gì",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1_g2X4L8wpc1FQvCTJOyuD8drYavK05sJ/view?usp=drive_link",
+   "cls": [
+    "l3ee012"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwj0l44h",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Các bé làm quen Tiếng Anh qua phần mềm Babilala",
+   "era": "Thán 11",
+   "plan": "",
+   "from": "4-5 tuổi B1",
+   "story": "Cho trẻ làm quen với tiếng Anh qua phần mềm Babilala\nGiúp trẻ bước đầu làm quen với tiếng Anh thông qua hình ảnh, âm thanh, bài hát và trò chơi tương tác sinh động. Trẻ được nghe, nhận biết và tập phát âm một số từ vựng, mẫu câu đơn giản; Phát triển khả năng nghe, ghi nhớ, phản xạ ngôn ngữ, tạo hứng thú và sự tự tin khi tiếp xúc với ngoại ngữ.",
+   "ask": "Các con có thích học tiếng Anh không? Vì sao?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/12qz4-3-9uTOy7aL9m2gWXBRcY0PLSTvf/view?usp=drive_link",
+   "cls": [
+    "l62a027"
+   ],
+   "tc": [
+    "MR1"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwj0jkb3",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Bắt tay (Hand shak)",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp: 4-5 tuổi Hương Sen",
+   "story": "Một cái bắt tay - Ngàn lời yêu thương\nBiết chào hỏi - Biết sẻ chia - Biết xin lỗi - Biết tha thứ - Cùng nhau đoàn kết!",
+   "ask": "1. Đây là hành động gì? 2. hành động này thể hiện điều gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l7d442e"
+   ],
+   "tc": [
+    "TC5"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/1981c83f35d3f34ce4a9.jpg",
+   "photos": [
+    "anh/1981c83f35d3f34ce4a9.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwj0p7if",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây gừng",
+   "era": "11/2026",
+   "plan": "",
+   "from": "Lớp Mẫu giáo 5-6 tuổi C2",
+   "story": "Đặc điểm của cây gừng:\n- Cây gừng là loại cây thân thảo, thường mọc thành bụi.\n- Thân cây mọc thẳng, có màu xanh.\nLá gừng dài, thuôn nhọn ở hai đầu, có màu xanh và mọc so le.\n- Rễ cây phát triển thành củ nằm dưới mặt đất.\n- Củ gừng có màu vàng nhạt bên trong, bên ngoài có lớp vỏ màu vàng nâu.\n- Gừng có mùi thơm đặc trưng và vị cay, hơi nóng.",
+   "ask": "Đây là cây gì? Có đặc điểm như thế nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/16bqOI6HXSklzJOaqj0dg-8qNSpnsp7Q8/view?usp=sharing",
+   "cls": [
+    "l3ee012"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwj0mqfv",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Góc thiên nhiện của bé",
+   "era": "16/11/2026",
+   "plan": "",
+   "from": "Lớp 5-6 tuổi C1",
+   "story": "",
+   "ask": "",
+   "video": "https://youtu.be/XJ-xomgk9dE",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l3a9b5e"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwj0ufdb",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Đập tay – High Five",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "LỚp 5-6 tuổi Hương Sen",
+   "story": "Đập tay - Trao niềm vui\nMột cái đập tay - Một lời động viên\nBiết cổ vũ - Biết khích lệ - Biết hợp tác - cùng nhau vui vẻ!",
+   "ask": "1. Hành động đập tay thể hiện điều gì? 2. Khi nào chúng mình có thể đập tay với bạn?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l7d442e"
+   ],
+   "tc": [
+    "TC5"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/65585b0f67bd5a117059.jpg",
+   "photos": [
+    "anh/65585b0f67bd5a117059.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwj0xnwy",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây hạnh phúc",
+   "era": "11/2026",
+   "plan": "",
+   "from": "Lớp Mẫu giáo 5-6 tuổi C2",
+   "story": "Đặc điểm cây hạnh phúc\n- Cây hạnh phúc là loại cây cảnh, thường được trồng trong nhà và ngoài trời.\n- Thân cây mọc thẳng, có màu nâu, nhiều cành nhánh.\n- Lá cây có màu xanh tươi, mọc thành từng cụm, mỗi lá gồm nhiều lá nhỏ.\n- Lá có hình bầu dục, đầu hơi nhọn, bề mặt lá bóng và mềm.\n\n- Cây có thể ra hoa màu trắng, hoa có hình dáng giống chiếc chuông.\n- Cây thích hợp với nơi có ánh sáng nhẹ, thoáng mát.",
+   "ask": "Đây là cây gì? Có đặc điểm như thế nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1mmMoSVerGTKC86oRMWQbohwhXPDxV4qK/view?usp=sharing",
+   "cls": [
+    "l3ee012"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwj0p2l5",
+   "room": "thien-nhien",
+   "art": "caylon",
+   "name": "Cây hoa Ngọc Trâm",
+   "era": "Thán 11",
+   "plan": "",
+   "from": "4-5 tuổi B1",
+   "story": "Cây hoa Ngọc Trâm là cây thân thảo, sống lâu năm, thường mọc thành bụi. Cây có lá to, màu xanh, mọc từ gốc. Hoa thường có màu trắng, cánh hoa mềm mại, có hương thơm dịu nhẹ. Cây được trồng để làm đẹp sân vườn và tạo không gian xanh mát. Các bé cần biết yêu quý, chăm sóc cây, không ngắt hoa, bẻ cành và bảo vệ môi trường xanh, sạch, đẹp.",
+   "ask": "Hoa Ngọc Trâm có màu gì? Chúng mình cần làm gì để cây luôn xanh tốt?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l62a027"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/7bac8fd55b1ba2f263a9.jpg",
+   "photos": [
+    "anh/7bac8fd55b1ba2f263a9.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
