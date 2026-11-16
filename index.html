@@ -1320,6 +1320,7 @@ function adminPending(){
  const keyOf=p=>p.kind+'|'+((p.item||{}).id||''),cnt={};wait.forEach(p=>cnt[keyOf(p)]=(cnt[keyOf(p)]||0)+1);
  const dupNote=p=>{const o=wait.filter(x=>x!==p&&keyOf(x)===keyOf(p));return o.length?`<small class="dup">⚠ Cùng ${p.kind==='exhibit'?'hiện vật':'mốc'} này còn ${o.length} bài khác đang chờ (${o.map(x=>esc(x.byName||x.by)).join(', ')}). Duyệt bài sau sẽ ghi đè bài trước.</small>`:''};
  return `<div class="alist"><div class="agroup"><h4>Bài chờ duyệt (${wait.length})</h4>
+ ${wait.length>1?(confirmDel==='approveAll'?`<div class="row"><span class="confirm">Duyệt và đưa cả ${wait.length} bài lên trang? <button type="button" class="btn small primary" id="okAllYes">Duyệt tất cả</button><button type="button" class="btn small" data-delno>Không</button></span></div>`:`<div class="row"><button type="button" class="btn primary" id="okAll">✓ Duyệt tất cả ${wait.length} bài</button></div>`):''}
  ${wait.map(p=>`<div class="pend">${pendHead(p)}${dupNote(p)}${itemDetails(p)}
   ${rejectOpen===p.id?`<div class="row"><input id="rj_${p.id}" placeholder="Lý do trả lại (giáo viên sẽ thấy)" maxlength="500"><button type="button" class="btn small danger primary" data-rjok="${p.id}">Trả lại</button><button type="button" class="btn small" data-rjno>Hủy</button></div>`
   :`<div class="row"><button type="button" class="btn small primary" data-ok="${p.id}">Duyệt, đưa lên trang</button><button type="button" class="btn small danger" data-rj="${p.id}">Trả lại</button></div>`}</div>`).join('')||'<small style="color:var(--muted)">Không có bài nào đang chờ.</small>'}
@@ -1341,10 +1342,12 @@ function pwForm(){
   ${fld('pw_new2','Nhập lại mật khẩu mới','',{type:'password',ac:'new-password'})}
   <div><button type="submit" class="btn primary">Đổi mật khẩu</button></div></form>`;
 }
-const blankUser=()=>({isNew:true,username:'',name:'',rooms:[],classes:[],timeline:false,review:true,active:true});
+const blankUser=()=>({isNew:true,username:'',name:'',rooms:[],classes:[],timeline:false,review:false,active:true});
 function adminUsers(){
  if(!usersList)return `<div class="empty">Đang tải danh sách tài khoản…</div>`;
+ const nRv=usersList.filter(u=>u.review).length;
  const list=`<div class="agroup"><h4>Tài khoản giáo viên (${usersList.length})</h4>
+  ${usersList.length?`<div class="row" style="flex-wrap:wrap;gap:8px;align-items:center"><small style="color:var(--muted)">${nRv?`${nRv} tài khoản đang cần duyệt bài.`:'Tất cả tài khoản đang đăng thẳng, không cần duyệt.'}</small>${nRv?`<button type="button" class="btn small" data-rvall="0">Bỏ duyệt cho tất cả</button>`:''}${nRv<usersList.length?`<button type="button" class="btn small" data-rvall="1">Bật duyệt cho tất cả</button>`:''}</div>`:''}
   ${usersList.map(u=>`<div class="arow ${userDraft&&userDraft.username===u.username&&!userDraft.isNew?'on':''}" style="grid-template-columns:minmax(0,1fr) auto"><div style="min-width:0"><b>${esc(u.name)} ${u.active?'':'<span class="st rejected">Đã khóa</span>'}</b><small>${esc(u.username)} · ${(u.classes||[]).length?'lớp '+u.classes.map(id=>esc((clsOf(id)||{name:'?'}).name)).join(', ')+' · ':''}${u.rooms.length?u.rooms.map(roomShort).join(', '):'chưa giao phòng'}${u.timeline?' · sửa dòng thời gian':''} · ${u.review?'cần duyệt':'đăng thẳng'}</small></div>
    ${confirmDel==='u:'+u.username?`<span class="confirm">Xóa tài khoản? <button type="button" class="btn small danger primary" data-udelok="${esc(u.username)}">Xóa</button><button type="button" class="btn small" data-delno>Không</button></span>`
    :`<span class="acts"><button type="button" class="btn small" data-uedit="${esc(u.username)}">Sửa</button><button type="button" class="btn small danger" data-udel="${esc(u.username)}">Xóa</button></span>`}</div>`).join('')||'<small style="color:var(--muted)">Chưa có tài khoản giáo viên nào.</small>'}</div>`;
@@ -1467,11 +1470,20 @@ function wireAdmin(){
   markDirty();heroCta();render();setMsg('Đã cập nhật. Bấm Lưu lên trang để phụ huynh thấy.')};
  /* duyệt bài */
  const pr=$('pendReload');if(pr)pr.onclick=()=>{pendingList=null;render();loadPending()};
+ const oa=$('okAll');if(oa)oa.onclick=()=>{if(dirty){setMsg('Còn thay đổi chưa lưu. Hãy Lưu lên trang hoặc Bỏ thay đổi trước khi duyệt bài.');return}confirmDel='approveAll';render()};
+ const oy=$('okAllYes');if(oy)oy.onclick=async()=>{
+  if(busy)return;busy=true;oy.disabled=true;oy.textContent='Đang duyệt…';setMsg('Đang duyệt tất cả bài, vui lòng chờ…');
+  try{const r=await api('/api/pending/approve-all',{},()=>setMsg(WAKE));adoptLatest(r);confirmDel=null;setMsg(`Đã duyệt ${r.approved} bài${r.failed?`, còn ${r.failed} bài chưa duyệt được (bấm lại để thử)`:''}. Bài hiện trên trang sau khoảng 1–2 phút.`);await loadPending()}
+  catch(e){setMsg(e.msg);oy.disabled=false;oy.textContent='Duyệt tất cả'}finally{busy=false}};
  main.querySelectorAll('[data-ok]').forEach(b=>b.onclick=async()=>{
   if(dirty){setMsg('Còn thay đổi chưa lưu. Hãy Lưu lên trang hoặc Bỏ thay đổi trước khi duyệt bài.');return}
   if(busy)return;busy=true;b.disabled=true;b.textContent='Đang duyệt…';
   try{const r=await api('/api/pending/approve',{id:b.dataset.ok},()=>setMsg(WAKE));adoptLatest(r);setMsg('Đã duyệt. Bài hiện trên trang sau khoảng 1–2 phút.');await loadPending()}
   catch(e){setMsg(e.msg);b.disabled=false;b.textContent='Duyệt, đưa lên trang'}finally{busy=false}});
+ main.querySelectorAll('[data-rvall]').forEach(b=>b.onclick=async()=>{
+  if(busy)return;busy=true;b.disabled=true;const on=b.dataset.rvall==='1';
+  try{await api('/api/users/review-all',{review:on},()=>setMsg(WAKE));setMsg(on?'Đã bật duyệt bài cho mọi tài khoản.':'Đã bỏ duyệt: bài của các cô đăng thẳng lên trang. Quản trị vẫn sửa, xóa được bài.');await loadUsers()}
+  catch(e){setMsg(e.msg);b.disabled=false}finally{busy=false}});
  main.querySelectorAll('[data-rj]').forEach(b=>b.onclick=()=>{rejectOpen=b.dataset.rj;render();$('rj_'+rejectOpen)?.focus()});
  main.querySelectorAll('[data-rjno]').forEach(b=>b.onclick=()=>{rejectOpen=null;render()});
  main.querySelectorAll('[data-rjok]').forEach(b=>b.onclick=async()=>{

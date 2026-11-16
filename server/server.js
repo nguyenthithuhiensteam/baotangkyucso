@@ -458,6 +458,29 @@ const routes = {
     return { sha: r.sha, data: r.data };
   },
 
+  /* Duyệt một lần tất cả bài đang chờ (theo thứ tự gửi). Bài lỗi ảnh thì để lại, báo số lượng. */
+  'POST /api/pending/approve-all': async (req, body, user) => {
+    needAdmin(user);
+    const p = await loadPriv(true);
+    prune(p);
+    const wait = p.pending.filter(x => x.status === 'pending');
+    if (!wait.length) throw new HttpErr(404, 'Không có bài nào đang chờ duyệt.');
+    const ready = [], failed = [];
+    for (const it of wait) {
+      try {
+        const item = it.kind === 'exhibit' ? cleanExhibit(it.item) : cleanTimeline(it.item);
+        if (it.kind === 'exhibit') { const out = []; for (const ph of item.photos) out.push(await publishPhoto(ph, it.by)); item.photos = out; item.photo = out[0] || ''; }
+        ready.push({ it, item });
+      } catch (e) { console.error('approve-all', it.id, e.message); failed.push(it.id); }
+    }
+    if (!ready.length) throw new HttpErr(502, 'Chưa duyệt được bài nào (lỗi khi chép ảnh). Vui lòng thử lại.');
+    const r = await updateData(d => { for (const { it, item } of ready) applyItem(d, it.kind, item, it.beforeId); },
+      `Duyệt hàng loạt ${ready.length} bài`);
+    const ids = new Set(ready.map(x => x.it.id)), now = new Date().toISOString();
+    await updatePriv(q => { for (const x of q.pending) if (ids.has(x.id) && x.status === 'pending') { x.status = 'approved'; x.decidedAt = now; } prune(q); }, `Đã duyệt hàng loạt ${ready.length} bài`);
+    return { sha: r.sha, data: r.data, approved: ready.length, failed: failed.length };
+  },
+
   'POST /api/pending/reject': async (req, body, user) => {
     needAdmin(user);
     let found = false;
@@ -516,6 +539,15 @@ const routes = {
       if (pw || (wasActive && !u.active)) u.ver = (u.ver || 0) + 1;
     }, 'Cập nhật tài khoản ' + username);
     return { ok: true };
+  },
+
+  /* Bật / tắt duyệt bài cho mọi tài khoản giáo viên cùng lúc. */
+  'POST /api/users/review-all': async (req, body, user) => {
+    needAdmin(user);
+    const on = body.review === true;
+    let n = 0;
+    await updatePriv(q => { for (const u of q.users) if ((u.review !== false) !== on) { u.review = on; n++; } }, on ? 'Bật duyệt bài cho mọi tài khoản' : 'Bỏ duyệt bài cho mọi tài khoản');
+    return { ok: true, changed: n };
   },
 
   'POST /api/users/delete': async (req, body, user) => {
