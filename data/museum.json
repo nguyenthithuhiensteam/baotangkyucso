@@ -2603,6 +2603,33 @@
    "photos": [],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwila6wp",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây tòng vàng",
+   "era": "11/2026",
+   "plan": "",
+   "from": "Lớp 24-36 tháng B phân hiệu Tràng Đà",
+   "story": "THƠ: SẮC VÀNG HIÊN LỚP\n\nVàng tươi một góc hiên nhà,\nCô tòng khoe sắc mượt mà nắng mai.\nLá hình chiếc lá dải dài,\nSáng bừng góc nhỏ, rộn ngài niềm vui.\nĐón tay các bé đến chơi,\nLá vàng rực rỡ nụ cười thân thương.\nMặc cho mưa gió bốn phương,\nVẫn luôn tươi tắn, ngát hương tình đời!",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/folders/1MsEPNIvi2tt9ZTBKDHFlL8XnGhifNofp?usp=sharing",
+   "cls": [
+    "l1b3ceb"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/44a1939a19db2f7d9328.jpg",
+   "photos": [
+    "anh/44a1939a19db2f7d9328.jpg"
+   ],
+   "photoAlt": "",
+   "sample": true
   }
  ],
  "timeline": [
