@@ -2996,6 +2996,33 @@
    ],
    "photoAlt": "",
    "sample": true
+  },
+  {
+   "id": "emwimlg0u",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây cẩm tú mai thái",
+   "era": "Tháng 11",
+   "plan": "",
+   "from": "Lớp 3-4 tuổi A2",
+   "story": "Ngày nọ, ông lão bán cây ở góc phố mang về một bụi cẩm tú mai Thái tí xíu, cắm ở góc vườn nhà mình. Ai qua cũng cười nói: \"Cây gì nhỏ thế, chẳng bao giờ nở hoa được\". Ông chỉ mỉm cười, ngày ngày tưới một ít nước, không cần bón phân quá nhiều, cũng không che chắn mỗi khi nắng gắt hay mưa rào.\n\nMùa hè năm sau, bụi cây ấy bỗng bung ra hàng ngàn bông hoa tím li ti, như những ngôi sao nhỏ đậu trên nền lá xanh mướt. Nó không cao lớn, không hào nhoáng như các loài hoa khác, nhưng cứ nở liên tục, từ tháng này sang tháng khác, không ngắt quãng dù trời nắng nóng hay gió lùa. Những người hàng xóm lúc đầu chế giễu, bây giờ ai cũng dừng chân ngắm nhìn, mỗi người xin một cành giâm về trồng thử.\n\nÔng lão bảo: \"Điều tuyệt vời nhất không phải là loài cây to lớn, rực rỡ. Mà là loài cây nhỏ bé, bền bỉ, ngày ngày lặng lẽ nở hoa, chẳng cần ai khen ngợi, cũng chẳng sợ thời tiết khắc nghiệt\". Từ đó, những bụi cẩm tú mai Thái lan tỏa khắp các lối đi, công viên, sân nhà nhỏ, mỗi khi ai nhìn thấy những đóa hoa tím dịu dàng, đều nhớ đến câu chuyện về sức sống âm thầm, kiên trì, luôn mang lại niềm vui đơn giản cho những ai chịu đợi chờ.",
+   "ask": "Đây là cây gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lc8a1a7"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/1aca7da797a09d751ba2.jpg",
+   "photos": [
+    "anh/1aca7da797a09d751ba2.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
