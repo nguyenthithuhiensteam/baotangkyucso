@@ -4182,6 +4182,31 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwipf424",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Lớp học hạnh phúc - 4-5 tuổi B1",
+   "era": "Thán 11",
+   "plan": "",
+   "from": "4-5 tuổi B1",
+   "story": "Con muốn thể hiện tình cảm của mình cùng các cô",
+   "ask": "Con muốn được thể hiện tình cảm nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1ges2V24_KnvfNxQ3wpzvs9VnRxprtAFK/view?usp=drive_link",
+   "cls": [
+    "l62a027"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
