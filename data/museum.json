@@ -2004,6 +2004,33 @@
    ],
    "photoAlt": "",
    "sample": true
+  },
+  {
+   "id": "emwhxykku",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây mai tiểu thơ",
+   "era": "tháng 11/2026",
+   "plan": "Ngày nhà giáo Việt Nam 20/11",
+   "from": "lớp: 24 - 36 tháng A Tràng Đà",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/u/0/folders/1WERLlv0wky-BSO3ofVMZJIoRvmbudb7s",
+   "cls": [
+    "lc16f31"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/1da5ef0c59c673b372d2.jpg",
+   "photos": [
+    "anh/1da5ef0c59c673b372d2.jpg"
+   ],
+   "photoAlt": "",
+   "sample": true
   }
  ],
  "timeline": [
