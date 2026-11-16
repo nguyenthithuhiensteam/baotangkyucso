@@ -346,6 +346,21 @@ h3.fsel{font-size:22px}h3.fsel small{font-size:14px;color:var(--muted);font-fami
 .dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--c);flex:none}
 .dnote{margin:0;color:var(--muted);font-size:13px}
 .croom{display:grid;gap:10px}
+.askbtn{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));z-index:40;border:0;border-radius:999px;padding:12px 18px;background:var(--indigo);color:var(--paper);font:inherit;font-weight:800;font-size:15px;cursor:pointer;box-shadow:0 6px 18px rgba(20,40,80,.3);display:flex;gap:8px;align-items:center}
+.askbtn:focus-visible{outline:3px solid var(--turmeric-fill);outline-offset:3px}
+.askbox{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:76px;z-index:41;width:min(380px,calc(100vw - 32px));height:min(560px,calc(100vh - 110px));background:var(--frame);border-radius:20px;box-shadow:0 12px 40px rgba(20,40,80,.35);display:grid;grid-template-rows:auto 1fr auto auto;overflow:hidden;border:2px solid var(--line)}
+.askbox[hidden]{display:none}
+.askbox header{display:grid;grid-template-columns:1fr auto;gap:0 8px;padding:12px 14px;background:var(--indigo);color:var(--paper)}.askbox header small{grid-column:1;opacity:.85;font-size:12px}
+.askx{grid-row:1/3;grid-column:2;border:0;background:rgba(255,255,255,.18);color:inherit;border-radius:50%;width:32px;height:32px;cursor:pointer;font-size:15px}
+.asklog{overflow-y:auto;padding:12px;display:grid;gap:8px;align-content:start}
+.askm{max-width:88%;padding:8px 12px;border-radius:14px;font-size:15px;line-height:1.45;white-space:normal}
+.askm.bot{background:var(--wall);justify-self:start;border-bottom-left-radius:4px}.askm.me{background:var(--indigo);color:var(--paper);justify-self:end;border-bottom-right-radius:4px}
+.askm.wait{color:var(--muted);font-style:italic}
+.asktips{display:flex;flex-wrap:wrap;gap:6px}.asktips button{border:1.5px solid var(--indigo);background:var(--frame);color:var(--indigo);border-radius:999px;padding:4px 10px;font:inherit;font-size:13px;font-weight:700;cursor:pointer;text-align:left}
+#askForm{display:grid;grid-template-columns:1fr auto;gap:8px;padding:10px 12px;border-top:1px solid var(--line);align-items:end}
+#askForm textarea{font:inherit;font-size:15px;border:2px solid var(--line);border-radius:12px;padding:8px 10px;resize:none;background:var(--paper);color:var(--ink)}
+.asknote{padding:0 12px 10px;color:var(--muted);font-size:11.5px}
+@media (max-width:560px){.askbtn{padding:10px 14px;font-size:14px}.askbox{bottom:70px;height:calc(100vh - 100px)}}
 .cchead{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}.cchead h3.sub{font-size:22px}.cchead small{color:var(--muted);font-weight:700}
 .ccell{all:unset;cursor:pointer;display:grid;gap:4px;align-content:start;text-align:center}
 .ccimg{display:block;aspect-ratio:1;border-radius:16px;overflow:hidden;border:4px solid var(--c);background:var(--frame);box-shadow:0 4px 0 color-mix(in srgb,var(--c) 30%,transparent);transition:transform .15s}
@@ -949,6 +964,38 @@ function openLightbox(L,i){
  const key=e=>{if(e.key==='Escape')close();else if(e.key==='ArrowRight'&&L.length>1){i=(i+1)%L.length;draw()}else if(e.key==='ArrowLeft'&&L.length>1){i=(i-1+L.length)%L.length;draw()}};
  const close=()=>{lb.hidden=true;document.removeEventListener('keydown',key)};
  lb.onclick=e=>{if(e.target===lb)close()};document.addEventListener('keydown',key);lb.hidden=false;draw();
+}
+/* Trợ lý AI hỏi đáp về trường */
+const askLog=[];let askBusy=false;
+const ASK_TIPS=['Trường Mầm non Nông Tiến thành lập năm nào?','Phân hiệu Hương Sen có gì nổi bật?','Bảo tàng có những phòng nào?','Góc thiên nhiên xanh có những cây gì?','Tâm – Thân – Tuệ nghĩa là gì?'];
+function askInit(){
+ if($('askBtn'))return;
+ const b=document.createElement('button');b.id='askBtn';b.type='button';b.className='askbtn';b.innerHTML='<span aria-hidden="true">💬</span> Hỏi đáp về trường';b.setAttribute('aria-expanded','false');b.setAttribute('aria-controls','askBox');
+ const box=document.createElement('section');box.id='askBox';box.className='askbox';box.hidden=true;box.setAttribute('aria-label','Trợ lý hỏi đáp về trường');
+ box.innerHTML=`<header><b>Trợ lý hỏi đáp</b><small>Trả lời dựa trên thông tin của bảo tàng</small><button type="button" class="askx" aria-label="Đóng">✕</button></header>
+  <div class="asklog" id="askLog" aria-live="polite"></div>
+  <form id="askForm"><textarea id="askIn" rows="2" maxlength="600" placeholder="Nhập câu hỏi về nhà trường…" aria-label="Câu hỏi"></textarea><button type="submit" class="btn primary small">Gửi</button></form>
+  <small class="asknote">Trợ lý AI có thể nhầm lẫn; thông tin chính thức xin liên hệ nhà trường.</small>`;
+ document.body.append(b,box);
+ const open=v=>{box.hidden=!v;b.setAttribute('aria-expanded',v);if(v){askDraw();$('askIn').focus()}};
+ b.onclick=()=>open(box.hidden);box.querySelector('.askx').onclick=()=>{open(false);b.focus()};
+ box.addEventListener('keydown',e=>{if(e.key==='Escape'){open(false);b.focus()}});
+ $('askIn').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();$('askForm').requestSubmit()}});
+ $('askForm').onsubmit=e=>{e.preventDefault();const q=$('askIn').value.trim();if(q)askSend(q)};
+}
+function askDraw(){
+ const L=$('askLog');if(!L)return;
+ L.innerHTML=(askLog.length?'':`<div class="askm bot">Xin chào! Trợ lý có thể trả lời về lịch sử nhà trường, ba điểm trường, các phòng trưng bày và hoạt động của các lớp. Quý vị muốn hỏi gì ạ?</div><div class="asktips">${ASK_TIPS.map(t=>`<button type="button" data-tip="${esc(t)}">${esc(t)}</button>`).join('')}</div>`)
+  +askLog.map(m=>`<div class="askm ${m.role==='user'?'me':'bot'}">${esc(m.content).replace(/\n/g,'<br>')}</div>`).join('')+(askBusy?'<div class="askm bot wait">Trợ lý đang trả lời…</div>':'');
+ L.querySelectorAll('[data-tip]').forEach(x=>x.onclick=()=>askSend(x.dataset.tip));
+ L.scrollTop=L.scrollHeight;
+}
+async function askSend(q){
+ if(askBusy)return;askBusy=true;askLog.push({role:'user',content:q});$('askIn').value='';askDraw();
+ const slow=setTimeout(()=>{const w=document.querySelector('#askLog .wait');if(w)w.textContent='Máy chủ đang khởi động, vui lòng chờ khoảng 1 phút…'},5000);
+ try{const hist=askLog.filter((m,i)=>!m.err&&!(askLog[i+1]&&askLog[i+1].err)).map(({role,content})=>({role,content})).slice(-8);const r=await api('/api/ask',{messages:hist});askLog.push({role:'assistant',content:r.answer})}
+ catch(err){askLog.push({role:'assistant',content:(err&&err.msg)||'Không kết nối được trợ lý. Vui lòng thử lại sau.',err:true})}
+ finally{clearTimeout(slow);askBusy=false;askDraw();$('askIn').focus()}
 }
 /* Phòng 1: trình chiếu tự chạy các mốc, kèm dải mốc thời gian; bản danh sách đầy đủ ở dưới. */
 const isFuture=t=>/^(mục tiêu|tầm nhìn)/i.test(t.when||'');
@@ -1576,7 +1623,7 @@ heroCta();navTabs();render();
  }catch(_){}
  if(mode==='github'){
   heroCta();navTabs();render();
-  freshen();
+  freshen();askInit();
   if(location.hash==='#quan-tri'||sess())api('/api/health').catch(()=>{});
   if(sess()){try{const r=await api('/api/me');await afterLogin(r)}catch(_){if(!sess()){canAdmin=false;me=null}}}
   return;

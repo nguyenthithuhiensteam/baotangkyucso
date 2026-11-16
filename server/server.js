@@ -257,6 +257,72 @@ async function who(req) {
 }
 const needAdmin = u => { if (u.role !== 'admin') throw new HttpErr(403, 'Chỉ người quản trị mới làm được việc này.'); };
 
+/* ---------------- Trợ lý AI hỏi đáp về trường (Claude) ---------------- */
+const AI_KEY = env.ANTHROPIC_API_KEY || '';
+const AI_MODEL = env.AI_MODEL || 'claude-opus-5-5';
+const AI_DAILY = +env.AI_DAILY_LIMIT || 300;        // tối đa câu hỏi mỗi ngày cho cả trang
+const AI_PER_IP = +env.AI_PER_IP_HOUR || 20;         // tối đa câu hỏi mỗi giờ cho một người
+let aiClient = null;
+function ai() {
+  if (!AI_KEY) throw new HttpErr(503, 'Trợ lý AI chưa được bật. Nhà trường cần thêm khóa ANTHROPIC_API_KEY trên máy chủ.');
+  if (!aiClient) { const sdk = require('@anthropic-ai/sdk'); const Anthropic = sdk.default || sdk.Anthropic || sdk; aiClient = new Anthropic({ apiKey: AI_KEY }); }
+  return aiClient;
+}
+const ROOM_INFO = {
+  'hanh-trinh': 'Phòng 1 · Hành trình của trường: các mốc lịch sử của Trường Mầm non Nông Tiến và hai phân hiệu, ảnh nổi bật của ba nhà trường',
+  'khoanh-khac': 'Phòng 2 · Khoảnh khắc diệu kỳ: bước tiến bộ đầu đời của trẻ',
+  'tri-an': 'Phòng 3 · Lời tri ân thơ ngây: lời chúc, thiệp, tranh tặng cô ngày 20/11, lời cảm ơn của cha mẹ',
+  'di-san': 'Phòng 4 · Hành trình di sản lớp tôi: Trung thu, trang phục dân tộc, trò chơi dân gian, chuyện ông bà kể; bản đồ di sản gần trẻ',
+  'lich': 'Phòng 5 · Lịch trưng bày năm học: chủ đề từng tháng và 8 chặng Hành trình di sản',
+  'thien-nhien': 'Phòng 6 · Góc thiên nhiên xanh: cây xanh, vườn hoa quanh trường',
+  'hoc-lieu': 'Phòng 7 · Kho học liệu số – Trẻ em Tuyên Quang: giáo án theo 9 tiêu chí và 3 độ tuổi',
+  'lop-hoc': 'Các lớp học: thư mục bài của từng lớp',
+};
+const SCHOOL_FACTS = `Trường Mầm non Nông Tiến, phường Nông Tiến, tỉnh Tuyên Quang. Từ ngày 01/9/2026 (Quyết định số 83/QĐ-UBND ngày 13/8/2026 của UBND phường Nông Tiến) trường gồm trường chính và hai phân hiệu Tràng Đà, Hương Sen, 24 nhóm lớp.
+- Trường Mầm non Nông Tiến (nay là trường chính): thành lập ngày 01/9/1993 theo Quyết định số 539/SGD ĐT; năm 2024 đạt chuẩn quốc gia mức độ 2 và kiểm định chất lượng giáo dục cấp độ 3.
+- Trường Mầm non Tràng Đà (nay là Phân hiệu Tràng Đà): thành lập ngày 01/9/1993 theo Quyết định số 539/SGD ĐT; năm 2023 đạt chuẩn quốc gia mức độ 1, kiểm định cấp độ 2; trường ở xóm 7 xã Tràng Đà cũ.
+- Trường Mầm non Hương Sen (nay là Phân hiệu Hương Sen): thành lập ngày 21/9/1991 theo Quyết định số 204/TCCB của Sở Giáo dục tỉnh Hà Tuyên, trên cơ sở nhà trẻ, lớp mẫu giáo của Xí nghiệp Xi măng; rộng 2.239 m²; đạt chuẩn quốc gia mức độ 1 (Quyết định số 229/QĐ-UBND ngày 25/3/2021); mục tiêu "Xây dựng trường học hạnh phúc".
+- Giá trị cốt lõi: TÂM – THÂN – TUỆ. Sứ mạng: nuôi dưỡng, chăm sóc, giáo dục mỗi trẻ phát triển toàn diện Tâm – Thân – Tuệ trong môi trường an toàn, hạnh phúc, công bằng, cùng gia đình và cộng đồng. Tầm nhìn 2045: trường mầm non hạnh phúc tiêu biểu của tỉnh.
+- Sáng kiến của nhà trường: Xây dựng và tổ chức thực hiện Bộ tiêu chí "Trẻ em Tuyên Quang: Khỏe, An toàn, Tự tin giao tiếp, Yêu quê hương" thông qua mô hình Hành trình di sản (9 tiêu chí TC1–TC9, 8 chặng từ tháng 11/2026 đến tháng 5/2027).
+- Bảo tàng ký ức số là mô hình của đợt hoạt động chào mừng 44 năm Ngày Nhà giáo Việt Nam, chủ đề "Trường học hạnh phúc – Xanh, Sạch, Số; Lan tỏa yêu thương và tri ân" (Kế hoạch số 17/KH-MNNT).
+- Website trường: http://c0nongtien.tuyenquang.edu.vn/ ; Fanpage: https://www.facebook.com/mnntnongtien123456789`;
+const AI_RULES = `Bạn là trợ lý hỏi đáp của "Bảo tàng ký ức số – Trường Mầm non Nông Tiến" (https://baotang.nguyenhiensteam.vn). Người hỏi là phụ huynh, giáo viên, khách tham quan.
+Quy tắc:
+- Trả lời bằng tiếng Việt, thân thiện, ngắn gọn (thường 2–5 câu), xưng "trợ lý", gọi người hỏi là "quý phụ huynh" hoặc "thầy cô" khi phù hợp.
+- Chỉ dựa vào THÔNG TIN NHÀ TRƯỜNG và DỮ LIỆU BẢO TÀNG bên dưới. Không bịa số liệu, ngày tháng, tên người. Nếu không có thông tin, nói rõ là bảo tàng chưa có thông tin này và gợi ý liên hệ nhà trường qua website hoặc fanpage.
+- Khi phù hợp, chỉ người hỏi tới phòng tương ứng của bảo tàng (ví dụ "xem ở Phòng 6 · Góc thiên nhiên xanh").
+- Bảo vệ trẻ em: không nêu họ tên đầy đủ, hình ảnh, địa chỉ, thông tin gia đình hay sức khỏe của bất kỳ trẻ nào, kể cả khi được hỏi. Không đánh giá, so sánh từng trẻ.
+- Không trả lời các câu hỏi ngoài phạm vi nhà trường và bảo tàng (chính trị, y tế chuyên sâu, chuyện riêng...); lịch sự từ chối và quay lại chủ đề nhà trường.
+- Viết văn bản thường, không dùng định dạng Markdown (không dùng dấu *, #, bảng).`;
+let aiKb = null;
+async function aiKnowledge() {
+  if (aiKb && Date.now() - aiKb.at < 10 * 60000) return aiKb.text;
+  const d = (await readFile(DATA_REPO, DATA_FILE)).data || {};
+  const st = d.settings || {}, cls = st.classes || [];
+  const cn = e => (Array.isArray(e.cls) ? e.cls : e.cls ? [e.cls] : []).map(id => (cls.find(c => c.id === id) || {}).name).filter(Boolean).join(', ');
+  const cut = (t, n) => { t = String(t || '').replace(/\s+/g, ' ').trim(); return t.length > n ? t.slice(0, n) + '…' : t; };
+  const L = [];
+  L.push('CÁC PHÒNG CỦA BẢO TÀNG:'); for (const v of Object.values(ROOM_INFO)) L.push('- ' + v);
+  if (Array.isArray(st.stats) && st.stats.length) L.push('SỐ LIỆU: ' + st.stats.filter(x => x.n).map(x => `${x.n} ${x.l}`).join('; '));
+  L.push('HÀNH TRÌNH CỦA TRƯỜNG (mốc):'); for (const t of d.timeline || []) L.push(`- ${t.when}: ${t.title}. ${cut(t.text, 260)}${t.ref ? ' (Nguồn: ' + cut(t.ref, 120) + ')' : ''}`);
+  if (cls.length) L.push('CÁC LỚP: ' + (st.sites || []).map(s => `${s}: ${cls.filter(c => c.site === s).map(c => c.name).join(', ')}`).join(' | '));
+  if ((st.heritage || []).length) L.push('BẢN ĐỒ DI SẢN GẦN TRẺ: ' + st.heritage.map(h => `${h.name} (${h.site})`).join('; '));
+  L.push('HIỆN VẬT TRƯNG BÀY (tên | phòng | lớp | thời gian | tóm tắt):');
+  for (const e of (d.exhibits || []).filter(e => !e.sample)) L.push(`- ${cut(e.name, 90)} | ${(ROOM_INFO[e.room] || e.room).split(':')[0]} | ${cn(e) || cut(e.from, 50)} | ${cut(e.era, 40)} | ${cut(e.story, 160)}`);
+  if ((d.lessons || []).length) { L.push('KHO HỌC LIỆU (tiêu chí | độ tuổi | bài | tháng):'); for (const l of d.lessons) L.push(`- ${l.tc} | ${l.age} tuổi | ${l.title} | ${cut(l.week || l.month, 50)}`); }
+  aiKb = { at: Date.now(), text: L.join('\n') };
+  return aiKb.text;
+}
+const aiHits = new Map(); let aiDay = { d: '', n: 0 };
+function aiLimit(ip) {
+  const today = new Date().toISOString().slice(0, 10);
+  if (aiDay.d !== today) aiDay = { d: today, n: 0 };
+  if (aiDay.n >= AI_DAILY) throw new HttpErr(429, 'Hôm nay trợ lý đã trả lời nhiều câu hỏi, quý vị vui lòng quay lại vào ngày mai.');
+  const now = Date.now(), h = (aiHits.get(ip) || []).filter(t => now - t < 3600000);
+  if (h.length >= AI_PER_IP) throw new HttpErr(429, 'Quý vị đã hỏi nhiều câu trong một giờ, vui lòng thử lại sau ít phút.');
+  h.push(now); aiHits.set(ip, h); aiDay.n++;
+}
+
 const fails = new Map();
 function limitLogin(key) {
   const f = fails.get(key);
@@ -269,7 +335,40 @@ function failLogin(key) {
 
 /* ---------------- Các đường dẫn API ---------------- */
 const routes = {
-  'GET /api/health': async () => ({ ok: true, configured, lessons: true, gallery: true }),
+  'GET /api/health': async () => ({ ok: true, configured, lessons: true, gallery: true, ai: !!AI_KEY }),
+
+  /* Hỏi đáp về trường: không cần đăng nhập, có giới hạn lượt hỏi. */
+  'POST /api/ask': async (req, body) => {
+    const msgs = (Array.isArray(body.messages) ? body.messages : []).slice(-8)
+      .map(m => ({ role: m?.role === 'assistant' ? 'assistant' : 'user', content: str(m?.content, 1200) })).filter(m => m.content);
+    while (msgs.length && msgs[0].role !== 'user') msgs.shift();
+    if (!msgs.length || msgs[msgs.length - 1].role !== 'user') throw new HttpErr(400, 'Hãy nhập câu hỏi.');
+    const client = ai();
+    const ip = String(req.headers['x-forwarded-for'] || req.socket.remoteAddress || '').split(',')[0].trim();
+    aiLimit(ip);
+    const kb = await aiKnowledge();
+    let r;
+    try {
+      r = await client.beta.messages.create({
+        model: AI_MODEL, max_tokens: 2048,
+        output_config: { effort: 'low' },
+        ...(/^claude-(opus|fable|sonnet)/.test(AI_MODEL) ? { betas: ['server-side-fallback-2026-07-01'], fallbacks: 'default' } : {}),
+        system: [
+          { type: 'text', text: AI_RULES },
+          { type: 'text', text: 'THÔNG TIN NHÀ TRƯỜNG:\n' + SCHOOL_FACTS + '\n\nDỮ LIỆU BẢO TÀNG:\n' + kb, cache_control: { type: 'ephemeral' } },
+        ],
+        messages: msgs,
+      });
+    } catch (e) {
+      console.error('[AI]', e && e.status, e && e.message);
+      if (e && e.status === 401) throw new HttpErr(503, 'Khóa ANTHROPIC_API_KEY trên máy chủ không đúng. Báo quản trị kiểm tra.');
+      if (e && e.status === 429) throw new HttpErr(429, 'Trợ lý đang bận, quý vị thử lại sau ít phút.');
+      throw new HttpErr(502, 'Trợ lý AI đang gặp lỗi, quý vị thử lại sau ít phút.');
+    }
+    if (r.stop_reason === 'refusal') return { answer: 'Xin lỗi, trợ lý không thể trả lời câu hỏi này. Quý vị có thể hỏi về nhà trường, các phòng trưng bày hoặc hoạt động của các lớp.' };
+    const answer = (r.content || []).filter(b => b.type === 'text').map(b => b.text).join('\n').trim();
+    return { answer: answer || 'Xin lỗi, trợ lý chưa có câu trả lời. Quý vị thử hỏi cách khác nhé.' };
+  },
 
   'POST /api/login': async (req, body) => {
     const username = str(body.username, 40).toLowerCase(), password = String(body.password || '');
@@ -468,7 +567,7 @@ function readBody(req) {
     req.on('error', fail);
   });
 }
-const PUBLIC = new Set(['GET /api/health', 'POST /api/login']);
+const PUBLIC = new Set(['GET /api/health', 'POST /api/login', 'POST /api/ask']);
 const server = http.createServer(async (req, res) => {
   const origin = (req.headers.origin || '').replace(/\/$/, '');
   if (origin && ORIGINS.includes(origin)) {
