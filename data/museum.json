@@ -2031,6 +2031,33 @@
    ],
    "photoAlt": "",
    "sample": true
+  },
+  {
+   "id": "emwhy11ag",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây kim ngân lượng",
+   "era": "tháng 11/2026",
+   "plan": "",
+   "from": "lớp: 24 - 36 tháng A Tràng Đà",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/u/0/folders/1KnEOcr7b-8HwUr8we7_NxpeOocLwX0oh",
+   "cls": [
+    "lc16f31"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/40b96fa97549005c9140.jpg",
+   "photos": [
+    "anh/40b96fa97549005c9140.jpg"
+   ],
+   "photoAlt": "",
+   "sample": true
   }
  ],
  "timeline": [
