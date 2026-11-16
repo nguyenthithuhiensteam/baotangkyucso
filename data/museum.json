@@ -4464,6 +4464,35 @@
    ],
    "photoAlt": "Hoạt động âm nhạc",
    "sample": false
+  },
+  {
+   "id": "emwiuq9s9",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Bé tham gia trò chơi dân gian",
+   "era": "Tháng 11/2026",
+   "plan": "Lớp mình có bao điều hay",
+   "from": "Lớp 3-4 tuổi A. PH Tràng Đà",
+   "story": "Sân trường vui quá bạn ơi,\nChúng mình cùng đến vui chơi mỗi ngày.\nBịt mắt bắt dê thật hay,\nDê con chạy trốn, vòng quanh sân trường.\nBạn cười khúc khích dễ thương,\nDê kêu “be bé”, tìm đường chạy nhanh.\nĐến trò kéo co thật vui,\nHai đội cùng kéo, tiếng cười vang xa.\nMột, hai, ba! Kéo thật đều,\nBạn nào cũng cố, quyết tâm hết mình.\nThắng thua vẫn cứ vui tình,\nBạn bè đoàn kết, chúng mình cùng chơi.\nTrò chơi dân gian tuyệt vời,\nCho em vui khỏe, rạng ngời tuổi thơ!",
+   "ask": "Trong bài thơ nói về điều gì? Các bạn nhở đang chơi trò chơi gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1G72oyK6_K4c8DbPgre_p6qSRYrojiAJ0/view?usp=drive_link",
+   "cls": [
+    "l73377a"
+   ],
+   "tc": [
+    "TC1"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/6b1b3a9f5838499d1ef5.jpg",
+   "photos": [
+    "anh/6b1b3a9f5838499d1ef5.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
