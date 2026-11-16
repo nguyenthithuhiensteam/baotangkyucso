@@ -1535,6 +1535,39 @@
    ],
    "photoAlt": "Bé vui học toán",
    "sample": true
+  },
+  {
+   "id": "emwhzevn0",
+   "room": "thien-nhien",
+   "art": "cay",
+   "name": "Cây Đế Vương góc thiên nhiên",
+   "era": "Tháng 11/2016",
+   "plan": "Bé với góc thiên nhiên",
+   "from": "Lớp 3 - 4 tuổi A1",
+   "story": "Ngày xưa, trong một khu vườn xanh tươi có một cây nhỏ với những chiếc lá xanh mướt. Cây rất yêu ánh nắng và những giọt nước mưa.\n\nMột hôm, cơn gió lớn thổi qua làm những cây hoa nhỏ nghiêng ngả. Cây nhỏ liền dang những chiếc lá rộng ra che chở cho những bông hoa bé bỏng.\n\nThấy vậy, ông Mặt Trời mỉm cười và nói:\n\n– Cháu thật tốt bụng! Cháu không chỉ biết vươn lên mạnh mẽ mà còn biết che chở cho mọi người.\n\nTừ đó, cây được mọi người yêu quý và gọi bằng cái tên Cây Đế Vương.\n\nCây Đế Vương luôn xanh tươi, vươn những chiếc lá khỏe mạnh lên cao, nhắc nhở mọi người hãy sống mạnh mẽ, tự tin và biết yêu thương, giúp đỡ nhau.",
+   "ask": "Các con được nhìn và chăm sóc cây Đế Vương này chưa?",
+   "video": "https://drive.google.com/drive/folders/1M1b8NEjca1neJEZvRI6aAgGuhIzgsd4M",
+   "audio": "https://drive.google.com/drive/folders/1M1b8NEjca1neJEZvRI6aAgGuhIzgsd4M",
+   "link3d": "https://drive.google.com/drive/folders/1M1b8NEjca1neJEZvRI6aAgGuhIzgsd4M",
+   "drive": "https://drive.google.com/drive/folders/1M1b8NEjca1neJEZvRI6aAgGuhIzgsd4M",
+   "cls": [
+    "l92c638"
+   ],
+   "tc": [
+    "TC1",
+    "TC3",
+    "TC4",
+    "TC6",
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "hc7d8a4",
+   "photo": "anh/5edb3654d38eef5b369d.jpg",
+   "photos": [
+    "anh/5edb3654d38eef5b369d.jpg"
+   ],
+   "photoAlt": "Cây Đế Vương",
+   "sample": true
   }
  ],
  "timeline": [
