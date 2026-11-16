@@ -2385,6 +2385,34 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwim4tfb",
+   "room": "tri-an",
+   "art": "thu",
+   "name": "Lời tri ân ngây thơ của bé",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp 5- 6 tuổi C3 (Trường chính)",
+   "story": "Lời tri ân ngây thơ của các bé lớp 5- 6 tuổi C3",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1bIYyCMXVlQeyZz8LNF1scA7lvtonRLap/view?usp=sharing",
+   "cls": [
+    "lc9d4fb"
+   ],
+   "tc": [
+    "MR2",
+    "TC6"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
