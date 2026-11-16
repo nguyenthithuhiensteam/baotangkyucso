@@ -347,6 +347,17 @@ h3.fsel{font-size:22px}h3.fsel small{font-size:14px;color:var(--muted);font-fami
 .dnote{margin:0;color:var(--muted);font-size:13px}
 .croom{display:grid;gap:10px}
 .wallwrap{position:relative;display:grid;gap:8px}
+.wall.grid9{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px!important;padding:14px!important}
+.wall.grid9 .piece{gap:6px}
+.wall.grid9 .piece .frame{border-width:4px;border-radius:16px;box-shadow:0 4px 0 color-mix(in srgb,var(--c) 30%,transparent)}
+.wall.grid9 .label b{font-size:14.5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.wall.grid9 .label .p,.wall.grid9 .label .tcrow,.wall.grid9 .label .media-dots,.wall.grid9 .label .sample{display:none}
+.wall.grid9 .label .cl{font-size:11.5px}
+.wall.grid9>[hidden]{display:none!important}
+.is-g9 .wnav{top:calc(50% - 34px)}
+.wdots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.wdot{width:11px;height:11px;border-radius:50%;border:2px solid var(--c);background:var(--frame);padding:0;cursor:pointer}.wdot[aria-pressed="true"]{background:var(--c)}
+@media (max-width:560px){.wall.grid9{gap:8px!important;padding:10px!important}.wall.grid9 .label b{font-size:12.5px}.wall.grid9 .label .cl{display:none}.wall.grid9 .piece .frame{border-width:3px;border-radius:12px}}
 .wall.carousel{grid-template-columns:none!important;grid-auto-flow:column;grid-auto-columns:calc((100% - 2*16px)/3);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
 .wall.carousel::-webkit-scrollbar{display:none}
 .wall.carousel>.piece{scroll-snap-align:start}
@@ -683,7 +694,7 @@ function classesRoom(sub){
   return `<section class="room" style="--c:${col}"><div class="room-head"><span class="eyebrow">${esc(c.site)} · ${isNT(c)?'Nhóm nhà trẻ':'Lớp mẫu giáo'}</span><h2>${esc(c.name)}</h2>
    <p>${it.length?`Lớp đã đưa ${it.length} hiện vật lên bảo tàng${rank?` · đứng thứ ${rank}/${st.length} lớp`:''}.`:'Lớp chưa có hiện vật nào trên bảo tàng. Các cô đăng bài và tích lớp này để hiện ở đây.'}</p>
    <div class="cta"><button type="button" class="btn small" data-go="lop-hoc">← Tất cả các lớp</button></div></div>
-   ${EXROOMS.map(r=>{const ri=it.filter(e=>e.room===r.id);return ri.length?`<div class="croom" style="--c:${r.c}"><h3 class="sub"><span class="dot" style="--c:${r.c}"></span> Phòng ${r.n} · ${esc(r.name)} <small>${ri.length} hiện vật</small></h3>${wallBox(ri.map(e=>piece({...e,plan:e.plan||r.name},it.indexOf(e))).join(''),ri.length)}</div>`:''}).join('')}
+   ${EXROOMS.map(r=>{const ri=it.filter(e=>e.room===r.id);return ri.length?`<div class="croom" style="--c:${r.c}"><h3 class="sub"><span class="dot" style="--c:${r.c}"></span> Phòng ${r.n} · ${esc(r.name)} <small>${ri.length} hiện vật</small></h3>${wallBox(ri.map(e=>piece({...e,plan:e.plan||r.name},it.indexOf(e))).join(''),ri.length,isPhotoRoom(ri))}</div>`:''}).join('')}
   </section>`;
  }
  const act=st.filter(y=>y.total).length,top=st.filter(y=>y.total).slice(0,5),mx=top.length?top[0].total:1;
@@ -779,7 +790,7 @@ function tree(){
 }
 function exhibitsRoom(r){
  const items=roomItems(r);
- let h=`<section class="room" style="--c:${r.c}">${head(r)}${items.length?wallBox(items.map(piece).join(''),items.length):`<div class="empty">${cFilter.cls||cFilter.site?'Thư mục này chưa có bài trong phòng. ':''}Phòng này chưa có hiện vật. ${canAdmin?'Thêm hiện vật ở Khu quản trị.':'Các lớp đang chuẩn bị, bé quay lại sau nhé!'}</div>`}`;
+ let h=`<section class="room" style="--c:${r.c}">${head(r)}${items.length?wallBox(items.map(piece).join(''),items.length,isPhotoRoom(items)):`<div class="empty">${cFilter.cls||cFilter.site?'Thư mục này chưa có bài trong phòng. ':''}Phòng này chưa có hiện vật. ${canAdmin?'Thêm hiện vật ở Khu quản trị.':'Các lớp đang chuẩn bị, bé quay lại sau nhé!'}</div>`}`;
  if(r.id==='di-san')h+=heritageMap();
  if(r.tree)h+=`<div style="display:grid;gap:12px"><h3 class="sub">Cây tri ân</h3><div class="tree-room"><div class="tree">${tree()}</div><div class="notes">${NOTES.map(n=>`<div class="note"><q>${n.q}</q><small>${n.who} · <span class="sample">mẫu</span></small></div>`).join('')}<div class="box" style="border:3px dashed var(--turmeric-fill);box-shadow:none"><h3>Hộp thư gửi tương lai</h3><p>Mỗi bé lớp 5–6 tuổi vẽ một bức tranh về điều mình mong ước. Hộp được mở vào tháng 5/2027 khi các bé chia tay trường mầm non.</p></div></div></div></div>`;
  return h+'</section>';
@@ -841,14 +852,27 @@ function libraryRoom(){
 }
 /* Khu hiện vật: băng chuyền ngang (3 hiện vật mỗi lần), có thể chuyển sang dạng lưới. */
 let wallGrid=false;try{wallGrid=localStorage.getItem('btkuc_grid')==='1'}catch(_){}
-function wallBox(html,n){
+const isPhotoRoom=items=>items.length>0&&items.filter(e=>pubPhoto(e.photo)).length*2>=items.length;
+function wallBox(html,n,photo){
+ if(photo&&n>9&&!wallGrid){const pages=Math.ceil(n/9);
+  return `<div class="wallwrap is-g9" data-page="0"><button type="button" class="wnav prev" aria-label="Trang trước" disabled>‹</button><button type="button" class="wnav next" aria-label="Trang sau">›</button>
+   <div class="wall grid9">${html}</div>
+   <div class="wfoot"><span class="wdots">${Array.from({length:pages},(_,i)=>`<button type="button" class="wdot" data-wp="${i}" aria-label="Trang ${i+1}" aria-pressed="${!i}"></button>`).join('')}</span><span class="wpage" aria-live="polite">1–9 / ${n}</span><button type="button" class="chip" data-wgrid style="cursor:pointer">Xem tất cả ${n} hiện vật</button></div></div>`}
+ if(photo&&n<=9)return `<div class="wallwrap"><div class="wall grid9">${html}</div></div>`;
  const many=n>3;
  return `<div class="wallwrap ${many&&!wallGrid?'is-car':''}">${many&&!wallGrid?'<button type="button" class="wnav prev" aria-label="Xem các hiện vật trước">‹</button><button type="button" class="wnav next" aria-label="Xem các hiện vật sau">›</button>':''}
-  <div class="wall ${many&&!wallGrid?'carousel':''}">${html}</div>
-  ${many?`<div class="wfoot">${wallGrid?'':`<span class="wpage" aria-live="polite">1–3 / ${n}</span>`}<button type="button" class="chip" data-wgrid style="cursor:pointer">${wallGrid?'Thu gọn thành hàng ngang':`Xem tất cả ${n} hiện vật`}</button></div>`:''}</div>`;
+  <div class="wall ${many&&!wallGrid?'carousel':''} ${photo?'grid9':''}">${html}</div>
+  ${many?`<div class="wfoot">${wallGrid?'':`<span class="wpage" aria-live="polite">1–3 / ${n}</span>`}<button type="button" class="chip" data-wgrid style="cursor:pointer">${wallGrid?'Thu gọn':`Xem tất cả ${n} hiện vật`}</button></div>`:''}</div>`;
 }
 function wireWalls(root){
  root.querySelectorAll('[data-wgrid]').forEach(b=>b.onclick=()=>{wallGrid=!wallGrid;try{localStorage.setItem('btkuc_grid',wallGrid?'1':'0')}catch(_){}render()});
+ root.querySelectorAll('.wallwrap.is-g9').forEach(w=>{
+  const t=w.querySelector('.wall'),items=[...t.children],n=items.length,pages=Math.ceil(n/9),pg=w.querySelector('.wpage'),dots=[...w.querySelectorAll('.wdot')],prev=w.querySelector('.prev'),next=w.querySelector('.next');
+  const show=p=>{p=Math.max(0,Math.min(pages-1,p));w.dataset.page=p;items.forEach((c,i)=>c.hidden=i<p*9||i>=p*9+9);pg.textContent=`${p*9+1}–${Math.min(n,p*9+9)} / ${n}`;prev.disabled=!p;next.disabled=p>=pages-1;dots.forEach((d,i)=>d.setAttribute('aria-pressed',i===p))};
+  prev.onclick=()=>show(+w.dataset.page-1);next.onclick=()=>show(+w.dataset.page+1);dots.forEach(d=>d.onclick=()=>show(+d.dataset.wp));
+  let sx=null;t.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});t.addEventListener('touchend',e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)show(+w.dataset.page+(dx<0?1:-1));sx=null},{passive:true});
+  show(0);
+ });
  root.querySelectorAll('.wallwrap.is-car').forEach(w=>{
   const t=w.querySelector('.wall'),pg=w.querySelector('.wpage'),n=t.children.length,prev=w.querySelector('.prev'),next=w.querySelector('.next');
   const per=()=>{const c=t.children[0];return c?Math.max(1,Math.round(t.clientWidth/(c.getBoundingClientRect().width+14))):3};
