@@ -4299,6 +4299,37 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwir6lhb",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Giờ ăn của bé",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l5d20a2"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/4d5793d21e3b9612496f.jpg",
+   "photos": [
+    "anh/4d5793d21e3b9612496f.jpg",
+    "anh/2a204795a34a210ea7aa.jpg",
+    "anh/98c1e135991620d5f0ca.jpg",
+    "anh/f336a39e76e50adfa08b.jpg",
+    "anh/1ee926683b6f88cd8a4a.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
