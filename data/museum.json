@@ -194,7 +194,7 @@
  "exhibits": [
   {
    "id": "e1",
-   "room": "khoanh-khac",
+   "room": "di-san",
    "art": "khoc",
    "name": "Múa lân ngày hội trung thu",
    "era": "Tháng 9/2026 · Tết trung thu",
@@ -440,7 +440,7 @@
   },
   {
    "id": "emwbsygju",
-   "room": "khoanh-khac",
+   "room": "tri-an",
    "art": "mic",
    "name": "Lời tri ân ngày 20/11",
    "era": "Tháng 11/2026",
@@ -734,7 +734,7 @@
   },
   {
    "id": "emwetap7r",
-   "room": "di-san",
+   "room": "tri-an",
    "art": "tranh",
    "name": "Làm thiệp tặng cô ngày 20/11",
    "era": "Tháng 11",
@@ -788,7 +788,7 @@
   },
   {
    "id": "emweteheu",
-   "room": "di-san",
+   "room": "tri-an",
    "art": "thiep",
    "name": "Làm thiệp tặng cô ngày 20/11",
    "era": "Tháng 11",
@@ -842,7 +842,7 @@
   },
   {
    "id": "emwesz02d",
-   "room": "di-san",
+   "room": "tri-an",
    "art": "tranh",
    "name": "Làm thiệp",
    "era": "Tháng 11",
@@ -921,7 +921,7 @@
   },
   {
    "id": "emwhrzyl8",
-   "room": "khoanh-khac",
+   "room": "tri-an",
    "art": "mic",
    "name": "Lời tri ân ngày 20/11 lớp 4-5 tuổi B1 trường chính",
    "era": "Tháng 11/2026",
@@ -1162,7 +1162,7 @@
   },
   {
    "id": "emwhsps5p",
-   "room": "khoanh-khac",
+   "room": "tri-an",
    "art": "thiep",
    "name": "Lời tri ân ngày 20/11 lớp 4-5 tuổi B1 trường chính",
    "era": "Tháng 11/2026",
@@ -1353,7 +1353,7 @@
   },
   {
    "id": "emwhw4qls",
-   "room": "khoanh-khac",
+   "room": "thien-nhien",
    "art": "sach",
    "name": "Cây mai vạn phúc",
    "era": "Tháng 11",
@@ -1598,7 +1598,7 @@
   },
   {
    "id": "emwhym3ob",
-   "room": "khoanh-khac",
+   "room": "di-san",
    "art": "khoc",
    "name": "Bé vui Trung thu ở lớp cùng các bạn",
    "era": "tháng 9/2026",
@@ -1947,7 +1947,7 @@
   },
   {
    "id": "emwhxuybl",
-   "room": "khoanh-khac",
+   "room": "thien-nhien",
    "art": "sach",
    "name": "cây ngọc ngân",
    "era": "",
@@ -2089,7 +2089,7 @@
   },
   {
    "id": "emwil6jfm",
-   "room": "khoanh-khac",
+   "room": "thien-nhien",
    "art": "sach",
    "name": "Cây xanh quanh bé",
    "era": "Tháng 11/2026",
@@ -2224,7 +2224,7 @@
   },
   {
    "id": "emwikj3az",
-   "room": "khoanh-khac",
+   "room": "thien-nhien",
    "art": "sach",
    "name": "Cây xanh quanh bé",
    "era": "Tháng 11/2026",
@@ -2278,7 +2278,7 @@
   },
   {
    "id": "emwil3viy",
-   "room": "khoanh-khac",
+   "room": "thien-nhien",
    "art": "sach",
    "name": "Cây xanh quanh bé",
    "era": "Tháng 11/2026",
@@ -2441,7 +2441,7 @@
   },
   {
    "id": "emwim16yo",
-   "room": "khoanh-khac",
+   "room": "thien-nhien",
    "art": "sach",
    "name": "Cây xanh của bé",
    "era": "Tháng 11/2026",
@@ -2581,7 +2581,7 @@
   },
   {
    "id": "emwilt1gi",
-   "room": "khoanh-khac",
+   "room": "thien-nhien",
    "art": "sach",
    "name": "Cây xanh của bé",
    "era": "Tháng 11/2026",
