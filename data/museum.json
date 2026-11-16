@@ -3436,6 +3436,37 @@
    "photos": [],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwincp00",
+   "room": "khoanh-khac",
+   "art": "an",
+   "name": "Giờ ăn tại lớp của các bé lớp 4-5T",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l8834cf"
+   ],
+   "tc": [
+    "TC2"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/a64b64512ade545e9e11.jpg",
+   "photos": [
+    "anh/a64b64512ade545e9e11.jpg",
+    "anh/c4104e8f84470e8b45b9.jpg",
+    "anh/3909e351779081cf85ce.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
