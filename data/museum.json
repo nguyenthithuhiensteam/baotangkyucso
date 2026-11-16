@@ -2578,6 +2578,31 @@
    "photos": [],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwilt1gi",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Cây xanh của bé",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp MG 3- 4 tuổi B",
+   "story": "Ngày xửa ngày xưa, trong vườn trường mầm non của các bé, có một cô bạn cây rất đặc biệt tên là Ngọc Trâm.\nCô Ngọc Trâm có bộ lá thật to, xanh mướt bóng như được mẹ thiên nhiên tô màu mỗi sáng. Mỗi buổi sáng khi các bé vào lớp, cô ấy lại vẫy những chiếc lá rộng to chào đón mọi người, nhưng mặt thì luôn cúi xuống thật thấp, như cô bạn gái nhỏ e thẹn không dám nhìn thẳng vào mắt ai.\nMột hôm cô giáo bảo các con cùng ngồi yên nghe xem nào, sắp có điều kỳ diệu xảy ra đấy. Từ từ, từ giữa những chiếc lá xanh, một mầm nhỏ nhú lên cao cao, rồi nở thành những bông hoa trắng tinh như những chiếc cúp nhỏ đính ngọc trai. Mỗi bông hoa đều cúi mặt xuống, như đang cười khúc khích sau lưng, chỉ những ai nhẹ nhàng cúi xuống mới thấy được gương mặt đẹp của cô ấy",
+   "ask": "Tại sao lại gọi là cây Ngọc Trâm?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1iGWIlmCmgWLq4GTmKvaHgz665BzHXJ7o/view?usp=sharing",
+   "cls": [
+    "l71706c"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
