@@ -4235,6 +4235,37 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwir0pmg",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Thể dục: Đi trong đường hẹp",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "lớp 3-4 tuổi Hương Sen",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l5d20a2"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/9297fb6ef1b5235999ae.jpg",
+   "photos": [
+    "anh/9297fb6ef1b5235999ae.jpg",
+    "anh/7ff6d93d0dfeaca0f486.jpg",
+    "anh/55f009b79c8d5874b26a.jpg",
+    "anh/124db925a93a6dc1686f.jpg",
+    "anh/c812466415fb968ec880.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
