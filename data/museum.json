@@ -3190,6 +3190,38 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwimt0j7",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Hoạt động trải nghiệm kỹ năng PCCC",
+   "era": "10/2026",
+   "plan": "Hoạt động ngoại khoá PCCC",
+   "from": "Lớp MG 4-5T B3 Trường chính",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l8834cf"
+   ],
+   "tc": [
+    "TC3",
+    "MR2"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/6ce8a4cf42f3eb7de58a.jpg",
+   "photos": [
+    "anh/6ce8a4cf42f3eb7de58a.jpg",
+    "anh/cbcffe5669ecbce74d59.jpg",
+    "anh/10a0bc1aeb3aae2abd9a.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
