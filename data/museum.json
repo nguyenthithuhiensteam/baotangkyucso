@@ -2058,6 +2058,34 @@
    ],
    "photoAlt": "",
    "sample": true
+  },
+  {
+   "id": "emwi19i3s",
+   "room": "khoanh-khac",
+   "art": "khoc",
+   "name": "Sức khỏe cho bé",
+   "era": "Tháng 11/2026",
+   "plan": "Sức khỏe bé yêu",
+   "from": "Lớp 25-36 tháng B (trường chính)",
+   "story": "Trường MN Nông Tiến phối hợp với Trạm Y tế trường Nông Tiến, khám sức khỏe cho các bé, trong đó có các bé lớp nhà trẻ 25-36 tháng B (trường chính).",
+   "ask": "Đó là ai đấy các bạn ơi? Các bác đang làm gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l5f4f02"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/871efb090904c0e46099.jpg",
+   "photos": [
+    "anh/871efb090904c0e46099.jpg",
+    "anh/89aa5530caae905ccd81.jpg"
+   ],
+   "photoAlt": "Sức khỏe cho bé",
+   "sample": false
   }
  ],
  "timeline": [
