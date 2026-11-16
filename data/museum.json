@@ -2194,6 +2194,33 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwil5r23",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Bé chăm sóc cây xanh",
+   "era": "tháng 11/2026",
+   "plan": "Ngày nhà giáo Việt Nam 20/11",
+   "from": "lớp: 24 - 36 tháng A Tràng Đà",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lc16f31"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/7a96f558c0b58bd90926.jpg",
+   "photos": [
+    "anh/7a96f558c0b58bd90926.jpg"
+   ],
+   "photoAlt": "",
+   "sample": true
   }
  ],
  "timeline": [
