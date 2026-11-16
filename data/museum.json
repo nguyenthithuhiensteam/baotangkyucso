@@ -4295,11 +4295,7 @@
    "her": "",
    "photo": "anh/d5973bae84f366c892c1.jpg",
    "photos": [
-    "anh/d5973bae84f366c892c1.jpg",
-    "anh/38d02f464c0a86432293.jpg",
-    "anh/1c3334f28e306754c650.jpg",
-    "anh/5f37f3b2f80a77dcf88f.jpg",
-    "anh/593817340b35c3b79be3.jpg"
+    "anh/d5973bae84f366c892c1.jpg"
    ],
    "photoAlt": "",
    "sample": false
@@ -5344,6 +5340,521 @@
     "anh/a0c4d56c45957ba793cd.jpg"
    ],
    "photoAlt": "Bé xem tranh ảnh.",
+   "sample": false
+  },
+  {
+   "id": "emwiu07gy",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Quan sát cây trúc phật bà. Trò chơi truyền bóng",
+   "era": "11/2026",
+   "plan": "Hoạt động ngoài trời",
+   "from": "Lớp Mẫu giáo 5-6 tuổi C2",
+   "story": "Ngày xửa ngày xưa, trong một khu vườn nhỏ xinh có một bụi trúc Quan Âm xanh mướt. Những chiếc lá trúc thon dài, mềm mại, rung rinh mỗi khi có làn gió thổi qua.\nMột buổi sáng, các bạn nhỏ cùng cô giáo ra vườn chăm sóc cây. Bé Na nhìn thấy bụi trúc liền reo lên:\n– Ôi! Cô ơi, cây gì mà đẹp thế ạ?\nCô giáo mỉm cười và nói:\n– Đây là cây trúc Quan Âm. Cây có thân xanh, nhiều đốt, lá nhỏ xinh và mọc thành bụi rất đẹp đấy các con ạ!\nBé Bin tò mò hỏi:\n– Cô ơi, cây có cần uống nước không ạ?\n\n– Có chứ! Cây cũng cần nước, ánh sáng và sự chăm sóc để lớn lên khỏe mạnh.\nNghe cô nói, các bạn nhỏ cùng nhau lấy bình tưới nước cho cây. Bạn Na nhặt những chiếc lá vàng rơi, bạn Bin xới nhẹ đất quanh gốc, còn các bạn khác cùng ngắm nhìn những chiếc lá xanh đung đưa trong gió.\nBỗng một chú chim nhỏ bay đến, đậu trên cành trúc và hót líu lo:\n\n– Chíp chíp! Cảm ơn các bạn đã chăm sóc khu vườn xanh đẹp!\nCác bạn nhỏ vui vẻ vỗ tay. Từ hôm đó, ngày nào các bạn cũng thay nhau chăm sóc cây trúc Quan Âm.\nThời gian trôi qua, bụi trúc ngày càng xanh tốt, tươi đẹp. Khu vườn trở thành nơi vui chơi, khám phá và ngắm nhìn thiên nhiên của các bạn nhỏ.\n\nCô giáo dịu dàng hỏi:\n– Các con có yêu quý cây trúc Quan Âm không?\nTất cả cùng đồng thanh:\n– Có ạ! Chúng con sẽ chăm sóc và bảo vệ cây xanh!",
+   "ask": "Đây là cây gì? Có đặc điểm như thế nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1G30Van4nNVDDd4D3BFkmnuYhAyD7tA-h/view?usp=sharing",
+   "cls": [
+    "l3ee012"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwiycvja",
+   "room": "thien-nhien",
+   "art": "caylon",
+   "name": "Cây Phú Quý",
+   "era": "Thán 11",
+   "plan": "",
+   "from": "4-5 tuổi B1",
+   "story": "\"Cây Phú Quý có những chiếc lá xanh, viền đỏ hồng rất đẹp. Cây tượng trưng cho sự may mắn, giàu sang và hạnh phúc. Mọi người thường trồng cây Phú Quý để trang trí nhà cửa, trường lớp thêm xanh đẹp. Chúng mình cần biết chăm sóc, tưới nước và bảo vệ cây để cây luôn tươi tốt nhé!\"",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l62a027"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/f58f868a7af7c4d5775d.jpg",
+   "photos": [
+    "anh/f58f868a7af7c4d5775d.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwiy7vzk",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Hoạt động trải nghiệm \"Lung linh lễ hội Thành Tuyên\"",
+   "era": "Tháng 9/2026",
+   "plan": "Hoạt động ngoại khóa",
+   "from": "Lớp: 4-5 tuổi Hương Sen",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l7d442e"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "hc7d8a4",
+   "photo": "anh/63674620c2a38df14598.jpg",
+   "photos": [
+    "anh/63674620c2a38df14598.jpg",
+    "anh/49259203534f32dc0fbe.jpg",
+    "anh/1e4adacfa71e7d2c4d49.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwiyant3",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Cây Trầu Bà",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp 5- 6 tuổi C3 (Trường chính)",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "https://drive.google.com/file/d/1eSf11wVspTo0CnkTifURXK9GaxV0CAWp/view?usp=sharing",
+   "drive": "https://drive.google.com/drive/folders/1WNZON3VlqitUtmhdaLlzPCTxXuwncndi?usp=sharing",
+   "cls": [
+    "lc9d4fb"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwiywn9g",
+   "room": "tri-an",
+   "art": "sach",
+   "name": "Điều con muốn nói",
+   "era": "Tháng 11",
+   "plan": "Điều con muốn nói",
+   "from": "MG 5-6 tuổi Tràng Đà",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1rnl2S7y1a2V-o1JkqSUDH_2i29LQl6Mc/view?usp=sharing",
+   "cls": [
+    "l71706c"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/f9f914f70ed22f8ebbd6.jpg",
+   "photos": [
+    "anh/f9f914f70ed22f8ebbd6.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwiz2ykt",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Bé vui tết Trung Thu lớp C3",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp 5- 6 tuổi C3 (Trường chính)",
+   "story": "Ánh Trăng Rằm Trên Những Chiếc Đèn Ông Sao Lớp C3\n\nMùa thu ghé qua sân Trường Mầm non Nông Tiến, mang theo cơn gió heo may dịu nhẹ và hương cốm mới thơm lừng. Tại căn phòng nhỏ ấm áp của lớp mẫu giáo lớn 5-6 tuổi C3, không khí đón Tết Trung thu trở nên rộn ràng và háo hức hơn bao giờ hết.\nTừ sáng sớm, các bạn nhỏ lớp C3 đã xúng xính trong những bộ quần áo thật đẹp. Nổi bật giữa lớp học là sắc đỏ rực rỡ của những chiếc áo cờ đỏ sao vàng, hòa cùng những bộ đồng phục trắng tinh tươm và những chiếc váy xinh xắn. Trên tay mỗi bạn đều nâng niu một món quà đặc biệt: đó là những chiếc đèn ông sao năm cánh lấp lánh giấy kính đủ màu, những chiếc đèn lồng hình chú sư tử ngộ nghĩnh, đèn con thỏ trắng muốt hay mặt trăng tròn tỏa nắng.\nKhi tiếng trống lân tùng... dinh... dinh... vang lên rộn rã, cả lớp cùng nhau vỗ tay reo hò, mắt ai cũng sáng lấp lánh niềm vui. Các con không chỉ được nghe cô giáo kể sự tích chú Cuội, chị Hằng, được cùng nhau phá cỗ trông trăng, mà còn học được bài học thật đẹp về sự sẻ chia và tình bạn. Những chiếc đèn lồng tuy nhỏ bé nhưng được các con giữ gìn cẩn thận, cùng nhau khoe sắc và tạo nên một bầu trời sao lung linh ngay giữa lớp học C3 thân yêu.\nKhoảnh khắc cả lớp quây quần bên nhau, giơ cao những chiếc đèn ông sao và nở nụ cười rạng rỡ lưu giữ lại ký ức tuổi thơ trong trẻo nhất của năm cuối cấp mầm non. Ánh trăng Trung thu năm nay không chỉ tỏa sáng trên bầu trời cao, mà còn lấp lánh ngay trong ánh mắt ngây thơ, hồn nhiên và tình yêu thương gắn kết của đại gia đình nhỏ C3 - Mầm non Nông Tiến.",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "https://drive.google.com/drive/folders/1WNZON3VlqitUtmhdaLlzPCTxXuwncndi?usp=sharing",
+   "drive": "https://drive.google.com/drive/folders/1WNZON3VlqitUtmhdaLlzPCTxXuwncndi?usp=sharing",
+   "cls": [
+    "lc9d4fb"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwiz423g",
+   "room": "tri-an",
+   "art": "sach",
+   "name": "Điều con muốn nói",
+   "era": "Tháng 11",
+   "plan": "Điều con muốn nói",
+   "from": "MG 5-6 tuổi Tràng Đà",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1Wy_5QApEH9_NKJob0W-NuEEb_XhBUkCD/view?usp=sharing",
+   "cls": [
+    "l71706c"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/a36b3e6f790074510efc.jpg",
+   "photos": [
+    "anh/a36b3e6f790074510efc.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwiyutmq",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Phối hợp khám sức khỏe định kỳ cho trẻ",
+   "era": "Tháng 9/2026",
+   "plan": "Khám sức khỏe định kỳ cho trẻ",
+   "from": "LỚp 5-6 tuổi Hương Sen",
+   "story": "Ý nghĩa của việc khám sức khỏe định kỳ cho trẻ:\n1. Giúp phát hiện sớm các vấn đề về sức khỏe, bệnh lý và những dấu hiệu bất thường ở trẻ.\n2. Theo dõi sự phát triển thể chất, cân nặng, chiều cao của trẻ theo từng giai đoạn.\n3. Kịp thời tư vấn, phối hợp với phụ huynh chăm sóc và can thiệp phù hợp.\n4. Góp phần phòng ngừa bệnh tật, nâng cao sức khỏe và đảm bảo sự phát triển toàn diện cho trẻ.\n5. Giúp trẻ có thể trạng tốt, vui khỏe, tích cực tham gia các hoạt động học tập và vui chơi tại trường.",
+   "ask": "3 câu hỏi gần gũi, dễ hiểu để cô giáo trò chuyện với trẻ 4–5 tuổi trong buổi khám sức khỏe:  1. **Hôm nay con đến khám sức khỏe, con có cảm thấy vui và thoải mái không?** 2. **Khi bác sĩ khám tai, mắt, răng và nghe tim, con cần làm gì để bác sĩ khám thật tốt?** 3.Hằng ngày con cần làm gì để cơ thể luôn khỏe mạnh, ít bị ốm?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l7d442e"
+   ],
+   "tc": [
+    "TC2"
+   ],
+   "keeper": "Người có uy tín",
+   "her": "",
+   "photo": "anh/8fa7f5143e8756b6522b.jpg",
+   "photos": [
+    "anh/8fa7f5143e8756b6522b.jpg",
+    "anh/f79ece0af144669c6eae.jpg",
+    "anh/a27b3979077e07a78659.jpg",
+    "anh/81feb7ac274c6976f1a4.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwiz6945",
+   "room": "tri-an",
+   "art": "sach",
+   "name": "Điều con muốn nói",
+   "era": "",
+   "plan": "Điều con muốn nói",
+   "from": "",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1IwfB8CxM53stLt0o-5O_QlbFHgPS_e1T/view?usp=sharing",
+   "cls": [
+    "l71706c"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwizbrb4",
+   "room": "tri-an",
+   "art": "thiep",
+   "name": "Làm giỏ hoa tặng cô giáo ngày 20/11",
+   "era": "Thán 11",
+   "plan": "Ngày 20/11",
+   "from": "4-5 tuổi B1",
+   "story": "Bé làm giỏ hoa tặng cô nhân ngày 20/11\nHoạt động làm giỏ hoa giúp trẻ thể hiện tình cảm yêu thương, lòng biết ơn và sự kính trọng đối với các cô giáo nhân ngày Nhà giáo Việt Nam 20/11. Qua đôi bàn tay nhỏ bé, trẻ được tự tay lựa chọn, sắp xếp và trang trí những bông hoa thành giỏ hoa xinh xắn gửi tặng cô. Hoạt động không chỉ rèn luyện sự khéo léo, óc sáng tạo, khả năng thẩm mỹ mà còn giáo dục trẻ biết yêu thương, quan tâm, trân trọng và thể hiện lòng biết ơn đối với những người đã chăm sóc, dạy dỗ mình.\n\nMỗi giỏ hoa là một món quà nhỏ, nhưng chứa đựng tình yêu thương và lời tri ân ngọt ngào mà các bé muốn gửi đến cô giáo kính yêu! 🌷💐",
+   "ask": "Con muốn tặng giỏ hoa này cho ai?Vì sao chúng mình muốn làm giỏ hoa tặng cô?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l62a027"
+   ],
+   "tc": [
+    "TC9"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwizad6r",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Hoạt động: Bật tách chụm chân qua 5 ô",
+   "era": "Tháng 9/2026",
+   "plan": "Hoạt động giáo dục phát triển thể chất",
+   "from": "Lớp: 4-5 tuổi Hương Sen",
+   "story": "Ý nghĩa của việc thực hiện giáo dục phát triển thể chất cho trẻ mầm non:\n\n1. Giúp trẻ phát triển cơ thể khỏe mạnh, cân đối, nâng cao sức khỏe và sức đề kháng.\n2. Phát triển các tố chất vận động như: nhanh nhẹn, mạnh dạn, khéo léo, bền bỉ và linh hoạt.\n3. Hình thành cho trẻ những kỹ năng vận động cơ bản, thói quen tập luyện và giữ gìn vệ sinh cá nhân.\n4. Giúp trẻ tự tin, tích cực, vui vẻ khi tham gia các hoạt động học tập và vui chơi.\n5. Góp phần phát triển toàn diện về thể chất, tinh thần, tình cảm và kỹ năng xã hội cho trẻ.",
+   "ask": "1. Khi thực hiện các bài tập vận động, con cảm thấy cơ thể mình như thế nào? 2. Để thực hiện vận động tốt, các con cần chú ý điều gì? 3. Hằng ngày các con cần làm gì để cơ thể luôn khỏe mạnh, nhanh nhẹn?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l7d442e"
+   ],
+   "tc": [
+    "TC1"
+   ],
+   "keeper": "Người có uy tín",
+   "her": "",
+   "photo": "anh/41815de6a49e0507da50.jpg",
+   "photos": [
+    "anh/41815de6a49e0507da50.jpg",
+    "anh/1b77f2fc237a5f29870a.jpg",
+    "anh/727b628bd8b794c9cd9d.jpg",
+    "anh/3b0242ab86005bc8d677.jpg",
+    "anh/2717f509c50c432b7dd4.jpg",
+    "anh/7a502698900bd60ac2ff.jpg",
+    "anh/b337c357c8c0d88ed071.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwizefzm",
+   "room": "tri-an",
+   "art": "sach",
+   "name": "Lời tri ân từ cha mẹ trẻ",
+   "era": "Tháng 11",
+   "plan": "Lời tri ân từ cha mẹ trẻ",
+   "from": "MG 5-6 tuổi Tràng Đà",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1LlKjhIk4DckpUel6OM3afDWeKCqRKzv4/view?usp=sharing",
+   "cls": [
+    "l71706c"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/3d820b16d6c22d14969b.jpg",
+   "photos": [
+    "anh/3d820b16d6c22d14969b.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwizmqdl",
+   "room": "tri-an",
+   "art": "sach",
+   "name": "Lời tri ân từ cha mẹ trẻ",
+   "era": "Tháng 11",
+   "plan": "Lời tri ân từ cha mẹ trẻ",
+   "from": "MG 5-6 tuổi Tràng Đà",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/13Ev1t8t30v1qSuah-9xlCDjbGbb2HVmV/view?usp=sharing",
+   "cls": [
+    "l71706c"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/aa9dd2cbe258c078a027.jpg",
+   "photos": [
+    "anh/aa9dd2cbe258c078a027.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwizo8b1",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "HĐH: PTTC-VĐCB: Bật tách khép chân qua 5 ô",
+   "era": "10/2026",
+   "plan": "HĐH: PTTC-VĐCB: Bật tách khép chân qua 5 ô",
+   "from": "Lớp MG 4-5T B3 Trường chính",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l8834cf"
+   ],
+   "tc": [
+    "TC1"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/639c44b2be86bfddd959.jpg",
+   "photos": [
+    "anh/639c44b2be86bfddd959.jpg",
+    "anh/ab342de05c367e606b20.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwizk7w9",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Trang trí khung ảnh gia đình",
+   "era": "Thán 10",
+   "plan": "",
+   "from": "4-5 tuổi B1",
+   "story": "Hoạt động trang trí khung ảnh gia đình giúp trẻ thể hiện tình yêu thương, sự gắn bó và trân trọng những người thân yêu trong gia đình. Thông qua việc lựa chọn màu sắc, sắp xếp và trang trí khung ảnh bằng các nguyên vật liệu khác nhau, trẻ được phát huy trí tưởng tượng, óc sáng tạo, rèn luyện sự khéo léo và khả năng thẩm mỹ.\nĐặc biệt, hoạt động còn giúp trẻ biết yêu quý ông bà, bố mẹ, anh chị em; hiểu rằng gia đình là nơi luôn yêu thương, chăm sóc và chở che cho mình.\nThông điệp: Mỗi khung ảnh là một món quà nhỏ lưu giữ những khoảnh khắc yêu thương. Hãy biết trân trọng gia đình, yêu thương và quan tâm đến những người thân của mình mỗi ngày! ❤️",
+   "ask": "Vì sao chúng mình cần yêu thương những người thân trong gia đình?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l62a027"
+   ],
+   "tc": [
+    "TC9"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/b54a04e53d3a18141bdb.jpg",
+   "photos": [
+    "anh/b54a04e53d3a18141bdb.jpg",
+    "anh/a1a77225475290f9a8b9.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwiztngt",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Giờ hoạt động ngoài trời cùng các bé",
+   "era": "11/2026",
+   "plan": "Hoạt động ngoài trời cùng các bé",
+   "from": "Lớp MG 4-5T B3 Trường chính",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l8834cf"
+   ],
+   "tc": [
+    "TC5"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/97f076ed88aed003358d.jpg",
+   "photos": [
+    "anh/97f076ed88aed003358d.jpg",
+    "anh/05ab660c89651328a706.jpg",
+    "anh/d47a12eb51df53a76024.jpg",
+    "anh/64b39d2bfbe06e27c087.jpg",
+    "anh/ddc9c12a06b4a35e4829.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwiznqr7",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Hoạt động: Tạo hình khuôn mặt cảm xúc",
+   "era": "Tháng 9/2026",
+   "plan": "Steam EDP",
+   "from": "Lớp: 4-5 tuổi Hương Sen",
+   "story": "Ý nghĩa của việc lồng ghép hoạt động STEAM vào các tiết học cho trẻ mầm non:\n\n1. Giúp trẻ tiếp thu kiến thức một cách tự nhiên, sinh động thông qua trải nghiệm và khám phá thực tế.\n2. Khơi gợi tính tò mò, ham học hỏi, kích thích trí tưởng tượng và khả năng sáng tạo của trẻ.\n3. Phát triển tư duy logic, khả năng quan sát, giải quyết vấn đề và vận dụng kiến thức vào cuộc sống.\n4. Rèn luyện kỹ năng thực hành, phối hợp nhóm, giao tiếp và chia sẻ ý tưởng với bạn bè.\n5. Góp phần phát triển toàn diện năng lực, phẩm chất, giúp trẻ tự tin, chủ động và hứng thú trong học tập.\n\nĐiều quan trọng: STEAM không chỉ giúp trẻ biết mà còn giúp trẻ được tự tay làm, tự khám phá, trải nghiệm và tìm ra cách giải quyết vấn đề.",
+   "ask": "1. Theo con, chúng mình có thể sử dụng những nguyên vật liệu nào để thực hiện? 2. Con có ý tưởng gì để tạo ra sản phẩm của mình? 3. Khi thực hiện gặp khó khăn, con sẽ làm thế nào để giải quyết?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l7d442e"
+   ],
+   "tc": [
+    "TC9"
+   ],
+   "keeper": "Người có uy tín",
+   "her": "",
+   "photo": "anh/4d96a0bc9f249b1eaa4f.jpg",
+   "photos": [
+    "anh/4d96a0bc9f249b1eaa4f.jpg",
+    "anh/3152a9ef5e4f53073e05.jpg",
+    "anh/ed92f645b4899eb739d7.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwizwowk",
+   "room": "tri-an",
+   "art": "sach",
+   "name": "Món quà tặng cô",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "Tri ân thầy cô giáo ngày 20/11",
+   "ask": "Tình cảm các con đanh cho cô giáo như thế nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1nmxNshJtSnI1Ww3YwSRbeoCfFV70KZEg/view?usp=drive_link",
+   "cls": [
+    "l3ee012"
+   ],
+   "tc": [
+    "TC5"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
    "sample": false
   }
  ],
