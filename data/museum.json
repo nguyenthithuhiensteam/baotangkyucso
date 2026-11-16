@@ -1851,6 +1851,35 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwhxwp2z",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "cây hoa bỏng",
+   "era": "Tháng 11",
+   "plan": "Hoa đẹp quanh bé",
+   "from": "MG 5-6 tuổi Tràng Đà",
+   "story": "🌺 CÂY HOA BỎNG\nBên hiên nhà nhỏ\nCó cây hoa bỏng\nLá xanh mọng nước\nHoa đỏ xinh tươi.\nNắng vàng ghé chơi\nHoa cười trong nắng\nBướm vàng bay lượn\nQuanh những chùm hoa.\nBé chăm tưới nước\nNhặt lá vàng rơi\nHoa luôn khoe sắc\nĐẹp mãi bé ơi!\nThông điệp: Bé yêu cây xanh, chăm sóc hoa và giữ gìn môi trường luôn tươi đẹp. 🌱",
+   "ask": "Hoa bỏng có màu gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1dAZ6WArjCLsVltXcNJZjm18oQ8SGQjbX/view?usp=drive_link",
+   "cls": [
+    "l71706c"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/ca8deaec1559071f54b2.jpg",
+   "photos": [
+    "anh/ca8deaec1559071f54b2.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
