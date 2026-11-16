@@ -903,6 +903,7 @@ function wireWalls(root){
 /* Ảnh nổi bật của ba nhà trường (Phòng 1). */
 const SITE_OF={nt:'Trường chính',td:'Phân hiệu Tràng Đà',hs:'Phân hiệu Hương Sen'};
 const DEFAULT_GALLERY=[['hs-6','hs','Tham quan trường tiểu học của trẻ 5 – 6 tuổi'],['hs-2','hs','Bé với an toàn giao thông – ngày hội STEAM'],['hs-3','hs','Hoạt động trải nghiệm “Bé tập làm chiến sĩ”'],['hs-4','hs','Hội thảo chuyên đề chuẩn bị cho trẻ 5 – 6 tuổi vào lớp 1'],['hs-5','hs','Hội thi giáo viên dạy giỏi cấp trường'],
+ ['hs-12','hs','Ngày hội trò chơi dân gian và Bé yêu làn điệu dân ca'],['hs-15','hs','Bé vui đón Tết Trung thu'],['hs-7','hs','Các bé khối mẫu giáo học tiếng Anh trên Babilala School'],['hs-10','hs','Sinh hoạt chuyên môn nghiên cứu bài học “Nông trại vui vẻ”'],['hs-9','hs','Hoạt động trải nghiệm phòng cháy chữa cháy, cứu nạn cứu hộ'],['hs-13','hs','Ngày hội ở Trường học hạnh phúc Hương Sen'],['hs-8','hs','Cán bộ, giáo viên hưởng ứng Tuần lễ áo dài'],['hs-14','hs','Thao giảng năm học 2025 – 2026'],['hs-11','hs','Tiết tập giảng của sinh viên Trường Đại học Tân Trào'],
  ...['nt-1','nt-2','nt-3','nt-4','nt-5','nt-6','nt-7','nt-8'].map(k=>[k,'nt','']),...['td-1','td-2','td-3'].map(k=>[k,'td',''])].map(([k,s,c])=>({photo:`anh/gioithieu/${k}.jpg`,site:SITE_OF[s],cap:c}));
 const galleryOf=()=>Array.isArray(data.settings.gallery)?data.settings.gallery:DEFAULT_GALLERY;
 let galF='';
