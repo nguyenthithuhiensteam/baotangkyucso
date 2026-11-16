@@ -1766,6 +1766,33 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwi0dqsq",
+   "room": "khoanh-khac",
+   "art": "an",
+   "name": "Bữa ăn cho bé",
+   "era": "Tháng 11/2026",
+   "plan": "Nay bé ăn gì nào",
+   "from": "Lớp 25-36 tháng B (trường chính)",
+   "story": "Bữa ăn trưa của các bé nhà trẻ diễn ra trong không khí vui vẻ và ấm áp. Các bé ngồi ngay ngắn bên bàn ăn, hào hứng thưởng thức những món ăn thơm ngon, đầy đủ dinh dưỡng do các bác cấp dưỡng chuẩn bị. Các bé rất hào hứng vui vẻ với thực đơn phù hợp với mình.",
+   "ask": "Hôm nay chúng mình ăn gì? Có món gì nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l5f4f02"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/0c3efa48bed9128b00b7.jpg",
+   "photos": [
+    "anh/0c3efa48bed9128b00b7.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
