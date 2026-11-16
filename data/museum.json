@@ -4266,6 +4266,39 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwir08oc",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây hoa",
+   "era": "Thán 11",
+   "plan": "Cây xanh quanh bé",
+   "from": "4-5 tuổi B1",
+   "story": "Những cây xanh quanh bé",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l62a027"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/d5973bae84f366c892c1.jpg",
+   "photos": [
+    "anh/d5973bae84f366c892c1.jpg",
+    "anh/38d02f464c0a86432293.jpg",
+    "anh/1c3334f28e306754c650.jpg",
+    "anh/5f37f3b2f80a77dcf88f.jpg",
+    "anh/593817340b35c3b79be3.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
