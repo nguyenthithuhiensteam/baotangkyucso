@@ -1687,6 +1687,33 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwi0sw6f",
+   "room": "thien-nhien",
+   "art": "cay",
+   "name": "Cây Kim Tiền - Lớp MG 4-5 Tuổi B2 Nông Tiến",
+   "era": "Tháng 11/2026",
+   "plan": "Cây xanh lớp bé",
+   "from": "Lớp 4-5 tuổi B2 trường chính",
+   "story": "Cây kim tiền (Zamioculcas zamiifolia) không có nguồn gốc từ truyền thuyết dân gian cổ xưa mà là câu chuyện hiện đại về phong thủy và thương mại. Có xuất xứ từ Đông Phi, loài cây này phổ biến tại châu Á từ cuối thế kỷ 20 nhờ hình dáng lá dày xanh mướt xếp đối xứng giống các đồng tiền cổ. Trong phong thủy, cây đại diện cho tài lộc, sự thịnh vượng và thường mang lại niềm tin về may mắn khi đâm chồi hay ra hoa. Bên cạnh ý nghĩa tài lộc, cây kim tiền còn được ưa chuộng nhờ sức sống bền bỉ và tạo không gian sống xanh mát, tích cực.",
+   "ask": "Con Biết cây Kim Tiền Lá cây giống hình gì không?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb4ed25"
+   ],
+   "tc": [],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/b5afc8b35292e8ac5939.jpg",
+   "photos": [
+    "anh/b5afc8b35292e8ac5939.jpg"
+   ],
+   "photoAlt": "Cây kim tiền mọc thành bụi thẳng đứng với những cọng thân mọng nước chắc nịch, dọc hai bên xếp đều tăm tắp các cặp lá bầu dục dày dặn, trơn bóng và mát lạnh khi chạm vào.",
+   "sample": false
   }
  ],
  "timeline": [
