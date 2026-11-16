@@ -2209,5 +2209,304 @@
    "ref": "Chiến lược phát triển nhà trường giai đoạn 2026–2030, tầm nhìn đến năm 2045",
    "todo": ""
   }
+ ],
+ "lessons": [
+  {
+   "id": "ga-34-tc1",
+   "tc": "TC1",
+   "age": "3-4",
+   "title": "Ngày hội trò chơi dân gian",
+   "month": "Tháng 3",
+   "week": "Tuần 24, 01 – 05/3. Thứ Sáu 05/3",
+   "yccd": "MT4, MT58",
+   "desc": "",
+   "links": []
+  },
+  {
+   "id": "ga-45-tc1",
+   "tc": "TC1",
+   "age": "4-5",
+   "title": "Ngày hội trò chơi dân gian",
+   "month": "Tháng 3",
+   "week": "Tuần 24, 01 – 05/3. Thứ Sáu 05/3",
+   "yccd": "MT3, MT4, MT83, MT84",
+   "desc": "",
+   "links": []
+  },
+  {
+   "id": "ga-56-tc1",
+   "tc": "TC1",
+   "age": "5-6",
+   "title": "Ngày hội trò chơi dân gian",
+   "month": "Tháng 3",
+   "week": "Tuần 24, 01 – 05/3. Thứ Sáu 05/3",
+   "yccd": "MT2, MT4, MT8, MT48",
+   "desc": "",
+   "links": []
+  },
+  {
+   "id": "ga-34-tc2",
+   "tc": "TC2",
+   "age": "3-4",
+   "title": "Hôm nay bé ăn gì?",
+   "month": "Tháng 12",
+   "week": "Tuần 15, 14 – 18/12",
+   "yccd": "MT7, MT8, MT9, MT54, MT64",
+   "desc": "",
+   "links": []
+  },
+  {
+   "id": "ga-45-tc2",
+   "tc": "TC2",
+   "age": "4-5",
+   "title": "Món ngon quê em",
+   "month": "Tháng 12",
+   "week": "Tuần 15, 14 – 18/12",
+   "yccd": "MT9, MT10, MT11, MT13, MT88, MT78",
+   "desc": "",
+   "links": []
+  },
+  {
+   "id": "ga-56-tc2",
+   "tc": "TC2",
+   "age": "5-6",
+   "title": "Món ngon nhà em",
+   "month": "Tháng 12",
+   "week": "Tuần 14, 07 – 11/12",
+   "yccd": "MT9, MT10, MT11, MT13, MT62",
+   "desc": "",
+   "links": []
+  },
+  {
+   "id": "ga-34-tc3",
+   "tc": "TC3",
+   "age": "3-4",
+   "title": "Chỗ này có an toàn không?",
+   "month": "Tháng 11 (tuần 10) · thực hiện hằng ngày",
+   "week": "Tuần 10, 09 – 13/11",
+   "yccd": "MT10",
+   "desc": "",
+   "links": []
+  },
+  {
+   "id": "ga-45-tc3",
+   "tc": "TC3",
+   "age": "4-5",
+   "title": "Bản đồ an toàn của lớp em",
+   "month": "Tháng 11 (tuần 10) · thực hiện hằng ngày",
+   "week": "Tuần 10, 09 – 13/11",
+   "yccd": "MT15, MT16, MT17, MT18",
+   "desc": "",
+   "links": []
+  },
+  {
+   "id": "ga-56-tc3",
+   "tc": "TC3",
+   "age": "5-6",
+   "title": "Bản đồ an toàn của trường em",
+   "month": "Tháng 11 (tuần 10) · thực hiện hằng ngày",
+   "week": "Tuần 10, 09 – 13/11",
+   "yccd": "MT12, MT14, MT36",
+   "desc": "",
+   "links": []
+  },
+  {
+   "id": "ga-34-tc4",
+   "tc": "TC4",
+   "age": "3-4",
+   "title": "Con chào, con cảm ơn, con nói thật",
+   "month": "Tháng 11 (tuần 11)",
+   "week": "Tuần 11, 16 – 20/11, một buổi chiều",
+   "yccd": "MT56, MT55",
+   "desc": "",
+   "links": []
+  },
+  {
+   "id": "ga-45-tc4",
+   "tc": "TC4",
+   "age": "4-5",
+   "title": "Bé lễ phép, bé nói thật",
+   "month": "Tháng 11 (tuần 11)",
+   "week": "Tuần 11, 16 – 20/11, một buổi chiều",
+   "yccd": "MT81",
+   "desc": "",
+   "links": []
+  },
+  {
+   "id": "ga-56-tc4",
+   "tc": "TC4",
+   "age": "5-6",
+   "title": "Em giữ lời hứa",
+   "month": "Tháng 11 (tuần 11)",
+   "week": "Tuần 11, 16 – 20/11, một buổi chiều",
+   "yccd": "MT53",
+   "desc": "",
+   "links": []
+  },
+  {
+   "id": "ga-34-tc5",
+   "tc": "TC5",
+   "age": "3-4",
+   "title": "Món Tết nhà bạn",
+   "month": "Tháng 1",
+   "week": "Tuần 21, 25 – 29/01. Thứ Ba 26/01",
+   "yccd": "MT18, MT58",
+   "desc": "",
+   "links": []
+  },
+  {
+   "id": "ga-45-tc5",
+   "tc": "TC5",
+   "age": "4-5",
+   "title": "Tết quê em có gì vui?",
+   "month": "Tháng 1",
+   "week": "Tuần 21, 25 – 29/01",
+   "yccd": "MT52, MT49, MT84",
+   "desc": "",
+   "links": []
+  },
+  {
+   "id": "ga-56-tc5",
+   "tc": "TC5",
+   "age": "5-6",
+   "title": "Tết nhà mình, Tết nhà bạn",
+   "month": "Tháng 1",
+   "week": "Tuần 21, 25 – 29/01",
+   "yccd": "MT49, MT50, Chương trình GDMN, kết quả mong đợi 3.6",
+   "desc": "",
+   "links": []
+  },
+  {
+   "id": "ga-34-tc6",
+   "tc": "TC6",
+   "age": "3-4",
+   "title": "Bé kể về quê em",
+   "month": "Tháng 5 · thực hiện hằng ngày",
+   "week": "Tuần 33, 03 – 07/5. Chiều thứ Sáu 07/5",
+   "yccd": "MT40, MT41, MT42",
+   "desc": "",
+   "links": []
+  },
+  {
+   "id": "ga-45-tc6",
+   "tc": "TC6",
+   "age": "4-5",
+   "title": "Bé kể chuyện quê em",
+   "month": "Tháng 5 · thực hiện hằng ngày",
+   "week": "Tuần 33, 03 – 07/5",
+   "yccd": "MT59, MT60, MT62",
+   "desc": "",
+   "links": []
+  },
+  {
+   "id": "ga-56-tc6",
+   "tc": "TC6",
+   "age": "5-6",
+   "title": "Bé kể chuyện quê em",
+   "month": "Tháng 5 · thực hiện hằng ngày",
+   "week": "Tuần 33 – 34, 03 – 14/5",
+   "yccd": "MT30, MT31, MT33, MT34",
+   "desc": "",
+   "links": []
+  },
+  {
+   "id": "ga-34-tc7",
+   "tc": "TC7",
+   "age": "3-4",
+   "title": "Đưa viên sỏi sang vườn cam",
+   "month": "Tháng 11 (từ tuần 12)",
+   "week": "",
+   "yccd": "MT12, MT14",
+   "desc": "",
+   "links": []
+  },
+  {
+   "id": "ga-45-tc7",
+   "tc": "TC7",
+   "age": "4-5",
+   "title": "Vườn cam của lớp em",
+   "month": "Tháng 11 (từ tuần 12)",
+   "week": "",
+   "yccd": "MT21, MT22, MT27",
+   "desc": "",
+   "links": []
+  },
+  {
+   "id": "ga-56-tc7",
+   "tc": "TC7",
+   "age": "5-6",
+   "title": "Đưa nước đến vườn",
+   "month": "Tháng 11 (từ tuần 12)",
+   "week": "",
+   "yccd": "MT16, MT18, CS71",
+   "desc": "",
+   "links": []
+  },
+  {
+   "id": "ga-34-tc8",
+   "tc": "TC8",
+   "age": "3-4",
+   "title": "Quả ngon quê em",
+   "month": "Tháng 2",
+   "week": "Tuần 23, 22 – 26/02. Thứ Ba 23/02",
+   "yccd": "MT18, MT30, MT34",
+   "desc": "",
+   "links": []
+  },
+  {
+   "id": "ga-45-tc8",
+   "tc": "TC8",
+   "age": "4-5",
+   "title": "Từ đâu có những quả ngọt?",
+   "month": "Tháng 2",
+   "week": "Tuần 23, 22 – 26/02",
+   "yccd": "MT21, MT46, MT53, MT79",
+   "desc": "",
+   "links": []
+  },
+  {
+   "id": "ga-56-tc8",
+   "tc": "TC8",
+   "age": "5-6",
+   "title": "Bản đồ quê em của lớp",
+   "month": "Tháng 2",
+   "week": "Tuần 22, 15 – 19/02",
+   "yccd": "MT47, MT52, MT62, Chương trình GDMN, kết quả mong đợi 3.2, 3.6",
+   "desc": "",
+   "links": []
+  },
+  {
+   "id": "ga-34-tc9",
+   "tc": "TC9",
+   "age": "3-4",
+   "title": "Nghe làn điệu quê hương",
+   "month": "Tháng 4",
+   "week": "Tuần 30, 12 – 16/4. Thứ Tư 14/4",
+   "yccd": "MT61, MT63",
+   "desc": "",
+   "links": []
+  },
+  {
+   "id": "ga-45-tc9",
+   "tc": "TC9",
+   "age": "4-5",
+   "title": "Ống tre nào kêu hay?",
+   "month": "Tháng 4",
+   "week": "",
+   "yccd": "MT90, MT93, MT94, MT101",
+   "desc": "",
+   "links": []
+  },
+  {
+   "id": "ga-56-tc9",
+   "tc": "TC9",
+   "age": "5-6",
+   "title": "Nhạc cụ tre của nhóm mình",
+   "month": "Tháng 4",
+   "week": "",
+   "yccd": "MT58, MT59, MT62",
+   "desc": "",
+   "links": []
+  }
  ]
 }
