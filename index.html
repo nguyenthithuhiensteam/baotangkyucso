@@ -829,7 +829,7 @@ function head(r){
  return `<div class="room-head">${r.n?`<span class="eyebrow">Phòng ${r.n}</span>`:''}<h2>${esc(r.name)}</h2><p>${esc(r.lead)}</p>${r.src?`<span class="src">Căn cứ: ${esc(r.src)}</span>`:''}${okUrl(l3)?`<div class="cta"><a class="btn primary" href="${esc(l3)}" target="_blank" rel="noopener">Vào phòng trưng bày 3D ↗</a></div>`:''}</div>`;
 }
 const mediaTags=e=>{const t=[];if(okUrl(e.video))t.push('Video');if(okUrl(e.audio))t.push('Âm thanh');if(okUrl(e.link3d))t.push('3D');if(okUrl(e.drive))t.push('Drive');return t.length?`<span class="media-dots">${t.map(x=>`<span>${x}</span>`).join('')}</span>`:''};
-const piece=(e,i)=>`<button class="piece" type="button" data-i="${i}"><div class="frame ${pubPhoto(e.photo)?'ph':''}">${pic(e)}${photosOf(e).length>1?`<span class="phn">📷 ${photosOf(e).length}</span>`:''}${VIEWS[e.id]?`<span class="vwn" aria-label="${VIEWS[e.id]} lượt xem">👁 ${fmtN(VIEWS[e.id])}</span>`:''}</div><div class="label"><b>${esc(e.name)}</b>${clsNames(e).length?`<span class="cl" title="${esc(clsNames(e).join(', '))}">${esc(clsShort(e))}</span>`:''}<span class="p">${esc(e.plan)}</span>${tcList(e).length?`<span class="tcrow">${tcChips(e)}</span>`:''}${mediaTags(e)}${e.sample?'<span class="sample">Hiện vật mẫu</span>':''}</div></button>`;
+const piece=(e,i)=>`<button class="piece" type="button" data-i="${i}"><div class="frame ${pubPhoto(e.photo)?'ph':''}">${pic(e)}${photosOf(e).length>1?`<span class="phn">📷 ${photosOf(e).length}</span>`:''}${e.sample?'':`<span class="vwn" data-vw="${esc(e.id)}" aria-label="${VIEWS[e.id]||0} lượt xem">👁 ${fmtN(VIEWS[e.id]||0)}</span>`}</div><div class="label"><b>${esc(e.name)}</b>${clsNames(e).length?`<span class="cl" title="${esc(clsNames(e).join(', '))}">${esc(clsShort(e))}</span>`:''}<span class="p">${esc(e.plan)}</span>${tcList(e).length?`<span class="tcrow">${tcChips(e)}</span>`:''}${mediaTags(e)}${e.sample?'<span class="sample">Hiện vật mẫu</span>':''}</div></button>`;
 
 function intro(){
  const ph=[
@@ -1669,13 +1669,15 @@ addEventListener('hashchange',()=>{navTabs();render();
 /* ---------- viewer ---------- */
 const V=$('viewer');let list=[],pos=0,lastFocus=null;
 /* Lượt xem: lấy tổng một lần khi tải trang; mở bài thì cộng 1 (máy chủ chỉ tính 1 lần / 6 giờ mỗi máy). */
-var VIEWS={};
+var VIEWS={};try{VIEWS=JSON.parse(localStorage.getItem('btkuc_views')||'{}')||{}}catch(_){}
+/* cập nhật số trên các ô đang hiện, không cần vẽ lại trang */
+function paintViews(){document.querySelectorAll('[data-vw]').forEach(b=>{const n=VIEWS[b.dataset.vw]||0;b.textContent='👁 '+fmtN(n);b.setAttribute('aria-label',n+' lượt xem')})}
 const fmtN=n=>n>=1000?(n/1000).toFixed(n>=10000?0:1).replace('.',',')+'k':String(n);
 const viewTxt=e=>{const n=VIEWS[e.id]||0;return n?`👁 ${n.toLocaleString('vi-VN')} lượt xem`:''};
-async function loadViews(){try{const r=await fetch(API+'/api/views');if(!r.ok)return;VIEWS=(await r.json()).views||{};if($('viewer').hidden&&!/^#quan-tri/.test(location.hash)&&!document.querySelector('main input:focus,main textarea:focus'))render()}catch(_){}}
+async function loadViews(){try{const r=await fetch(API+'/api/views');if(!r.ok)return;VIEWS=(await r.json()).views||{};try{localStorage.setItem('btkuc_views',JSON.stringify(VIEWS))}catch(_){}paintViews()}catch(_){}}
 function viewHit(e){
  if(!e||!e.id||e.sample)return;$('vViews').textContent=viewTxt(e);
- fetch(API+'/api/view',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:e.id})}).then(r=>r.ok?r.json():null).then(j=>{if(!j)return;VIEWS[j.id]=j.views;if(list[pos]&&list[pos].id===j.id)$('vViews').textContent=viewTxt(list[pos])}).catch(()=>{});
+ fetch(API+'/api/view',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:e.id})}).then(r=>r.ok?r.json():null).then(j=>{if(!j)return;VIEWS[j.id]=j.views;paintViews();if(list[pos]&&list[pos].id===j.id)$('vViews').textContent=viewTxt(list[pos])}).catch(()=>{});
 }
 function openViewer(items,i){if(!items.length)return;list=items;pos=i;lastFocus=document.activeElement;show();V.hidden=false;$('vNext').focus()}
 /* Phát video, âm thanh ngay trong khung xem: YouTube và Google Drive. */
