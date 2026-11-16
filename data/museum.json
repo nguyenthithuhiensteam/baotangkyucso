@@ -3222,6 +3222,31 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwindabh",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Ngày hội trung thu của bé",
+   "era": "Tháng 9/2026",
+   "plan": "",
+   "from": "Lớp 25-36 tháng B (trường chính)",
+   "story": "",
+   "ask": "Chúng mình tham gia ngày hội gì đây?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1GP5oS23TDT0saYxKlOh4djz_QWhVVN9o/view?usp=sharing",
+   "cls": [
+    "l5f4f02"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
