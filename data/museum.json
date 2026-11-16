@@ -1596,6 +1596,41 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwhym3ob",
+   "room": "khoanh-khac",
+   "art": "khoc",
+   "name": "Bé vui Trung thu ở lớp cùng các bạn",
+   "era": "tháng 9/2026",
+   "plan": "Trung thu của bé",
+   "from": "Lớp 3 - 4 tuổi A1",
+   "story": "ết Trung thu ở trường mầm non là dịp mang đến cho các bé niềm vui, tiếng cười và những kỷ niệm tuổi thơ đáng nhớ. Thông qua các hoạt động như rước đèn, múa lân, phá cỗ, văn nghệ và trò chơi dân gian, trẻ được tìm hiểu nét đẹp văn hóa truyền thống của dân tộc, biết yêu thương, sẻ chia, đoàn kết với bạn bè và cảm nhận được sự quan tâm, yêu thương của cô giáo, gia đình. Đây cũng là dịp nuôi dưỡng tâm hồn, phát triển tình cảm và giúp trẻ có một tuổi thơ tràn ngập niềm vui",
+   "ask": "Hôm nay các con được ăn những gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l92c638"
+   ],
+   "tc": [
+    "TC2",
+    "TC3",
+    "TC4",
+    "TC5",
+    "TC6",
+    "TC8",
+    "TC9"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/103ad1ed687016876e8d.jpg",
+   "photos": [
+    "anh/103ad1ed687016876e8d.jpg"
+   ],
+   "photoAlt": "Bé liên hoan trung thu ở lớp",
+   "sample": false
   }
  ],
  "timeline": [
