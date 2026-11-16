@@ -3548,6 +3548,33 @@
    ],
    "photoAlt": "Cây thiết mộc lan, lá xanh tươi tốt quanh năm, lá cây dài, thân cây cao.",
    "sample": false
+  },
+  {
+   "id": "emwimv77z",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây lưỡi hổ.",
+   "era": "Tháng 11",
+   "plan": "",
+   "from": "Lớp 3-4 tuổi A2",
+   "story": "Bà ngoại tôi có một chậu lưỡi hổ đặt cạnh cửa ra vào, mua từ hồi tôi còn học cấp hai, chỉ vì người bán bảo loại này dễ sống. Nhiều năm nó đứng đó, lá cứng vươn thẳng như những lưỡi gươm xanh, viền vàng hai bên mép, chẳng ai nhớ tưới, chẳng ai bón phân, cũng chẳng ai buồn nhìn kỹ.\n\nRồi một năm nhà tôi dọn lại cửa ra vào, sửa cái bóng đèn hỏng, kê lại tủ giày cho thoáng, mở cửa nhiều hơn cho gió lùa vào. Bẵng đi vài tháng, buổi tối tôi ngửi thấy mùi thơm ngọt nhẹ, tưởng hương hoa cau hàng xóm. Sáng hôm sau ra xem, từ giữa bụi lá đã mọc lên một cuống hoa dài, trên đó là những bông trắng ngà bé xíu, khiêm nhường đến mức phải đứng thật gần mới thấy rõ.\n\nBà ngoại chỉ cười: \"Cây nó chờ đủ mới nở. Mình chăm cái nhà thì cái nhà trả lại cho mình\". Tôi hỏi bà có phải điềm may không, bà bảo chuyện ấy bà không rành, chỉ biết cây đã sống bao nhiêu năm trong sự bỏ quên mà vẫn đứng vững, thì nay nở hoa cũng là lẽ đương nhiên. Hoa chỉ vài ngày rồi tàn, nhưng tôi nhớ mãi cảm giác ấy: một loài cây gai góc, im lặng, chịu đựng giỏi, hóa ra vẫn có thể mềm mại và thơm đến thế, miễn là được đặt đúng chỗ và cho đủ thời gian.",
+   "ask": "Cây này có tên là gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lc8a1a7"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/410ced5677fc307ab07f.jpg",
+   "photos": [
+    "anh/410ced5677fc307ab07f.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
