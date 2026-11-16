@@ -346,6 +346,7 @@ h3.fsel{font-size:22px}h3.fsel small{font-size:14px;color:var(--muted);font-fami
 .dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--c);flex:none}
 .dnote{margin:0;color:var(--muted);font-size:13px}
 .croom{display:grid;gap:10px}
+.vplay{display:grid;gap:8px;margin:6px 0}.vplay:empty{display:none}.vframe.aud{aspect-ratio:auto;height:110px}.vframe.fold{aspect-ratio:auto;height:300px;background:#fff}
 .gallery{display:grid;gap:10px}
 .gitem{all:unset;cursor:pointer;display:grid;gap:5px;align-content:start}
 .gitem img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:14px;border:4px solid var(--frame);box-shadow:0 4px 0 var(--line);display:block;transition:transform .15s}
@@ -573,6 +574,7 @@ root.innerHTML=`
    <div class="meta" id="vMeta"></div>
    <p class="story" id="vStory"></p>
    <div class="ask"><b>Cô hỏi bé:</b> <span id="vAsk"></span></div>
+   <div class="vplay" id="vVideo"></div>
    <div class="links" id="vLinks"></div>
   </div>
   <div class="ctrl">
@@ -1519,14 +1521,21 @@ addEventListener('hashchange',()=>{navTabs();render();
 /* ---------- viewer ---------- */
 const V=$('viewer');let list=[],pos=0,lastFocus=null;
 function openViewer(items,i){if(!items.length)return;list=items;pos=i;lastFocus=document.activeElement;show();V.hidden=false;$('vNext').focus()}
-function show(){const e=list[pos];$('vCard').style.setProperty('--c',e.c||'var(--indigo)');$('vArt').innerHTML=pic(e);
+/* Phát video, âm thanh ngay trong khung xem: YouTube và Google Drive. */
+function embedOf(u){u=String(u||'');if(!okUrl(u))return '';
+ let m=u.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:.*&)?v=|shorts\/|embed\/|live\/))([\w-]{11})/);if(m)return 'https://www.youtube-nocookie.com/embed/'+m[1]+'?rel=0';
+ m=u.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?(?:.*&)?id=)([\w-]{20,})/);if(m)return 'https://drive.google.com/file/d/'+m[1]+'/preview';
+ m=u.match(/drive\.google\.com\/drive\/(?:u\/\d+\/)?folders\/([\w-]{20,})/);if(m)return 'https://drive.google.com/embeddedfolderview?id='+m[1]+'#grid';
+ return ''}
+function show(){const e=list[pos];
+ {const ev=embedOf(e.video),ea=embedOf(e.audio),fold=x=>/embeddedfolderview/.test(x);$('vVideo').innerHTML=(ev?`<div class="vframe ${fold(ev)?'fold':''}"><iframe src="${ev}" title="Video: ${esc(e.name)}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>`:'')+(ea&&ea!==ev?`<div class="vframe aud"><iframe src="${ea}" title="Âm thanh: ${esc(e.name)}" loading="lazy" allow="autoplay" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>`:'')}$('vCard').style.setProperty('--c',e.c||'var(--indigo)');$('vArt').innerHTML=pic(e);
  const P=photosOf(e).filter(pubPhoto);$('vThumbs').innerHTML=P.length>1?P.map((p,i)=>`<button type="button" data-vph="${i}" aria-pressed="${!i}" aria-label="Ảnh ${i+1}/${P.length}">${imgOf(p,'')}</button>`).join(''):'';
  $('vThumbs').querySelectorAll('[data-vph]').forEach(b=>b.onclick=()=>{$('vArt').innerHTML=imgOf(P[+b.dataset.vph],e.photoAlt||e.name);$('vThumbs').querySelectorAll('[data-vph]').forEach(x=>x.setAttribute('aria-pressed',x===b))});$('vPlan').textContent=e.plan||e.roomName;$('vTitle').textContent=e.name;
  $('vMeta').textContent=[e.roomName,e.era,e.from,tcList(e).length?'Tiêu chí '+tcList(e).join(', '):'',e.keeper?'Người giữ chặng: '+e.keeper:'',herOf(e.her)?'Di sản: '+herOf(e.her).name:'',e.sample?'nội dung mẫu':''].filter(Boolean).join(' · ');$('vStory').textContent=e.story;$('vAsk').textContent=e.ask;$('vAsk').parentElement.hidden=!e.ask;
  const L=[[e.video,'▶ Xem video'],[e.audio,'♪ Nghe thuyết minh'],[e.link3d,'Xem phòng 3D'],[e.drive,'Mở thư mục lớp']].filter(([u])=>okUrl(u));
  $('vLinks').innerHTML=L.map(([u,t],i)=>`<a class="btn small ${i===0?'primary':''}" href="${esc(u)}" target="_blank" rel="noopener">${t} ↗</a>`).join('')+(L.length?'<span class="note-d">Mở ở tab mới.'+(okUrl(e.drive)?' Thư mục Drive chỉ mở được với tài khoản đã được cấp quyền.':'')+'</span>':'');
  $('vPos').textContent=`${pos+1} / ${list.length}`;$('vPrev').disabled=pos===0;$('vNext').textContent=pos===list.length-1?'Kết thúc':'Tiếp →'}
-function close(){V.hidden=true;if(lastFocus)lastFocus.focus()}
+function close(){V.hidden=true;$('vVideo').innerHTML='';if(lastFocus)lastFocus.focus()}
 $('vPrev').onclick=()=>{if(pos>0){pos--;show()}};
 $('vNext').onclick=()=>{if(pos<list.length-1){pos++;show()}else close()};
 $('vClose').onclick=close;V.addEventListener('click',e=>{if(e.target===V)close()});
