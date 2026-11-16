@@ -3903,6 +3903,31 @@
    "photos": [],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwimss7t",
+   "room": "thien-nhien",
+   "art": "hoa",
+   "name": "Cây hoa đồng tiền",
+   "era": "Tháng 11",
+   "plan": "",
+   "from": "Lớp 25-36 tháng A (Hương Sen)",
+   "story": "Bé khám phá cây hoa đồng tiền",
+   "ask": "đây là cây hoa gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/folders/1FW0dFssvAIClWRSVjUDtFZNNcD3Djj9s?usp=drive_link",
+   "cls": [
+    "lc0c279"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
