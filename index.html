@@ -363,6 +363,20 @@ h3.fsel{font-size:22px}h3.fsel small{font-size:14px;color:var(--muted);font-fami
 .lsndlg::backdrop{background:rgba(20,30,50,.55)}
 .lsnhead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding:16px 18px;background:var(--indigo);color:var(--paper);position:sticky;top:0}
 .lsnhead h3{margin:4px 0 2px;font-family:var(--f-display);font-size:22px;line-height:1.2}.lsnhead small{opacity:.85}.lsnhead .lage{background:rgba(255,255,255,.2);color:inherit}
+.cintro{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:18px;background:var(--frame);border-radius:22px;padding:16px;border:3px solid color-mix(in srgb,var(--sc) 40%,transparent);box-shadow:0 5px 0 color-mix(in srgb,var(--sc) 25%,transparent);margin:6px 0 12px}
+.ciph{aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:color-mix(in srgb,var(--sc) 12%,#fff);display:grid;place-items:center}.ciph img{width:100%;height:100%;object-fit:cover;display:block}.ciart{font-size:72px}
+.citx{display:grid;gap:6px;align-content:start;min-width:0}.cisite{font-size:13px;font-weight:800;color:var(--sc);text-transform:uppercase;letter-spacing:.04em}
+.citx h3{margin:0;font-family:var(--f-display);font-size:26px;line-height:1.15}.cimotto{margin:0;font-family:var(--f-hand,inherit);font-size:19px;color:var(--sc);font-weight:700}
+.citext{margin:0;line-height:1.55}.citext.muted{color:var(--muted);font-style:italic}
+.cifacts{list-style:none;margin:2px 0 0;padding:0;display:grid;gap:4px;font-size:14.5px}
+.ciacts{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.ccnone{font-size:56px;opacity:.85}
+.ccmotto{font-style:italic;color:var(--c)!important}
+.ciform{display:grid;gap:12px;padding:14px 18px 0}.ciform input,.ciform textarea{font:inherit;font-size:15px;border:2px solid var(--line);border-radius:12px;padding:8px 10px;background:var(--paper);color:var(--ink);width:100%;box-sizing:border-box}
+.ciphedit{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.ciphprev{width:120px;aspect-ratio:4/3;border-radius:10px;overflow:hidden;display:block}.ciphprev img{width:100%;height:100%;object-fit:cover}
+.cimsg{margin:0;color:var(--indigo);font-weight:700;min-height:1em}
+.cilist{display:grid;gap:6px;margin-top:10px}.cilist>div{display:flex;flex-wrap:wrap;gap:6px}.btn.ghost{opacity:.75}
+@media (max-width:640px){.cintro{grid-template-columns:1fr}.ciph{aspect-ratio:16/9}}
 .lsnempty{padding:14px 18px;display:grid;gap:8px}.lsnempty p{margin:0}
 .lsndlg h4{margin:14px 18px 6px;font-size:16px}
 .lsnlist{list-style:none;margin:0 18px;padding:0;display:grid;gap:8px}
@@ -770,6 +784,51 @@ function classTable(){
 }
 /* Trang "Các lớp học": thẻ các lớp theo điểm trường; trang riêng từng lớp (#lop-hoc/<mã lớp>). */
 const SITE_COLORS=['var(--coral)','var(--indigo)','var(--teal)','var(--lilac)'];
+/* Giới thiệu lớp: thẻ hiện ở Phòng 4 (ô lớp) và trang lớp; quản trị hoặc cô của lớp sửa được. */
+const canEditClass=c=>!!me&&!!c&&(isAdmin()||(Array.isArray(me.classes)&&me.classes.includes(c.id)));
+function classIntro(c){
+ if(!c)return '';const t=c.intro||{},it=data.exhibits.filter(e=>!e.sample&&clsList(e).includes(c.id));
+ const hers=[...new Set(it.map(e=>e.her).filter(Boolean))].map(id=>heritageOf().find(h=>h.id===id)).filter(Boolean);
+ const tcs=[...new Set(it.flatMap(tcList))].sort();
+ const rooms=EXROOMS.map(r=>[r,it.filter(e=>e.room===r.id).length]).filter(x=>x[1]);
+ const has=t.text||t.motto||t.teachers||t.kids||pubPhoto(t.photo)||okUrl(t.video);
+ const ed=canEditClass(c)?`<button type="button" class="btn small ${has?'':'primary'}" data-ciedit="${esc(c.id)}">✏️ ${has?'Sửa giới thiệu lớp':'Viết giới thiệu lớp'}</button>`:'';
+ return `<article class="cintro" style="--sc:${SITE_COL[c.site]||'var(--c)'}">
+  <div class="ciph">${pubPhoto(t.photo)?imgOf(t.photo,'Ảnh lớp '+c.name):`<span class="ciart" aria-hidden="true">${isNT(c)?'🧸':'🎒'}</span>`}</div>
+  <div class="citx"><span class="cisite">${esc(c.site)} · ${isNT(c)?'Nhóm nhà trẻ':'Lớp mẫu giáo'}</span><h3>${esc(c.name)}</h3>
+   ${t.motto?`<p class="cimotto">“${esc(t.motto)}”</p>`:''}
+   ${t.text?`<p class="citext">${esc(t.text).replace(/\n/g,'<br>')}</p>`:`<p class="citext muted">${has?'':'Lớp chưa có lời giới thiệu.'}${canEditClass(c)?' Bấm “Viết giới thiệu lớp” để kể về lớp mình.':''}</p>`}
+   <ul class="cifacts">${t.teachers?`<li>👩‍🏫 <b>Cô phụ trách:</b> ${esc(t.teachers)}</li>`:''}${t.kids?`<li>👧 <b>Sĩ số:</b> ${esc(t.kids)}</li>`:''}<li>🖼️ <b>${it.length}</b> hiện vật trên bảo tàng${rooms.length?' · '+rooms.map(([r,n])=>`Phòng ${r.n}: ${n}`).join(', '):''}</li>${hers.length?`<li>🗺️ <b>Di sản lớp tìm hiểu:</b> ${hers.map(h=>`${herIcon(h)} ${esc(h.name)}`).join(', ')}</li>`:''}${tcs.length?`<li>🎯 <b>Tiêu chí đã có minh chứng:</b> ${tcs.join(', ')}</li>`:''}</ul>
+   <div class="ciacts">${okUrl(t.video)?`<a class="btn small primary" href="${esc(t.video)}" target="_blank" rel="noopener">▶ Video giới thiệu lớp ↗</a>`:''}${ed}</div>
+  </div></article>`;
+}
+function classIntroEdit(id){
+ const c=clsOf(id);if(!canEditClass(c))return;
+ if(dirty){setMsg('Còn thay đổi chưa lưu. Hãy Lưu lên trang hoặc Bỏ thay đổi trước khi sửa giới thiệu lớp.');return}
+ const t={...(c.intro||{})};let dl=$('ciDlg');
+ if(!dl){dl=document.createElement('dialog');dl.id='ciDlg';dl.className='lsndlg';document.body.appendChild(dl);dl.addEventListener('click',e=>{if(e.target===dl)dl.close()})}
+ const draw=()=>{dl.innerHTML=`<div class="lsnhead"><div><span class="lage">${esc(c.site)}</span><h3>Giới thiệu ${esc(c.name)}</h3><small>Hiện ở Phòng 4 (ô của lớp) và trang lớp. Đăng thẳng, không cần duyệt.</small></div><button type="button" class="askx" aria-label="Đóng">✕</button></div>
+  <form id="ciForm" class="ciform" novalidate>
+   <div class="f"><label for="ci_motto">Khẩu hiệu / tên gọi thân thương của lớp</label><input id="ci_motto" maxlength="150" value="${esc(t.motto||'')}" placeholder="VD: Lớp Sóc Nâu chăm ngoan, yêu quê hương"></div>
+   <div class="f"><label for="ci_text">Lời giới thiệu lớp</label><textarea id="ci_text" rows="6" maxlength="1500" placeholder="Lớp có bao nhiêu bé, các bé thích gì, góc chơi nổi bật, di sản lớp đang tìm hiểu, hoạt động đáng nhớ…">${esc(t.text||'')}</textarea><span class="hint">Không ghi họ tên đầy đủ của trẻ.</span></div>
+   <div class="two"><div class="f"><label for="ci_teachers">Cô phụ trách</label><input id="ci_teachers" maxlength="200" value="${esc(t.teachers||'')}" placeholder="VD: Cô Hảo, cô Lan"></div><div class="f"><label for="ci_kids">Sĩ số</label><input id="ci_kids" maxlength="30" value="${esc(t.kids||'')}" placeholder="VD: 28 bé (15 trai, 13 gái)"></div></div>
+   <div class="f"><label for="ci_video">Video giới thiệu lớp (không bắt buộc)</label><input id="ci_video" type="url" maxlength="500" value="${esc(t.video||'')}" placeholder="https://youtu.be/… hoặc https://drive.google.com/…"></div>
+   <div class="f"><label>Ảnh lớp (không bắt buộc)</label><div class="ciphedit">${pubPhoto(t.photo)||phPrev[t.photo]?`<span class="ciphprev">${imgOf(t.photo,'Ảnh lớp')}</span><button type="button" class="btn small danger" id="ci_phdel">Bỏ ảnh</button>`:''}<label class="btn small" for="ci_photo" style="cursor:pointer">📷 ${t.photo?'Đổi ảnh':'Chọn ảnh'}</label><input type="file" id="ci_photo" accept="image/jpeg,image/png,image/webp,image/heic" class="sr-only"></div><span class="hint"><b>Không dùng ảnh rõ mặt trẻ</b> khi chưa có đồng ý của cha mẹ: nên chụp góc lớp, sản phẩm của bé, hoặc ảnh từ phía sau.</span></div>
+   <p class="cimsg" id="ciMsg" role="status"></p>
+   <div class="factions"><button type="submit" class="btn primary">Lưu giới thiệu lớp</button><button type="button" class="btn" id="ci_cancel">Hủy</button></div>
+  </form>`;
+  const rd=()=>Object.assign(t,{motto:val('ci_motto'),text:$('ci_text').value.trim(),teachers:val('ci_teachers'),kids:val('ci_kids'),video:val('ci_video')});
+  dl.querySelector('.askx').onclick=$('ci_cancel').onclick=()=>dl.close();
+  const pd=$('ci_phdel');if(pd)pd.onclick=()=>{rd();t.photo='';draw()};
+  $('ci_photo').onchange=async e=>{const f=e.target.files[0];if(!f)return;rd();$('ciMsg').textContent='Đang thu nhỏ và tải ảnh…';
+   try{const url=await shrink(f);const r=await api('/api/photo',{data:url},()=>$('ciMsg').textContent=WAKE);phPrev[r.photo]=url;t.photo=r.photo;draw();$('ciMsg').textContent='Đã tải ảnh. Bấm “Lưu giới thiệu lớp”.'}catch(err){$('ciMsg').textContent=(err&&err.msg)||'Không tải được ảnh.'}};
+  $('ciForm').onsubmit=async e=>{e.preventDefault();rd();if(t.video&&!okUrl(t.video)){$('ciMsg').textContent='Link video phải bắt đầu bằng https://';return}
+   const b=e.submitter||$('ciForm').querySelector('[type=submit]');b.disabled=true;b.textContent='Đang lưu…';
+   try{const r=await api('/api/class-intro',{id:c.id,intro:t},()=>$('ciMsg').textContent=WAKE);adoptLatest(r);dl.close();setMsg('Đã lưu giới thiệu lớp. Trang công khai cập nhật sau khoảng 1–2 phút.')}
+   catch(err){$('ciMsg').textContent=(err&&err.msg)||'Không lưu được, vui lòng thử lại.';b.disabled=false;b.textContent='Lưu giới thiệu lớp'}};
+ };
+ draw();dl.showModal();
+}
 function classesRoom(sub){
  const st=classStats(),all=data.exhibits.filter(e=>!e.sample);
  if(!st.length)return `<section class="room" style="--c:var(--teal)"><div class="room-head"><span class="eyebrow">Thư mục lớp</span><h2>Các lớp học</h2><p>Nhà trường chưa nhập danh sách lớp.</p></div></section>`;
@@ -781,6 +840,7 @@ function classesRoom(sub){
   return `<section class="room" style="--c:${col}"><div class="room-head"><span class="eyebrow">${esc(c.site)} · ${isNT(c)?'Nhóm nhà trẻ':'Lớp mẫu giáo'}</span><h2>${esc(c.name)}</h2>
    <p>${it.length?`Lớp đã đưa ${it.length} hiện vật lên bảo tàng${rank?` · đứng thứ ${rank}/${st.length} lớp`:''}.`:'Lớp chưa có hiện vật nào trên bảo tàng. Các cô đăng bài và tích lớp này để hiện ở đây.'}</p>
    <div class="cta"><button type="button" class="btn small" data-go="lop-hoc">← Tất cả các lớp</button></div></div>
+   ${classIntro(c)}
    ${EXROOMS.map(r=>{const ri=it.filter(e=>e.room===r.id);return ri.length?`<div class="croom" style="--c:${r.c}"><h3 class="sub"><span class="dot" style="--c:${r.c}"></span> Phòng ${r.n} · ${esc(r.name)} <small>${ri.length} hiện vật</small></h3>${wallBox(ri.map(e=>piece({...e,plan:e.plan||r.name},it.indexOf(e))).join(''),ri.length,isPhotoRoom(ri))}</div>`:''}).join('')}
   </section>`;
  }
@@ -891,11 +951,11 @@ function tree(){
 /* Phòng 4: chia ô theo lớp – mỗi lớp một ô, bấm vào để xem hiện vật của lớp. */
 function classCells(r){
  const all=data.exhibits.filter(e=>e.room===r.id);
- const cells=classesOf().map(c=>({id:c.id,name:c.name.replace(/ (Tràng Đà|Hương Sen)$/,''),site:c.site,it:all.filter(e=>clsList(e).includes(c.id))})).filter(x=>x.it.length);
+ const cells=classesOf().map(c=>({id:c.id,name:c.name.replace(/ (Tràng Đà|Hương Sen)$/,''),site:c.site,it:all.filter(e=>clsList(e).includes(c.id))}));
  const chung=all.filter(e=>!clsList(e).length);
  if(chung.length)cells.push({id:'chung',name:'Toàn trường',site:'Tư liệu chung, hiện vật mẫu',it:chung});
- const cell=x=>{const e=x.it.find(y=>pubPhoto(y.photo))||x.it[0];return `<button type="button" class="ccell" data-dicls="${x.id}">${pubPhoto(e.photo)?`<span class="ccimg">${pic(e)}</span>`:`<span class="ccimg art">${art(e.art)}</span>`}<b>${esc(x.name)}</b><small>${esc(x.site)} · ${x.it.length} hiện vật</small></button>`};
- return `<div class="cchead"><h3 class="sub">Ô của các lớp</h3><button type="button" class="chip" data-dicls="all" style="cursor:pointer">Xem tất cả ${all.length} hiện vật</button></div>
+ const cell=x=>{const ip=((clsOf(x.id)||{}).intro||{}).photo,e=x.it.find(y=>pubPhoto(y.photo))||x.it[0];return `<button type="button" class="ccell" data-dicls="${x.id}">${pubPhoto(ip)?`<span class="ccimg">${imgOf(ip,'Ảnh lớp '+x.name)}</span>`:e&&pubPhoto(e.photo)?`<span class="ccimg">${pic(e)}</span>`:e?`<span class="ccimg art">${art(e.art)}</span>`:`<span class="ccimg art ccnone" aria-hidden="true">${/nhà trẻ|tháng/i.test(x.name)?'🧸':'🎒'}</span>`}<b>${esc(x.name)}</b><small>${esc(x.site)} · ${x.it.length?x.it.length+' hiện vật':'chưa có hiện vật'}</small>${(clsOf(x.id)||{}).intro?.motto?`<small class="ccmotto">“${esc(clsOf(x.id).intro.motto)}”</small>`:''}</button>`};
+ return `<div class="cchead"><h3 class="sub">Ô của các lớp <small style="font-size:14px;font-family:inherit;color:var(--muted);font-weight:600">· bấm vào ô để xem giới thiệu lớp và hiện vật</small></h3><button type="button" class="chip" data-dicls="all" style="cursor:pointer">Xem tất cả ${all.length} hiện vật</button></div>
  <div class="wall grid9 cgrid">${cells.map(cell).join('')}</div>`;
 }
 function exhibitsRoom(r){
@@ -904,7 +964,7 @@ function exhibitsRoom(r){
  }
  const items=roomItems(r);
  const back=r.id==='di-san'&&diSel?`<div class="cchead"><button type="button" class="btn small" data-dicls="">← Các ô lớp</button><h3 class="sub">${diSel==='all'?'Tất cả hiện vật':diSel==='chung'?'Toàn trường':'📂 '+esc((clsOf(diSel)||{name:''}).name)}</h3><small>${items.length} hiện vật</small></div>`:'';
- let h=`<section class="room" style="--c:${r.c}">${head(r)}${back}${items.length?wallBox(items.map(piece).join(''),items.length,isPhotoRoom(items)):`<div class="empty">${cFilter.cls||cFilter.site?'Thư mục này chưa có bài trong phòng. ':''}Phòng này chưa có hiện vật. ${canAdmin?'Thêm hiện vật ở Khu quản trị.':'Các lớp đang chuẩn bị, bé quay lại sau nhé!'}</div>`}`;
+ let h=`<section class="room" style="--c:${r.c}">${head(r)}${back}${r.id==='di-san'&&clsOf(diSel)?classIntro(clsOf(diSel)):''}${items.length?wallBox(items.map(piece).join(''),items.length,isPhotoRoom(items)):`<div class="empty">${cFilter.cls||cFilter.site?'Thư mục này chưa có bài trong phòng. ':''}Phòng này chưa có hiện vật. ${canAdmin?'Thêm hiện vật ở Khu quản trị.':'Các lớp đang chuẩn bị, bé quay lại sau nhé!'}</div>`}`;
  if(r.id==='di-san')h+=heritageMap();
  if(r.tree)h+=`<div style="display:grid;gap:12px"><h3 class="sub">Cây tri ân</h3><div class="tree-room"><div class="tree">${tree()}</div><div class="notes">${NOTES.map(n=>`<div class="note"><q>${n.q}</q><small>${n.who} · <span class="sample">mẫu</span></small></div>`).join('')}<div class="box" style="border:3px dashed var(--turmeric-fill);box-shadow:none"><h3>Hộp thư gửi tương lai</h3><p>Mỗi bé lớp 5–6 tuổi vẽ một bức tranh về điều mình mong ước. Hộp được mở vào tháng 5/2027 khi các bé chia tay trường mầm non.</p></div></div></div></div>`;
  return h+'</section>';
@@ -1390,7 +1450,10 @@ function adminClasses(){
  <p style="margin:0;color:var(--muted);font-size:15px">Mỗi hiện vật chọn được một lớp; phụ huynh lọc hiện vật theo điểm trường và lớp ở từng phòng. <b>Đổi tên lớp</b> thì các hiện vật đã gắn lớp cũ sẽ mất liên kết, nên chỉ sửa khi cần. Lớp có chữ “Nhà trẻ” hoặc “tháng” là nhóm nhà trẻ: vẫn có thư mục trên bảo tàng nhưng không tính minh chứng SKKN.</p>
  <div class="admin-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">${blocks}</div>
  ${cs.length?`<small style="color:var(--muted)">Đang có ${cs.length} lớp (${cs.filter(c=>!isNT(c)).length} lớp mẫu giáo, ${cs.filter(isNT).length} nhóm nhà trẻ); ${data.exhibits.filter(e=>clsList(e).length).length} hiện vật đã gắn lớp.</small>`:''}
- <div><button type="submit" class="btn primary">Đưa vào danh sách</button></div></form>`;
+ <div><button type="submit" class="btn primary">Đưa vào danh sách</button></div></form>
+ ${cs.length?`<div class="box" style="max-width:860px;margin-top:16px"><h3>Giới thiệu từng lớp</h3><p style="margin:0;color:var(--muted);font-size:15px">Lời giới thiệu, khẩu hiệu, cô phụ trách, sĩ số, ảnh lớp: hiện ở Phòng 4 khi bấm vào ô lớp và ở trang lớp. Cô giáo được giao lớp cũng tự sửa được.</p>
+  ${sitesOf().map(st=>{const g=cs.filter(c=>c.site===st);return g.length?`<div class="cilist"><b>${esc(st)}</b><div>${g.map(c=>`<button type="button" class="btn small ${c.intro?'':'ghost'}" data-ciedit="${esc(c.id)}">${c.intro?'✅':'✏️'} ${esc(c.name.replace(/ (Tràng Đà|Hương Sen)$/,''))}</button>`).join('')}</div></div>`:''}).join('')}
+  <small style="color:var(--muted)">✅ đã có giới thiệu (${cs.filter(c=>c.intro).length}/${cs.length} lớp) · ✏️ chưa có.</small></div>`:''}`;
 }
 function itemDetails(p){
  const it=p.item||{};
@@ -1570,7 +1633,7 @@ function wireAdmin(){
   [0,1,2,3].forEach(i=>{const s=val('cs_'+i).slice(0,60);if(!s)return;sites.push(s);
    [...new Set(($('cl_'+i).value||'').split('\n').map(x=>x.trim().slice(0,60)).filter(Boolean))].forEach(name=>{
     const o=old.find(c=>c.name===name&&c.site===s)||old.find(c=>c.name===name);
-    classes.push({id:o&&!classes.some(c=>c.id===o.id)?o.id:'l'+Math.random().toString(36).slice(2,8),name,site:s})})});
+    const keep=o&&!classes.some(c=>c.id===o.id);classes.push({...(keep&&o.intro?{intro:o.intro}:{}),id:keep?o.id:'l'+Math.random().toString(36).slice(2,8),name,site:s})})});
   if(!sites.length){setMsg('Cần ít nhất một điểm trường.');return}
   data.settings.sites=sites;data.settings.classes=classes.slice(0,120);
   markDirty();render();setMsg('Đã cập nhật danh sách lớp. Bấm Lưu lên trang để áp dụng.')};
@@ -1708,6 +1771,7 @@ function render(){
   main.querySelectorAll('[data-fcls]').forEach(b=>b.onclick=()=>{const c=clsOf(b.dataset.fcls);cFilter=cFilter.cls===b.dataset.fcls?{site:'',cls:''}:{site:c?c.site:'',cls:b.dataset.fcls};render()})}
  main.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{location.hash=b.dataset.go});
  main.querySelectorAll('[data-her]').forEach(b=>b.onclick=()=>{const h=heritageOf().find(x=>x.id===b.dataset.her),it=herItems(b.dataset.her);if(!it.length)return;openViewer(it.map(e=>({...e,roomName:roomOf(e.room).name+' · Di sản: '+(h?h.name:''),c:roomOf(e.room).c})),0)});
+ main.querySelectorAll('[data-ciedit]').forEach(b=>b.onclick=()=>classIntroEdit(b.dataset.ciedit));
  main.querySelectorAll('[data-dicls]').forEach(b=>b.onclick=()=>{diSel=b.dataset.dicls;render();main.scrollIntoView({block:'start'})});
  wireWalls(main);
  main.querySelectorAll('[data-gocls]').forEach(b=>b.onclick=()=>goClass(b.dataset.gocls,b.dataset.room));

@@ -176,6 +176,15 @@ const LINK_KINDS = ['giao-an', 'tro-choi', 'video', 'bai-hat', 'tu-lieu'];
 const FILE_EXT = ['pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx', 'mp3', 'mp4', 'm4a', 'jpg', 'jpeg', 'png', 'zip'];
 const FILE_RE = new RegExp('^tailieu/[a-z0-9-]{1,80}[.](' + FILE_EXT.join('|') + ')$');
 const MAX_FILE = 15 * 1024 * 1024;
+/* Giới thiệu lớp (Phòng 4): lời giới thiệu, cô phụ trách, sĩ số, khẩu hiệu, ảnh lớp, video. */
+function cleanIntro(x) {
+  if (!x || typeof x !== 'object') return null;
+  const o = { text: str(x.text, 1500), teachers: str(x.teachers, 200), kids: str(x.kids, 30), motto: str(x.motto, 150),
+    photo: /^anh\/[a-z0-9]{8,40}\.jpg$/.test(x.photo || '') ? x.photo : '', video: okUrl(str(x.video, 500)) ? str(x.video, 500) : '' };
+  if (x.by) o.by = str(x.by, 40);
+  if (x.at) o.at = str(x.at, 30);
+  return Object.values(o).some(v => v && v !== o.by && v !== o.at) ? o : null;
+}
 function cleanLesson(x) {
   x = x || {};
   const o = { id: str(x.id, 40), tc: str(x.tc, 4), age: str(x.age, 8), title: str(x.title, 200), month: str(x.month, 100), week: str(x.week, 150),
@@ -196,7 +205,7 @@ function cleanData(d) {
   const intro = str(s.introVideo, 1000); if (intro && !okUrl(intro)) throw new HttpErr(400, 'Link video phải bắt đầu bằng https://');
   const settings = { room3d, introVideo: intro };
   if (Array.isArray(s.sites)) settings.sites = s.sites.slice(0, 6).map(x => str(x, 60)).filter(Boolean);
-  if (Array.isArray(s.classes)) settings.classes = s.classes.slice(0, 120).map(c => ({ id: str(c?.id, 20), name: str(c?.name, 60), site: str(c?.site, 60) }))
+  if (Array.isArray(s.classes)) settings.classes = s.classes.slice(0, 120).map(c => { const o = { id: str(c?.id, 20), name: str(c?.name, 60), site: str(c?.site, 60) }; const it = cleanIntro(c?.intro); if (it) o.intro = it; return o; })
     .filter(c => /^[a-z0-9]{1,20}$/.test(c.id) && c.name);
   if (Array.isArray(s.heritage)) settings.heritage = s.heritage.slice(0, 60).map(h => ({ id: str(h?.id, 20), site: str(h?.site, 60), name: str(h?.name, 100), kind: str(h?.kind, 100), confirm: str(h?.confirm, 100) }))
     .filter(h => /^[a-z0-9]{1,20}$/.test(h.id) && h.name);
@@ -643,6 +652,22 @@ async function flushViews() {
 setInterval(() => { flushViews(); const cut = Date.now() - 6 * 3600e3; for (const [k, t] of viewSeen) if (t < cut) viewSeen.delete(k); }, Number(env.VIEW_FLUSH_MS) || 5 * 60e3).unref();
 for (const sig of ['SIGTERM', 'SIGINT']) process.on(sig, () => { Promise.race([flushViews(), sleep(8000)]).finally(() => process.exit(0)); });
 /* Tải tài liệu (giáo án, trò chơi…) lên kho công khai – chỉ quản trị. */
+/* Lưu giới thiệu một lớp: quản trị, hoặc giáo viên được giao đúng lớp đó. Đăng thẳng (không qua duyệt). */
+routes['POST /api/class-intro'] = async (req, body, user) => {
+  const id = str(body.id, 20);
+  if (user.role !== 'admin' && !(user.classes || []).includes(id)) throw new HttpErr(403, 'Tài khoản chỉ sửa được giới thiệu lớp mình được giao.');
+  const raw = { ...(body.intro || {}) };
+  if (/^cho-duyet\//.test(raw.photo || '')) raw.photo = await publishPhoto(raw.photo, user.username);
+  const intro = cleanIntro({ ...raw, by: user.role === 'admin' ? 'quản trị' : user.name, at: new Date().toISOString().slice(0, 10) });
+  let found = false;
+  const r = await updateData(d => {
+    const c = (d.settings?.classes || []).find(x => x.id === id);
+    if (!c) return; found = true;
+    if (intro) c.intro = intro; else delete c.intro;
+  }, `${user.username}: giới thiệu lớp ${id}`);
+  if (!found) throw new HttpErr(404, 'Không tìm thấy lớp này.');
+  return { sha: r.sha, data: r.data };
+};
 routes['POST /api/file'] = async (req, body, user) => {
   needAdmin(user);
   const name = str(body.name, 200), m = /^data:[^;,]*;base64,([A-Za-z0-9+/=]+)$/.exec(String(body.data || ''));
