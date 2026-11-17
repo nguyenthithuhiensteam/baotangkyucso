@@ -7301,6 +7301,490 @@
    ],
    "photoAlt": "Chào các bé! Hôm nay cô trò mình cùng ghé thăm Góc truyền thống của trường để khám phá những điều thật đặc biệt về đất nước Việt Nam nhé:  🌳 Cây đa Tân Trào xanh mát: Gợi nhắc cho chúng ta về cội ngu",
    "sample": false
+  },
+  {
+   "id": "emwjdoi2x",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Bé chọn vai nào",
+   "era": "",
+   "plan": "",
+   "from": "Lớp 5-6 tuổi C1",
+   "story": "",
+   "ask": "",
+   "video": "https://youtu.be/kZDsyA-YXpQ",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l3a9b5e"
+   ],
+   "tc": [
+    "TC4"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwjdr6w9",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Vui tết trung thu",
+   "era": "",
+   "plan": "",
+   "from": "Lớp 5-6 tuổi C1",
+   "story": "",
+   "ask": "",
+   "video": "https://youtu.be/ANjyVXx_YzU",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l3a9b5e"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwjcqzvl",
+   "room": "khoanh-khac",
+   "art": "an",
+   "name": "Giờ ăn trưa của bé. Lớp 4-5 tuổi Tràng Đà",
+   "era": "",
+   "plan": "",
+   "from": "Lớp 4-5 tuổi Tràng Đà",
+   "story": "",
+   "ask": "Hôm nay các con ăn những món gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l2f96f2"
+   ],
+   "tc": [
+    "TC2"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/4d6b49079374f0769362.jpg",
+   "photos": [
+    "anh/4d6b49079374f0769362.jpg",
+    "anh/d86ff9a175731395a573.jpg"
+   ],
+   "photoAlt": "",
+   "sample": true
+  },
+  {
+   "id": "emwjdufzh",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Làm thiệp hoa chúc mừng cô nhân ngày 20/11",
+   "era": "Tháng 11/2026",
+   "plan": "Thiệp hoa chúc mừng cô giáo",
+   "from": "Lớp MG 3- 4 tuổi B",
+   "story": "Hòa chung không khí vui tươi của ngày Nhà giáo Việt Nam, các bé lớp mẫu giáo 3-4 tuổi B lại ríu rít chuẩn bị những tấm thiệp thật xinh để tặng cô giáo. Bàn tay của các bạn nhỏ tuy còn nhỏ nhắn nhưng vô cùng khéo léo khi trang trí từng góc thiệp. Các nguyên liệu tự nhiên như lá khô, cánh hoa ép phẳng được các bé cẩn thận dán lên bìa giấy. Bên cạnh đó, những đoạn ống hút cắt ngắn và bông màu sặc sỡ cũng được tận dụng để tạo thành các bông hoa độc đáo. Cô giáo kiên nhẫn hướng dẫn cách bôi keo sao cho vừa đủ để không làm rách giấy. Nhìn sản phẩm hoàn thành, bạn nào cũng tí tít khoe tấm thiệp đầy màu sắc do chính tay mình làm. Trên thiệp là những hình vẽ ngộ nghĩnh cùng lời chúc ngây ngô nhưng chứa đựng tình cảm chân thành. Hoạt động thủ công này giúp các bé rèn luyện đôi bàn tay khéo léo và biết ơn thầy cô. Qua món quà nhỏ xíu này, các bạn nhỏ lớp 3-4 tuổi B gửi gắm tất cả tình yêu thương to lớn đến cô giáo kính yêu.",
+   "ask": "Con sẽ làm gì để tặng cô nhân ngày 20/11?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1XJBOsViTyli2VBlc5JWrn-t0BtjuB3Ba/view?usp=sharing",
+   "cls": [
+    "ldb4f8c"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": true
+  },
+  {
+   "id": "emwjdmkvv",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Bé quan sát, khám phá cây xanh",
+   "era": "Tháng 11",
+   "plan": "Bé yêu và khám phá thiên nhiên",
+   "from": "Lớp 25-36 tháng A (Hương Sen)",
+   "story": "Bé Thăm Góc Thiên Nhiên\n\nGóc thiên nhiên xanh mát\nBé cùng cô dạo chơi\nMắt tròn xoe ngơ ngác\nNgắm lá vẫy gọi mời.\n\nTay xinh sờ nhẹ nhé\nLá mướt mịn làm sao\nThân cây vươn thẳng đứng\nĐón nắng gió rì rào.\n\nBé tưới từng giọt nước\nCho cây lớn thật nhanh\nChúng mình cùng yêu quý\nGiữ mãi màu lá xanh! 🌱",
+   "ask": "\"Cây xanh cần ăn, uống gì để lớn lên mỗi ngày giống chúng mình?\" (Nước, ánh nắng mặt trời, đất).  \"Nếu không có cây xanh thì sân trường mình sẽ như thế nào nhỉ?\" (Sẽ nắng nóng, không có bóng mát, ít không khí trong lành).  \"Chúng mình phải làm gì để các bạn cây luôn tươi tốt?\" (Tưới nước, nhổ cỏ, lau lá, không ngắt lá bẻ cành).",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lc0c279"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/7c1315ecb7ee58fe8491.jpg",
+   "photos": [
+    "anh/7c1315ecb7ee58fe8491.jpg",
+    "anh/cf15b39138db86ae3ee4.jpg",
+    "anh/76c5f11a7aa3b6a18b72.jpg",
+    "anh/38c029ed07bf1d604580.jpg",
+    "anh/a4665950dff531761c21.jpg",
+    "anh/0c6b5dd762cfcb9ebeda.jpg",
+    "anh/9a57f69d85c4a55af2f6.jpg",
+    "anh/71ce3b03c9a1f3beb4da.jpg",
+    "anh/d2797ce2399f4c73a7d8.jpg"
+   ],
+   "photoAlt": "Hoạt động cho trẻ quan sát cây xanh tại Góc bé yêu thiên nhiên giúp kích thích trí tò mò, phát triển giác quan và nuôi dưỡng tình yêu, ý thức bảo vệ môi trường cho trẻ mầm non.",
+   "sample": false
+  },
+  {
+   "id": "emwje195g",
+   "room": "tri-an",
+   "art": "mic",
+   "name": "Lời tri ân siêu dễ thương",
+   "era": "Tháng 11/2026",
+   "plan": "Lời tri ân",
+   "from": "Lớp MG 3- 4 tuổi B",
+   "story": "Nhân ngày Nhà giáo Việt Nam 20/11, bé Duy Khánh lớp mẫu giáo 3-4 tuổi B đã nắn nót hoàn thành tấm thiệp hoa thật xinh để dành tặng cô giáo. Cầm món quà nhỏ trên tay, cậu bé chạy ù tới bên cô với nụ cười rạng rỡ và đôi mắt tròn xoe lấp lánh. Bằng giọng nói ngọng nghịu nhưng đầy lễ phép, Duy Khánh ngây thơ thủ thỉ: \"Con cảm ơn cô rất nhiều ạ! Con yêu cô\". Lời chúc mộc mạc, chân thành của cậu học trò nhỏ đã khiến cô giáo vô cùng xúc động và ấm lòng. Đó thực sự là một kỷ niệm ngọt ngào, lưu giữ trọn vẹn tình cảm ngây thơ của tuổi thơ dưới mái trường mầm non.",
+   "ask": "Con muốn chúc cô điều gì nhân ngày 20/11",
+   "video": "",
+   "audio": "https://drive.google.com/file/d/1PyzId0-Uq1AEfPiCiIXJRMtvY_bAjc2p/view?usp=sharing",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "ldb4f8c"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwje3pu0",
+   "room": "tri-an",
+   "art": "sach",
+   "name": "Lời chúc từ trái tim \"Chúc mừng cô ngày 20/11\"",
+   "era": "Tháng 11",
+   "plan": "Lời chúc từ trái tim",
+   "from": "Lớp 25-36 tháng A (Hương Sen)",
+   "story": "\"Các con ơi, sắp đến ngày 20/11 – ngày Tết của các cô giáo rồi đấy! Hôm nay, cô trò mình hãy cùng dùng đôi bàn tay khéo léo để tạo nên những bức tranh hình trái tim thật rực rỡ nhé. Mỗi trái tim sẽ gói trọn tình cảm yêu thương của các con để dành tặng cho cô giáo của mình đấy!\" \nTrái Tim Tặng Cô\n\nTay xinh dán trái tim\nGửi tặng cô giáo hiền\nTrái tim màu đỏ thắm\nYêu cô biết bao nhiên!\n\nCô dạy hát, dạy múa\nNụ cười luôn rạng ngời\nChúng con yêu cô lắm\nMỗi ngày đến trường vui! ❤️",
+   "ask": "Con làm tranh từ nguyên vật liệu gì? Bức tranh của con có dạng hình gì? Trái tim thể hiện điều gì nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lc0c279"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/53df007b1876acb7b136.jpg",
+   "photos": [
+    "anh/53df007b1876acb7b136.jpg",
+    "anh/e81fd12204d129b2b710.jpg",
+    "anh/720521780ea1d7188832.jpg",
+    "anh/5b6393fd326fa69c32a4.jpg",
+    "anh/b51bdc7148aa64a124db.jpg",
+    "anh/0e8f4e0a1a30c591f646.jpg",
+    "anh/ddcd7f00b051482b40de.jpg"
+   ],
+   "photoAlt": "GỬI NGÀN YÊU THƯƠNG TRONG TỪNG TRÁI TIM NHỎ 🎨💖 Hôm nay các \"họa sĩ tí hon\" chăm chú làm tranh trái tim xinh xắn để dành tặng cô giáo nhân ngày 20/11. Mỗi bức tranh là một lời chúc ngây thơ, trong sá",
+   "sample": false
+  },
+  {
+   "id": "emwjeypkk",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Bé chơi \"Kéo cưa lừa xẻ\"",
+   "era": "Tháng 11",
+   "plan": "Bé chơi trò chơi dân gian",
+   "from": "Lớp 25-36 tháng A (Hương Sen)",
+   "story": "Kéo Cưa Lừa Xẻ\n\nHai bé ngồi đối diện,\nCùng nắm chặt bàn tay,\nCùng cất cao tiếng hát:Kéo cưa lừa xẻ này!\n\nTay kéo đều nhịp nhàng,\nMiệng cười tươi rạng rỡ,\nTrò chơi dân gian vui,\nYêu sao tuổi thơ nhỏ! 🎶",
+   "ask": "\"Kéo cưa lừa xẻ – Ông thợ nào khỏe, về ăn cơm vua!\" các con đọc to cùng với cô nào...",
+   "video": "https://drive.google.com/drive/folders/1s2ruAKHa2J9dgtGBgXJ3zoUz8uNLJFnw?usp=drive_link",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lc0c279"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/af29a4dc372dcee45f63.jpg",
+   "photos": [
+    "anh/af29a4dc372dcee45f63.jpg",
+    "anh/b3f32f82780e3141f64c.jpg",
+    "anh/f9663d20f30920f2eea3.jpg",
+    "anh/7572a03d7ded5ee66cf1.jpg",
+    "anh/7fe6efaefaaa51440255.jpg",
+    "anh/454d1b52e5398e109124.jpg"
+   ],
+   "photoAlt": "KÉO CƯA LÙA XẺ - BÉ VUI ĐẾN TRƯỜNG! 🪚👧👦 Tiếng cười giòn tan, nhịp tay đung đưa theo từng câu đồng dao quen thuộc. Trò chơi dân gian \"Kéo cưa lừa xẻ\" không chỉ mang lại cho các bé những giây phút sả",
+   "sample": false
+  },
+  {
+   "id": "emwjfozd7",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "TRẦU BÀ THANH XUÂN",
+   "era": "",
+   "plan": "",
+   "from": "Lớp 5-6 tuổi C1",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://docs.google.com/document/d/1TRys0StwO6kubsSB-w5eAch8OkUa7hFt/edit?usp=sharing&ouid=111240552473420383720&rtpof=true&sd=true",
+   "cls": [
+    "l3a9b5e"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/9e709db3012572ac848f.jpg",
+   "photos": [
+    "anh/9e709db3012572ac848f.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwjfssp9",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây \"Trầu Bà Thanh Xuân\"",
+   "era": "",
+   "plan": "",
+   "from": "Lớp 5-6 tuổi C1",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://docs.google.com/document/d/1TRys0StwO6kubsSB-w5eAch8OkUa7hFt/edit?usp=drive_link&ouid=111240552473420383720&rtpof=true&sd=true",
+   "cls": [
+    "l3a9b5e"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/382efa048696635e37cd.jpg",
+   "photos": [
+    "anh/382efa048696635e37cd.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwjfvuu0",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây \"Tùng Hoàng Kim\"",
+   "era": "",
+   "plan": "",
+   "from": "Lớp 5-6 tuổi C1",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://docs.google.com/document/d/1tallgbM8X6p2OM9lIpUIi1h0gMIltkjG/edit?usp=sharing&ouid=111240552473420383720&rtpof=true&sd=true",
+   "cls": [
+    "l3a9b5e"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/86584f8b016625a88ab3.jpg",
+   "photos": [
+    "anh/86584f8b016625a88ab3.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwjfy6y6",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây \" Mai Vạn Phúc\"",
+   "era": "",
+   "plan": "",
+   "from": "Lớp 5-6 tuổi C1",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://docs.google.com/document/d/1F2GmNmAZpJMp28WhSB0wakm-iyFJcjDm/edit?usp=drive_link&ouid=111240552473420383720&rtpof=true&sd=true",
+   "cls": [
+    "l3a9b5e"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/bae8f66bd3e524e16385.jpg",
+   "photos": [
+    "anh/bae8f66bd3e524e16385.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwjg0vuj",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây \"Lưỡi Hổ\"",
+   "era": "",
+   "plan": "",
+   "from": "Lớp 5-6 tuổi C1",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://docs.google.com/document/d/14w66887Q6Zl-E3KfM0sFzTKfkIwuEls0/edit?usp=drive_link&ouid=111240552473420383720&rtpof=true&sd=true",
+   "cls": [
+    "l3a9b5e"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/ba1b653515dcfc3f2916.jpg",
+   "photos": [
+    "anh/ba1b653515dcfc3f2916.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwjg3kq5",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây Khế",
+   "era": "",
+   "plan": "",
+   "from": "Lớp 5-6 tuổi C1",
+   "story": "Sự tích cây khế (\"Ăn khế trả vàng\")\nCây khế gắn liền với câu chuyện cổ tích dân gian Việt Nam nổi tiếng \"Ăn khế trả vàng\", tượng trưng cho đạo lý ở hiền gặp lành, luật nhân quả và sự phản ánh lòng tham lam.\nTóm tắt cốt truyện:\nCó hai anh em nhà nọ. Khi cha mẹ mất, người anh tham lam chiếm hết gia sản, nhà cửa, chỉ chia cho người em út thật thà một mảnh đất nhỏ có một cây khế ngọt trước hiên nhà.\nNgười em chăm sóc cây khế vô cùng cẩn thận. Đến mùa, khế chín ngọt lịm, một con chim thần ngày nào cũng bay đến ăn khế. Người em than thở: \"Chim ăn một quả, trả vàng một cục, may túi ba gang, mang đi mà đựng\".\nChim thần nghe thấy liền bảo người em chuẩn bị túi ba gang để đưa ra đảo hoang lấy vàng. Nhờ tuân thủ đúng quy tắc, người em trở nên giàu có và thường xuyên giúp đỡ người nghèo.\nNgười anh thấy vậy liền đòi đổi gia sản lớn lấy cây khế nhỏ. Khi chim thần đến ăn, người anh cũng than vãn và được chim đưa đi. Tuy nhiên, vì lòng tham vô đáy, người anh đã may một chiếc túi lớn gấp nhiều lần và nhét đầy vàng bạc, châu báu.\nTrên đường bay về, do quá nặng, chim thần nghiêng cánh hất người anh cùng toàn bộ số vàng rơi xuống biển sâu (hoặc bị chim bỏ lại ở đảo hoang).\nCâu chuyện không chỉ mang tính giáo dục nhân cách cho trẻ em qua nhiều thế hệ mà còn tô đậm hình ảnh cây khế ngọt mộc mạc bên mái tranh nghèo trong tâm thức người Việt.",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://docs.google.com/document/d/1ECKoTASav4OnYDjUnfAlUfTji0yNF5Th/edit?usp=drive_link&ouid=111240552473420383720&rtpof=true&sd=true",
+   "cls": [
+    "l3a9b5e"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/e2ffe24389f2b5bf95ef.jpg",
+   "photos": [
+    "anh/e2ffe24389f2b5bf95ef.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwjgcn79",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Cây \"Hạnh Phúc\"",
+   "era": "",
+   "plan": "",
+   "from": "Lớp 5-6 tuổi C1",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://docs.google.com/document/d/1CcTKbgFdLn_JVvQoNu30s2EifjVyusMB/edit?usp=sharing&ouid=111240552473420383720&rtpof=true&sd=true",
+   "cls": [
+    "l3a9b5e"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/bd628489a2c0ed77231f.jpg",
+   "photos": [
+    "anh/bd628489a2c0ed77231f.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwjz0xim",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây Lưỡi hổ Lớp MG 4-5 Tuổi B2 Nông Tiến",
+   "era": "Tháng 11/2026",
+   "plan": "Cây xanh lớp bé",
+   "from": "Lớp 4-5 tuổi B2 trường chính",
+   "story": "Câu chuyện xoay quanh một chậu cây lưỡi hổ đặt bên góc cửa sổ nhỏ. Dù trải qua những đợt nắng nóng khắc nghiệt khiến nhiều loài hoa khác héo rũ, lưỡi hổ vẫn bền bỉ giữ sắc xanh, thanh lọc không khí và cuối cùng là đâm chồi non mạnh mẽ. Qua đó, câu chuyện gửi gắm thông điệp dịu dàng về sự kiên cường, âm thầm tích tụ nội lực để vượt qua nghịch cảnh và vươn lên trong cuộc sống.",
+   "ask": "Lá của cây lưỡi hổ trông như thế nào? Cây có màu gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb4ed25"
+   ],
+   "tc": [
+    "TC3",
+    "TC6",
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/d78258f4e5449a85e715.jpg",
+   "photos": [
+    "anh/d78258f4e5449a85e715.jpg"
+   ],
+   "photoAlt": "Cây lưỡi hổ là loại cây cảnh không thân, mọc thành bụi từ gốc với những chiếc lá dài, dẹt, mọc thẳng đứng và thuôn nhọn ở đầu như hình lưỡi kiếm.",
+   "sample": false
+  },
+  {
+   "id": "emwjz93d5",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây Hoa Dạ Yến Thảo Lớp MG 4-5 Tuổi B2 Nông Tiến",
+   "era": "Tháng 11/2026",
+   "plan": "Cây xanh lớp bé",
+   "from": "Lớp 4-5 tuổi B2 trường chính",
+   "story": "Câu chuyện xoay quanh một giỏ hoa dạ yến thảo xinh xắn trên ban công nhỏ, luôn mang lại niềm vui và tiếng hát động viên cô bé chủ nhà mỗi ngày. Khi đối mặt với một cơn mưa giông lớn làm cành lá tơi tả và rũ rượi, nhờ sự chăm sóc, nâng niu kịp thời của cô bé cùng sức sống mạnh mẽ của chính mình, giỏ hoa đã dần hồi phục và nở rộ tươi tắn trở lại. Qua đó, câu chuyện gửi gắm thông điệp nhẹ nhàng về sự kiên cường: chỉ cần không bỏ cuộc và luôn giữ niềm vui trong lòng, khó khăn nào rồi cũng sẽ qua đi",
+   "ask": "Bông hoa dạ yến thảo trông giống hình cái gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb4ed25"
+   ],
+   "tc": [
+    "TC6",
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/7b3346948c475106b852.jpg",
+   "photos": [
+    "anh/7b3346948c475106b852.jpg"
+   ],
+   "photoAlt": "Hoa dạ yến thảo là loại cây thân thảo nhỏ buông rủ mềm mại, có lá bầu dục phủ lớp lông tơ mịn hơi dính khi chạm vào cùng những bông hoa hình chiếc kèn nhỏ xinh, cánh mỏng như lụa, rực rỡ sắc màu và th",
+   "sample": false
   }
  ],
  "timeline": [
