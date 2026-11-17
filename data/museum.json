@@ -7785,6 +7785,227 @@
    ],
    "photoAlt": "Hoa dạ yến thảo là loại cây thân thảo nhỏ buông rủ mềm mại, có lá bầu dục phủ lớp lông tơ mịn hơi dính khi chạm vào cùng những bông hoa hình chiếc kèn nhỏ xinh, cánh mỏng như lụa, rực rỡ sắc màu và th",
    "sample": false
+  },
+  {
+   "id": "emwk29h23",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Nụ cười của bé",
+   "era": "",
+   "plan": "",
+   "from": "nhóm trẻ 25 -36 tháng D",
+   "story": "Bé vui đến trường\nHôm nay là ngày đầu tiên bé đến trường. Bé khoác chiếc ba lô xinh xắn, trên môi nở nụ cười thật tươi. Đôi mắt bé long lanh, gương mặt rạng rỡ niềm vui. Được cô giáo yêu thương, được vui chơi cùng các bạn, bé nhanh chóng hòa nhập với lớp học.\n\nTiếng cười trong trẻo vang lên khắp sân trường. Ngày đầu đến lớp thật vui và đầy ắp những điều đáng yêu",
+   "ask": "Hôm nay bé đi đâu?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb0bde3"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/edbad0f0a3117d607abc.jpg",
+   "photos": [
+    "anh/edbad0f0a3117d607abc.jpg",
+    "anh/4c9c6988982cf16718b1.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwk2g4kh",
+   "room": "tri-an",
+   "art": "sach",
+   "name": "Bé thể hiện tài năng",
+   "era": "",
+   "plan": "",
+   "from": "nhóm trẻ 25 -36 tháng D",
+   "story": "Tri ân thầy cô nhân ngày 20/11",
+   "ask": "Bé đang làm gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb0bde3"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/3b8e8be4f29a506f23e7.jpg",
+   "photos": [
+    "anh/3b8e8be4f29a506f23e7.jpg",
+    "anh/4df066be03320484652c.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwk2i9cm",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Giờ học của bé",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "",
+   "ask": "Các con đang làm gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb0bde3"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/c0722eabb352f934d097.jpg",
+   "photos": [
+    "anh/c0722eabb352f934d097.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwk2jqjj",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây hoa yêu thích ( Hoa Nguyệt Quế)",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "Truyện: Hương thơm hoa nguyệt quế\nTrong khu vườn nhỏ có một cây hoa nguyệt quế xanh tươi. Hằng ngày, ông mặt trời tỏa nắng ấm áp, bác gió nhẹ nhàng thổi mát cho cây.\n\nMột buổi sáng, những chùm hoa nguyệt quế bé xíu, trắng tinh khôi nở rộ trên cành. Những cánh hoa nhỏ xinh tỏa ra hương thơm dịu nhẹ, thoang thoảng khắp khu vườn.\n\nMột bạn Bướm bay ngang qua, vui vẻ reo lên:\n\n- Ôi! Hoa nguyệt quế thơm quá!\n\nBạn Ong cũng bay đến, hít hà hương thơm và thích thú nói:\n- Hương hoa thơm dịu dàng, dễ chịu quá! Gió khẽ lay cành lá, những bông hoa rung rinh như đang mỉm cười. Khu vườn nhỏ bỗng trở nên thật thơm mát và đáng yêu.\n\nTừ đó, cây hoa nguyệt quế luôn được mọi người yêu quý và chăm sóc.\nGiáo dục trẻ: Các con hãy biết yêu quý, chăm sóc và bảo vệ cây xanh, không ngắt hoa, bẻ cành nhé",
+   "ask": "Đây là cây gì? Mùi hương của nó thế nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb0bde3"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/0f21e4dc0dd4c3289341.jpg",
+   "photos": [
+    "anh/0f21e4dc0dd4c3289341.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwk2q95t",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Hoa Mẫu Đơn đỏ rực",
+   "era": "",
+   "plan": "",
+   "from": "nhóm trẻ 25 -36 tháng D",
+   "story": "",
+   "ask": "Hoa mẫu đơn có mầu gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb0bde3"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/db9487076b75545e9596.jpg",
+   "photos": [
+    "anh/db9487076b75545e9596.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwk2sj5e",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Giờ học của cô và bé  (Thao giảng 2026)",
+   "era": "",
+   "plan": "",
+   "from": "nhóm trẻ 25 -36 tháng D",
+   "story": "Bài thơ \"Yêu mẹ\"",
+   "ask": "Hôm nay bé được học gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb0bde3"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/7a9af1fd6a1ffa9fbb60.jpg",
+   "photos": [
+    "anh/7a9af1fd6a1ffa9fbb60.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwk2wr57",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Các loại cây Bé thích",
+   "era": "",
+   "plan": "",
+   "from": "nhóm trẻ 25 -36 tháng D",
+   "story": "Góc nhỏ trong tôi",
+   "ask": "Hôm nay bé đi đâu? Con có yêu góc thiên nhiên của chúng mình không?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb0bde3"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/78028ad5e74f263f55ec.jpg",
+   "photos": [
+    "anh/78028ad5e74f263f55ec.jpg",
+    "anh/491bf2e2bd4c27006913.jpg",
+    "anh/9cc925b63f33db0597c4.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwk318m1",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Thể dục thể thao nâng cao sức khoẻ",
+   "era": "",
+   "plan": "",
+   "from": "nhóm trẻ 25 -36 tháng D",
+   "story": "Hãy bật cao nào",
+   "ask": "Con đang làm gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb0bde3"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/d7757833b5cba49945bc.jpg",
+   "photos": [
+    "anh/d7757833b5cba49945bc.jpg",
+    "anh/78656c7bde769e2147aa.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
