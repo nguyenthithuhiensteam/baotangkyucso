@@ -72,7 +72,37 @@
    {
     "id": "l4e46da",
     "name": "Nhà trẻ 25–36 tháng C",
-    "site": "Trường chính"
+    "site": "Trường chính",
+    "intro": {
+     "text": "Chào mừng các bạn đến với lớp nhà trẻ thân yêu của chúng mình! ❤️\n     Lớp chúng mình có 20 bạn. Trong đó có 15 bạn nam nhỏ đáng yêu, có 5 bạn gái xinh xắn. Mỗi ngày đến lớp, chúng mình được cô giáo yêu thương, chăm sóc, được vui chơi, ca hát, đọc thơ và khám phá bao điều mới lạ.\n     Các bạn nhỏ tuy còn bé nhưng rất ngoan ngoãn, đáng yêu và ngày càng mạnh dạn hơn. Lớp học của chúng mình luôn tràn ngập tiếng cười, niềm vui và tình yêu thương.\n     Chúng mình cùng nhau đoàn kết, chăm ngoan và mỗi ngày đến lớp là một ngày vui nhé! ❤️",
+     "teachers": "Bùi Đặng Mai, Trần Thị Mai Hươn, Phạm Thị Hồng Thắm",
+     "kids": "20 bạn. Nam 15 bạn, nữ 5 bạn",
+     "motto": "lớp học yêu thương",
+     "photo": "anh/219e05eac6efa27c9a4a.jpg",
+     "video": "",
+     "staff": [
+      {
+       "name": "Bùi Đặng Mai",
+       "role": "GV chủ nhiệm nhóm trẻ 25 - 36 tháng C",
+       "note": "Xin giới thiệu cô giáo thân yêu của chúng mình! Cô đã có 20 năm gắn bó với mái trường mầm non, luôn tận tụy, yêu nghề và hết lòng yêu thương các bé. Với nụ cười dịu dàng, giọng nói ấm áp và đôi bàn tay khéo léo, cô mang đến cho chúng mình thật nhiều niềm vui, tiếng cười và những bài học bổ ích. Cô c",
+       "photo": "anh/b49546928cc1adcb27a1.jpg"
+      },
+      {
+       "name": "Trần Thị Mai Hươn",
+       "role": "GV Nhóm trẻ 25 -36 tháng C",
+       "note": "Cô giáo với nhiều năm công tác, kinh nghiệm trong nghề tấm lòng yêu trẻ, cô luôn dành tình yêu thương và chăm sóc trẻ chu đáo và nhiệt tình. Luôn được phụ huynh tin yêu và quý mếm! 🌸",
+       "photo": "anh/8c4d222ef046f93cc9ad.jpg"
+      },
+      {
+       "name": "Phạm Thị Hồng Thắm",
+       "role": "GV Nhóm trẻ 25 - 36 tháng C",
+       "note": "Đây là cô giáo thân yêu của chúng mình! Cô hơn 20 năm gắn bó với nghề giáo viên mầm non. Với nụ cười hiền dịu, đôi bàn tay ân cần và trái tim tràn đầy yêu thương, cô luôn chăm sóc, dạy dỗ chúng mình từng ngày. Cô không chỉ là người mẹ hiền thứ hai mà còn là người bạn cùng chúng mình vui chơi, khám",
+       "photo": "anh/929144a757de7703f7ff.jpg"
+      }
+     ],
+     "by": "Bùi Đặng Mai",
+     "at": "2026-11-17"
+    }
    },
    {
     "id": "lb0bde3",
