@@ -32,7 +32,31 @@
    {
     "id": "l62a027",
     "name": "MG 4–5 tuổi B1",
-    "site": "Trường chính"
+    "site": "Trường chính",
+    "intro": {
+     "text": "🌟 Chào mừng đến với gia đình B1 Sao Nhí! 🌟\nNơi đây không chỉ là một lớp học, mà là một bầu trời thu nhỏ – nơi mỗi bé là một ngôi sao nhỏ lấp lánh, mang trong mình một luồng ánh sáng và sắc màu rực rỡ riêng biệt.\nNăm học này, dải ngân hà B1 vô cùng đặc biệt và trọn vẹn khi hội tụ đủ 22 chòm sao sáng nhất, với sự cân bằng hoàn hảo: 11 hoàng tử nhí tinh nghịch, khỏe khoắn và 11 công chúa nhỏ điệu đà, ngọt ngào.\nDù mỗi ngôi sao có một nét tính cách khác nhau – có sao nhí sôi nổi, thích khám phá, có sao nhí lại bẽn lẽn, dịu dàng – nhưng khi tụ họp lại dưới mái nhà chung B1, các con hòa quyện thành một tập thể đoàn kết, rộn rã tiếng cười và ngập tràn tình yêu thương.\nLớp mình Sao Nhí B1 22 bạn nụ cười thiết tha. 11 công chúa điệu đà, 11 hoàng tử thật là đáng yêu!\nĐến với B1 Sao Nhí, các con sẽ được thỏa sức vui chơi, học hỏi những điều hay lẽ phải, và quan trọng nhất là được tự do tỏa sáng theo đúng cách của riêng mình. Chúc 22 ngôi sao nhỏ bé bỏng sẽ luôn vui khỏe, cùng nhau trải qua những ngày tháng tuổi thơ thật lấp lánh và diệu kỳ! ✨",
+     "teachers": "Đặng Thị Hường, Vũ Thu Hiền",
+     "kids": "22 bé 11 Nam, 11 nữ",
+     "motto": "B1 Sao Nhí: Mỗi bé là một ngôi sao nhỏ lấp lánh của lớp",
+     "photo": "",
+     "video": "",
+     "staff": [
+      {
+       "name": "Đặng Thị Hường",
+       "role": "Giáo viên Chủ nhiệm lớp",
+       "note": "Xin chào! Tôi là Đặng Thị Hường, giáo viên với 10 năm kinh nghiệm, hiện công tác tại Trường Mầm non Nông Tiến.Rất mong được đồng hành cùng ba mẹ trên chặng đường khôn lớn và tự tin tỏa sáng của các con!",
+       "photo": "anh/c43a660e9bf5fd8016be.jpg"
+      },
+      {
+       "name": "Vũ Thu Hiền",
+       "role": "Giáo viên Chủ nhiệm lớp",
+       "note": "Kính chào quý phụ huynh! Tôi là Vũ Thu Hiền, giáo viên sẽ đồng hành cùng các bé trong năm học này.  Với 17 năm gắn bó và tâm huyết với giáo dục mầm non, tôi luôn tâm niệm lớp học chính là ngôi nhà thứ hai, nơi các con được chăm sóc bằng tình yêu thương, sự kiên nhẫn và bao dung.",
+       "photo": "anh/7242b81bec359725ac45.jpg"
+      }
+     ],
+     "by": "Đặng Thị Hường",
+     "at": "2026-11-17"
+    }
    },
    {
     "id": "lb4ed25",
