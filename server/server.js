@@ -177,13 +177,30 @@ const FILE_EXT = ['pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx', 'mp3', 'mp
 const FILE_RE = new RegExp('^tailieu/[a-z0-9-]{1,80}[.](' + FILE_EXT.join('|') + ')$');
 const MAX_FILE = 15 * 1024 * 1024;
 /* Giới thiệu lớp (Phòng 4): lời giới thiệu, cô phụ trách, sĩ số, khẩu hiệu, ảnh lớp, video. */
+const PUB_PHOTO = /^anh\/[a-z0-9]{8,40}\.jpg$/;
+/* Nhật ký lớp: mỗi bài gắn một lớp và một phòng, có ngày, nội dung, tối đa 6 ảnh. */
+const MAX_DIARY = 3000;
+function cleanDiary(x) {
+  x = x || {};
+  const o = { id: str(x.id, 40), cls: str(x.cls, 20), room: str(x.room, 30), date: str(x.date, 10), text: str(x.text, 2000),
+    photos: (Array.isArray(x.photos) ? x.photos : []).slice(0, 6).filter(p => PUB_PHOTO.test(p || '')), by: str(x.by, 60), byUser: str(x.byUser, 40), at: str(x.at, 30) };
+  if (x.edited) o.edited = str(x.edited, 10);
+  if (!okId(o.id) || !/^[a-z0-9]{1,20}$/.test(o.cls)) throw new HttpErr(400, 'Bài nhật ký không hợp lệ.');
+  if (!ROOMS.includes(o.room)) throw new HttpErr(400, 'Hãy chọn phòng cho bài nhật ký.');
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(o.date)) throw new HttpErr(400, 'Ngày không hợp lệ.');
+  if (!o.text) throw new HttpErr(400, 'Hãy viết nội dung nhật ký.');
+  return o;
+}
 function cleanIntro(x) {
   if (!x || typeof x !== 'object') return null;
   const o = { text: str(x.text, 1500), teachers: str(x.teachers, 200), kids: str(x.kids, 30), motto: str(x.motto, 150),
     photo: /^anh\/[a-z0-9]{8,40}\.jpg$/.test(x.photo || '') ? x.photo : '', video: okUrl(str(x.video, 500)) ? str(x.video, 500) : '' };
+  const staff = (Array.isArray(x.staff) ? x.staff : []).slice(0, 6).map(t => ({ name: str(t?.name, 60), role: str(t?.role, 60), note: str(t?.note, 300),
+    photo: PUB_PHOTO.test(t?.photo || '') ? t.photo : '' })).filter(t => t.name);
+  if (staff.length) o.staff = staff;
   if (x.by) o.by = str(x.by, 40);
   if (x.at) o.at = str(x.at, 30);
-  return Object.values(o).some(v => v && v !== o.by && v !== o.at) ? o : null;
+  return (staff.length || ['text', 'teachers', 'kids', 'motto', 'photo', 'video'].some(k => o[k])) ? o : null;
 }
 function cleanLesson(x) {
   x = x || {};
@@ -214,7 +231,8 @@ function cleanData(d) {
     .filter(g => /^anh\/(gioithieu\/[a-z0-9-]{1,40}|[a-z0-9]{8,40})\.jpg$/.test(g.photo));
   if (Array.isArray(s.stats)) settings.stats = s.stats.slice(0, 6).map(x => ({ n: str(x?.n, 12), l: str(x?.l, 40) })).filter(x => x.n || x.l);
   return { v: 1, settings, exhibits: d.exhibits.map(cleanExhibit), timeline: d.timeline.map(cleanTimeline),
-    lessons: (Array.isArray(d.lessons) ? d.lessons : []).slice(0, 300).map(cleanLesson) };
+    lessons: (Array.isArray(d.lessons) ? d.lessons : []).slice(0, 300).map(cleanLesson),
+    diary: (Array.isArray(d.diary) ? d.diary : []).slice(-MAX_DIARY).map(x => { try { return cleanDiary(x); } catch { return null; } }).filter(Boolean) };
 }
 function applyItem(data, kind, item, beforeId) {
   if (kind === 'exhibit') {
@@ -658,6 +676,7 @@ routes['POST /api/class-intro'] = async (req, body, user) => {
   if (user.role !== 'admin' && !(user.classes || []).includes(id)) throw new HttpErr(403, 'Tài khoản chỉ sửa được giới thiệu lớp mình được giao.');
   const raw = { ...(body.intro || {}) };
   if (/^cho-duyet\//.test(raw.photo || '')) raw.photo = await publishPhoto(raw.photo, user.username);
+  if (Array.isArray(raw.staff)) raw.staff = await Promise.all(raw.staff.slice(0, 6).map(async t => ({ ...t, photo: /^cho-duyet\//.test(t?.photo || '') ? await publishPhoto(t.photo, user.username) : t?.photo })));
   const intro = cleanIntro({ ...raw, by: user.role === 'admin' ? 'quản trị' : user.name, at: new Date().toISOString().slice(0, 10) });
   let found = false;
   const r = await updateData(d => {
@@ -666,6 +685,38 @@ routes['POST /api/class-intro'] = async (req, body, user) => {
     if (intro) c.intro = intro; else delete c.intro;
   }, `${user.username}: giới thiệu lớp ${id}`);
   if (!found) throw new HttpErr(404, 'Không tìm thấy lớp này.');
+  return { sha: r.sha, data: r.data };
+};
+/* Nhật ký lớp: cô của lớp (hoặc quản trị) viết, sửa, xóa. Đăng thẳng. */
+const canClass = (user, cls) => user.role === 'admin' || (user.classes || []).includes(cls);
+routes['POST /api/diary'] = async (req, body, user) => {
+  const e = body.entry || {};
+  if (user.role !== 'admin' && !(user.classes || []).length) throw new HttpErr(403, 'Tài khoản chưa được giao lớp nên chưa viết nhật ký được. Báo quản trị giao lớp.');
+  if (!canClass(user, str(e.cls, 20))) throw new HttpErr(403, 'Tài khoản chỉ viết nhật ký cho lớp mình được giao.');
+  const photos = [];
+  for (const ph of (Array.isArray(e.photos) ? e.photos : []).slice(0, 6)) photos.push(await publishPhoto(ph, user.username));
+  const now = new Date().toISOString();
+  let entry = cleanDiary({ ...e, id: e.id || ('nk' + Date.now().toString(36) + crypto.randomBytes(2).toString('hex')), photos, by: user.role === 'admin' ? 'Quản trị' : user.name, byUser: user.username, at: now });
+  const r = await updateData(d => {
+    d.diary = Array.isArray(d.diary) ? d.diary : [];
+    const i = d.diary.findIndex(x => x.id === entry.id);
+    if (i >= 0) {
+      if (!canClass(user, d.diary[i].cls)) throw new HttpErr(403, 'Bài nhật ký này của lớp khác.');
+      entry = { ...entry, by: d.diary[i].by || entry.by, byUser: d.diary[i].byUser || entry.byUser, at: d.diary[i].at || now, edited: now.slice(0, 10) };
+      d.diary[i] = entry;
+    } else { d.diary.push(entry); if (d.diary.length > MAX_DIARY) d.diary.splice(0, d.diary.length - MAX_DIARY); }
+  }, `${user.username}: nhật ký lớp ${entry.cls} ngày ${entry.date}`);
+  return { sha: r.sha, data: r.data, id: entry.id };
+};
+routes['POST /api/diary/delete'] = async (req, body, user) => {
+  const id = str(body.id, 40); let found = false;
+  const r = await updateData(d => {
+    d.diary = Array.isArray(d.diary) ? d.diary : [];
+    const x = d.diary.find(y => y.id === id); if (!x) return;
+    if (!canClass(user, x.cls)) throw new HttpErr(403, 'Bài nhật ký này của lớp khác.');
+    found = true; d.diary = d.diary.filter(y => y.id !== id);
+  }, `${user.username}: xóa nhật ký ${id}`);
+  if (!found) throw new HttpErr(404, 'Không tìm thấy bài nhật ký.');
   return { sha: r.sha, data: r.data };
 };
 routes['POST /api/file'] = async (req, body, user) => {

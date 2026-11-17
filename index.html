@@ -377,6 +377,19 @@ h3.fsel{font-size:22px}h3.fsel small{font-size:14px;color:var(--muted);font-fami
 .cimsg{margin:0;color:var(--indigo);font-weight:700;min-height:1em}
 .cilist{display:grid;gap:6px;margin-top:10px}.cilist>div{display:flex;flex-wrap:wrap;gap:6px}.btn.ghost{opacity:.75}
 @media (max-width:640px){.cintro{grid-template-columns:1fr}.ciph{aspect-ratio:16/9}}
+.dysec{display:grid;gap:10px;margin-top:14px}.dysec h3 small{font-size:14px;color:var(--muted);font-family:inherit}
+.dylist{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:12px}
+.dyc{background:var(--frame);border-radius:16px;padding:12px 14px;border-left:6px solid var(--c);box-shadow:0 3px 0 var(--line);display:grid;gap:8px;align-content:start}
+.dyc header{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.dyc time{font-weight:800;font-size:14px;margin-right:4px}
+.dychip{all:unset;cursor:pointer;font-size:12px;font-weight:800;padding:2px 9px;border-radius:999px;background:color-mix(in srgb,var(--indigo) 12%,#fff);color:var(--indigo)}.dychip.room{background:color-mix(in srgb,var(--c) 16%,#fff);color:color-mix(in srgb,var(--c) 70%,#000)}
+.dychip:focus-visible{outline:3px solid var(--turmeric-fill)}
+.dyc p{margin:0;line-height:1.55;white-space:pre-line;overflow-wrap:anywhere}.dyc p.clamp{display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+.dyph{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.dyph button{all:unset;cursor:pointer;aspect-ratio:1;border-radius:10px;overflow:hidden;display:block}.dyph img{width:100%;height:100%;object-fit:cover;display:block}.dyph button:focus-visible{outline:3px solid var(--turmeric-fill)}
+.dyby{color:var(--muted);font-style:italic}.muted{color:var(--muted)}
+.cistaff{display:grid;gap:8px;margin-top:4px}.cistt{font-size:15px}
+.cist{display:grid;grid-template-columns:56px minmax(0,1fr);gap:10px;align-items:center}.cist b{display:block}.cist small{display:block;color:var(--sc);font-weight:700}.cist em{display:block;font-style:normal;color:var(--muted);font-size:14px}
+.cistph{width:56px;height:56px;border-radius:50%;overflow:hidden;display:grid;place-items:center;background:color-mix(in srgb,var(--sc,var(--indigo)) 14%,#fff);font-size:28px;flex:none}.cistph img{width:100%;height:100%;object-fit:cover;display:block}
+.cistedit{display:grid;gap:10px}.cistrow{display:grid;grid-template-columns:56px minmax(0,1fr);gap:10px;align-items:start;padding-bottom:10px;border-bottom:1px dashed var(--line)}.cistf{display:grid;gap:6px}
 .lsnempty{padding:14px 18px;display:grid;gap:8px}.lsnempty p{margin:0}
 .lsndlg h4{margin:14px 18px 6px;font-size:16px}
 .lsnlist{list-style:none;margin:0 18px;padding:0;display:grid;gap:8px}
@@ -784,6 +797,29 @@ function classTable(){
 }
 /* Trang "Các lớp học": thẻ các lớp theo điểm trường; trang riêng từng lớp (#lop-hoc/<mã lớp>). */
 const SITE_COLORS=['var(--coral)','var(--indigo)','var(--teal)','var(--lilac)'];
+/* Nhật ký lớp: các cô viết hằng ngày, mỗi bài gắn một phòng; hiện ở trang lớp và ở phòng tương ứng. */
+const diaryOf=()=>Array.isArray(data.diary)?data.diary:[];
+const todayISO=()=>new Date(Date.now()-new Date().getTimezoneOffset()*6e4).toISOString().slice(0,10);
+const fmtDay=d=>{const[y,m,dd]=String(d).split('-');const w=['Chủ nhật','Thứ Hai','Thứ Ba','Thứ Tư','Thứ Năm','Thứ Sáu','Thứ Bảy'][new Date(d+'T00:00:00').getDay()]||'';return `${w}, ${dd}/${m}/${y}`};
+const dySort=L=>L.slice().sort((a,b)=>b.date.localeCompare(a.date)||String(b.at).localeCompare(String(a.at)));
+const dyShow={};
+function diaryCard(x,o={}){
+ const r=roomOf(x.room),c=clsOf(x.cls),long=x.text.length>260;
+ return `<article class="dyc" style="--c:${r.c}"><header><time datetime="${esc(x.date)}">📅 ${esc(fmtDay(x.date))}</time>${o.cls!==false&&c?`<button type="button" class="dychip" data-go="lop-hoc/${esc(c.id)}">${esc(c.name)}</button>`:''}${o.room!==false?`<button type="button" class="dychip room" data-go="${esc(r.id)}">Phòng ${r.n} · ${esc(r.name)}</button>`:''}</header>
+  <p class="${long?'clamp':''}">${esc(x.text)}</p>${long?`<button type="button" class="linkbtn" data-dyexp>Xem thêm</button>`:''}
+  ${(x.photos||[]).length?`<div class="dyph">${x.photos.map((p,i)=>`<button type="button" data-dyph="${esc(x.id)}|${i}" aria-label="Xem ảnh ${i+1}">${imgOf(p,'Ảnh nhật ký '+(c?c.name:''))}</button>`).join('')}</div>`:''}
+  <small class="dyby">— ${esc(x.by||'')}${x.edited?' · đã sửa':''}</small></article>`;
+}
+function diarySection(L,key,title,o={}){
+ if(!L.length&&!o.empty)return '';const n=dyShow[key]||(o.n||6),S=dySort(L);
+ return `<section class="dysec"><h3 class="sub">📔 ${title} <small>${L.length} bài</small></h3>${o.cta||''}
+  ${S.length?`<div class="dylist">${S.slice(0,n).map(x=>diaryCard(x,o)).join('')}</div>${S.length>n?`<button type="button" class="btn small" data-dymore="${esc(key)}">Xem thêm nhật ký (${S.length-n} bài)</button>`:''}`:`<p class="muted" style="margin:0">${o.empty||''}</p>`}</section>`;
+}
+function roomDiary(r){
+ const L=diaryOf().filter(x=>x.room===r.id&&(!cFilter.cls||x.cls===cFilter.cls)&&(!cFilter.site||(clsOf(x.cls)||{}).site===cFilter.site));
+ return diarySection(L,'room:'+r.id,'Nhật ký các lớp ở phòng này',{room:false});
+}
+function goDiary(cls){aTab='diary';dyDraft=blankDiary(cls);errors={};if(location.hash==='#quan-tri')render();else location.hash='#quan-tri';setTimeout(showForm,300)}
 /* Giới thiệu lớp: thẻ hiện ở Phòng 4 (ô lớp) và trang lớp; quản trị hoặc cô của lớp sửa được. */
 const canEditClass=c=>!!me&&!!c&&(isAdmin()||(Array.isArray(me.classes)&&me.classes.includes(c.id)));
 function classIntro(c){
@@ -791,38 +827,51 @@ function classIntro(c){
  const hers=[...new Set(it.map(e=>e.her).filter(Boolean))].map(id=>heritageOf().find(h=>h.id===id)).filter(Boolean);
  const tcs=[...new Set(it.flatMap(tcList))].sort();
  const rooms=EXROOMS.map(r=>[r,it.filter(e=>e.room===r.id).length]).filter(x=>x[1]);
- const has=t.text||t.motto||t.teachers||t.kids||pubPhoto(t.photo)||okUrl(t.video);
- const ed=canEditClass(c)?`<button type="button" class="btn small ${has?'':'primary'}" data-ciedit="${esc(c.id)}">✏️ ${has?'Sửa giới thiệu lớp':'Viết giới thiệu lớp'}</button>`:'';
+ const has=t.text||t.motto||t.teachers||t.kids||pubPhoto(t.photo)||okUrl(t.video)||(t.staff||[]).length;
+ const ed=canEditClass(c)?`<button type="button" class="btn small ${has?'':'primary'}" data-ciedit="${esc(c.id)}">✏️ ${has?'Sửa giới thiệu lớp, các cô':'Viết giới thiệu lớp'}</button><button type="button" class="btn small" data-dynew="${esc(c.id)}">📔 Viết nhật ký lớp</button>`:'';
  return `<article class="cintro" style="--sc:${SITE_COL[c.site]||'var(--c)'}">
   <div class="ciph">${pubPhoto(t.photo)?imgOf(t.photo,'Ảnh lớp '+c.name):`<span class="ciart" aria-hidden="true">${isNT(c)?'🧸':'🎒'}</span>`}</div>
   <div class="citx"><span class="cisite">${esc(c.site)} · ${isNT(c)?'Nhóm nhà trẻ':'Lớp mẫu giáo'}</span><h3>${esc(c.name)}</h3>
    ${t.motto?`<p class="cimotto">“${esc(t.motto)}”</p>`:''}
    ${t.text?`<p class="citext">${esc(t.text).replace(/\n/g,'<br>')}</p>`:`<p class="citext muted">${has?'':'Lớp chưa có lời giới thiệu.'}${canEditClass(c)?' Bấm “Viết giới thiệu lớp” để kể về lớp mình.':''}</p>`}
-   <ul class="cifacts">${t.teachers?`<li>👩‍🏫 <b>Cô phụ trách:</b> ${esc(t.teachers)}</li>`:''}${t.kids?`<li>👧 <b>Sĩ số:</b> ${esc(t.kids)}</li>`:''}<li>🖼️ <b>${it.length}</b> hiện vật trên bảo tàng${rooms.length?' · '+rooms.map(([r,n])=>`Phòng ${r.n}: ${n}`).join(', '):''}</li>${hers.length?`<li>🗺️ <b>Di sản lớp tìm hiểu:</b> ${hers.map(h=>`${herIcon(h)} ${esc(h.name)}`).join(', ')}</li>`:''}${tcs.length?`<li>🎯 <b>Tiêu chí đã có minh chứng:</b> ${tcs.join(', ')}</li>`:''}</ul>
+   <ul class="cifacts">${t.teachers&&!(t.staff||[]).length?`<li>👩‍🏫 <b>Cô phụ trách:</b> ${esc(t.teachers)}</li>`:''}${t.kids?`<li>👧 <b>Sĩ số:</b> ${esc(t.kids)}</li>`:''}<li>🖼️ <b>${it.length}</b> hiện vật trên bảo tàng${rooms.length?' · '+rooms.map(([r,n])=>`Phòng ${r.n}: ${n}`).join(', '):''}</li>${hers.length?`<li>🗺️ <b>Di sản lớp tìm hiểu:</b> ${hers.map(h=>`${herIcon(h)} ${esc(h.name)}`).join(', ')}</li>`:''}${tcs.length?`<li>🎯 <b>Tiêu chí đã có minh chứng:</b> ${tcs.join(', ')}</li>`:''}</ul>
+   ${(t.staff||[]).length?`<div class="cistaff"><b class="cistt">👩‍🏫 Các cô của lớp</b>${t.staff.map(x=>`<div class="cist">${pubPhoto(x.photo)||phPrev[x.photo]?`<span class="cistph">${imgOf(x.photo,x.name)}</span>`:`<span class="cistph none" aria-hidden="true">👩‍🏫</span>`}<span><b>${esc(x.name)}</b>${x.role?`<small>${esc(x.role)}</small>`:''}${x.note?`<em>${esc(x.note)}</em>`:''}</span></div>`).join('')}</div>`:''}
    <div class="ciacts">${okUrl(t.video)?`<a class="btn small primary" href="${esc(t.video)}" target="_blank" rel="noopener">▶ Video giới thiệu lớp ↗</a>`:''}${ed}</div>
   </div></article>`;
 }
 function classIntroEdit(id){
  const c=clsOf(id);if(!canEditClass(c))return;
  if(dirty){setMsg('Còn thay đổi chưa lưu. Hãy Lưu lên trang hoặc Bỏ thay đổi trước khi sửa giới thiệu lớp.');return}
- const t={...(c.intro||{})};let dl=$('ciDlg');
+ const t={...(c.intro||{})};t.staff=(t.staff||[]).map(x=>({...x}));let dl=$('ciDlg');
  if(!dl){dl=document.createElement('dialog');dl.id='ciDlg';dl.className='lsndlg';document.body.appendChild(dl);dl.addEventListener('click',e=>{if(e.target===dl)dl.close()})}
  const draw=()=>{dl.innerHTML=`<div class="lsnhead"><div><span class="lage">${esc(c.site)}</span><h3>Giới thiệu ${esc(c.name)}</h3><small>Hiện ở Phòng 4 (ô của lớp) và trang lớp. Đăng thẳng, không cần duyệt.</small></div><button type="button" class="askx" aria-label="Đóng">✕</button></div>
   <form id="ciForm" class="ciform" novalidate>
    <div class="f"><label for="ci_motto">Khẩu hiệu / tên gọi thân thương của lớp</label><input id="ci_motto" maxlength="150" value="${esc(t.motto||'')}" placeholder="VD: Lớp Sóc Nâu chăm ngoan, yêu quê hương"></div>
    <div class="f"><label for="ci_text">Lời giới thiệu lớp</label><textarea id="ci_text" rows="6" maxlength="1500" placeholder="Lớp có bao nhiêu bé, các bé thích gì, góc chơi nổi bật, di sản lớp đang tìm hiểu, hoạt động đáng nhớ…">${esc(t.text||'')}</textarea><span class="hint">Không ghi họ tên đầy đủ của trẻ.</span></div>
-   <div class="two"><div class="f"><label for="ci_teachers">Cô phụ trách</label><input id="ci_teachers" maxlength="200" value="${esc(t.teachers||'')}" placeholder="VD: Cô Hảo, cô Lan"></div><div class="f"><label for="ci_kids">Sĩ số</label><input id="ci_kids" maxlength="30" value="${esc(t.kids||'')}" placeholder="VD: 28 bé (15 trai, 13 gái)"></div></div>
+   <div class="f"><label for="ci_kids">Sĩ số</label><input id="ci_kids" maxlength="30" value="${esc(t.kids||'')}" placeholder="VD: 28 bé (15 trai, 13 gái)"></div>
+   <fieldset class="cistedit"><legend>👩‍🏫 Các cô của lớp</legend>
+    ${t.staff.map((x,i)=>`<div class="cistrow"><span class="cistph">${pubPhoto(x.photo)||phPrev[x.photo]?imgOf(x.photo,x.name):'👩‍🏫'}</span><div class="cistf"><div class="two"><input id="st_n_${i}" maxlength="60" value="${esc(x.name)}" placeholder="Họ tên cô *" aria-label="Họ tên cô ${i+1}"><input id="st_r_${i}" maxlength="60" value="${esc(x.role||'')}" placeholder="VD: Giáo viên chủ nhiệm" aria-label="Nhiệm vụ cô ${i+1}"></div><input id="st_o_${i}" maxlength="300" value="${esc(x.note||'')}" placeholder="Đôi dòng về cô: số năm công tác, sở trường, lời nhắn với phụ huynh…" aria-label="Giới thiệu cô ${i+1}">
+     <div class="row" style="gap:6px;flex-wrap:wrap"><label class="btn small" for="st_p_${i}" style="cursor:pointer">📷 ${x.photo?'Đổi ảnh':'Ảnh cô'}</label><input type="file" id="st_p_${i}" data-stph="${i}" accept="image/jpeg,image/png,image/webp,image/heic" class="sr-only">${x.photo?`<button type="button" class="btn small" data-stphdel="${i}">Bỏ ảnh</button>`:''}<button type="button" class="btn small danger" data-stdel="${i}">Bỏ cô này</button></div></div></div>`).join('')}
+    ${t.staff.length<6?`<button type="button" class="btn small" id="st_add">+ Thêm cô</button>`:''}
+    ${!t.staff.length&&t.teachers?`<span class="hint">Đang ghi: “${esc(t.teachers)}”. Bấm “+ Thêm cô” để giới thiệu từng cô kèm ảnh.</span>`:''}
+   </fieldset>
    <div class="f"><label for="ci_video">Video giới thiệu lớp (không bắt buộc)</label><input id="ci_video" type="url" maxlength="500" value="${esc(t.video||'')}" placeholder="https://youtu.be/… hoặc https://drive.google.com/…"></div>
    <div class="f"><label>Ảnh lớp (không bắt buộc)</label><div class="ciphedit">${pubPhoto(t.photo)||phPrev[t.photo]?`<span class="ciphprev">${imgOf(t.photo,'Ảnh lớp')}</span><button type="button" class="btn small danger" id="ci_phdel">Bỏ ảnh</button>`:''}<label class="btn small" for="ci_photo" style="cursor:pointer">📷 ${t.photo?'Đổi ảnh':'Chọn ảnh'}</label><input type="file" id="ci_photo" accept="image/jpeg,image/png,image/webp,image/heic" class="sr-only"></div><span class="hint"><b>Không dùng ảnh rõ mặt trẻ</b> khi chưa có đồng ý của cha mẹ: nên chụp góc lớp, sản phẩm của bé, hoặc ảnh từ phía sau.</span></div>
    <p class="cimsg" id="ciMsg" role="status"></p>
    <div class="factions"><button type="submit" class="btn primary">Lưu giới thiệu lớp</button><button type="button" class="btn" id="ci_cancel">Hủy</button></div>
   </form>`;
-  const rd=()=>Object.assign(t,{motto:val('ci_motto'),text:$('ci_text').value.trim(),teachers:val('ci_teachers'),kids:val('ci_kids'),video:val('ci_video')});
+  const rd=()=>{Object.assign(t,{motto:val('ci_motto'),text:$('ci_text').value.trim(),kids:val('ci_kids'),video:val('ci_video')});t.staff=t.staff.map((x,i)=>({...x,name:val('st_n_'+i),role:val('st_r_'+i),note:val('st_o_'+i)}))};
+  const sa=$('st_add');if(sa)sa.onclick=()=>{rd();t.staff.push({name:(t.staff.length||!t.teachers)?'':t.teachers.split(',')[0].trim(),role:'',note:'',photo:''});draw();$('st_n_'+(t.staff.length-1))?.focus()};
+  dl.querySelectorAll('[data-stdel]').forEach(b=>b.onclick=()=>{rd();t.staff.splice(+b.dataset.stdel,1);draw()});
+  dl.querySelectorAll('[data-stphdel]').forEach(b=>b.onclick=()=>{rd();t.staff[+b.dataset.stphdel].photo='';draw()});
+  dl.querySelectorAll('[data-stph]').forEach(inp=>inp.onchange=async()=>{const f=inp.files[0];if(!f)return;rd();$('ciMsg').textContent='Đang thu nhỏ và tải ảnh…';
+   try{const url=await shrink(f);const r=await api('/api/photo',{data:url},()=>$('ciMsg').textContent=WAKE);phPrev[r.photo]=url;t.staff[+inp.dataset.stph].photo=r.photo;draw();$('ciMsg').textContent='Đã tải ảnh cô. Bấm “Lưu giới thiệu lớp”.'}catch(err){$('ciMsg').textContent=(err&&err.msg)||'Không tải được ảnh.'}});
   dl.querySelector('.askx').onclick=$('ci_cancel').onclick=()=>dl.close();
   const pd=$('ci_phdel');if(pd)pd.onclick=()=>{rd();t.photo='';draw()};
   $('ci_photo').onchange=async e=>{const f=e.target.files[0];if(!f)return;rd();$('ciMsg').textContent='Đang thu nhỏ và tải ảnh…';
    try{const url=await shrink(f);const r=await api('/api/photo',{data:url},()=>$('ciMsg').textContent=WAKE);phPrev[r.photo]=url;t.photo=r.photo;draw();$('ciMsg').textContent='Đã tải ảnh. Bấm “Lưu giới thiệu lớp”.'}catch(err){$('ciMsg').textContent=(err&&err.msg)||'Không tải được ảnh.'}};
   $('ciForm').onsubmit=async e=>{e.preventDefault();rd();if(t.video&&!okUrl(t.video)){$('ciMsg').textContent='Link video phải bắt đầu bằng https://';return}
+   if(t.staff.some(x=>!x.name&&(x.role||x.note||x.photo))){$('ciMsg').textContent='Hãy ghi họ tên cho từng cô (hoặc bấm “Bỏ cô này”).';return}t.staff=t.staff.filter(x=>x.name);if(t.staff.length)t.teachers=t.staff.map(x=>x.name).join(', ');
    const b=e.submitter||$('ciForm').querySelector('[type=submit]');b.disabled=true;b.textContent='Đang lưu…';
    try{const r=await api('/api/class-intro',{id:c.id,intro:t},()=>$('ciMsg').textContent=WAKE);adoptLatest(r);dl.close();setMsg('Đã lưu giới thiệu lớp. Trang công khai cập nhật sau khoảng 1–2 phút.')}
    catch(err){$('ciMsg').textContent=(err&&err.msg)||'Không lưu được, vui lòng thử lại.';b.disabled=false;b.textContent='Lưu giới thiệu lớp'}};
@@ -841,6 +890,7 @@ function classesRoom(sub){
    <p>${it.length?`Lớp đã đưa ${it.length} hiện vật lên bảo tàng${rank?` · đứng thứ ${rank}/${st.length} lớp`:''}.`:'Lớp chưa có hiện vật nào trên bảo tàng. Các cô đăng bài và tích lớp này để hiện ở đây.'}</p>
    <div class="cta"><button type="button" class="btn small" data-go="lop-hoc">← Tất cả các lớp</button></div></div>
    ${classIntro(c)}
+   ${diarySection(diaryOf().filter(x=>x.cls===c.id),'cls:'+c.id,'Nhật ký của lớp',{cls:false,empty:'Lớp chưa có bài nhật ký.'})}
    ${EXROOMS.map(r=>{const ri=it.filter(e=>e.room===r.id);return ri.length?`<div class="croom" style="--c:${r.c}"><h3 class="sub"><span class="dot" style="--c:${r.c}"></span> Phòng ${r.n} · ${esc(r.name)} <small>${ri.length} hiện vật</small></h3>${wallBox(ri.map(e=>piece({...e,plan:e.plan||r.name},it.indexOf(e))).join(''),ri.length,isPhotoRoom(ri))}</div>`:''}).join('')}
   </section>`;
  }
@@ -960,11 +1010,12 @@ function classCells(r){
 }
 function exhibitsRoom(r){
  if(r.id==='di-san'&&classesOf().length&&!diSel){
-  return `<section class="room" style="--c:${r.c}">${head(r)}${classCells(r)}${heritageMap()}</section>`;
+  return `<section class="room" style="--c:${r.c}">${head(r)}${classCells(r)}${roomDiary(r)}${heritageMap()}</section>`;
  }
  const items=roomItems(r);
  const back=r.id==='di-san'&&diSel?`<div class="cchead"><button type="button" class="btn small" data-dicls="">← Các ô lớp</button><h3 class="sub">${diSel==='all'?'Tất cả hiện vật':diSel==='chung'?'Toàn trường':'📂 '+esc((clsOf(diSel)||{name:''}).name)}</h3><small>${items.length} hiện vật</small></div>`:'';
- let h=`<section class="room" style="--c:${r.c}">${head(r)}${back}${r.id==='di-san'&&clsOf(diSel)?classIntro(clsOf(diSel)):''}${items.length?wallBox(items.map(piece).join(''),items.length,isPhotoRoom(items)):`<div class="empty">${cFilter.cls||cFilter.site?'Thư mục này chưa có bài trong phòng. ':''}Phòng này chưa có hiện vật. ${canAdmin?'Thêm hiện vật ở Khu quản trị.':'Các lớp đang chuẩn bị, bé quay lại sau nhé!'}</div>`}`;
+ let h=`<section class="room" style="--c:${r.c}">${head(r)}${back}${r.id==='di-san'&&clsOf(diSel)?classIntro(clsOf(diSel))+diarySection(diaryOf().filter(x=>x.cls===diSel),'cls:'+diSel,'Nhật ký của lớp',{cls:false,n:4}):''}${items.length?wallBox(items.map(piece).join(''),items.length,isPhotoRoom(items)):`<div class="empty">${cFilter.cls||cFilter.site?'Thư mục này chưa có bài trong phòng. ':''}Phòng này chưa có hiện vật. ${canAdmin?'Thêm hiện vật ở Khu quản trị.':'Các lớp đang chuẩn bị, bé quay lại sau nhé!'}</div>`}`;
+ if(!(r.id==='di-san'&&clsOf(diSel)))h+=roomDiary(r);
  if(r.id==='di-san')h+=heritageMap();
  if(r.tree)h+=`<div style="display:grid;gap:12px"><h3 class="sub">Cây tri ân</h3><div class="tree-room"><div class="tree">${tree()}</div><div class="notes">${NOTES.map(n=>`<div class="note"><q>${n.q}</q><small>${n.who} · <span class="sample">mẫu</span></small></div>`).join('')}<div class="box" style="border:3px dashed var(--turmeric-fill);box-shadow:none"><h3>Hộp thư gửi tương lai</h3><p>Mỗi bé lớp 5–6 tuổi vẽ một bức tranh về điều mình mong ước. Hộp được mở vào tháng 5/2027 khi các bé chia tay trường mầm non.</p></div></div></div></div>`;
  return h+'</section>';
@@ -1300,15 +1351,15 @@ function adminRoom(){
  if(!canAdmin)return `<section class="room"><div class="empty">Khu quản trị chỉ dành cho người được cấp quyền chỉnh sửa trang.</div></section>`;
  const A=isAdmin(), local=mode!=='github';
  const tabs=local?[['exhibits','Hiện vật'],['timeline','Mốc lịch sử'],['links','Giới thiệu & link chung']]
-  :A?[['exhibits','Hiện vật'],['timeline','Mốc lịch sử'],['links','Giới thiệu & link chung'],['classes','Lớp học'],['skkn','Minh chứng SKKN'],['lessons','Học liệu'],['gallery','Ảnh nổi bật'],['pending','Duyệt bài'+(pendingList?` (${pendingList.filter(p=>p.status==='pending').length})`:'')],['users','Tài khoản'],['pw','Đổi mật khẩu']]
-  :[['exhibits','Hiện vật'],...(me.timeline?[['timeline','Mốc lịch sử']]:[]),['mine','Bài đã gửi'],['pw','Đổi mật khẩu']];
+  :A?[['exhibits','Hiện vật'],['timeline','Mốc lịch sử'],['links','Giới thiệu & link chung'],['diary','📔 Nhật ký lớp'],['classes','Lớp học'],['skkn','Minh chứng SKKN'],['lessons','Học liệu'],['gallery','Ảnh nổi bật'],['pending','Duyệt bài'+(pendingList?` (${pendingList.filter(p=>p.status==='pending').length})`:'')],['users','Tài khoản'],['pw','Đổi mật khẩu']]
+  :[['exhibits','Hiện vật'],...(myClasses().length?[['diary','📔 Nhật ký lớp']]:[]),...(me.timeline?[['timeline','Mốc lịch sử']]:[]),['mine','Bài đã gửi'],['pw','Đổi mật khẩu']];
  if(!tabs.some(t=>t[0]===aTab))aTab=tabs[0][0];
  const lead=local||A?`Thêm, sửa, xóa hiện vật và mốc lịch sử; gắn link phòng 3D, video, âm thanh. Thay đổi chỉ hiện với phụ huynh sau khi bấm <b>Lưu lên trang</b>.`
   :`Chị/cô được thêm và sửa hiện vật ở ${myRooms().length?myRooms().map(r=>`<b>Phòng ${r.n} · ${esc(r.name)}</b>`).join(', '):'<b>(chưa được giao phòng nào)</b>'}${me.timeline?' và các mốc lịch sử của trường':''}. ${me.review?'Bài gửi sẽ hiện trên trang sau khi người quản trị duyệt.':'Bài gửi hiện ngay trên trang sau khoảng 1–2 phút.'}`;
  return `<section class="room" style="--c:var(--muted)"><div class="room-head"><span class="eyebrow">${A||local?'Chỉ người quản trị mới thấy mục này':'Dành cho giáo viên'}</span><h2>Khu quản trị</h2><p>${lead}</p></div>
  ${mode==='github'?`<div class="ghinfo"><span>Đang đăng nhập: <b>${esc(me.name)}</b> (${A?'Quản trị':'Giáo viên'} · ${esc(me.username)})</span><span style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="btn small" id="ghReload">Tải bản mới nhất</button><button type="button" class="btn small" id="ghOut">Đăng xuất</button></span></div>`:''}
  <div class="atabs" role="tablist">${tabs.map(([k,l])=>`<button type="button" role="tab" data-atab="${k}" aria-selected="${aTab===k}">${l}</button>`).join('')}</div>
- ${aTab==='exhibits'?adminExhibits():aTab==='timeline'?adminTimeline():aTab==='links'?adminLinks():aTab==='classes'?adminClasses():aTab==='skkn'?adminSkkn():aTab==='lessons'?adminLessons():aTab==='gallery'?adminGallery():aTab==='pending'?adminPending():aTab==='users'?adminUsers():aTab==='mine'?myPosts():pwForm()}
+ ${aTab==='exhibits'?adminExhibits():aTab==='timeline'?adminTimeline():aTab==='links'?adminLinks():aTab==='classes'?adminClasses():aTab==='skkn'?adminSkkn():aTab==='lessons'?adminLessons():aTab==='gallery'?adminGallery():aTab==='pending'?adminPending():aTab==='users'?adminUsers():aTab==='mine'?myPosts():aTab==='diary'?adminDiary():pwForm()}
  ${readOnly?`<div class="box warn"><p>Tài khoản này chỉ có quyền xem, nên không lưu được thay đổi.</p></div>`:''}
  </section>`;
 }
@@ -1354,6 +1405,24 @@ function adminExhibits(){
    <label class="check"><input type="checkbox" id="x_sample" ${d.sample?'checked':''}> Đánh dấu là nội dung mẫu</label>
    <div class="factions"><button type="submit" class="btn primary">${sendLabel()}</button><button type="button" class="btn" id="x_cancel">Hủy</button></div>
   </form>`:`<div class="box"><h3>Thêm hiện vật</h3><p>Chọn phòng, hình minh họa, viết câu chuyện và dán link video, âm thanh, phòng 3D.</p><button type="button" class="btn primary" id="addEx" style="justify-self:start">+ Thêm hiện vật</button></div>`;
+ return `<div class="admin-grid"><div class="alist">${list}</div>${form}</div>`;
+}
+let dyDraft=null,dyF='';
+const dyClasses=()=>isAdmin()?classesOf():classesOf().filter(c=>myClasses().includes(c.id));
+const blankDiary=cls=>({id:'',cls:cls||(dyClasses()[0]||{}).id||'',room:'khoanh-khac',date:todayISO(),text:'',photos:[]});
+function adminDiary(){
+ const C=dyClasses();if(!C.length)return `<div class="box"><h3>Nhật ký lớp</h3><p>Tài khoản chưa được giao lớp. Báo quản trị vào thẻ Tài khoản để giao lớp.</p></div>`;
+ const L=dySort(diaryOf().filter(x=>C.some(c=>c.id===x.cls)&&(!dyF||x.cls===dyF))).slice(0,80),d=dyDraft;
+ const list=`<div class="atools">${C.length>1?`<select id="dyF" aria-label="Lọc theo lớp"><option value="">${isAdmin()?'Mọi lớp':'Các lớp của tôi'}</option>${C.map(c=>`<option value="${c.id}" ${dyF===c.id?'selected':''}>${esc(c.name)}</option>`).join('')}</select>`:''}<small>${L.length?`${L.length} bài gần nhất`:'Chưa có bài nhật ký nào.'}</small></div>
+  <div class="agroup">${L.map(x=>`<div class="arow ${d&&d.id===x.id?'on':''}" style="grid-template-columns:minmax(0,1fr) auto"><div style="min-width:0"><b>${esc(fmtDay(x.date))} · ${esc((clsOf(x.cls)||{name:x.cls}).name)}</b><small>${roomShort(x.room)} · ${esc(x.text.slice(0,90))}${x.text.length>90?'…':''}${(x.photos||[]).length?` · 📷 ${x.photos.length}`:''}</small></div><span class="acts"><button type="button" class="btn small" data-dyedit="${esc(x.id)}">Sửa</button><button type="button" class="btn small danger" data-dydel="${esc(x.id)}">Xóa</button></span></div>`).join('')}</div>`;
+ const form=d?`<form class="edit" id="dyForm" novalidate><h3>${d.id?'Sửa nhật ký':'Viết nhật ký lớp'}</h3>
+  <div class="two"><div class="f"><label for="dy_date">Ngày</label><input type="date" id="dy_date" value="${esc(d.date)}" max="${todayISO()}"></div><div class="f"><label for="dy_cls">Lớp</label><select id="dy_cls">${C.map(c=>`<option value="${c.id}" ${d.cls===c.id?'selected':''}>${esc(c.name)}</option>`).join('')}</select></div></div>
+  <div class="f"><label for="dy_room">Gắn với phòng</label><select id="dy_room">${EXROOMS.map(r=>`<option value="${r.id}" ${d.room===r.id?'selected':''}>Phòng ${r.n} · ${esc(r.name)}</option>`).join('')}</select><span class="hint">Bài hiện ở trang lớp và ở phòng được chọn (VD: chăm cây → Góc thiên nhiên xanh; trò chơi dân gian → Hành trình di sản).</span></div>
+  ${fld('dy_text','Hôm nay lớp mình…',d.text,{area:1,ph:'Kể ngắn gọn hoạt động trong ngày, điều bé thích, câu nói đáng yêu của bé, lời nhắn với phụ huynh…',hint:'Không ghi họ tên đầy đủ của trẻ.'})}
+  <div class="f"><label>Ảnh (tối đa 6, không bắt buộc)</label>${d.photos.length?`<div class="phgal">${d.photos.map((p,i)=>`<div class="phitem">${imgOf(p,'Ảnh nhật ký')}<button type="button" class="btn small danger" data-dyphdel="${i}">Bỏ</button></div>`).join('')}</div>`:''}
+   ${d.photos.length<6?`<input type="file" id="dy_photos" multiple accept="image/jpeg,image/png,image/webp,image/heic">`:''}<span class="hint"><b>Không đăng ảnh rõ mặt trẻ</b> khi chưa có đồng ý của cha mẹ.</span></div>
+  <div class="factions"><button type="submit" class="btn primary">${d.id?'Lưu nhật ký':'Đăng nhật ký'}</button><button type="button" class="btn" id="dy_cancel">Hủy</button></div></form>`
+  :`<div class="box"><h3>📔 Nhật ký lớp</h3><p>Mỗi ngày các cô ghi vài dòng về hoạt động của lớp, gắn với một phòng của bảo tàng. Bài đăng thẳng lên trang lớp và phòng đó, không cần duyệt.</p><button type="button" class="btn primary" id="dyAdd" style="justify-self:start">+ Viết nhật ký hôm nay</button></div>`;
  return `<div class="admin-grid"><div class="alist">${list}</div>${form}</div>`;
 }
 function adminTimeline(){
@@ -1620,6 +1689,23 @@ function wireAdmin(){
   if(!d.title)errors.ls_title='Hãy nhập tên bài học.';d.links.forEach((x,i)=>{if(x.url&&!okLink(x.url))errors['lu_'+i]='Link phải bắt đầu bằng https://'});if(Object.keys(errors).length){render();return}
   d.links=d.links.filter(x=>x.url);
   const L=lessonsOf().slice(),i=L.findIndex(x=>x.id===d.id);if(i>=0)L[i]=d;else L.push(d);data.lessons=L;lessonDraft=null;markDirty();render();setMsg('Đã cập nhật kho học liệu. Bấm Lưu lên trang để áp dụng.')};
+ /* nhật ký lớp */
+ const dyRd=()=>{if(!dyDraft||!$('dyForm'))return;Object.assign(dyDraft,{date:val('dy_date'),cls:val('dy_cls'),room:val('dy_room'),text:$('dy_text').value.trim()})};
+ const dyA=$('dyAdd');if(dyA)dyA.onclick=()=>{dyDraft=blankDiary(dyF);errors={};render();showForm()};
+ const dyFl=$('dyF');if(dyFl)dyFl.onchange=()=>{dyF=dyFl.value;render()};
+ const dyC=$('dy_cancel');if(dyC)dyC.onclick=()=>{dyDraft=null;errors={};render()};
+ main.querySelectorAll('[data-dyedit]').forEach(b=>b.onclick=()=>{const x=diaryOf().find(y=>y.id===b.dataset.dyedit);dyDraft=JSON.parse(JSON.stringify(x));dyDraft.photos=dyDraft.photos||[];errors={};render();showForm()});
+ main.querySelectorAll('[data-dydel]').forEach(b=>b.onclick=async()=>{if(busy||!confirm('Xóa bài nhật ký này?'))return;if(dirty){setMsg('Còn thay đổi chưa lưu. Hãy Lưu lên trang hoặc Bỏ thay đổi trước.');return}busy=true;
+  try{const r=await api('/api/diary/delete',{id:b.dataset.dydel},()=>setMsg(WAKE));if(dyDraft&&dyDraft.id===b.dataset.dydel)dyDraft=null;adoptLatest(r);setMsg('Đã xóa bài nhật ký.')}catch(e){setMsg(e.msg)}finally{busy=false}});
+ main.querySelectorAll('[data-dyphdel]').forEach(b=>b.onclick=()=>{dyRd();dyDraft.photos.splice(+b.dataset.dyphdel,1);render()});
+ const dyP=$('dy_photos');if(dyP)dyP.onchange=async()=>{const fs=[...dyP.files].slice(0,6-dyDraft.photos.length);if(!fs.length||busy)return;dyRd();busy=true;let ok=0,fail=0;
+  for(const[i,f]of fs.entries()){setMsg(`Đang thu nhỏ và tải ảnh ${i+1}/${fs.length}…`);try{const url=await shrink(f);const r=await api('/api/photo',{data:url},()=>setMsg(WAKE));phPrev[r.photo]=url;dyDraft.photos.push(r.photo);ok++}catch(_){fail++}}
+  busy=false;render();setMsg(`Đã tải ${ok} ảnh${fail?`, ${fail} ảnh lỗi`:''}.`)};
+ const dyFm=$('dyForm');if(dyFm)dyFm.onsubmit=async e=>{e.preventDefault();dyRd();errors={};if(!dyDraft.text)errors.dy_text='Hãy viết vài dòng nhật ký.';if(Object.keys(errors).length){render();return}
+  if(dirty){setMsg('Còn thay đổi chưa lưu. Hãy Lưu lên trang hoặc Bỏ thay đổi trước khi đăng nhật ký.');return}
+  if(busy)return;busy=true;const b=dyFm.querySelector('[type=submit]');b.disabled=true;b.textContent='Đang đăng…';
+  try{const r=await api('/api/diary',{entry:dyDraft},()=>setMsg(WAKE));const c=clsOf(dyDraft.cls),rm=dyDraft.room;dyDraft=null;adoptLatest(r);setMsg(`Đã đăng nhật ký. Bài hiện ở trang lớp ${c?c.name:''} và ${roomShort(rm)} sau khoảng 1–2 phút.`)}
+  catch(err){setMsg(err.msg);b.disabled=false;b.textContent='Đăng nhật ký'}finally{busy=false}};
  const sc=$('skknCsv');if(sc)sc.onclick=skknCsv;
  const hf=$('hForm');if(hf)hf.onsubmit=e=>{e.preventDefault();
   const old=heritageOf(),list=[];
@@ -1771,6 +1857,10 @@ function render(){
   main.querySelectorAll('[data-fcls]').forEach(b=>b.onclick=()=>{const c=clsOf(b.dataset.fcls);cFilter=cFilter.cls===b.dataset.fcls?{site:'',cls:''}:{site:c?c.site:'',cls:b.dataset.fcls};render()})}
  main.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{location.hash=b.dataset.go});
  main.querySelectorAll('[data-her]').forEach(b=>b.onclick=()=>{const h=heritageOf().find(x=>x.id===b.dataset.her),it=herItems(b.dataset.her);if(!it.length)return;openViewer(it.map(e=>({...e,roomName:roomOf(e.room).name+' · Di sản: '+(h?h.name:''),c:roomOf(e.room).c})),0)});
+ main.querySelectorAll('[data-dynew]').forEach(b=>b.onclick=()=>goDiary(b.dataset.dynew));
+ main.querySelectorAll('[data-dymore]').forEach(b=>b.onclick=()=>{const k=b.dataset.dymore;dyShow[k]=(dyShow[k]||6)+6;render()});
+ main.querySelectorAll('[data-dyexp]').forEach(b=>b.onclick=()=>{const p=b.previousElementSibling;p.classList.toggle('clamp');b.textContent=p.classList.contains('clamp')?'Xem thêm':'Thu gọn'});
+ main.querySelectorAll('[data-dyph]').forEach(b=>b.onclick=()=>{const[id,i]=b.dataset.dyph.split('|'),x=diaryOf().find(y=>y.id===id);if(!x)return;const c=clsOf(x.cls);openLightbox(x.photos.map(p=>({photo:p,site:c?c.name:'',cap:fmtDay(x.date)})),+i)});
  main.querySelectorAll('[data-ciedit]').forEach(b=>b.onclick=()=>classIntroEdit(b.dataset.ciedit));
  main.querySelectorAll('[data-dicls]').forEach(b=>b.onclick=()=>{diSel=b.dataset.dicls;render();main.scrollIntoView({block:'start'})});
  wireWalls(main);
