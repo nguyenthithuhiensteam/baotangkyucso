@@ -77,7 +77,31 @@
    {
     "id": "lb0bde3",
     "name": "Nhà trẻ 25–36 tháng D",
-    "site": "Trường chính"
+    "site": "Trường chính",
+    "intro": {
+     "text": "Lớp có 20 trẻ, có 11 trẻ trai, 9 trẻ gái. Có những buổi sáng, tôi chỉ muốn đến lớp học thật sớm, đứng bên khung cửa để đón các bé 25 - 36 tháng tuổi bước vào. Khoảnh khắc ấy chẳng có gì lớn lao, vậy mà lần nào cũng khiến lòng tôi mềm ra như được ai đó đặt vào tay một cục bông ấm. Đó là lớp của những đứa trẻ vừa rời vòng tay mẹ, chập chững bước vào đời bằng đôi chân bé xíu và đôi mắt tròn xoe.",
+     "teachers": "ĐỖ THỊ THU TRANG, NGUYỄN THỊ LAN MINH",
+     "kids": "Lớp có 20 trẻ. (Thời điểm T11)",
+     "motto": "Lớp học Hạnh Phúc",
+     "photo": "anh/2c5d0809192d53048a72.jpg",
+     "video": "",
+     "staff": [
+      {
+       "name": "ĐỖ THỊ THU TRANG",
+       "role": "",
+       "note": "Cô không còn trẻ, mái tóc đã lốm đốm sợi bạc, nhưng mỗi sáng cô vẫn đứng ở cửa lớp đón các bé từ vòng tay mẹ, cúi xuống hôn lên má, vuốt tóc rồi ôm trọn đứa trẻ vào lòng. Giọng cô ấm và chậm, đủ để dỗ một bé đang khóc nhè, đủ để cả lớp ngoan ngoãn xếp hàng rửa tay. Hai mươi ba năm, cô đã quen với nh",
+       "photo": "anh/de07a6069fe79e4225ce.jpg"
+      },
+      {
+       "name": "NGUYỄN THỊ LAN MINH",
+       "role": "",
+       "note": "Với cô, 23 năm ấy không phải là một con số để đếm thành tích, mà là 23 năm của những buổi sáng đứng đợi ở cửa, để rồi mỗi đứa trẻ lớn lên và đi xa đều mang theo một chút ấm áp của bàn tay cô.",
+       "photo": ""
+      }
+     ],
+     "by": "Đỗ Thị Thu Trang",
+     "at": "2026-11-17"
+    }
    },
    {
     "id": "l71706c",
