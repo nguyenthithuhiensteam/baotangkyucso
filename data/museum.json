@@ -5957,7 +5957,7 @@
    "from": "Lớp: 4-5 tuổi Hương Sen",
    "story": "Ý nghĩa của việc tổ chức hoạt động trải nghiệm “Phòng cháy chữa cháy” cho trẻ mầm non:\n\n1. Giúp trẻ nhận biết một số nguyên nhân, nguy cơ gây cháy và những nơi có thể xảy ra cháy.\n2. Trang bị cho trẻ kiến thức, kỹ năng cơ bản để nhận biết và phòng tránh nguy cơ cháy nổ.\n3. Giúp trẻ biết cách xử lý tình huống khi có cháy: bình tĩnh, hô to báo động, gọi người lớn và di chuyển theo hướng dẫn đến nơi an toàn.\n4. Rèn luyện kỹ năng tự bảo vệ bản thân, ý thức tuân thủ các quy định về an toàn phòng cháy chữa cháy.\n5. Giúp trẻ tự tin, chủ động trong các tình huống trải nghiệm, góp phần hình thành kỹ năng sống và bảo đảm an toàn cho bản thân.",
    "ask": "1. Hôm nay các con đã được tham gia vào hoạt động gì? 2. Khi phát hiện có cháy, các con cần làm gì để bảo vệ bản thân? 3.Các con cần làm gì để phòng tránh cháy xảy ra ở nhà và ở trường?",
-   "video": "",
+   "video": "https://m.youtube.com/watch?feature=shared&v=cq1mLDugj1o",
    "audio": "",
    "link3d": "",
    "drive": "",
@@ -8446,6 +8446,988 @@
    "photos": [
     "anh/f296e35875f4baea78bb.jpg"
    ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwkqb3by",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây Sen Cạn",
+   "era": "Thán 11",
+   "plan": "",
+   "from": "4-5 tuổi B1",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l62a027"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/2cc24ee6f1fbd830bf4d.jpg",
+   "photos": [
+    "anh/2cc24ee6f1fbd830bf4d.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwkrxqsi",
+   "room": "tri-an",
+   "art": "mic",
+   "name": "Bé chúc cô ngày 20.11",
+   "era": "",
+   "plan": "",
+   "from": "Lớp 4-5 tuổi Tràng Đà",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "https://drive.google.com/file/d/1s5U7NZChLa8KBOlDi4khtU6Xeh-hl9uI/view?usp=sharing",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l2f96f2"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": true
+  },
+  {
+   "id": "emwksclh5",
+   "room": "thien-nhien",
+   "art": "caylon",
+   "name": "Cây xanh quanh ta",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp MG 3- 4 tuổi B",
+   "story": "Dưới khu vườn cổ tích đầy nắng, có một bông hoa phăng nhỏ xíu mặc chiếc váy nhung màu hồng thắm xinh xắn. Bé hoa phăng cứ nhún nhảy theo điệu nhạc của gió và reo vui chào đón các bạn ong bướm đến chơi. Mỗi sáng sớm, hoa phăng lại uống những giọt sương mai ngọt ngào để lớn nhanh và khoe sắc rực rỡ. Nhìn hoa phăng vui cười, ai đi qua cũng phải ngắm nhìn và dành tặng những lời khen yêu thương. Cô giáo gió dịu dàng ôm hoa phăng vào lòng và thì thầm ru bé ngủ ngoan.",
+   "ask": "Hàng ngày các cô giáo thường nhắc nhở các con phải làm gì để chăm sóc cây xanh và các loài hoa",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1b0W2xwTc6b50qriuaYYLczRZVMsgcgld/view?usp=sharing",
+   "cls": [
+    "ldb4f8c"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwkshhef",
+   "room": "thien-nhien",
+   "art": "caylon",
+   "name": "Hoa và bé",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp MG 3- 4 tuổi B",
+   "story": "Trong khu vườn rực rỡ sắc màu, có một bé hoa đồng tiền nhỏ xinh đang khoác chiếc áo màu cam tươi tắn. Mỗi khi ban mai thức dậy, bé lại mỉm cười thật tươi đón những giọt nắng ấm áp chiếu rọi. Bé hoa đồng tiền rất thích chơi trò chơi trốn tìm cùng các bạn bướm vàng và chị gió thổi mát rượi. Các bé mầm non đi ngang qua liền reo lên thích thú vì nụ cười rạng rỡ của hoa đồng tiền giống như ông mặt trời nhỏ. Trò chuyện cùng hoa đồng tiền xong, bé nào cũng thấy vui vẻ và tràn đầy năng lượng suốt cả ngày dài.",
+   "ask": "Hàng ngày con đã làm gì để cây hoa luôn xanh tươi?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1NVKG74UZPdU7JWlcM3pEQSRmiXE7Ql_S/view?usp=sharing",
+   "cls": [
+    "ldb4f8c"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwksnjbj",
+   "room": "thien-nhien",
+   "art": "caylon",
+   "name": "Chậu cây lan ý",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp MG 3- 4 tuổi B",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1UupMFzEJrHTGpt8r9OEHlZj4AnNfHXPI/view?usp=sharing",
+   "cls": [
+    "ldb4f8c"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwkswte7",
+   "room": "thien-nhien",
+   "art": "caylon",
+   "name": "Cây quât lớp e",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp MG 3- 4 tuổi B",
+   "story": "rong góc sân lớp học mầm non ngập tràn tiếng cười, có một bé cây quất lùn tịt mặc chiếc áo xanh rờn rợp lá. Trên đầu bé đội vô số những chiếc áo vàng tròn vo, căng mọng như những chiếc cúc áo của ông mặt trời nhỏ xíu.\n\nMỗi khi gió thổi qua, bé quất lại lắc lư cái đầu tròn và reo lên khúc khích: \"Ai muốn ăn kẹo cam ngọt ngào thì đến đây với tớ nào!\". Các bạn nhỏ mầm non ríu rít vây quanh, đếm to từng quả quất: \"Một, hai, ba... nhiều quả quá cơ!\".\n\nBé quất cười tít cả mắt, hào phóng tặng ngay mấy chiếc lá xanh cho các bạn làm thuyền giấy đua tài. Cô giáo bước ra thấy cảnh ấy liền mỉm cười khen: \"Bé quất nhà mình ngoan thế, lúc nào cũng mang niềm vui đến cho các bé!\". Thế là bé quất lại càng kiêu hãnh đứng thẳng tắp, khoe những quả vàng rực rỡ để đón Tết về cùng cả lớp.",
+   "ask": "Cây quất trồng có tác dụng gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1NFREqb11D4veL4no_rHcQ6k5o2AWVTNy/view?usp=sharing",
+   "cls": [
+    "ldb4f8c"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": true
+  },
+  {
+   "id": "emwkuqbuy",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "CÂY NGỌC TRÂM",
+   "era": "Tháng 11/2026",
+   "plan": "Mầm xanh của bé",
+   "from": "Lớp 3-4 tuổi A PH Tràng Đà",
+   "story": "🌸 CÂU CHUYỆN: BÔNG HOA NGỌC TRÂM NHỎ XINH\n\nTrong khu vườn nhỏ của lớp 3–4 tuổi A có một cây hoa Ngọc Trâm rất xinh đẹp.\n\nHằng ngày, cây được cô giáo chăm sóc, tưới nước và đón những tia nắng ấm áp. Trên cây, những chiếc lá xanh mướt rung rinh trong gió. Một buổi sáng, những bông hoa Ngọc Trâm trắng tinh khôi nhẹ nhàng hé nở, trông giống như những chiếc chuông nhỏ xinh.\n\nCác bạn nhỏ đi ngang qua đều thích thú:\n– Ôi! Hoa Ngọc Trâm đẹp quá!\n– Những cánh hoa trắng muốt và thơm dịu dàng!\n\nNghe các bạn khen, cây Ngọc Trâm khẽ đung đưa như muốn nói:\n– Cảm ơn các bạn! Mình rất vui khi được lớn lên trong khu vườn xanh. Các bạn nhớ chăm sóc, tưới nước và không ngắt hoa nhé!\n\nTừ đó, các bạn nhỏ lớp 3–4 tuổi A cùng nhau chăm sóc cây, lau lá và tưới nước mỗi ngày. Khu vườn ngày càng xanh tươi, những bông hoa Ngọc Trâm thi nhau khoe sắc.\n\nCâu chuyện nhắc nhở các bé: Hãy yêu quý cây xanh, chăm sóc và bảo vệ những bông hoa để khu vườn luôn đẹp nhé!",
+   "ask": "* Trong câu chuyện có cây hoa gì? Hoa Ngọc Trâm có màu gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://https://claude.ai/artifact/CANa1VSrs9NdxN6y6aZe9Ydrive.google.com/file/d/1GrCPUNlP_dpolu2II6yUJE1yxl6CfEOX/view?usp=sharing",
+   "cls": [
+    "l73377a"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/8c297487c2535effa8c7.jpg",
+   "photos": [
+    "anh/8c297487c2535effa8c7.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwkv368w",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "CÂY DỨA MỸ",
+   "era": "Tháng 11/2026",
+   "plan": "Mầm xanh của bé",
+   "from": "Lớp 3-4 tuổi A PH Tràng Đà",
+   "story": "🌿 CÂU CHUYỆN: NÀNG CÔNG CHÚA GAI XANH\n\nTrong một khu vườn yên tĩnh, có một loài cây mang dáng vẻ thật đặc biệt. Đó là cây Dứa Mỹ.\n\nKhác với những loài cây có chiếc lá mềm mại, Dứa Mỹ khoác lên mình bộ áo xanh cứng cáp. Những chiếc lá dài, xếp thành từng tầng, tỏa đều ra xung quanh như một chiếc vương miện xanh. Viền lá có những chiếc gai nhỏ sắc nhọn, trông vừa kiêu hãnh vừa mạnh mẽ.\n\nMỗi buổi sáng, khi những tia nắng đầu tiên ghé thăm khu vườn, Dứa Mỹ lại vươn mình đón nắng. Gió nhẹ nhàng lướt qua, những chiếc lá khẽ rung rinh như đang múa.\n\nMột hôm, những người bạn trong vườn hỏi:\n– Dứa Mỹ ơi! Vì sao bạn có những chiếc lá cứng cáp và nhiều gai như vậy?\n\nDứa Mỹ mỉm cười đáp:\n– Đó là chiếc áo đặc biệt giúp mình tự bảo vệ bản thân. Dù không có những bông hoa rực rỡ, mình vẫn có vẻ đẹp riêng. Mình thích được sống dưới ánh nắng, thích ngắm nhìn khu vườn và góp thêm màu xanh cho cuộc sống.\n\nTừ đó, mọi người trong khu vườn đều yêu quý Dứa Mỹ. Bởi ai cũng hiểu rằng, mỗi loài cây đều có một vẻ đẹp riêng, và Dứa Mỹ chính là nàng công chúa gai xanh đầy kiêu hãnh.\n\nThông điệp: Mỗi loài cây đều mang một nét đẹp riêng. Hãy yêu quý và trân trọng thiên nhiên quanh ta.",
+   "ask": "1. Đây là cây gì các con? 2. Lá cây Dứa Mỹ có màu gì? 3. Lá cây dài hay ngắn? 4. Lá cây mọc như thế nào? 5. Các con có nhìn thấy những chiếc gai ở mép lá không?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://claude.ai/artifact/VxrsVMSNBXd2kLzm3frsAy",
+   "cls": [
+    "l73377a"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/80fa951c4b418359d050.jpg",
+   "photos": [
+    "anh/80fa951c4b418359d050.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwkvbq4v",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "CÂY PHÚ QUÝ LỚP 3-4 TUỔI PH TRÀNG ĐÀ",
+   "era": "Tháng 11/2026",
+   "plan": "Mầm xanh của bé",
+   "from": "Lớp 3-4 tuổi A PH Tràng Đà",
+   "story": "🌿 CÂU CHUYỆN: CHIẾC ÁO ĐỎ CỦA CÂY PHÚ QUÝ\n\nTrong khu vườn nhỏ xinh có một cây Phú Quý rất đặc biệt. Cây không cao lớn nhưng lại có vẻ đẹp nổi bật giữa những người bạn cây xanh.\n\nCây Phú Quý khoác lên mình chiếc áo màu xanh thẫm, điểm thêm những đường viền đỏ hồng rất đẹp. Những chiếc lá hình bầu dục, bóng mượt, xếp quanh thân cây như những bàn tay nhỏ đang dang ra đón nắng.\n\nMỗi buổi sáng, cây Phú Quý lại vui vẻ đón những giọt sương long lanh. Khi có gió thổi qua, những chiếc lá khẽ rung rinh như đang mỉm cười.\n\nMột hôm, cây Lan Ý hỏi:\n– Phú Quý ơi! Vì sao bạn có những chiếc lá đẹp và nhiều màu sắc như vậy?\n\nPhú Quý vui vẻ trả lời:\n– Mình thích được chăm sóc, tưới nước vừa đủ và đặt ở nơi có ánh sáng dịu nhẹ. Nhờ vậy, mình luôn xanh tươi và khỏe mạnh.\n\nNghe vậy, các bạn cây trong vườn đều vui vẻ. Ai cũng hiểu rằng mỗi loài cây đều có vẻ đẹp riêng và cần được chăm sóc, yêu thương.\n\nTừ đó, cây Phú Quý trở thành điểm nhấn xinh đẹp trong khu vườn.",
+   "ask": "1. Trong câu chuyện có cây gì? 2. Lá cây Phú Quý có màu gì? 3. Trên lá có những màu sắc nào? 4. Lá cây có hình gì? 5. Khi có gió thổi, lá cây như thế nào? 6. Cây Phú Quý cần gì để luôn xanh tốt? 7. Các con có thích cây Phú Quý không? Vì sao? 8. Chúng mình phải làm gì để chăm sóc cây?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://claude.ai/artifact/2A9Qaj2ydVEjv2jBBgfo9h",
+   "cls": [
+    "l73377a"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/cf3ffcc31c41b527169f.jpg",
+   "photos": [
+    "anh/cf3ffcc31c41b527169f.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwkvhgjn",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "HOA LAN CATTLEYA",
+   "era": "Tháng 11/2026",
+   "plan": "Mầm xanh của bé",
+   "from": "Lớp 3-4 tuổi A PH Tràng Đà",
+   "story": "🌸 CÂU CHUYỆN: NÀNG CÔNG CHÚA HOA LAN CATTLEYA\n\nTrong một khu vườn rực rỡ sắc màu, có một nàng hoa mang tên Cattleya. Nàng được mọi người gọi bằng cái tên thật đáng yêu: Nữ hoàng hoa lan.\n\nCattleya có những cánh hoa mềm mại, xếp thành nhiều tầng duyên dáng. Những cánh hoa bên ngoài thường xòe rộng, còn cánh hoa ở giữa lại cong cong, nổi bật như một chiếc váy công chúa. Hoa có nhiều màu sắc như tím, hồng, trắng, vàng và cam.\n\nMỗi khi nắng sớm chiếu xuống, những cánh hoa lại khoe sắc rực rỡ. Hương thơm dịu dàng của nàng lan tỏa trong gió, thu hút những chú ong, chú bướm đến vui đùa.\n\nMột hôm, một chiếc lá nhỏ tò mò hỏi:\n– Chị Cattleya ơi! Vì sao chị lại có những bông hoa đẹp đến thế?\n\nCattleya mỉm cười:\n– Vì chị luôn được chăm sóc, yêu thương và lớn lên trong ánh sáng dịu dàng. Chị muốn mang vẻ đẹp và hương thơm đến cho khu vườn.\n\nTừ đó, Cattleya trở thành niềm tự hào của khu vườn. Mỗi khi hoa nở, ai đi ngang qua cũng dừng lại ngắm nhìn và cảm nhận vẻ đẹp kiêu sa của nàng.",
+   "ask": "1. Trong câu chuyện có loài hoa gì? 2. Hoa Lan Cattleya có những màu sắc nào? 3. Cánh hoa Lan Cattleya trông như thế nào? 4. Hoa Lan Cattleya có mùi hương ra sao? 5. Những con vật nào thích đến thăm hoa? 6. Vì sao mọi người yêu thích hoa Lan Cattleya? 7. Các con thích nhất điều gì ở bông hoa này? 8. Chúng mình cần làm gì để hoa luôn tươi đẹp?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://claude.ai/artifact/TaaH8EaJZNrXLfeBgDfqYc",
+   "cls": [
+    "l73377a"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/38e9c98dbd6a336af859.jpg",
+   "photos": [
+    "anh/38e9c98dbd6a336af859.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwl5avtu",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "CÂY MAI",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/u/0/folders/1DimORzEXqHcPGpUgdKAKs0JamfMEzAA8",
+   "cls": [
+    "lc16f31"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/7453e9c4a6fb98f2c7ba.jpg",
+   "photos": [
+    "anh/7453e9c4a6fb98f2c7ba.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwl5iaxd",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "CẨM TÚ MAI",
+   "era": "",
+   "plan": "",
+   "from": "lớp: 24 - 36 tháng A Tràng Đà",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/u/0/folders/1iXiP8UmDMgP4lnE7fdVyfAGSZN9Xkn31",
+   "cls": [
+    "lc16f31"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/0747ca664fc098a8b92b.jpg",
+   "photos": [
+    "anh/0747ca664fc098a8b92b.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwl5ko6q",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "TRẦU BÀ LEO CỘT",
+   "era": "tháng 11/2026",
+   "plan": "",
+   "from": "nhóm/lớp: 24 - 36 tháng A Tràng Đà",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/u/0/folders/1IWsiOzBA_ofJxlYPbGnTNFdztQBbrTAC",
+   "cls": [
+    "lc16f31"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/719f134beda767dd85aa.jpg",
+   "photos": [
+    "anh/719f134beda767dd85aa.jpg"
+   ],
+   "photoAlt": "",
+   "sample": true
+  },
+  {
+   "id": "emwl5mkjn",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "CÂY KIM ĐỒNG VÀNG",
+   "era": "",
+   "plan": "",
+   "from": "lớp: 24 - 36 tháng A Tràng Đà",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/u/0/folders/1QJjlalnOXw5Tj1cXhyG08yzO8d-J2NGo",
+   "cls": [
+    "lc16f31"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/91ed46246fb18f76c1e3.jpg",
+   "photos": [
+    "anh/91ed46246fb18f76c1e3.jpg"
+   ],
+   "photoAlt": "",
+   "sample": true
+  },
+  {
+   "id": "emwl9mgcp",
+   "room": "di-san",
+   "art": "sach",
+   "name": "https://drive.google.com/file/d/1hZROWcZAC1hzlxsBIQq_zQGUpgqWKKJV/view?usp=drive_link",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1hZROWcZAC1hzlxsBIQq_zQGUpgqWKKJV/view?usp=drive_link",
+   "cls": [
+    "l6c9ea7"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/d767160e1fccc1fdfde4.jpg",
+   "photos": [
+    "anh/d767160e1fccc1fdfde4.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwl9zvsx",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "https://drive.google.com/file/d/1gI3JE28XOBjHi-aGII0Ytuj23r0TB3wM/view?usp=drive_link",
+   "era": "",
+   "plan": "",
+   "from": "Lớp nhà trẻ 24-36 tháng B",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1gI3JE28XOBjHi-aGII0Ytuj23r0TB3wM/view?usp=drive_link",
+   "cls": [
+    "l6c9ea7"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/f09cad72e71a4aaadf91.jpg",
+   "photos": [
+    "anh/f09cad72e71a4aaadf91.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwla375m",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "https://drive.google.com/file/d/1uvCtZDuCrRzuN1TGlBYj_g01jUXgZf04/view?usp=drive_link",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l6c9ea7"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwlcja85",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Làm giỏ hoa tặng cô",
+   "era": "18/11",
+   "plan": "",
+   "from": "Lớp 24-36 tháng B phân hiệu Tràng Đà",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/folders/1hbOrZgLLj_0lbpgWV40RvpI_hbb6NTa9?usp=sharing",
+   "cls": [
+    "l1b3ceb"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/9918aba2dab40fae059e.jpg",
+   "photos": [
+    "anh/9918aba2dab40fae059e.jpg",
+    "anh/ab759b5fe8fab1e9ff21.jpg",
+    "anh/500f281dd58d785d3135.jpg",
+    "anh/4c70e8251deef24d7eb5.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwld37hi",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Bé chăm sóc, lau lá cây quanh lớp",
+   "era": "18/11",
+   "plan": "",
+   "from": "Lớp 24-36 tháng B phân hiệu Tràng Đà",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/folders/1Dh7ONrKrafiIIlqVsSGeapMdBZzVv01f?usp=sharing",
+   "cls": [
+    "l1b3ceb"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/b7f40de368fe212ae7b8.jpg",
+   "photos": [
+    "anh/b7f40de368fe212ae7b8.jpg",
+    "anh/d7f8b78bff42088cd539.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwld50ck",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Bé dán hoa tặng cô nhân ngày 20/11",
+   "era": "18/11",
+   "plan": "",
+   "from": "Lớp 24-36 tháng B phân hiệu Tràng Đà",
+   "story": "",
+   "ask": "Con đang làm gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/folders/1Dh7ONrKrafiIIlqVsSGeapMdBZzVv01f?usp=sharing",
+   "cls": [
+    "l1b3ceb"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/79d54e0ddbabc80e2969.jpg",
+   "photos": [
+    "anh/79d54e0ddbabc80e2969.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwlj6fb7",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Nón lá",
+   "era": "18/11/2026",
+   "plan": "Khám phá nón lá - làng Chuông - Hà Nội",
+   "from": "MG 5 - 6 Tuổi Hương Sen",
+   "story": "Các con ơi! Các con có biết ở đâu có một ngôi làng nổi tiếng với nghề làm nón lá truyền thống lâu đời không? Đó chính là làng Chuông - Hà Nội đấy! Nơi đây có những người nghệ nhân khéo léo, tỉ mỉ làm nên những chiếc nón lá xinh xắn từ đôi bàn tay tài hoa của mình. Mỗi chiếc nón không chỉ giúp che nắng, che mưa mà còn mang đậm nét đẹp văn hóa Việt Nam. Hôm nay, cô và các con hãy cùng lên chuyến hành trình khám phá làng nghề làm nón lá truyền thống ở làng Chuông nhé!",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l19ca8e"
+   ],
+   "tc": [
+    "TC9"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/870246284960f6f73bd9.jpg",
+   "photos": [
+    "anh/870246284960f6f73bd9.jpg",
+    "anh/f9cd8cdea90baf487b25.jpg",
+    "anh/2145de4e715a3e1c3f28.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwljsb52",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Hình ảnh trẻ trong hoạt động âm nhạc",
+   "era": "8/11/2026",
+   "plan": "Hoạt động âm nhạc",
+   "from": "MG 5 - 6 Tuổi Hương Sen",
+   "story": "Hoạt động âm nhạc giúp trẻ hứng thú, tích cực tham gia, biết lắng nghe và cảm nhận giai điệu, nhịp điệu của bài hát. Qua đó, trẻ được rèn kỹ năng hát đúng giai điệu, lời ca và vận động phù hợp với âm nhạc. Đồng thời, hoạt động giúp trẻ phát triển khả năng cảm thụ âm nhạc, ngôn ngữ, vận động và cảm xúc thẩm mỹ. Trẻ mạnh dạn, tự tin thể hiện bản thân, biết phối hợp và giao lưu cùng bạn. Từ đó, hình thành ở trẻ tình yêu, sự yêu thích và thái độ tích cực đối với âm nhạc.",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l19ca8e"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/6f95219142bda9a5b6d3.jpg",
+   "photos": [
+    "anh/6f95219142bda9a5b6d3.jpg",
+    "anh/b818dc70174026856313.jpg",
+    "anh/a506df7d67ba042c934f.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwln7r60",
+   "room": "tri-an",
+   "art": "mic",
+   "name": "Trẻ hát mừng cô ngày 20-11",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp 25- 36 tháng A",
+   "story": "",
+   "ask": "",
+   "video": "https://drive.google.com/drive/home",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l9f51b7"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": true
+  },
+  {
+   "id": "emwlnmf53",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Cảm xúc của bé yêu.",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp 25- 36 tháng A",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l9f51b7"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/1d88e7509b7e43d72ed7.jpg",
+   "photos": [
+    "anh/1d88e7509b7e43d72ed7.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwlq8ifd",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Giờ khám phá của bé",
+   "era": "",
+   "plan": "",
+   "from": "Một nhóm trẻ 25–36 tháng C",
+   "story": "",
+   "ask": "Sao bông hoa này to nhỉ?  Còn bông hoa này sao nhỏ thế?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l4e46da"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/ab74fbaccff3749b0ece.jpg",
+   "photos": [
+    "anh/ab74fbaccff3749b0ece.jpg",
+    "anh/1c385fe83b18d30f33ce.jpg"
+   ],
+   "photoAlt": "Bé khám phá về bông hoa",
+   "sample": false
+  },
+  {
+   "id": "emwlqd3cm",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây hoa súng",
+   "era": "",
+   "plan": "",
+   "from": "Một nhóm trẻ 25–36 tháng C",
+   "story": "",
+   "ask": "Bông hoa có màu gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l4e46da"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/5045db81f742f0f4cb91.jpg",
+   "photos": [
+    "anh/5045db81f742f0f4cb91.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwlqgn68",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "cây lựu",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "Truyện: Sự tích cây hoa lựu\nNgày xửa ngày xưa, có một cô bé rất yêu cây xanh. Một hôm, cô bé nhìn thấy một cây nhỏ đang héo rũ bên hàng rào. Thương cây, cô bé ngày ngày tưới nước, bắt sâu và chăm sóc cây.\nNhờ sự chăm sóc của cô bé, cây ngày càng xanh tốt. Một buổi sáng, cây nở những bông hoa đỏ rực rỡ như những chiếc đèn lồng nhỏ. Ít lâu sau, hoa kết thành những quả tròn xinh, bên trong có rất nhiều hạt đỏ mọng.\nMẹ vui vẻ nói:\n– Đây là cây lựu đấy con ạ! Cây có hoa đỏ đẹp và quả rất ngon.\n\nCô bé thích thú ngắm nhìn cây và vui vẻ nói:\n\n– Con yêu cây lựu lắm!\nTừ đó, cây lựu luôn xanh tốt, mỗi mùa lại nở hoa đỏ thắm và kết những quả tròn xinh.",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l4e46da"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/e88a7a98bae0e98d7ece.jpg",
+   "photos": [
+    "anh/e88a7a98bae0e98d7ece.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwlqrocp",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Hoa đồng tiền",
+   "era": "",
+   "plan": "",
+   "from": "Một nhóm trẻ 25–36 tháng C",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l4e46da"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/fed6af1b5ad01e6170ef.jpg",
+   "photos": [
+    "anh/fed6af1b5ad01e6170ef.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwlqsy2i",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Vườn rau củ bé",
+   "era": "",
+   "plan": "",
+   "from": "Một nhóm trẻ 25–36 tháng C",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l4e46da"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/20b8e55267f88c1ba59a.jpg",
+   "photos": [
+    "anh/20b8e55267f88c1ba59a.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwlqu61d",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây hoa bỏng đỏ",
+   "era": "",
+   "plan": "",
+   "from": "Một nhóm trẻ 25–36 tháng C",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l4e46da"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/6349d900b1d0fbc38d8b.jpg",
+   "photos": [
+    "anh/6349d900b1d0fbc38d8b.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwlraszo",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Các Bé đi ngắm góc thiên nhiên của lớp",
+   "era": "",
+   "plan": "",
+   "from": "Nhóm trẻ 25 - 36 Tháng D",
+   "story": "Bé đi khám phá góc thiên nhiên",
+   "ask": "Bông hoa này có mầu gì? Mùi hương có thơm không?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb0bde3"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/04b930d05557ec99294b.jpg",
+   "photos": [
+    "anh/04b930d05557ec99294b.jpg",
+    "anh/caa17caefb2fe9b61a12.jpg",
+    "anh/7d93cae10ec356832d4f.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwlqgtwe",
+   "room": "khoanh-khac",
+   "art": "cay",
+   "name": "Cây Thài lài tím",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Nhóm trẻ 24-26 tháng B PH Tràng Đà",
+   "story": "Câu chuyện: Thài lài tím nhỏ bé\nTrong một chiếc chậu nhỏ bên hiên nhà, có một cây thài lài tím đang ngày ngày vươn mình đón nắng. Những chiếc lá xanh bạc ánh tím xinh xắn, những cành mềm mại bò dài ra xung quanh.\n\nMột hôm, cây nhìn thấy những bông hoa lớn trong vườn và buồn bã nói:\n\n– Mình nhỏ bé quá, chẳng có gì nổi bật cả!\n\nÔng Mặt Trời mỉm cười: \n\n– Mỗi loài cây đều có vẻ đẹp riêng. Cháu cứ chăm chỉ lớn lên, rồi mọi người sẽ yêu quý cháu.\n\nTừ đó, thài lài tím không còn buồn nữa. Cây xanh tốt, cành lá rủ mềm mại, tô điểm cho góc vườn thêm xinh đẹp.\n\nCâu chuyện nhắn nhủ: Mỗi chúng ta đều có vẻ đẹp riêng, dù nhỏ bé vẫn có thể mang đến niềm vui cho mọi người. 🌱",
+   "ask": "Các con chăm sóc cây như thế nào để cây luôn xanh tốt?",
+   "video": "https://drive.google.com/file/d/1ITrgEi-O4zed4mVdSlN4tJUbK-TR3lyE/view?usp=drive_link",
+   "audio": "https://drive.google.com/file/d/1W2MsS4fkTir3ARkfhf6HQMWE3ZSAgxN-/view?usp=drive_link",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l1b3ceb",
+    "l6c9ea7"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": true
+  },
+  {
+   "id": "emwlrn6ut",
+   "room": "khoanh-khac",
+   "art": "tranh",
+   "name": "Giỏ quà",
+   "era": "Tháng 11/2026",
+   "plan": "Món quà tặng cô",
+   "from": "Nhóm trẻ 24-26 tháng B PH Tràng Đà",
+   "story": "Ngày xưa, có một cô giáo luôn dịu dàng, yêu thương và chăm sóc các học trò như những mầm cây nhỏ. Mỗi ngày, cô kiên nhẫn dạy các em từng con chữ, từng bài học hay và cả những điều tốt đẹp trong cuộc sống.\n\nMột hôm, các bạn nhỏ cùng nhau bí mật làm những tấm thiệp xinh xắn, hái những bông hoa tươi để tặng cô. Khi nhận món quà, cô xúc động, đôi mắt ánh lên niềm vui. Cô ôm các em vào lòng và nói: “Món quà quý nhất của cô là thấy các con chăm ngoan, trưởng thành và biết yêu thương mọi người.”\n\nCác bạn nhỏ hiểu rằng, tình yêu của cô không chỉ nằm trong những bài học, mà còn trong từng lời động viên, nụ cười và sự chăm sóc mỗi ngày.\n\nThông điệp: Hãy luôn biết yêu thương, kính trọng và tri ân cô giáo – người đã gieo những hạt giống yêu thương, nâng bước chúng ta trưởng thành. ❤️",
+   "ask": "Các con làm được món quà gì tặng cô giáo",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1dtux2bMJMHsNGBUo2https://drive.google.com/file/d/13axf7uW7y6yg0tZMexgjonGB7N6AFofa/view?usp=drive_linkTWjmM1Jk9iT6EXD/view?usp=drive_link",
+   "cls": [
+    "l1b3ceb"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/ae94d6fb1ff8f62003bd.jpg",
+   "photos": [
+    "anh/ae94d6fb1ff8f62003bd.jpg",
+    "anh/6816b1dd987296acf888.jpg",
+    "anh/4006414c099604c3b833.jpg"
+   ],
+   "photoAlt": "Món quà tặng cô giáo",
+   "sample": false
+  },
+  {
+   "id": "emwls00cd",
+   "room": "tri-an",
+   "art": "sach",
+   "name": "Giỏ quà",
+   "era": "Tháng 11/2026",
+   "plan": "Món quà tặng cô",
+   "from": "Nhóm trẻ 24-26 tháng B PH Tràng Đà",
+   "story": "Ngày xưa, có một cô giáo luôn dịu dàng, yêu thương và chăm sóc các học trò như những mầm cây nhỏ. Mỗi ngày, cô kiên nhẫn dạy các em từng con chữ, từng bài học hay và cả những điều tốt đẹp trong cuộc sống.\n\nMột hôm, các bạn nhỏ cùng nhau bí mật làm những tấm thiệp xinh xắn, hái những bông hoa tươi để tặng cô. Khi nhận món quà, cô xúc động, đôi mắt ánh lên niềm vui. Cô ôm các em vào lòng và nói: “Món quà quý nhất của cô là thấy các con chăm ngoan, trưởng thành và biết yêu thương mọi người.”\n\nCác bạn nhỏ hiểu rằng, tình yêu của cô không chỉ nằm trong những bài học, mà còn trong từng lời động viên, nụ cười và sự chăm sóc mỗi ngày.\n\nThông điệp: Hãy luôn biết yêu thương, kính trọng và tri ân cô giáo – người đã gieo những hạt giống yêu thương, nâng bước chúng ta trưởng thành. ❤️",
+   "ask": "Các con làm được món quà gì tặng cô giáo",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1dtux2bMJMHsNGBUo2https://drive.google.com/file/d/13axf7uW7y6yg0tZMexgjonGB7N6AFofa/view?usp=drive_linkTWjmM1Jk9iT6EXD/view?usp=drive_link",
+   "cls": [
+    "l1b3ceb"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/a1ee3d21f02e25f623c2.jpg",
+   "photos": [
+    "anh/a1ee3d21f02e25f623c2.jpg"
+   ],
+   "photoAlt": "Món quà tặng cô giáo",
+   "sample": true
+  },
+  {
+   "id": "emwlrz19a",
+   "room": "tri-an",
+   "art": "sach",
+   "name": "Bé cắm hoa tặng cô",
+   "era": "",
+   "plan": "",
+   "from": "Lớp 5-6 tuổi C1",
+   "story": "",
+   "ask": "",
+   "video": "https://youtu.be/jtpUT0wtAqk",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l3a9b5e"
+   ],
+   "tc": [
+    "TC7"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwltt9o1",
+   "room": "tri-an",
+   "art": "sach",
+   "name": "Bé cắm hoa tặng cô giáo",
+   "era": "",
+   "plan": "",
+   "from": "Lớp 5-6 tuổi C1",
+   "story": "",
+   "ask": "",
+   "video": "https://youtu.be/jtpUT0wtAqk",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l3a9b5e"
+   ],
+   "tc": [
+    "TC7"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
    "photoAlt": "",
    "sample": false
   }
