@@ -61,7 +61,37 @@
    {
     "id": "lb4ed25",
     "name": "MG 4–5 tuổi B2",
-    "site": "Trường chính"
+    "site": "Trường chính",
+    "intro": {
+     "text": "Lớp mẫu giáo 4–5 tuổi gồm 21 thành viên đáng yêu (12 bé gái và 9 bé trai) luôn tràn đầy năng lượng, ham học hỏi và thích vui chơi. Điểm nhấn nổi bật của lớp là góc STEAM sôi động, nơi các con được tự do khám phá và thỏa sức sáng tạo mỗi ngày. Bên cạnh đó, lớp đang cùng nhau tìm hiểu về nét đẹp di sản qua các trò chơi dân gian và văn hóa các dân tộc anh em. Một trong những kỷ niệm đáng nhớ nhất của tập thể lớp là hoạt động tự tay làm những tấm bưu thiếp xinh xắn để tri ân cô giáo.",
+     "teachers": "Bùi Minh Huệ, Nguyễn Thị Thu Trang, Phạm Thị Thu Hường",
+     "kids": "21 bé (9 bé trai và 12 bé gái)",
+     "motto": "Lớp Mẫu giáo 4-5 tuổi B2: Ngoan ngoãn - Tự tin - Tỏa sáng!",
+     "photo": "anh/7968ff82f7a6a641c76b.jpg",
+     "video": "",
+     "staff": [
+      {
+       "name": "Bùi Minh Huệ",
+       "role": "Giáo viên chủ nhiệm",
+       "note": "Với hơn 10 năm kinh nghiệm nuôi dạy trẻ cùng thế mạnh ứng dụng công nghệ số vào giảng dạy, cô luôn mong muốn mang đến cho các con những giờ học sáng tạo và đầy ắp tiếng cười. Cô rất mong nhận được sự tin tưởng, đồng hành từ quý phụ huynh để mỗi ngày đến trường của bé đều là một hành trình hạnh phúc!",
+       "photo": ""
+      },
+      {
+       "name": "Nguyễn Thị Thu Trang",
+       "role": "Giáo viên chủ nhiệm",
+       "note": "Với 15 năm kinh nghiệm giáo dục mầm non cùng sở trường nghệ thuật hội họa, cô luôn mong muốn biến mỗi giờ học thành một bức tranh rực rỡ sắc màu để khơi dậy khả năng sáng tạo của trẻ. Cô rất mong nhận được sự tin tưởng và đồng hành từ quý phụ huynh để cùng nhau tô điểm cho tuổi thơ của các con thêm",
+       "photo": "anh/2bf905d5294a8db9ad1b.jpg"
+      },
+      {
+       "name": "Phạm Thị Thu Hường",
+       "role": "Giáo viên chủ nhiệm",
+       "note": "Trải qua 14 năm công tác trong ngành Giáo dục cùng tấm lòng luôn yêu nghề, mến trẻ, cô luôn trân trọng từng khoảnh khắc khôn lớn của các con. Bằng sự tận tâm và kiên nhẫn, cô mong muốn mang đến một môi trường học tập ấm áp, an toàn để các bé tự do khám phá mỗi ngày. Cô rất mong nhận được sự tin tưởn",
+       "photo": "anh/24996196e173c5ca23e8.jpg"
+      }
+     ],
+     "by": "Nguyễn Thị Thu Trang",
+     "at": "2026-11-18"
+    }
    },
    {
     "id": "l8834cf",
