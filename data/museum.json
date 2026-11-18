@@ -66,7 +66,25 @@
    {
     "id": "l8834cf",
     "name": "MG 4–5 tuổi B3",
-    "site": "Trường chính"
+    "site": "Trường chính",
+    "intro": {
+     "text": "Ngôi nhà nhỏ B3 của chúng mình là nơi hội tụ của 21 thiên thần nhỏ vô cùng đáng yêu, hồn nhiên và ham học hỏi. Mỗi bạn nhỏ là một màu sắc riêng biệt, cùng nhau tạo nên một tập thể đoàn kết, rộn rã tiếng cười mỗi ngày. Dưới sự đồng hành, chăm sóc tận tình của các cô giáo và sự tin yêu của quý phụ huynh, tập thể lớp B3 luôn hướng tới mục tiêu xây dựng một Lớp học hạnh phúc – nơi các con được yêu thương, tôn trọng, tự tin khám phá thế giới xung quanh và khôn lớn từng ngày.\"",
+     "teachers": "Đặng Thị Hiền - Phùng Thanh Lan",
+     "kids": "21. Nam 11; Nữ: 10",
+     "motto": "Lớp B3: Trao yêu thương – Nhận nụ cười",
+     "photo": "anh/55c80c317930db6b8c7e.jpg",
+     "video": "",
+     "staff": [
+      {
+       "name": "Đặng Thị Hiền - Phùng Thanh Lan",
+       "role": "Giáo viên chủ nhiệm",
+       "note": "",
+       "photo": "anh/18bd70dd2687abd75b25.jpg"
+      }
+     ],
+     "by": "Đặng Thị Hiền",
+     "at": "2026-11-18"
+    }
    },
    {
     "id": "l92c638",
