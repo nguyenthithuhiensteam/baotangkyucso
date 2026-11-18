@@ -253,7 +253,31 @@
    {
     "id": "lc0c279",
     "name": "Nhà trẻ 25–36 tháng A Hương Sen",
-    "site": "Phân hiệu Hương Sen"
+    "site": "Phân hiệu Hương Sen",
+    "intro": {
+     "text": "Chào mừng các bé đến với Team Cơm A Hương Sen – Lớp học yêu thương! 🏡✨\nỞ ngôi nhà nhỏ này, có cô Oanh hay cười, cô Ngọc tận tâm cùng những \"em bé\" siêu đáng yêu đang lớn lên từng ngày. Không chỉ là nơi học ăn, học nói, học những bước đi đầu đời, Team Cơm A còn là mái nhà thứ hai đong đầy tiếng cười giòn tan và những cái ôm ấm áp mỗi ngày! 🥰\nMỗi ngày đến lớp của các con là một hành trình ngập tràn tiếng cười, và tình yêu thương. Cùng theo dõi hành trình khôn lớn thật hạnh phúc của Team Cơm A nhé! ❤️🌱\nChào mừng đến với Cơm A\nLớp học nhỏ bé nhưng mà rất vui!\nCó cô Oanh nụ cười tươi\nCô Ngọc âu yếm, sáng ngời yêu thương.\nCùng đàn bé nhỏ dễ thương\nMỗi ngày đến lớp vấn vương tiếng cười! 💕🌸",
+     "teachers": "Nguyễn Thị Oanh, Nguyễn Thị Ngọc",
+     "kids": "Tổng: 17(Bé trai 12, Bé gái 5)",
+     "motto": "Cơm A Hương Sen - Học ăn - Học nói - Học gói yêu thương!",
+     "photo": "anh/3a7d02b9ebd8977d8dac.jpg",
+     "video": "",
+     "staff": [
+      {
+       "name": "Nguyễn Thị Oanh",
+       "role": "Team Cơm A Hương Sen",
+       "note": "Cô Oanh nụ cười tươi Ánh mắt sáng rạng ngời Yêu thương đàn bé nhỏ Dịu dàng tựa nắng mới! ☀️💕",
+       "photo": "anh/4997da614696c4a1098d.jpg"
+      },
+      {
+       "name": "Nguyễn Thị Ngọc",
+       "role": "Team Cơm A Hương Sen",
+       "note": "",
+       "photo": "anh/5f57f9db762fffc046ab.jpg"
+      }
+     ],
+     "by": "Nguyễn Thị Oanh",
+     "at": "2026-11-18"
+    }
    },
    {
     "id": "l6c9ea7",
