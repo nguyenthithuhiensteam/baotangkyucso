@@ -9478,6 +9478,66 @@
    "photos": [],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwlvticc",
+   "room": "tri-an",
+   "art": "video",
+   "name": "Trẻ làm được món quà để tặng cô giáo nhân ngày 20/11",
+   "era": "19/11/2026",
+   "plan": "Món quà tặng cô",
+   "from": "MG 5 - 6 Tuổi Hương Sen",
+   "story": "Các con thân mến! Các con có biết sắp đến ngày gì mà mọi người thường dành những lời chúc thật yêu thương cho các thầy cô giáo không?\n\nĐúng rồi! Đó là ngày 20/11 – Ngày Nhà giáo Việt Nam. Đây là một ngày thật ý nghĩa để mọi người thể hiện tình cảm, sự kính trọng và lòng biết ơn đối với những người thầy, người cô đã luôn yêu thương, chăm sóc và dạy dỗ các con.\n\nHằng ngày, cô giáo luôn ở bên chăm sóc các con, dạy các con biết lễ phép, biết yêu thương, đoàn kết với bạn bè, biết tự phục vụ và khám phá thêm nhiều điều mới mẻ. Vì vậy, nhân ngày 20/11, các con có thể thể hiện tình cảm của mình bằng những việc làm thật đáng yêu như ngoan ngoãn, lễ phép, chăm học, biết giúp đỡ cô và yêu thương bạn bè.\n\nMột lời chúc nhỏ, một bông hoa hay một món quà do chính đôi bàn tay bé xinh của các con làm ra cũng sẽ là món quà rất ý nghĩa dành tặng cô giáo.\n\nCô mong rằng không chỉ trong ngày 20/11 mà mỗi ngày đến lớp, các con đều biết yêu thương, kính trọng và thể hiện sự biết ơn đối với cô giáo bằng những việc làm tốt đẹp của mình nhé!",
+   "ask": "Con có biết ngày 20/11 là  ngày gì không",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1csxfGOl6OWb1zDevfRQ6U-DhU0CV_ZH9/view?usp=drive_link",
+   "cls": [
+    "l19ca8e"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/ee6955dda58fc5c72ac9.jpg",
+   "photos": [
+    "anh/ee6955dda58fc5c72ac9.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwlwv9yt",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Trò chơi Dân gian: Kéo co",
+   "era": "Tháng 11/2026",
+   "plan": "Hoạt động ngoài trời",
+   "from": "Lớp 4-5 tuổi B2 trường chính",
+   "story": "SỢI DÂY KÉO CO VÀ BÀI HỌC ĐOÀN KẾT\nNắng thu vàng ươm trải nhẹ trên sân trường rộn rã tiếng cười. Giờ hoạt động ngoài trời hôm nay thật đặc biệt, cô giáo tổ chức cho lớp chơi trò chơi dân gian kéo co. Một sợi dây thừng to bản, chắc nịch được đặt ngay ngắn giữa vạch vôi trắng, ở giữa buộc chiếc khăn đỏ thắm bay phấp phới trong gió.\nCả lớp chia làm hai đội bằng nhau. Tiếng còi của cô giáo vừa vang lên, không khí lập tức nóng bừng. Đội của Nam và đội của Lan cùng nắm chặt sợi dây, chân ghì sâu xuống đất, người ngả hẳn về phía sau. Hai bên hò reo vang dội: “Cố lên! Một, hai, ba… kéo!”. Chiếc khăn đỏ ở giữa sợi dây cứ nhích sang trái rồi lại giật về bên phải trong sự hồi hộp của tất cả mọi người.\nBan đầu, vì muốn thể hiện sức mạnh, Nam cố sức giật dây thật mạnh một mình, không theo nhịp chung khiến cả đội loạng choạng. Sợi dây bị đội của Lan kéo lệch hẳn sang bên kia vạch. Nhận ra điều đó, Nam vội hô to để cả đội cùng bắt nhịp: “Một, hai, kéo! Một, hai, kéo!”. Lần này, tất cả đôi tay cùng nắm chặt, những bước chân cùng lùi đều tăm tắp. Sợi dây căng như dây đàn, chiếc khăn đỏ từ từ vượt qua vạch giữa trong tiếng vỗ tay reo hò vỡ òa.\nTrò chơi kết thúc trong niềm vui hân hoan, mồ hôi lấm tấm trên những gương mặt rạng rỡ. Qua sợi dây kéo co mộc mạc, các bạn nhỏ hiểu ra rằng: sức mạnh không nằm ở một cá nhân riêng lẻ, mà đến từ sự đồng lòng, nhịp nhàng và tinh thần đoàn kết của cả tập thể.",
+   "ask": "Vừa được chơi kéo co xong, các con cảm thấy trong người thế nào? Có vui và khỏe khoắn hơn không?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb4ed25"
+   ],
+   "tc": [
+    "TC1",
+    "TC3",
+    "TC4",
+    "TC6"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/a6e48f9c28c9203e6c2c.jpg",
+   "photos": [
+    "anh/a6e48f9c28c9203e6c2c.jpg",
+    "anh/ac0c643f8044725a8550.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
