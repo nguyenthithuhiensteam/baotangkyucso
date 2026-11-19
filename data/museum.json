@@ -127,11 +127,25 @@
     "site": "Trường chính",
     "intro": {
      "text": "Tổng số lớp có 23 trẻ.\nCác bé thích nhất là hoạt động vui chơi ngoài trời, thăm quan góc thiên nhiên các lớp\nHoạt động đáng nhớ của các bé là hoạt động ngoại khóa PCCC đã tham gia trong tháng 10/2026",
-     "teachers": "",
-     "kids": "Tổng số: 23",
+     "teachers": "Nguyễn Thị Bích Thủy, Trần Thị Định",
+     "kids": "Tổng số: 23; Nam 15, nữ 8.",
      "motto": "Bé 3-4 tuổi A2 vui vẻ - Cô giáo hạnh phúc",
      "photo": "",
      "video": "",
+     "staff": [
+      {
+       "name": "Nguyễn Thị Bích Thủy",
+       "role": "Giáo viên chủ nhiệm",
+       "note": "Là giáo viên mầm non đã gắn bó với nghề 16 năm. Với cô mỗi bạn nhỏ là một bông hoa riêng biệt, cần được chăm sóc bằng tình yêu thương, sự kiên nhẫn và nguyên tắc phù hợp. Với kinh nghiệm 16 năm, việc chăm sóc bữa ăn, giấc ngủ, đảm bảo an toàn và xử lý nhanh các tình huống nhỏ phát sinh trên lớp.",
+       "photo": ""
+      },
+      {
+       "name": "Trần Thị Định",
+       "role": "Giáo viên chủ nhiệm",
+       "note": "",
+       "photo": ""
+      }
+     ],
      "by": "Nguyễn Thủy",
      "at": "2026-11-19"
     }
