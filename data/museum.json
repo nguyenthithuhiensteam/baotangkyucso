@@ -163,7 +163,31 @@
    {
     "id": "l5f4f02",
     "name": "Nhà trẻ 25–36 tháng B",
-    "site": "Trường chính"
+    "site": "Trường chính",
+    "intro": {
+     "text": "",
+     "teachers": "Trần Thị Bích Hoàn, Lê Hồng Linh",
+     "kids": "",
+     "motto": "",
+     "photo": "anh/36ebb09377800f50f610.jpg",
+     "video": "",
+     "staff": [
+      {
+       "name": "Trần Thị Bích Hoàn",
+       "role": "Giáo viên chủ nhiệm",
+       "note": "",
+       "photo": ""
+      },
+      {
+       "name": "Lê Hồng Linh",
+       "role": "Giáo viên chủ nhiệm",
+       "note": "",
+       "photo": ""
+      }
+     ],
+     "by": "Trần Thị Bích Hoàn",
+     "at": "2026-11-19"
+    }
    },
    {
     "id": "l4e46da",
