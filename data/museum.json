@@ -9610,6 +9610,288 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwm8jc3l",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Trò chơi Dân gian: Lộn cầu vồng Lớp MG 4-5 tuổi B2 Nông Tiến",
+   "era": "Tháng 11/2026",
+   "plan": "Hoạt động ngoài trời",
+   "from": "Lớp 4-5 tuổi B2 trường chính",
+   "story": "Trò chơi \"Lộn cầu vồng\" là một nét đẹp văn hóa dân gian quen thuộc của trẻ em Việt Nam. Trong tiếng hát đồng dao rộn rã, từng đôi bạn nắm chặt tay nhau nhịp nhàng theo lời hát rồi khéo léo chui qua tay để lộn ngược lại mà không làm đứt kết nối. Trò chơi không chỉ mang lại tiếng cười sảng khoái, rèn luyện sự khéo léo, linh hoạt mà còn bồi đắp tình bạn gắn bó, hồn nhiên của tuổi thơ.",
+   "ask": "Các con cảm thấy thế nào khi được chơi trò chơi \"Lộn cầu vồng\"?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb4ed25"
+   ],
+   "tc": [
+    "TC1",
+    "TC4",
+    "TC6"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/9a8b5e9a2ba49ba5e9af.jpg",
+   "photos": [
+    "anh/9a8b5e9a2ba49ba5e9af.jpg",
+    "anh/4dc2192135fea2b19712.jpg"
+   ],
+   "photoAlt": "\"Lộn cầu vồng\" là trò chơi dân gian dành cho từng đôi bạn đứng đối diện nắm chặt tay nhau, vừa đọc đồng dao vung tay theo nhịp vừa khéo léo chui qua tay để xoay ngược lưng lại với nhau mà không rời ta",
+   "sample": false
+  },
+  {
+   "id": "emwm925s4",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Trò chơi Dân gian: Nhảy bao bố Lớp MG 4-5 tuổi B2 Nông Tiến",
+   "era": "Tháng 11/2026",
+   "plan": "Hoạt động ngoài trời",
+   "from": "Lớp 4-5 tuổi B2 trường chính",
+   "story": "Nhảy bao bố là một trò chơi dân gian sôi động, mang đậm tinh thần thượng võ và gắn kết cộng đồng trong mỗi dịp lễ hội làng quê Việt Nam.\nDưới ánh nắng rực rỡ trên khoảng sân đình rộng lớn, tiếng trống hội giục giã hòa cùng tiếng hò reo cổ vũ vang dội cả một góc trời. Trên vạch xuất phát, các đội chơi xếp thành hàng dọc, những người chơi đầu tiên nhanh nhẹn bước đôi chân vào chiếc bao bố gai, hai tay nắm chặt miệng bao kéo ngang thắt lưng. Khi tiếng còi hiệu vừa cất lên, cả sân chơi như vỡ òa. Từng người chụm hai chân bật nhảy liên tiếp về phía trước như những chú kanguru ngộ nghĩnh.\nTrò chơi tưởng chừng đơn giản nhưng lại đòi hỏi sự khéo léo, sức bật dẻo dai và khả năng giữ thăng bằng cực tốt. Chỉ cần một chút vội vàng hay lệch nhịp, người chơi rất dễ loạng choạng rồi ngã nhào xuống đất, tạo nên những tràng cười sảng khoái cho khán giả xung quanh. Dù lấm lem bụi đất, ai nấy đều nhanh chóng đứng dậy, mỉm cười tiếp tục nhảy thật nhanh về đích để trao lại chiếc bao cho đồng đội kế tiếp.\nKhông chỉ là những phút giây giải trí hào hứng, nhảy bao bố còn rèn luyện thể lực, sự kiên trì và tinh thần đồng đội bền chặt. Giữa nhịp sống hiện đại, trò chơi mộc mạc này vẫn giữ nguyên sức hút, trở thành sợi dây gắn kết mọi người và lưu giữ nét đẹp văn hóa truyền thống hồn nhiên của dân tộc.",
+   "ask": "Khi thấy bạn cùng đội đang nhảy, các con đứng ngoài sẽ làm gì để giúp bạn có thêm sức mạnh?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb4ed25"
+   ],
+   "tc": [
+    "TC1",
+    "TC4",
+    "TC6",
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/68dfcee0bae98cceeaf9.jpg",
+   "photos": [
+    "anh/68dfcee0bae98cceeaf9.jpg",
+    "anh/d4df4333847d8b2fafe6.jpg",
+    "anh/6411ae5f24c461dc6675.jpg",
+    "anh/35e0c21ca93b7590a535.jpg",
+    "anh/c1eae394a423ddf2617e.jpg"
+   ],
+   "photoAlt": "\"Nhảy bao bố\" là trò chơi dân gian sôi động mà người chơi xỏ hai chân vào chiếc bao tải, hai tay nắm chặt miệng bao rồi chụm chân bật nhảy liên tiếp về phía trước để thi đua về đích.",
+   "sample": false
+  },
+  {
+   "id": "emwmazluw",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây hoa Giấy Lớp MG 4-5 Tuổi B2 Nông Tiến",
+   "era": "Tháng 11/2026",
+   "plan": "Cây xanh lớp bé",
+   "from": "Lớp 4-5 tuổi B2 trường chính",
+   "story": "Giàn hoa giấy cổ thụ trước hiên nhà bà ngoại là biểu tượng của sự bình yên và sức sống mãnh liệt. Thân cây xù xì nâng đỡ mái vòm xanh mướt, bung nở những cánh hoa mỏng manh rực rỡ sắc hồng và trắng vào mỗi dịp xuân hè. Mặc cho thời tiết khắc nghiệt, cây vẫn kiên cường vươn lên, gắn liền với những buổi trưa ngồi dưới bóng mát nghe bà kể chuyện và trở thành một phần ký ức tuổi thơ êm đềm.",
+   "ask": "Vì cành hoa giấy có gai nên khi chơi gần gốc cây, chúng mình cần chú ý điều gì để không bị đau?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb4ed25"
+   ],
+   "tc": [
+    "TC3",
+    "TC6",
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/eff0da793cae17d11a59.jpg",
+   "photos": [
+    "anh/eff0da793cae17d11a59.jpg"
+   ],
+   "photoAlt": "Cây hoa giấy là loài cây leo có thân gỗ xù xì, cành dẻo mọc nhiều gai nhọn, lá nhỏ hình trái tim cùng những chùm hoa mỏng manh, khô ráo và sột soạt nhẹ như tờ giấy khi chạm vào.",
+   "sample": false
+  },
+  {
+   "id": "emwmbb9qi",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây Đại Phú Gia - Lớp MG 4-5 Tuổi B2 Nông Tiến",
+   "era": "Tháng 11/2026",
+   "plan": "Cây xanh lớp bé",
+   "from": "Lớp 4-5 tuổi B2 trường chính",
+   "story": "Cây Đại Phú Gia là loài cây kiểng mang dáng vẻ vạm vỡ, thân thảo mập mạp và những chiếc lá to bản xanh mướt xếp tầng kiêu hãnh. Không chỉ làm nổi bật không gian phòng khách nhờ vẻ đẹp sang trọng, cây còn tượng trưng cho sự sung túc, thịnh vượng và mang lại cảm giác thư thái, gần gũi với thiên nhiên.",
+   "ask": "Lá cây có màu gì và khi sờ nhẹ tay lên mặt lá, các con cảm thấy bề mặt lá thế nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb4ed25"
+   ],
+   "tc": [
+    "TC4",
+    "TC6",
+    "TC8"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/71c59797af07997d2b9e.jpg",
+   "photos": [
+    "anh/71c59797af07997d2b9e.jpg",
+    "anh/0f1d7a3c7905f728e564.jpg",
+    "anh/94b1c995fe3ce8d50436.jpg"
+   ],
+   "photoAlt": "Cây Đại Phú Gia là loài cây cảnh thân thảo mập mạp, chia nhiều đốt tròn, nổi bật với những chiếc lá to bản hình bầu dục nhẵn bóng, mát rượi và có nhiều đường gân nổi rõ khi chạm tay vào.",
+   "sample": false
+  },
+  {
+   "id": "emwmbgi02",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây Trầu Bà Đế Vương Đỏ - Lớp MG 4-5 Tuổi B2 Nông Tiến",
+   "era": "Tháng 11/2026",
+   "plan": "Cây xanh lớp bé",
+   "from": "Lớp 4-5 tuổi B2 trường chính",
+   "story": "Cây Trầu bà đế vương đỏ là loài cây cảnh sang trọng với bộ lá to bản chuyển màu độc đáo từ sắc đỏ tía rực rỡ khi non sang xanh thẫm khi trưởng thành. Thân cây mập mạp vươn cao như chiếc vương miện, không chỉ giúp thanh lọc không khí mà còn mang ý nghĩa phong thủy về sự thịnh vượng, may mắn và ý chí vươn lên.",
+   "ask": "Khi sờ nhẹ tay lên mặt lá, các con cảm thấy thế nào? Cuống lá dài hay ngắn và có màu gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb4ed25"
+   ],
+   "tc": [
+    "TC4",
+    "TC6",
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/1a1ef87845aa17fd4d54.jpg",
+   "photos": [
+    "anh/1a1ef87845aa17fd4d54.jpg",
+    "anh/500d9b5476f69ee53d4c.jpg"
+   ],
+   "photoAlt": "Cây Trầu bà đế vương đỏ là loài cây cảnh thân thảo mọc thành bụi thấp với phần cuống lá mập mạp, nâng đỡ những chiếc lá to bản hình trái tim thuôn nhọn, bề mặt dày dặn, nhẵn bóng và mát mịn khi chạm t",
+   "sample": false
+  },
+  {
+   "id": "emwmbnvgr",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây Lan Ý - Lớp MG 4-5 Tuổi B2 Nông Tiến",
+   "era": "Tháng 11/2026",
+   "plan": "Cây xanh lớp bé",
+   "from": "Lớp 4-5 tuổi B2 trường chính",
+   "story": "Cây Lan Ý (Bạch Môn) là loài cây cảnh có tán lá xanh mướt và bông hoa màu trắng muốt hình chiếc thuyền buồm hoặc bàn tay ôm lấy nhụy vàng. Không chỉ mang vẻ đẹp thanh tao, loài cây này còn được biết đến như một máy lọc không khí tự nhiên, giúp thanh lọc không gian và biểu trưng cho sự bình an, hạnh phúc trong cuộc sống.",
+   "ask": "Lá cây Lan Ý có màu gì, hình dáng giống chiếc thuyền hay hình tròn? Khi sờ vào mặt lá con thấy thế nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb4ed25"
+   ],
+   "tc": [
+    "TC4",
+    "TC6",
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/6bc40f7f01a7a0fcf069.jpg",
+   "photos": [
+    "anh/6bc40f7f01a7a0fcf069.jpg"
+   ],
+   "photoAlt": "Cây Lan Ý là loài cây bụi thấp không thân với những chiếc lá thuôn dài mềm mại, nhẵn bóng, nổi bật với bông hoa vươn cao có cánh mo trơn láng uốn cong như chiếc thuyền buồm ôm trọn lấy phần nhụy dài s",
+   "sample": false
+  },
+  {
+   "id": "emwmbtkgp",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây Phúc Lộc Thọ- Lớp MG 4-5 Tuổi B2 Nông Tiến",
+   "era": "Tháng 11/2026",
+   "plan": "Cây xanh lớp bé",
+   "from": "Lớp 4-5 tuổi B2 trường chính",
+   "story": "Cây Phúc Lộc Thọ là một loại cây cảnh đẹp và mang ý nghĩa phong thủy tốt lành, tượng trưng cho sự may mắn, tài lộc, hạnh phúc và trường thọ cho gia đình. Cây có dáng thân thẳng, cứng cáp giống như thân trúc nhỏ, nổi bật với bộ lá dài thuôn mềm mại xếp tầng hình tròn và sắc đỏ tía, hồng cam rực rỡ. Nhờ vẻ ngoài bắt mắt cùng sức sống bền bỉ, dễ chăm sóc, loài cây này thường được lựa chọn để trang trí nội thất, mang lại nguồn năng lượng tích cực và cảm giác bình an cho không gian sống.",
+   "ask": "Lá cây mọc xòe tròn xung quanh giống hình gì? Khi sờ vào mặt lá con thấy mềm mại hay thô ráp?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb4ed25"
+   ],
+   "tc": [
+    "MR2",
+    "TC4",
+    "TC6",
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/b76d1fd34986efb09276.jpg",
+   "photos": [
+    "anh/b76d1fd34986efb09276.jpg",
+    "anh/7ed59d6d81db84d8f77c.jpg"
+   ],
+   "photoAlt": "ây Phúc Lộc Thọ là loài cây cảnh có thân mọc thẳng đứng, cứng cáp và chia nhiều đốt tròn như thân trúc nhỏ, nâng đỡ tán lá thuôn dài, nhẵn mềm xếp xòe tròn thành từng tầng xum xuê trên ngọn.",
+   "sample": false
+  },
+  {
+   "id": "emwmwjkcq",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây lan ý .",
+   "era": "Tháng 11",
+   "plan": "",
+   "from": "Lớp 3-4 tuổi A2",
+   "story": "",
+   "ask": "Con có biết đây là cây gì không?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lc8a1a7"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/ceaaaf3fdb8f6e4437e6.jpg",
+   "photos": [
+    "anh/ceaaaf3fdb8f6e4437e6.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwmwm2d7",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây ngọc trâm.",
+   "era": "Tháng 11",
+   "plan": "",
+   "from": "Lớp 3-4 tuổi A2",
+   "story": "Ở Pháp từ hàng trăm năm trước, ngọc trâm đã là loài hoa gắn liền với lễ cưới. Truyền thuyết kể rằng nếu vào ngày thành hôn, mọi người rải những bông ngọc trâm trên một dòng suối nhỏ, và cô dâu nhảy qua con suối đó:\n\nNếu hoa ngọc trâm nổi lên mặt nước, đó là điềm báo cuộc hôn nhân sẽ hạnh phúc, trọn vẹn\nNếu hoa chìm xuống, cuộc sống sau này sẽ gặp nhiều thử thách\nCho đến ngày nay, nhiều cặp đôi Pháp vẫn giữ thói quen dùng ngọc trâm trong ngày cưới để cầu mong cho tình yêu được bền lâu",
+   "ask": "Con có biết đây là cây gì không?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lc8a1a7"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/cdc2cbea9877bfc56ee8.jpg",
+   "photos": [
+    "anh/cdc2cbea9877bfc56ee8.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
