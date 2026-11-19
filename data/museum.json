@@ -9892,6 +9892,39 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwmwpgvu",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Trải nghiệm thực hành kỹ năng PCCC",
+   "era": "Tháng 10",
+   "plan": "",
+   "from": "Lớp 3-4 tuổi A2",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lc8a1a7"
+   ],
+   "tc": [
+    "TC3"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/f321148c46406a694733.jpg",
+   "photos": [
+    "anh/f321148c46406a694733.jpg",
+    "anh/2761106baab74457f4ee.jpg",
+    "anh/6c1a317d4474f012684a.jpg",
+    "anh/f58cca6b8565587dab59.jpg",
+    "anh/c51c6cf6af3c65aa63f9.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
