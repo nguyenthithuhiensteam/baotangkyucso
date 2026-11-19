@@ -9925,6 +9925,35 @@
    ],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwmxc5nz",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Bữa trưa của bé",
+   "era": "Tháng 11/2026",
+   "plan": "Hôm nay bé ăn gì!",
+   "from": "LỚp 5-6 tuổi Hương Sen",
+   "story": "Cơ thể mỗi chúng ta cần được cung cấp đầy đủ các chất dinh dưỡng để lớn lên khỏe mạnh.\n- Chất bột đường: Có trong cơm, khoai, ngô… giúp cung cấp năng lượng cho cơ thể.\n- Chất đạm: Có trong thịt, cá, trứng, tôm, sữa… giúp cơ thể lớn lên và phát triển.\n- Chất béo: Có trong dầu ăn, mỡ, lạc, vừng… giúp cung cấp năng lượng và hỗ trợ cơ thể hấp thu một số vitamin.\n- Vitamin và chất khoáng: Có trong rau xanh, củ, quả… giúp cơ thể khỏe mạnh.\n        Bữa trưa là một bữa ăn rất quan trọng trong ngày. Ăn bữa trưa đầy đủ giúp cơ thể có thêm năng lượng để vui chơi, học tập và tham gia các hoạt động. Vì vậy, các con cần ăn đúng giờ, ăn đủ suất, không bỏ bữa và ăn uống vui vẻ nhé!",
+   "ask": "1. Trong bữa trưa hôm nay có những món ăn gì? 2. Vì sao chúng ta cần phải ăn đầy đủ các chất dinh dưỡng? 3. Khi ăn chúng ta cần có những thói quen tốt nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l7d442e"
+   ],
+   "tc": [],
+   "keeper": "Người có uy tín",
+   "her": "",
+   "photo": "anh/d93b69808f426d0cb85e.jpg",
+   "photos": [
+    "anh/d93b69808f426d0cb85e.jpg",
+    "anh/1d3b6140c11f280f6808.jpg",
+    "anh/e551d23aca62a09229e7.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
