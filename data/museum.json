@@ -296,7 +296,31 @@
    {
     "id": "l5d20a2",
     "name": "MG 3–4 tuổi Hương Sen",
-    "site": "Phân hiệu Hương Sen"
+    "site": "Phân hiệu Hương Sen",
+    "intro": {
+     "text": "",
+     "teachers": "Cô Chu Thị Duyên, Nguyễn Thị Bích Phượng",
+     "kids": "",
+     "motto": "",
+     "photo": "",
+     "video": "",
+     "staff": [
+      {
+       "name": "Cô Chu Thị Duyên",
+       "role": "Giáo viên chủ nhiệm",
+       "note": "Là giáo viên trẻ có năng lực đổi mới sáng tạo. Cô Duyên là giáo viên dạy giỏi cấp thành phố và cấp tỉnh. Có chuyên môn về giáo dục sớm",
+       "photo": "anh/bf2411667aff43fa065e.jpg"
+      },
+      {
+       "name": "Nguyễn Thị Bích Phượng",
+       "role": "Giáo viên chủ nhiệm",
+       "note": "Là giáo viên trẻ có năng lực chuyên môn tốt. Chăm sóc trẻ nhiệt tình và chu đáo",
+       "photo": "anh/93270f63dbf164e481d6.jpg"
+      }
+     ],
+     "by": "quản trị",
+     "at": "2026-11-19"
+    }
    },
    {
     "id": "lc0c279",
