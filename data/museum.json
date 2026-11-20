@@ -286,7 +286,37 @@
    {
     "id": "l19ca8e",
     "name": "MG 5–6 tuổi Hương Sen",
-    "site": "Phân hiệu Hương Sen"
+    "site": "Phân hiệu Hương Sen",
+    "intro": {
+     "text": "Lớp 5–6 tuổi Phân hiệu Hương Sen có tổng số 28 bé, trong đó có 15 bé gái và 13 bé trai. Các con đều đáng yêu, hồn nhiên, vui vẻ và đoàn kết. Dưới sự chăm sóc, yêu thương và hướng dẫn tận tình của cô giáo, các bé luôn tích cực tham gia các hoạt động học tập, vui chơi và trải nghiệm, cùng nhau khám phá những điều mới lạ mỗi ngày. ❤️",
+     "teachers": "Trần Thị Hảo, Nguyễn Minh Nguyệt, Vũ Thị Thanh Thủy",
+     "kids": "Tổng số 28 bạn",
+     "motto": "Bé vui khỏe. Cô hạnh phúc",
+     "photo": "",
+     "video": "",
+     "staff": [
+      {
+       "name": "Trần Thị Hảo",
+       "role": "Giáo viên chủ nhiệm",
+       "note": "Cô Hảo công tác trong nghề trên 20 năm công tác, cô luôn có nhiều sáng tạo trong giảng dạy, cô đã có nhiều thành tích trong công tác chăm sóc giáo dục trẻ",
+       "photo": "anh/8265d64a5f4f0befdbc8.jpg"
+      },
+      {
+       "name": "Nguyễn Minh Nguyệt",
+       "role": "",
+       "note": "Cô Nguyệt là một giáo viên trẻ với gần 10 năm công tác, cô có rất nhiều sáng tạo trong công tác giảng dạy",
+       "photo": "anh/3ca55a5feb623a5d4fcc.jpg"
+      },
+      {
+       "name": "Vũ Thị Thanh Thủy",
+       "role": "",
+       "note": "Cô Thủy đã công tác trong nghề gần 20 năm, cô luôn yêu thương trẻ, tận tình chu đáo, có nhiều sáng tạo trong giảng dạy",
+       "photo": ""
+      }
+     ],
+     "by": "Nguyễn Minh Nguyệt",
+     "at": "2026-11-20"
+    }
    },
    {
     "id": "l7d442e",
