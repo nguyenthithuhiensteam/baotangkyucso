@@ -10109,6 +10109,623 @@
    ],
    "photoAlt": "Trang phục của dân tộc Mông nổi bật với sắc xanh dương và màu đỏ tươi sáng, điểm xuyết các dải hoa văn thổ cẩm rực rỡ ở cổ áo, thắt lưng, chân váy cùng hàng đồng xu bạc lấp lánh trước ngực .",
    "sample": false
+  },
+  {
+   "id": "emwn3my46",
+   "room": "tri-an",
+   "art": "sach",
+   "name": "Làm thiệp tặng cô",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "lớp 3-4 tuổi Hương Sen",
+   "story": "Bàn tay nhỏ xinh,\nLàm thiệp tặng cô.\nChúc cô luôn khỏe,\nMãi tươi như hoa!",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l5d20a2"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/9ed0a8a886aa24b2b0a4.jpg",
+   "photos": [
+    "anh/9ed0a8a886aa24b2b0a4.jpg",
+    "anh/62a5313918ebbe5ca55c.jpg",
+    "anh/cc639ca01df9d8e4712c.jpg",
+    "anh/945fa90ebb34abcfbed0.jpg",
+    "anh/c5609d487382ab5e1fd9.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwn52koi",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Lớp học yêu thương",
+   "era": "Tháng 11",
+   "plan": "",
+   "from": "Lớp 25-36 tháng A (Hương Sen)",
+   "story": "🌱 MỖI GIỜ HỌC LÀ MỘT HÀNH TRÌNH KHÁM PHÁ🎈\nỞ lớp mầm non, các bạn nhỏ không học qua những trang sách dày cộp đâu nhé! Mỗi ngày đến lớp của bé là một hành trình “chơi mà học – học bằng chơi” đầy tiếng cười và bao điều bất ngờ thú vị\n✨ Chạm vào thế giới diệu kỳ: Một chiếc lá xanh, bông hoa nhỏ, giọt nước mát hay những sắc màu rực rỡ… tất cả đều trở thành bài học sống động qua đôi mắt tò mò và đôi bàn tay xinh xắn của bé.\n🎨 Thỏa sức sáng tạo: Bé được tự tay nặn, vẽ, ghép hình, làm đồ chơi từ những vật liệu quen thuộc và reo lên đầy tự hào: \"Cô ơi, con làm được rồi!\"\n💬 Tự tin và khéo léo hơn mỗi ngày: Qua những trò chơi nhóm, câu chuyện kể và những câu hỏi ngây thơ \"Vì sao thế ạ?\", bé học cách lắng nghe, chia sẻ với bạn bè và thêm yêu cuộc sống quanh mình.\nMỗi giờ học là môt hành trình khám phá những điều mới lạ 🌷",
+   "ask": "Hôm nay cô con mình khám phá điều gì ? Có gì thú vị đang chờ chúng ta...",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lc0c279"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/7029de542f0d3de5b649.jpg",
+   "photos": [
+    "anh/7029de542f0d3de5b649.jpg",
+    "anh/076e843f215c0c223603.jpg",
+    "anh/50f72724760b1d1dbb58.jpg",
+    "anh/d994dd7e4e8e2f85c3c9.jpg",
+    "anh/f4466e7f905ee8518f03.jpg",
+    "anh/26eb8b7084f3e661d504.jpg",
+    "anh/dcc1da23b2de52412f11.jpg",
+    "anh/0cdd40364ec8218c6daa.jpg",
+    "anh/e7df092b1ebf0c07ed47.jpg",
+    "anh/2c99359cc92f547b3479.jpg",
+    "anh/4c375c41e17ac19b755e.jpg",
+    "anh/224376d80b59b72149ad.jpg"
+   ],
+   "photoAlt": "Bé tham gia hoạt động học, khám phá cùng cô",
+   "sample": false
+  },
+  {
+   "id": "emwn8sger",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Bé hôm nay học gì?",
+   "era": "Tháng 11/2016",
+   "plan": "Bé hôm nay học gì?",
+   "from": "Lớp 3 - 4 tuổi A1",
+   "story": "Câu chuyện: Mỗi giờ học Toán của bé\nMỗi ngày đến lớp, các bé lại háo hức tham gia giờ học Toán cùng cô giáo. Qua những con số, hình khối, phép đếm và trò chơi vui nhộn, bé được khám phá thế giới xung quanh, học cách quan sát, so sánh và tư duy. Mỗi giờ học Toán không chỉ mang đến niềm vui mà còn giúp bé thông minh, tự tin, khéo léo và phát triển khả năng suy nghĩ ngay từ những năm tháng đầu đời. ❤️",
+   "ask": "Hôm nay các con được học những gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l92c638"
+   ],
+   "tc": [
+    "TC1",
+    "TC3",
+    "MR2",
+    "TC4",
+    "TC6",
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/4754ef6254bcd8b3aefe.jpg",
+   "photos": [
+    "anh/4754ef6254bcd8b3aefe.jpg",
+    "anh/2d91d2f0cc70724ad1f6.jpg"
+   ],
+   "photoAlt": "",
+   "sample": true
+  },
+  {
+   "id": "emwn8yk4m",
+   "room": "tri-an",
+   "art": "hoa",
+   "name": "Bé tri ân tặng cô những lời chúc ngọt ngào nhân ngày 20/11",
+   "era": "Tháng 11/2016",
+   "plan": "",
+   "from": "Lớp 3 - 4 tuổi A1",
+   "story": "Câu chuyện: Món quà yêu thương tặng cô 20/11\nMỗi ngày đến lớp, cô luôn dịu dàng yêu thương, chăm sóc và dạy chúng con những điều hay, lẽ phải. Nhân ngày Nhà giáo Việt Nam 20/11, những bàn tay nhỏ xinh của các bé cùng làm nên những tấm thiệp, bó hoa và món quà đầy yêu thương gửi tặng cô. Dù món quà nhỏ bé nhưng chứa đựng tình cảm và lòng biết ơn sâu sắc. Chúng con xin kính chúc cô luôn mạnh khỏe, hạnh phúc và mãi là người mẹ hiền thứ hai của chúng con! ❤️",
+   "ask": "Hôm nay các con được làm gì để tặng cô?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l92c638"
+   ],
+   "tc": [
+    "TC2",
+    "TC3",
+    "MR2",
+    "TC4",
+    "TC5",
+    "TC6",
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/2a01697a1eaa9b1e6917.jpg",
+   "photos": [
+    "anh/2a01697a1eaa9b1e6917.jpg",
+    "anh/60305523f566cccf82fe.jpg",
+    "anh/865bf7717bebec05af2c.jpg"
+   ],
+   "photoAlt": "",
+   "sample": true
+  },
+  {
+   "id": "emwn92s57",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Bé vui học toán số 3",
+   "era": "Tháng 11/2016",
+   "plan": "",
+   "from": "Lớp 3 - 4 tuổi A1",
+   "story": "Câu chuyện: Mỗi giờ học Toán của bé\nMỗi ngày đến lớp, các bé lại háo hức tham gia giờ học Toán cùng cô giáo. Qua những con số, hình khối, phép đếm và trò chơi vui nhộn, bé được khám phá thế giới xung quanh, học cách quan sát, so sánh và tư duy. Mỗi giờ học Toán không chỉ mang đến niềm vui mà còn giúp bé thông minh, tự tin, khéo léo và phát triển khả năng suy nghĩ ngay từ những năm tháng đầu đời. ❤️",
+   "ask": "Hôm nay các con được học những gì?",
+   "video": "https://drive.google.com/drive/folders/1G7QMSThGIUWjKcM5pBcw39ObzwT1kveK",
+   "audio": "https://drive.google.com/drive/folders/1G7QMSThGIUWjKcM5pBcw39ObzwT1kveK",
+   "link3d": "https://drive.google.com/drive/folders/1G7QMSThGIUWjKcM5pBcw39ObzwT1kveK",
+   "drive": "https://drive.google.com/drive/folders/1G7QMSThGIUWjKcM5pBcw39ObzwT1kveK",
+   "cls": [
+    "l92c638"
+   ],
+   "tc": [
+    "TC2",
+    "TC3",
+    "MR2",
+    "TC4",
+    "TC5",
+    "TC6",
+    "TC7",
+    "TC8"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/54202d09bf8ba8679329.jpg",
+   "photos": [
+    "anh/54202d09bf8ba8679329.jpg"
+   ],
+   "photoAlt": "",
+   "sample": true
+  },
+  {
+   "id": "emwn6ublk",
+   "room": "tri-an",
+   "art": "sach",
+   "name": "Bé làm hoa tặng cô \"Con yêu cô\"",
+   "era": "",
+   "plan": "",
+   "from": "Nhóm trẻ 25 - 36 Tháng D",
+   "story": "Bé yêu cô lắm, cảm ơn cô giáo nhân ngày nhà giáo Việt Nam",
+   "ask": "Ai dạy con làm hoa?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb0bde3"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/60d6310355fe1ef8cd6f.jpg",
+   "photos": [
+    "anh/60d6310355fe1ef8cd6f.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwnaoq2k",
+   "room": "tri-an",
+   "art": "sach",
+   "name": "Lời tri ân của các bé lớp 4-5 tuổi",
+   "era": "Tháng 11/2026",
+   "plan": "Ngày nhà giáo việt Nam 20/11",
+   "from": "Lớp: 4-5 tuổi Hương Sen",
+   "story": "Những lời tri ân thơ ngây, hồn nhiên của các bé gửi đến cô giáo nhân ngày 20/11 tuy giản dị nhưng chứa đựng biết bao tình cảm yêu thương, sự kính trọng và lòng biết ơn chân thành. Đó có thể là một lời chúc còn ngọng nghịu, một câu nói vụng về hay một lời cảm ơn mộc mạc, nhưng đều là những món quà tinh thần vô giá đối với mỗi người giáo viên.\n\nThông qua những lời tri ân ấy, trẻ biết thể hiện tình cảm yêu thương, sự lễ phép và lòng biết ơn đối với cô giáo – người luôn yêu thương, chăm sóc, dạy dỗ và đồng hành cùng các con mỗi ngày. Đồng thời, hoạt động còn giúp trẻ hình thành những tình cảm tốt đẹp, biết trân trọng công lao của người khác và nuôi dưỡng truyền thống “Tôn sư trọng đạo” ngay từ những năm tháng đầu đời.\n\nBởi đôi khi, món quà ý nghĩa nhất dành tặng cô giáo không phải là những món quà lớn lao, mà chính là lời cảm ơn trong trẻo, ánh mắt yêu thương và những cái ôm hồn nhiên của các con.❤️",
+   "ask": "",
+   "video": "",
+   "audio": "https://drive.google.com/drive/folders/1qbnlZXhD_6JwdtUEhv40QajetC3pU5vv?usp=sharing",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l7d442e"
+   ],
+   "tc": [
+    "TC4"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwnkh7gm",
+   "room": "tri-an",
+   "art": "sach",
+   "name": "Lời tri ân ngày 20/11 của Bé Quỳnh Anh",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1NHSn4ifLdHbLZ9tGH1Eket9PzoEGf-PN/view?usp=sharing",
+   "cls": [
+    "l5d20a2"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwnkozrh",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Hoạt động trải nghiệm PCCC",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l5d20a2"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/da26c6d2ea2955782507.jpg",
+   "photos": [
+    "anh/da26c6d2ea2955782507.jpg",
+    "anh/3047018a42887a283a49.jpg",
+    "anh/311956b0dd9677b99d97.jpg",
+    "anh/4dcd96c75139f2ec91f6.jpg",
+    "anh/a05efea2db5acfb9d9f6.jpg",
+    "anh/a469a8398f271b16f005.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwnkumly",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Bé vui chơi trên sân trường",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l5d20a2"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/0595708105d78822e3c9.jpg",
+   "photos": [
+    "anh/0595708105d78822e3c9.jpg",
+    "anh/ba12c9180317d2367adc.jpg",
+    "anh/5d76623310b668d3578b.jpg",
+    "anh/d8eb60d41a8c1194dd4f.jpg",
+    "anh/68487e40e234a03bd10f.jpg",
+    "anh/c49102bd315f21510dbf.jpg",
+    "anh/19326eebb79c140f8782.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwnlfhx6",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Múa: Vòng tay ba mẹ",
+   "era": "Tháng 10/2026",
+   "plan": "",
+   "from": "lớp 3-4 tuổi Hương Sen",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1q410_KrEncp7Mmu7-azcSl2kc4HHYvfw/view?usp=drive_link",
+   "cls": [
+    "l5d20a2"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwnlgir7",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Vận động theo nhạc: Ồ sao bé không lắc",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1mNGrh2HSQBTeir7LMOUiZ9iOSxPFyHTY/view?usp=drive_link",
+   "cls": [
+    "l5d20a2"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwnlhnrf",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Trò chơi Bóng tròn to",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1xrb5HeFQkHAluBZJ0_vg5wMz558dVZzL/view?usp=drive_link",
+   "cls": [
+    "l5d20a2"
+   ],
+   "tc": [
+    "TC1"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwnlqeh6",
+   "room": "thien-nhien",
+   "art": "sach",
+   "name": "Cây Kim Tiền lớp 3-4 tuổi",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "Cây kim tiền (hay kim phát tài, tên khoa học Zamioculcas zamiifolia) là loại cây cảnh mọng nước thuộc họ Ráy, có nguồn gốc từ Đông Phi. Cây nổi tiếng vì dễ sống, chịu hạn tốt và mang ý nghĩa phong thủy về tài lộc.\nĐặc điểm nổi bật\n• Kích thước: Cao khoảng 0,3 m đến 1,2 m, mọc thành bụi và có tuổi thọ cao.\n• Thân và lá: Thân ngắn mọng nước, phần gốc phình to tích trữ nước. Lá kép hình lông chim, màu xanh thẫm bóng mượt.\nÝ nghĩa phong thủy và công dụng\n• Chiêu tài lộc: Tên \"kim tiền\" và \"kim phát tài\" tượng trưng cho sự thịnh vượng, may mắn và tiền tài. Cây thường được đặt ở phòng khách, bàn làm việc hoặc quầy thu ngân.\n• Hợp mệnh: Phù hợp với nhiều mệnh khác nhau, đặc biệt được nhiều người chọn cho mệnh Mộc, Hỏa và Kim.\n• Thanh lọc không khí: Giúp hấp thụ một số khí như CO2, toluen, xylen và tạo không gian xanh mát.\nCách chăm sóc và lưu ý an toàn\n• Tưới nước: Tránh tưới quá nhiều gây úng rễ; thường chỉ cần tưới 1–2 lần mỗi tuần hoặc khi đất đã khô mặt.\n• Ánh sáng và nhiệt độ: Ưa ánh sáng gián tiếp hoặc nắng nhẹ; nhiệt độ thích hợp khoảng 22°C–28°C.\n• Độc tính: Thân, lá và củ chứa tinh thể canxi oxalat có thể gây kích ứng da, mắt hoặc rát miệng nếu tiếp xúc hay nhai phải. Hãy đặt cây xa tầm tay trẻ nhỏ và thú cưng, đeo găng tay khi cắt tỉa và rửa tay sạch sau khi chăm sóc.",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l5d20a2"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/2a9765fa336cc7f8db36.jpg",
+   "photos": [
+    "anh/2a9765fa336cc7f8db36.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwnnwijm",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Bé làm thiệp tặng cô nhân ngày 20/11",
+   "era": "tháng 11/2026",
+   "plan": "",
+   "from": "lớp: 24 - 36 tháng A Tràng Đà",
+   "story": "",
+   "ask": "",
+   "video": "https://drive.google.com/file/d/1sYKJpdSBC-n3aIXwJY-Coh4qE1xiMou8/view?usp=sharing",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1sYKJpdSBC-n3aIXwJY-Coh4qE1xiMou8/view?usp=sharing",
+   "cls": [
+    "lc16f31"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/9a22d279e0467efb0ed4.jpg",
+   "photos": [
+    "anh/9a22d279e0467efb0ed4.jpg"
+   ],
+   "photoAlt": "",
+   "sample": true
+  },
+  {
+   "id": "emwo89b6j",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Bé nghe cô đọc thơ",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp 25- 36 tháng A",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l9f51b7"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/f1fe1aa84c37b15a5fa4.jpg",
+   "photos": [
+    "anh/f1fe1aa84c37b15a5fa4.jpg"
+   ],
+   "photoAlt": "Bé xem tranh ảnh.",
+   "sample": true
+  },
+  {
+   "id": "emwo8eunt",
+   "room": "khoanh-khac",
+   "art": "oan",
+   "name": "Bé chơi với xích đu",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp 25- 36 tháng A",
+   "story": "",
+   "ask": "Chúng mình được chơi với xích đu chúng mình thấy vui không?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l9f51b7"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/1e505bbb783b47982f0f.jpg",
+   "photos": [
+    "anh/1e505bbb783b47982f0f.jpg"
+   ],
+   "photoAlt": "Bé chơi với xích đu",
+   "sample": false
+  },
+  {
+   "id": "emwo8sadp",
+   "room": "khoanh-khac",
+   "art": "khoc",
+   "name": "Bé chơi với đồ chơi",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp 25- 36 tháng A",
+   "story": "",
+   "ask": "Chúng mình được chơi với đồ chơi chúng mình thấy vui không?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l9f51b7"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/b00fefca47aebb028f4b.jpg",
+   "photos": [
+    "anh/b00fefca47aebb028f4b.jpg"
+   ],
+   "photoAlt": "Bé chơi với xích đu",
+   "sample": true
+  },
+  {
+   "id": "emwo8xrub",
+   "room": "tri-an",
+   "art": "sach",
+   "name": "Tri ân thầy cô 20/11",
+   "era": "",
+   "plan": "",
+   "from": "Một nhóm trẻ 25–36 tháng C",
+   "story": "Món quà tặng cô ngày 20/11\nMột buổi sáng đẹp trời, bé Na đến lớp với một bó hoa nhỏ trên tay. Bé vui vẻ chạy đến bên cô giáo và nói:\n\n– Cô ơi! Hôm nay là ngày 20/11, ngày Nhà giáo Việt Nam đấy ạ!\n\nCô giáo mỉm cười dịu dàng:\n– Đúng rồi! Đây là ngày các con dành những lời yêu thương để tặng thầy cô đấy!\n\nBé Na liền tặng cô bó hoa và nói:\n– Con tặng cô ạ! Con yêu cô nhiều lắm!\n\nCác bạn nhỏ cũng ríu rít chạy đến tặng cô những bông hoa xinh xắn. Có bạn tặng cô bức tranh, có bạn khoanh tay nói lời chúc ngoan ngoãn.\n\nCô giáo ôm các bé vào lòng, nở nụ cười thật tươi.\n\nNgày 20/11 thật vui và ấm áp! Các bé cùng hứa sẽ chăm ngoan, nghe lời cô và yêu thương mọi người.\n\nÝ nghĩa câu chuyện: Giáo dục trẻ biết yêu quý, kính trọng cô giáo, biết thể hiện tình cảm bằng những lời nói yêu thương và việc làm tốt.",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l4e46da"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/928c3383883836d8d7ae.jpg",
+   "photos": [
+    "anh/928c3383883836d8d7ae.jpg",
+    "anh/388e3459c314ca971884.jpg",
+    "anh/4f3a6d7f734a6eb58033.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwo96is9",
+   "room": "khoanh-khac",
+   "art": "an",
+   "name": "Bé tự xúc đồ ăn",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp 25- 36 tháng A",
+   "story": "",
+   "ask": "Trong khi ăn chúng mình có dành đồ ăn của nhau không?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l9f51b7"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/9269900d0a369a72ebad.jpg",
+   "photos": [
+    "anh/9269900d0a369a72ebad.jpg"
+   ],
+   "photoAlt": "Bé chơi với xích đu",
+   "sample": false
+  },
+  {
+   "id": "emwo97hop",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Giờ học thơ của chúng mình",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "Câu chuyện: Bé vui học thơ\nSáng nay, cô giáo mang đến lớp một bức tranh thật đẹp và nói:\n\n– Các bé ơi! Hôm nay cô có một bài thơ rất hay muốn tặng chúng mình đấy!\n\nNghe cô nói, các bé vui vẻ ngồi ngoan, mắt xinh chăm chú nhìn cô. Cô cất giọng đọc thơ nhẹ nhàng, truyền cảm. Những vần thơ ngọt ngào vang lên khiến các bé thích thú, bạn nào cũng muốn đọc thơ cùng cô.\nGiờ học thật vui! Các bé cùng vỗ tay và reo lên:\n– Chúng con thích học thơ ạ!\nCô giáo mỉm cười, khen cả lớp thật ngoan và đáng yêu! 🌸",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l4e46da"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/f083d1bc072987a051cd.jpg",
+   "photos": [
+    "anh/f083d1bc072987a051cd.jpg",
+    "anh/e77a88f40a8b0080f35e.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
