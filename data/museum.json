@@ -9062,13 +9062,13 @@
    "id": "emwl9zvsx",
    "room": "khoanh-khac",
    "art": "sach",
-   "name": "https://drive.google.com/file/d/1gI3JE28XOBjHi-aGII0Ytuj23r0TB3wM/view?usp=drive_link",
+   "name": "Nu na nu nống",
    "era": "",
    "plan": "",
    "from": "Lớp nhà trẻ 24-36 tháng B",
-   "story": "",
-   "ask": "",
-   "video": "",
+   "story": "Trò chơi dân gian \"Nu na nu nống\" mang đến cho các bé những phút giây vui chơi rộn ràng tiếng cười cùng cô và các bạn. Thông qua nhịp điệu đồng dao quen thuộc và cách chơi đơn giản, gần gũi, các con được rèn luyện sự chú ý, phản xạ nhanh nhẹn, khả năng phối hợp nhịp nhàng và thêm gắn kết với tập thể lớp.",
+   "ask": "Hôm nay chơi cùng các bạn, con cảm thấy thế nào?",
+   "video": "https://drive.google.com/file/d/1gI3JE28XOBjHi-aGII0Ytuj23r0TB3wM/view?usp=drive_link",
    "audio": "",
    "link3d": "",
    "drive": "https://drive.google.com/file/d/1gI3JE28XOBjHi-aGII0Ytuj23r0TB3wM/view?usp=drive_link",
@@ -10785,6 +10785,66 @@
     "anh/e77a88f40a8b0080f35e.jpg"
    ],
    "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwocros6",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Món quà nhỏ yêu thương lớn 20/11",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "Để chào mừng ngày 20/11, các bé hào hứng tham gia hoạt động làm thiệp tặng cô. Từ việc chọn giấy màu, chấm màu, dán hoa cho đến khi nâng niu thành phẩm trên tay, bé không chỉ được rèn luyện đôi bàn tay khéo léo mà còn học cách bày tỏ lời chúc, sự quan tâm tới những người yêu thương mình.",
+   "ask": "Con làm tấm thiệp này để tặng ai nào? Con muốn gửi lời chúc gì đến cô giáo nhân ngày 20/11? Trên tấm thiệp của con có hình gì đẹp thế?",
+   "video": "https://drive.google.com/file/d/1zpfy0L4nk2dfFkNuNfS92AvOG4D1OR-d/view?usp=drive_link",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l6c9ea7"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/58312cf73d76a350ecf6.jpg",
+   "photos": [
+    "anh/58312cf73d76a350ecf6.jpg",
+    "anh/a603f9e303dc2f66384f.jpg",
+    "anh/6f6fa338bb131c0ae0a0.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwoe5m6n",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Bé khám phá các nhạc cụ dân tộc",
+   "era": "Tháng 11",
+   "plan": "Hành trình khám phá các nhạc cụ dân tộc",
+   "from": "Lớp 25-36 tháng A (Hương Sen)",
+   "story": "- Đôi tay nhỏ bé gõ nhẹ lên mặt trống, lắc chiếc xúc xắc hay chạm vào dây đàn giúp trẻ rèn luyện vận động tinh, phát triển thính giác và khả năng cảm thụ nhịp điệu tự nhiên.\n- Qua những nhạc cụ truyền thống gần gũi (như trống cơm, đàn tính, sáo trúc, thanh phách...), trẻ bắt đầu hình thành ý thức đầu tiên về bản sắc dân tộc và sự đa dạng của thế giới xung quanh.",
+   "ask": "Đây là nhạc cụ gì? Âm thanh của trống con thấy thế nào?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lc0c279"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/3e0dff52b89e8a15c0e1.jpg",
+   "photos": [
+    "anh/3e0dff52b89e8a15c0e1.jpg",
+    "anh/15d37341cd5c7c58c2f3.jpg",
+    "anh/d94f33dbff160fbaa0ea.jpg",
+    "anh/77e77a155104359b801f.jpg",
+    "anh/90083d6ff3e8dca09799.jpg"
+   ],
+   "photoAlt": "Hành trình khám phá nhạc cụ mở ra cho trẻ 24–36 tháng cánh cửa chạm vào di sản văn hóa thông qua trải nghiệm đa giác quan.",
    "sample": false
   }
  ],
