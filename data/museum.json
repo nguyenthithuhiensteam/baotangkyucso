@@ -153,7 +153,25 @@
    {
     "id": "l1b1bdd",
     "name": "MG 3–4 tuổi A3",
-    "site": "Trường chính"
+    "site": "Trường chính",
+    "intro": {
+     "text": "Tổng số: 23. Dân tộc: 4 ( 3 Dao. 1 Tày). Nữ dân tộc: 3\nNông Tiến: 18. Nơi khác: 5 (Xã Thái Bình: 2; Xã Yên Sơn: 1; Xã Trung sơn: 1; Xã Phú Thịnh: 1)",
+     "teachers": "Nguyễn Thị Hồng Hoa. Trịnh Thị Hương. Phạm Thị Thanh",
+     "kids": "Trong đó: Nam: 13. Nữ 10",
+     "motto": "Lớp 3 - 4 tuổi A3 (Trường chính)",
+     "photo": "anh/983423bb61fec8c7fb13.jpg",
+     "video": "",
+     "staff": [
+      {
+       "name": "Nguyễn Thị Hồng Hoa. Trịnh Thị Hương. Phạm Thị Thanh",
+       "role": "Giáo viên chủ nhiệm lớp 3 - 4 tuổi A3",
+       "note": "Các cô đều co trình dộ chuyên môn đạt chuẩn và trên chuẩn, có nhiều năm công tác giảng dạy trong trường mầm non, có nhiều năm đạt giáo viên cấp trường, cấp phường trở lên",
+       "photo": "anh/486c3f369952123af17e.jpg"
+      }
+     ],
+     "by": "Phạm Thị Thanh",
+     "at": "2026-11-22"
+    }
    },
    {
     "id": "l9f51b7",
