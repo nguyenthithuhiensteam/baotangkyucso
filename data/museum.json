@@ -10888,6 +10888,282 @@
    ],
    "photoAlt": "Hành trình khám phá nhạc cụ mở ra cho trẻ 24–36 tháng cánh cửa chạm vào di sản văn hóa thông qua trải nghiệm đa giác quan.",
    "sample": false
+  },
+  {
+   "id": "emwsrnfv1",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Hưởng ứng ngày văn hóa Việt Nam",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "Bé vui ngày Văn hóa Việt Nam\nSáng nay, Bé Bo được cô giáo đưa đến tham gia ngày hội Văn hóa Việt Nam.\nCác bé  mặc chiếc áo dài thật xinh, trên đầu đội chiếc nón lá nhỏ xinh. Bé được xem nhảy xạp, nghe tiếng trống rộn ràng và tham ra trò chơi dân gian như: Kéo cưa lừa sẻ, ném non, bắt xúng lá chuối.... Tham ra hoạt động tìm hiểu trang phục dân tộc quê hương.\nCô giáo nhẹ nhàng nói:\n- Các con ơi! Đây là những nét đẹp của quê hương Việt Nam chúng mình đấy!\nCác bé vui vẻ vỗ tay:\n- Con yêu Việt Nam! Con yêu quê hương mình ạ!\nNgày hội thật vui và ý nghĩa. Bé Bo cùng các bạn hân hoan hát vang bài ca yêu quê hương đất nước.\nThông điệp: Các bé hãy yêu quê hương, đất nước và giữ gìn những nét đẹp văn hóa Việt Nam nhé! ❤️",
+   "ask": "Đây là trang phục dân tộc gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l4e46da"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/6cbf064f274fccae8a17.jpg",
+   "photos": [
+    "anh/6cbf064f274fccae8a17.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwsrxdrb",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Bé tìm hiểu trang phục dân tộc",
+   "era": "",
+   "plan": "",
+   "from": "Một nhóm trẻ 25–36 tháng C",
+   "story": "",
+   "ask": "Đất nước Việt Nam Có dạng hình gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l4e46da"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/caae59aca356c39b0ee5.jpg",
+   "photos": [
+    "anh/caae59aca356c39b0ee5.jpg",
+    "anh/4979879e734dced121e6.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwss4p4t",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Trò chơi dân gian của bé",
+   "era": "",
+   "plan": "",
+   "from": "Một nhóm trẻ 25–36 tháng C",
+   "story": "",
+   "ask": "Chúng mình đang chơi trò chơi gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l4e46da"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/bc28383400a1dc697dbb.jpg",
+   "photos": [
+    "anh/bc28383400a1dc697dbb.jpg",
+    "anh/de284a60b5ec5177e628.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwss7gq3",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Bé trang trí nón lá Việt Nam",
+   "era": "",
+   "plan": "",
+   "from": "Một nhóm trẻ 25–36 tháng C",
+   "story": "",
+   "ask": "Các con đang trang trí cái gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l4e46da"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/0c5448781fd0686b4cb9.jpg",
+   "photos": [
+    "anh/0c5448781fd0686b4cb9.jpg",
+    "anh/0f08e20652fe6a562476.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwsuluvq",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Bé chụp ảnh ngày hội văn hóa với các dân tộc.",
+   "era": "Tháng 11/2026",
+   "plan": "Ngày hội văn hóa Việt Nam",
+   "from": "Lớp 25- 36 tháng A",
+   "story": "NGÀY HỘI VĂN HÓA VIỆT NAM – LAN TỎA BẢN SẮC, GẮN KẾT YÊU THƯƠNG\nNgày hội Văn hóa Việt Nam là dịp đặc biệt để chúng ta cùng nhau khám phá, tôn vinh và gìn giữ những giá trị văn hóa truyền thống tốt đẹp của dân tộc Việt Nam.\n\nTrong không khí vui tươi, rộn ràng của ngày hội, các bé được hòa mình vào không gian văn hóa đầy màu sắc với những bộ trang phục truyền thống duyên dáng, những món ăn mang đậm hương vị quê hương, những làn điệu dân ca ngọt ngào và các trò chơi dân gian vui nhộn.\nMỗi chiếc áo dài, mỗi chiếc nón lá, mỗi điệu múa, lời ca đều chứa đựng những nét đẹp riêng, góp phần tạo nên bản sắc văn hóa Việt Nam phong phú và đáng tự hào.\nThông qua các hoạt động trải nghiệm, các bé không chỉ được vui chơi, khám phá mà còn bước đầu hiểu thêm về quê hương, đất nước, biết yêu quý những giá trị truyền thống, trân trọng sự khác biệt giữa các vùng miền và thêm tự hào khi là những em bé Việt Nam.\nNgày hội không chỉ mang đến niềm vui mà còn là nhịp cầu kết nối yêu thương, giúp cô và trẻ cùng nhau lưu giữ những khoảnh khắc đẹp, gieo vào tâm hồn trẻ tình yêu quê hương từ những điều bình dị nhất.\nTự hào văn hóa Việt Nam\n – Gìn giữ bản sắc dân tộc \n– Chắp cánh ước mơ tuổi thơ!",
+   "ask": "Trong khi ăn chúng mình có dành đồ ăn của nhau không?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l9f51b7"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/0b566eee630361738e22.jpg",
+   "photos": [
+    "anh/0b566eee630361738e22.jpg"
+   ],
+   "photoAlt": "Bé chơi với xích đu",
+   "sample": false
+  },
+  {
+   "id": "emwsuyoo9",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Bé chụp ảnh ngày hội văn hóa với các dân tộc.",
+   "era": "Tháng 11/2026",
+   "plan": "Ngày hội văn hóa Việt Nam",
+   "from": "Lớp 25- 36 tháng A",
+   "story": "",
+   "ask": "Hôm nay là ngày gì vậy các con?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l9f51b7"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/5f4cbccdd95ea60035b1.jpg",
+   "photos": [
+    "anh/5f4cbccdd95ea60035b1.jpg"
+   ],
+   "photoAlt": "Bé chơi với xích đu",
+   "sample": true
+  },
+  {
+   "id": "emwsw01o5",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Bé chụp ảnh ngày hội văn hóa với các dân tộc.",
+   "era": "Tháng 11/2026",
+   "plan": "",
+   "from": "Lớp 25- 36 tháng A",
+   "story": "",
+   "ask": "Hôm nay là ngày gì vậy các con?",
+   "video": "https://drive.google.com/drive/home",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l9f51b7"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/085912bde1b891f5ab7d.jpg",
+   "photos": [
+    "anh/085912bde1b891f5ab7d.jpg"
+   ],
+   "photoAlt": "Bé chơi với xích đu",
+   "sample": false
+  },
+  {
+   "id": "emwswtmzn",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Hưởng ứng ngày văn hoá Việt Nam",
+   "era": "",
+   "plan": "",
+   "from": "Nhóm trẻ 25 - 36 Tháng D",
+   "story": "Bé tham gia ngày hội",
+   "ask": "Hôm nay con đi đâu? Con có vui không?..",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "lb0bde3"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/b677eac7e4694b40c148.jpg",
+   "photos": [
+    "anh/b677eac7e4694b40c148.jpg",
+    "anh/9bd36c58c37c25209ad3.jpg",
+    "anh/4e27b092a9efe82b9f4e.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwszo0no",
+   "room": "di-san",
+   "art": "khoc",
+   "name": "NGÀY HỘI VĂN HÓA VIỆT NAM",
+   "era": "",
+   "plan": "",
+   "from": "Lớp 3- 4 tuổi A3 (Trường chính)",
+   "story": "NGÀY HỘI VĂN HÓA VIỆT NAM",
+   "ask": "Đây là những trang phục gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l1b1bdd"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/2f6b9f34594930e4dd08.jpg",
+   "photos": [
+    "anh/2f6b9f34594930e4dd08.jpg",
+    "anh/b8c9284bd04544bb415c.jpg",
+    "anh/0ed94cdb2e34ef0618c1.jpg",
+    "anh/51e3fca2be8cf95ea375.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwt03hzu",
+   "room": "di-san",
+   "art": "khoc",
+   "name": "NGÀY HỘI VĂN HÓA VIỆT NAM",
+   "era": "",
+   "plan": "",
+   "from": "Lớp 3- 4 tuổi A3 (Trường chính)",
+   "story": "NGÀY HỘI VĂN HÓA VIỆT NAM",
+   "ask": "Cô và các con đang chơi trò chơi gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/drive/folders/1TT3jS40zTX6YpklK2GHnMH-pE97pOIyj",
+   "cls": [
+    "l1b1bdd"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
