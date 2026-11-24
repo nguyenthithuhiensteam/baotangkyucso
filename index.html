@@ -1769,7 +1769,7 @@ function wireAdmin(){
  main.querySelectorAll('[data-nwcover]').forEach(b=>b.onclick=()=>{nwRd();const i=+b.dataset.nwcover;nwDraft.photos.unshift(nwDraft.photos.splice(i,1)[0]);render()});
  const nwP=$('nw_photos');if(nwP)nwP.onchange=async()=>{const fs=[...nwP.files].slice(0,12-nwDraft.photos.length);if(!fs.length||busy)return;nwRd();busy=true;let ok=0,fail=0;
   for(const[i,f]of fs.entries()){setMsg(`Đang thu nhỏ và tải ảnh ${i+1}/${fs.length}…`);try{const url=await shrink(f);const r=await api('/api/photo',{data:url},()=>setMsg(WAKE));phPrev[r.photo]=url;nwDraft.photos.push(r.photo);ok++}catch(_){fail++}}
-  busy=false;render();setMsg(`Đã tải ${ok} ảnh${fail?`, ${fail} ảnh lỗi`:''}.`)};
+  busy=false;if(ok)markDirty();render();setMsg(`Đã tải ${ok} ảnh${fail?`, ${fail} ảnh lỗi`:''}. Bấm “Đưa vào danh sách” rồi “Lưu lên trang” để đăng.`)};
  const nwFm=$('nwForm');if(nwFm)nwFm.onsubmit=e=>{e.preventDefault();nwRd();errors={};if(!nwDraft.title)errors.nw_title='Hãy nhập tiêu đề.';if(!/^\d{4}-\d{2}-\d{2}$/.test(nwDraft.date))errors.nw_date='Hãy chọn ngày.';checkUrls(['nw_link']);if(Object.keys(errors).length){render();return}
   const L=newsOf().slice(),i=L.findIndex(x=>x.id===nwDraft.id),n={...nwDraft,by:nwDraft.by||'Quản trị',at:nwDraft.at||new Date().toISOString()};if(i>=0)L[i]=n;else L.push(n);data.news=L;nwDraft=null;markDirty();render();setMsg('Đã cập nhật bản tin. Bấm Lưu lên trang để đăng.')};
  /* nhật ký lớp */
@@ -1891,7 +1891,13 @@ function renderSaveBar(){
  bar.innerHTML=`<span class="msg" role="status">${esc(msgText||(dirty?'Có thay đổi chưa lưu. Phụ huynh vẫn thấy bản cũ.':''))}</span>${dirty?`<span style="display:flex;gap:8px"><button type="button" class="btn small" id="undoAll">Bỏ thay đổi</button><button type="button" class="btn small primary" id="saveAll" ${readOnly?'disabled':''}>Lưu lên trang</button></span>`:`<button type="button" class="btn small" id="msgClose">Đóng</button>`}`;
  const mc=$('msgClose');if(mc)mc.onclick=()=>{msgText='';renderSaveBar()};
  const u=$('undoAll');if(u)u.onclick=()=>{data=clone(saved);dirty=false;draft=null;editId=null;msgText='';navTabs();heroCta();render();renderSaveBar()};
- const s=$('saveAll');if(s)s.onclick=save;
+ const s=$('saveAll');if(s)s.onclick=()=>{
+  /* Khung soạn còn mở (bản tin, học liệu, hiện vật, mốc): tự “Đưa vào danh sách” trước khi lưu, để không mất ảnh, nội dung đang soạn. */
+  if(busy){setMsg('Đang tải ảnh hoặc tệp, chờ xong rồi bấm Lưu lên trang.');return}
+  const f=main.querySelector('form.edit');
+  if(f&&isAdmin()&&['nwForm','lsForm','exForm','tForm'].includes(f.id)){const t=f.querySelector('#nw_title,#ls_title,#x_name,#t_title');
+   if(t&&t.value.trim()){f.requestSubmit();if(main.querySelector('form.edit#'+f.id)){setMsg('Khung đang soạn còn thiếu thông tin, hãy sửa chỗ báo đỏ rồi bấm Lưu lên trang.');return}}}
+  save()};
 }
 function buildDoc(){
  const reset=(document.head.querySelector('style')||{}).textContent||':root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,-apple-system,sans-serif}img{max-width:100%}[hidden]{display:none!important}';
