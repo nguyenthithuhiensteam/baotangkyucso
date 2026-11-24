@@ -377,6 +377,23 @@ h3.fsel{font-size:22px}h3.fsel small{font-size:14px;color:var(--muted);font-fami
 .cimsg{margin:0;color:var(--indigo);font-weight:700;min-height:1em}
 .cilist{display:grid;gap:6px;margin-top:10px}.cilist>div{display:flex;flex-wrap:wrap;gap:6px}.btn.ghost{opacity:.75}
 @media (max-width:640px){.cintro{grid-template-columns:1fr}.ciph{aspect-ratio:16/9}}
+.nwhome{display:grid;gap:10px;margin:14px 0}
+.nwgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:14px}
+.nwc{display:grid;grid-template-rows:auto 1fr;background:var(--frame);border-radius:18px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 4px 0 var(--line);border:2px solid transparent;transition:transform .15s}
+.nwc:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--coral) 40%,transparent)}.nwc:focus-visible{outline:3px solid var(--turmeric-fill);outline-offset:2px}
+.nwc.big{grid-column:span 2}@media (max-width:640px){.nwc.big{grid-column:auto}}
+.nwimg{position:relative;display:block;aspect-ratio:16/9;background:color-mix(in srgb,var(--coral) 12%,#fff)}.nwimg img{width:100%;height:100%;object-fit:cover;display:block}
+.nwic{display:grid;place-items:center;height:100%;font-size:54px}.nwimg.noph{aspect-ratio:auto;height:84px}.nwimg.noph .nwic{font-size:40px}.nwpin{position:absolute;top:8px;left:8px;background:var(--turmeric-fill);color:var(--ink);font-size:12px;font-weight:800;border-radius:999px;padding:2px 9px}
+.nwtx{display:grid;gap:6px;padding:12px 14px 14px;align-content:start}.nwtx b{font-family:var(--f-display);font-size:18px;line-height:1.25}.nwc.big .nwtx b{font-size:22px}
+.nwsum{color:var(--muted);font-size:14.5px;line-height:1.5}.nwmore{color:var(--coral);font-weight:800;font-size:14px}
+.nwmeta{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font-size:13px;font-weight:700;color:var(--muted)}
+.nwcat{color:var(--coral);font-weight:800}.nwsite{background:color-mix(in srgb,var(--indigo) 10%,#fff);color:var(--indigo);border-radius:999px;padding:1px 9px}
+.nwart{display:grid;gap:12px;background:var(--frame);border-radius:22px;padding:18px 20px;max-width:820px}.nwart>.btn{justify-self:start}
+.nwart h2{margin:0;font-family:var(--f-display);font-size:clamp(24px,3.4vw,34px);line-height:1.2}
+.nwcover{all:unset;cursor:zoom-in;display:block;border-radius:16px;overflow:hidden;aspect-ratio:16/9}.nwcover img{width:100%;height:100%;object-fit:cover;display:block}
+.nwthumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px}.nwthumbs button{all:unset;cursor:zoom-in;aspect-ratio:1;border-radius:10px;overflow:hidden;display:block}.nwthumbs img{width:100%;height:100%;object-fit:cover;display:block}
+.nwcover:focus-visible,.nwthumbs button:focus-visible{outline:3px solid var(--turmeric-fill)}
+.nwbody{font-size:17px;line-height:1.7}.nwbody p{margin:0 0 12px}
 .dysec{display:grid;gap:10px;margin-top:14px}.dysec h3 small{font-size:14px;color:var(--muted);font-family:inherit}
 .dylist{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:12px}
 .dyc{background:var(--frame);border-radius:16px;padding:12px 14px;border-left:6px solid var(--c);box-shadow:0 3px 0 var(--line);display:grid;gap:8px;align-content:start}
@@ -607,6 +624,7 @@ const pic=e=>pubPhoto(e.photo)?`<img src="${e.photo}" alt="${esc(e.photoAlt||e.n
 
 const ROOMS=[
  {id:"loi-vao",name:"Lối vào",kind:"intro",c:"var(--indigo)"},
+ {id:"ban-tin",name:"📰 Bản tin trường",kind:"news",c:"var(--coral)"},
  {id:"hanh-trinh",n:"1",name:"Hành trình của trường",kind:"timeline",c:"var(--indigo)",
   lead:"Những mốc đáng nhớ của Trường Mầm non Nông Tiến và hai phân hiệu Tràng Đà, Hương Sen: từ ngày thành lập đến chặng đường phía trước.",src:"Chiến lược phát triển nhà trường 2026–2030, tầm nhìn 2045; Báo cáo thường niên số 02/2026; QĐ 83/QĐ-UBND; CV 3424/SGDĐT-GDMN"},
  {id:"khoanh-khac",n:"2",name:"Khoảnh khắc diệu kỳ",kind:"exhibits",c:"var(--coral)",
@@ -980,6 +998,38 @@ function head(r){
 const mediaTags=e=>{const t=[];if(okUrl(e.video))t.push('Video');if(okUrl(e.audio))t.push('Âm thanh');if(okUrl(e.link3d))t.push('3D');if(okUrl(e.drive))t.push('Drive');return t.length?`<span class="media-dots">${t.map(x=>`<span>${x}</span>`).join('')}</span>`:''};
 const piece=(e,i)=>`<button class="piece" type="button" data-i="${i}"><div class="frame ${pubPhoto(e.photo)?'ph':''}">${pic(e)}${photosOf(e).length>1?`<span class="phn">📷 ${photosOf(e).length}</span>`:''}${e.sample?'':`<span class="vwn" data-vw="${esc(e.id)}" aria-label="${VIEWS[e.id]||0} lượt xem">👁 ${fmtN(VIEWS[e.id]||0)}</span>`}</div><div class="label"><b>${esc(e.name)}</b>${clsNames(e).length?`<span class="cl" title="${esc(clsNames(e).join(', '))}">${esc(clsShort(e))}</span>`:''}<span class="p">${esc(e.plan)}</span>${tcList(e).length?`<span class="tcrow">${tcChips(e)}</span>`:''}${mediaTags(e)}${e.sample?'<span class="sample">Hiện vật mẫu</span>':''}</div></button>`;
 
+/* Bản tin trường: quản trị đăng; trang danh sách, trang đọc tin, 3 tin mới ở trang chủ. */
+const NEWS_CATS=[['tin-tuc','Tin tức','📰'],['thong-bao','Thông báo','📢'],['su-kien','Sự kiện','🎉'],['vinh-danh','Vinh danh','🏆'],['phu-huynh','Góc phụ huynh','👨‍👩‍👧']];
+const ncat=k=>NEWS_CATS.find(x=>x[0]===k)||NEWS_CATS[0];
+const newsOf=()=>Array.isArray(data.news)?data.news:[];
+const newsSorted=()=>newsOf().slice().sort((a,b)=>(b.pin-a.pin)||b.date.localeCompare(a.date)||String(b.at).localeCompare(String(a.at)));
+const fmtDate=d=>{const[y,m,dd]=String(d).split('-');return `${dd}/${m}/${y}`};
+const nSum=(t,n=170)=>{t=String(t||'').replace(/\s+/g,' ').trim();return t.length>n?t.slice(0,n).replace(/\s\S*$/,'')+'…':t};
+let nwF={cat:'',site:''},nwN=12;
+function newsCard(n,big){const c=ncat(n.cat),ph=n.photos&&n.photos[0],hp=pubPhoto(ph)||!!phPrev[ph];big=big&&hp;
+ return `<a class="nwc ${big?'big':''}" href="#ban-tin/${esc(n.id)}"><span class="nwimg ${hp?'':'noph'}">${pubPhoto(ph)||phPrev[ph]?imgOf(ph,n.title):`<span class="nwic" aria-hidden="true">${c[2]}</span>`}${n.pin?'<span class="nwpin">📌 Ghim</span>':''}</span>
+  <span class="nwtx"><span class="nwmeta"><span class="nwcat">${c[2]} ${esc(c[1])}</span><time datetime="${esc(n.date)}">${esc(fmtDate(n.date))}</time>${n.site?`<span class="nwsite">${esc(n.site)}</span>`:''}</span><b>${esc(n.title)}</b><span class="nwsum">${esc(nSum(n.body,big?260:150))}</span><span class="nwmore">Đọc tiếp →</span></span></a>`}
+function newsHome(){const L=newsSorted().slice(0,3);if(!L.length)return '';
+ return `<div class="nwhome"><div class="cchead"><h3 class="sub">📰 Bản tin mới</h3><button type="button" class="chip" data-go="ban-tin" style="cursor:pointer">Xem tất cả ${newsOf().length} tin →</button></div><div class="nwgrid">${L.map((n,i)=>newsCard(n,i===0)).join('')}</div></div>`}
+function newsRoom(sub){
+ const r=roomOf('ban-tin'),n=sub&&newsOf().find(x=>x.id===sub);
+ if(n){const c=ncat(n.cat),P=(n.photos||[]).filter(p=>pubPhoto(p)||phPrev[p]),more=newsSorted().filter(x=>x.id!==n.id).slice(0,3);
+  return `<section class="room" style="--c:${r.c}"><article class="nwart"><button type="button" class="btn small" data-go="ban-tin">← Tất cả bản tin</button>
+   <span class="nwmeta"><span class="nwcat">${c[2]} ${esc(c[1])}</span><time datetime="${esc(n.date)}">📅 ${esc(fmtDay(n.date))}</time>${n.site?`<span class="nwsite">${esc(n.site)}</span>`:'<span class="nwsite">Toàn trường</span>'}</span>
+   <h2>${esc(n.title)}</h2>
+   ${P.length?`<button type="button" class="nwcover" data-nwph="0" aria-label="Xem ảnh lớn">${imgOf(P[0],n.title)}</button>${P.length>1?`<div class="nwthumbs">${P.slice(1).map((p,i)=>`<button type="button" data-nwph="${i+1}" aria-label="Xem ảnh ${i+2}">${imgOf(p,n.title+' – ảnh '+(i+2))}</button>`).join('')}</div>`:''}`:''}
+   <div class="nwbody">${esc(n.body).split(/\n{2,}/).map(x=>`<p>${x.replace(/\n/g,'<br>')}</p>`).join('')}</div>
+   <div class="ciacts">${okUrl(n.link)?`<a class="btn primary small" href="${esc(n.link)}" target="_blank" rel="noopener">🔗 Xem thêm ↗</a>`:''}<button type="button" class="btn small" data-nwshare="${esc(n.id)}">📤 Chia sẻ tin này</button>${isAdmin()?`<button type="button" class="btn small" data-nwedit="${esc(n.id)}">✏️ Sửa tin</button>`:''}</div>
+   ${n.by?`<small class="dyby">Người đăng: ${esc(n.by)}</small>`:''}</article>
+   ${more.length?`<div class="nwhome"><h3 class="sub">Tin khác</h3><div class="nwgrid">${more.map(x=>newsCard(x)).join('')}</div></div>`:''}</section>`}
+ const all=newsSorted(),L=all.filter(x=>(!nwF.cat||x.cat===nwF.cat)&&(!nwF.site||x.site===nwF.site||(nwF.site==='_'&&!x.site)));
+ const chip=(attr,on,label)=>`<button type="button" ${attr} aria-pressed="${on}">${label}</button>`;
+ return `<section class="room" style="--c:${r.c}"><div class="room-head"><span class="eyebrow">Bảo tàng ký ức số</span><h2>Bản tin trường</h2><p>Tin tức, thông báo, sự kiện và những niềm vui của Trường Mầm non Nông Tiến cùng hai phân hiệu Tràng Đà, Hương Sen.</p>${isAdmin()?`<div class="cta"><button type="button" class="btn small primary" data-nwnew>+ Viết bản tin</button></div>`:''}</div>
+  ${all.length?`<div class="cfilter"><div class="row">${chip('data-nwcat=""',!nwF.cat,'Mọi loại tin')}${NEWS_CATS.filter(k=>all.some(x=>x.cat===k[0])).map(k=>chip(`data-nwcat="${k[0]}"`,nwF.cat===k[0],k[2]+' '+k[1])).join('')}</div>
+   <div class="row">${chip('data-nwsite=""',!nwF.site,'Cả ba điểm trường')}${all.some(x=>!x.site)?chip('data-nwsite="_"',nwF.site==='_','Toàn trường'):''}${sitesOf().filter(st=>all.some(x=>x.site===st)).map(st=>chip(`data-nwsite="${esc(st)}"`,nwF.site===st,esc(st))).join('')}</div></div>`:''}
+  ${L.length?`<div class="nwgrid">${L.slice(0,nwN).map((n,i)=>newsCard(n,i===0&&!nwF.cat&&!nwF.site)).join('')}</div>${L.length>nwN?`<button type="button" class="btn small" data-nwmore>Xem thêm tin (${L.length-nwN})</button>`:''}`:`<div class="empty">${all.length?'Không có tin phù hợp bộ lọc.':'Nhà trường chưa đăng bản tin nào.'}</div>`}
+ </section>`;
+}
 function intro(){
  const ph=[
   {a:new Date(2026,10,4),b:new Date(2026,10,11,23),t:"Giai đoạn 1 · Chuẩn bị",li:["Triển khai kế hoạch tại họp đầu tháng (04/11)","Tiếp nhận cây xanh, chỉnh trang lớp học","Mỗi lớp tạo thư mục “Bảo tàng ký ức số” trên Drive tổ chức"]},
@@ -990,6 +1040,7 @@ function intro(){
  <p>Bảo tàng ký ức số là mô hình của đợt hoạt động chào mừng 44 năm Ngày Nhà giáo Việt Nam, chủ đề “Trường học hạnh phúc – Xanh, Sạch, Số; Lan tỏa yêu thương và tri ân”. Mời bé chọn một căn phòng để vào thăm nhé.</p></div>
  <div class="connect home"><span>Kết nối với nhà trường:</span><a class="btn small fb" href="https://www.facebook.com/mnntnongtien123456789" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.5 1.6-1.5h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.3H7.5V14h2.7v8z"/></svg> Fanpage nhà trường</a><a class="btn small web" href="http://c0nongtien.tuyenquang.edu.vn/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm-9 9h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3z"/></svg> Website nhà trường</a></div>
  ${introShow()}
+ ${newsHome()}
  <div class="index">${ROOMS.filter(x=>x.n).map(x=>`<button class="door" type="button" data-go="${x.id}" style="--c:${x.c}"><span class="n">Phòng ${x.n}</span><b>${esc(x.name)}</b><span>${cnt(x)}</span></button>`).join('')}</div>
  ${classTable()}
  <div style="display:grid;gap:12px"><h3 class="sub">Tiến độ đợt cao điểm 04–20/11/2026</h3><div class="phases">${ph.map(p=>{const s=stateOf(p.a,p.b);return `<div class="phase ${s==='now'?'is-now':''}"><span class="badge ${s}">${BADGE[s]}</span><span class="d">${fmt(p.a)} – ${fmt(p.b)}/2026</span><h4>${p.t}</h4><ul>${p.li.map(l=>`<li>${l}</li>`).join('')}</ul></div>`}).join('')}</div></div></section>`;
@@ -1351,7 +1402,7 @@ function adminRoom(){
  if(!canAdmin)return `<section class="room"><div class="empty">Khu quản trị chỉ dành cho người được cấp quyền chỉnh sửa trang.</div></section>`;
  const A=isAdmin(), local=mode!=='github';
  const tabs=local?[['exhibits','Hiện vật'],['timeline','Mốc lịch sử'],['links','Giới thiệu & link chung']]
-  :A?[['exhibits','Hiện vật'],['timeline','Mốc lịch sử'],['links','Giới thiệu & link chung'],['diary','📔 Nhật ký lớp'],['classes','Lớp học'],['skkn','Minh chứng SKKN'],['lessons','Học liệu'],['gallery','Ảnh nổi bật'],['pending','Duyệt bài'+(pendingList?` (${pendingList.filter(p=>p.status==='pending').length})`:'')],['users','Tài khoản'],['pw','Đổi mật khẩu']]
+  :A?[['exhibits','Hiện vật'],['timeline','Mốc lịch sử'],['links','Giới thiệu & link chung'],['news','📰 Bản tin'],['diary','📔 Nhật ký lớp'],['classes','Lớp học'],['skkn','Minh chứng SKKN'],['lessons','Học liệu'],['gallery','Ảnh nổi bật'],['pending','Duyệt bài'+(pendingList?` (${pendingList.filter(p=>p.status==='pending').length})`:'')],['users','Tài khoản'],['pw','Đổi mật khẩu']]
   :[['exhibits','Hiện vật'],...(myClasses().length?[['diary','📔 Nhật ký lớp']]:[]),...(me.timeline?[['timeline','Mốc lịch sử']]:[]),['mine','Bài đã gửi'],['pw','Đổi mật khẩu']];
  if(!tabs.some(t=>t[0]===aTab))aTab=tabs[0][0];
  const lead=local||A?`Thêm, sửa, xóa hiện vật và mốc lịch sử; gắn link phòng 3D, video, âm thanh. Thay đổi chỉ hiện với phụ huynh sau khi bấm <b>Lưu lên trang</b>.`
@@ -1359,7 +1410,7 @@ function adminRoom(){
  return `<section class="room" style="--c:var(--muted)"><div class="room-head"><span class="eyebrow">${A||local?'Chỉ người quản trị mới thấy mục này':'Dành cho giáo viên'}</span><h2>Khu quản trị</h2><p>${lead}</p></div>
  ${mode==='github'?`<div class="ghinfo"><span>Đang đăng nhập: <b>${esc(me.name)}</b> (${A?'Quản trị':'Giáo viên'} · ${esc(me.username)})</span><span style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="btn small" id="ghReload">Tải bản mới nhất</button><button type="button" class="btn small" id="ghOut">Đăng xuất</button></span></div>`:''}
  <div class="atabs" role="tablist">${tabs.map(([k,l])=>`<button type="button" role="tab" data-atab="${k}" aria-selected="${aTab===k}">${l}</button>`).join('')}</div>
- ${aTab==='exhibits'?adminExhibits():aTab==='timeline'?adminTimeline():aTab==='links'?adminLinks():aTab==='classes'?adminClasses():aTab==='skkn'?adminSkkn():aTab==='lessons'?adminLessons():aTab==='gallery'?adminGallery():aTab==='pending'?adminPending():aTab==='users'?adminUsers():aTab==='mine'?myPosts():aTab==='diary'?adminDiary():pwForm()}
+ ${aTab==='exhibits'?adminExhibits():aTab==='timeline'?adminTimeline():aTab==='links'?adminLinks():aTab==='classes'?adminClasses():aTab==='skkn'?adminSkkn():aTab==='lessons'?adminLessons():aTab==='gallery'?adminGallery():aTab==='pending'?adminPending():aTab==='users'?adminUsers():aTab==='mine'?myPosts():aTab==='diary'?adminDiary():aTab==='news'?adminNews():pwForm()}
  ${readOnly?`<div class="box warn"><p>Tài khoản này chỉ có quyền xem, nên không lưu được thay đổi.</p></div>`:''}
  </section>`;
 }
@@ -1405,6 +1456,25 @@ function adminExhibits(){
    <label class="check"><input type="checkbox" id="x_sample" ${d.sample?'checked':''}> Đánh dấu là nội dung mẫu</label>
    <div class="factions"><button type="submit" class="btn primary">${sendLabel()}</button><button type="button" class="btn" id="x_cancel">Hủy</button></div>
   </form>`:`<div class="box"><h3>Thêm hiện vật</h3><p>Chọn phòng, hình minh họa, viết câu chuyện và dán link video, âm thanh, phòng 3D.</p><button type="button" class="btn primary" id="addEx" style="justify-self:start">+ Thêm hiện vật</button></div>`;
+ return `<div class="admin-grid"><div class="alist">${list}</div>${form}</div>`;
+}
+let nwDraft=null;
+const blankNews=()=>({id:'tin'+Date.now().toString(36),date:todayISO(),title:'',cat:'tin-tuc',site:'',body:'',photos:[],link:'',pin:false});
+function goNews(id){aTab='news';const n=id&&newsOf().find(x=>x.id===id);nwDraft=n?JSON.parse(JSON.stringify(n)):blankNews();nwDraft.photos=nwDraft.photos||[];errors={};if(location.hash==='#quan-tri')render();else location.hash='#quan-tri';setTimeout(showForm,300)}
+function adminNews(){
+ const L=newsSorted(),d=nwDraft;
+ const list=`<div class="agroup"><h4>Bản tin (${L.length})</h4>${L.map(n=>`<div class="arow ${d&&d.id===n.id?'on':''}" style="grid-template-columns:minmax(0,1fr) auto"><div style="min-width:0"><b>${n.pin?'📌 ':''}${esc(n.title)}</b><small>${esc(fmtDate(n.date))} · ${ncat(n.cat)[2]} ${esc(ncat(n.cat)[1])} · ${esc(n.site||'Toàn trường')}${(n.photos||[]).length?` · 📷 ${n.photos.length}`:''}</small></div><span class="acts"><button type="button" class="btn small" data-nwed="${esc(n.id)}">Sửa</button><button type="button" class="btn small danger" data-nwdel="${esc(n.id)}">Xóa</button></span></div>`).join('')||'<small style="color:var(--muted)">Chưa có bản tin nào.</small>'}</div>`;
+ const form=d?`<form class="edit" id="nwForm" novalidate><h3>${newsOf().some(x=>x.id===d.id)?'Sửa bản tin':'Viết bản tin'}</h3>
+  ${fld('nw_title','Tiêu đề *',d.title,{ph:'VD: Ngày hội Nhà giáo Việt Nam 20/11 tại Phân hiệu Hương Sen'})}
+  <div class="two"><div class="f"><label for="nw_date">Ngày</label><input type="date" id="nw_date" value="${esc(d.date)}"></div><div class="f"><label for="nw_cat">Loại tin</label><select id="nw_cat">${NEWS_CATS.map(k=>`<option value="${k[0]}" ${d.cat===k[0]?'selected':''}>${k[2]} ${k[1]}</option>`).join('')}</select></div></div>
+  <div class="f"><label for="nw_site">Điểm trường</label><select id="nw_site"><option value="">Toàn trường</option>${sitesOf().map(st=>`<option ${d.site===st?'selected':''}>${esc(st)}</option>`).join('')}</select></div>
+  ${fld('nw_body','Nội dung',d.body,{area:1,ph:'Viết nội dung bản tin. Để trống một dòng giữa các đoạn.',hint:'Không ghi họ tên đầy đủ của trẻ.'})}
+  <div class="f"><label>Ảnh (tối đa 12, ảnh đầu là ảnh bìa)</label>${d.photos.length?`<div class="phgal">${d.photos.map((p,i)=>`<div class="phitem">${imgOf(p,'Ảnh bản tin')}${i?`<button type="button" class="btn small" data-nwcover="${i}">Làm ảnh bìa</button>`:'<span class="chip">Ảnh bìa</span>'}<button type="button" class="btn small danger" data-nwphdel="${i}">Bỏ</button></div>`).join('')}</div>`:''}
+   ${d.photos.length<12?`<input type="file" id="nw_photos" multiple accept="image/jpeg,image/png,image/webp,image/heic">`:''}<span class="hint"><b>Không đăng ảnh rõ mặt trẻ</b> khi chưa có đồng ý của cha mẹ.</span></div>
+  ${fld('nw_link','Link xem thêm (không bắt buộc)',d.link,{url:1,ph:'https://… (bài trên website, fanpage, video)'})}
+  <label class="check"><input type="checkbox" id="nw_pin" ${d.pin?'checked':''}> 📌 Ghim tin này lên đầu</label>
+  <div class="factions"><button type="submit" class="btn primary">Đưa vào danh sách</button><button type="button" class="btn" id="nw_cancel">Hủy</button></div></form>`
+  :`<div class="box"><h3>📰 Bản tin trường</h3><p>Đăng tin tức, thông báo, sự kiện, vinh danh, góc phụ huynh. Tin hiện ở mục <b>Bản tin trường</b> và 3 tin mới nhất ở trang chủ. Viết xong bấm <b>Lưu lên trang</b>.</p><button type="button" class="btn primary" id="nwAdd" style="justify-self:start">+ Viết bản tin</button></div>`;
  return `<div class="admin-grid"><div class="alist">${list}</div>${form}</div>`;
 }
 let dyDraft=null,dyF='';
@@ -1689,6 +1759,19 @@ function wireAdmin(){
   if(!d.title)errors.ls_title='Hãy nhập tên bài học.';d.links.forEach((x,i)=>{if(x.url&&!okLink(x.url))errors['lu_'+i]='Link phải bắt đầu bằng https://'});if(Object.keys(errors).length){render();return}
   d.links=d.links.filter(x=>x.url);
   const L=lessonsOf().slice(),i=L.findIndex(x=>x.id===d.id);if(i>=0)L[i]=d;else L.push(d);data.lessons=L;lessonDraft=null;markDirty();render();setMsg('Đã cập nhật kho học liệu. Bấm Lưu lên trang để áp dụng.')};
+ /* bản tin */
+ const nwRd=()=>{if(!nwDraft||!$('nwForm'))return;Object.assign(nwDraft,{title:val('nw_title'),date:val('nw_date'),cat:val('nw_cat'),site:val('nw_site'),body:$('nw_body').value.trim(),link:val('nw_link'),pin:$('nw_pin').checked})};
+ const nwA=$('nwAdd');if(nwA)nwA.onclick=()=>{nwDraft=blankNews();errors={};render();showForm()};
+ const nwC=$('nw_cancel');if(nwC)nwC.onclick=()=>{nwDraft=null;errors={};render()};
+ main.querySelectorAll('[data-nwed]').forEach(b=>b.onclick=()=>{nwDraft=JSON.parse(JSON.stringify(newsOf().find(x=>x.id===b.dataset.nwed)));nwDraft.photos=nwDraft.photos||[];errors={};render();showForm()});
+ main.querySelectorAll('[data-nwdel]').forEach(b=>b.onclick=()=>{if(!confirm('Xóa bản tin này?'))return;data.news=newsOf().filter(x=>x.id!==b.dataset.nwdel);if(nwDraft&&nwDraft.id===b.dataset.nwdel)nwDraft=null;markDirty();render();setMsg('Đã xóa bản tin. Bấm Lưu lên trang để áp dụng.')});
+ main.querySelectorAll('[data-nwphdel]').forEach(b=>b.onclick=()=>{nwRd();nwDraft.photos.splice(+b.dataset.nwphdel,1);render()});
+ main.querySelectorAll('[data-nwcover]').forEach(b=>b.onclick=()=>{nwRd();const i=+b.dataset.nwcover;nwDraft.photos.unshift(nwDraft.photos.splice(i,1)[0]);render()});
+ const nwP=$('nw_photos');if(nwP)nwP.onchange=async()=>{const fs=[...nwP.files].slice(0,12-nwDraft.photos.length);if(!fs.length||busy)return;nwRd();busy=true;let ok=0,fail=0;
+  for(const[i,f]of fs.entries()){setMsg(`Đang thu nhỏ và tải ảnh ${i+1}/${fs.length}…`);try{const url=await shrink(f);const r=await api('/api/photo',{data:url},()=>setMsg(WAKE));phPrev[r.photo]=url;nwDraft.photos.push(r.photo);ok++}catch(_){fail++}}
+  busy=false;render();setMsg(`Đã tải ${ok} ảnh${fail?`, ${fail} ảnh lỗi`:''}.`)};
+ const nwFm=$('nwForm');if(nwFm)nwFm.onsubmit=e=>{e.preventDefault();nwRd();errors={};if(!nwDraft.title)errors.nw_title='Hãy nhập tiêu đề.';if(!/^\d{4}-\d{2}-\d{2}$/.test(nwDraft.date))errors.nw_date='Hãy chọn ngày.';checkUrls(['nw_link']);if(Object.keys(errors).length){render();return}
+  const L=newsOf().slice(),i=L.findIndex(x=>x.id===nwDraft.id),n={...nwDraft,by:nwDraft.by||'Quản trị',at:nwDraft.at||new Date().toISOString()};if(i>=0)L[i]=n;else L.push(n);data.news=L;nwDraft=null;markDirty();render();setMsg('Đã cập nhật bản tin. Bấm Lưu lên trang để đăng.')};
  /* nhật ký lớp */
  const dyRd=()=>{if(!dyDraft||!$('dyForm'))return;Object.assign(dyDraft,{date:val('dy_date'),cls:val('dy_cls'),room:val('dy_room'),text:$('dy_text').value.trim()})};
  const dyA=$('dyAdd');if(dyA)dyA.onclick=()=>{dyDraft=blankDiary(dyF);errors={};render();showForm()};
@@ -1849,7 +1932,7 @@ function render(){
  const [want,sub]=((location.hash||'').slice(1)||'loi-vao').split('/');
  let r=ROOMS.find(x=>x.id===want)||ROOMS[0];if(r.adminOnly&&!canAdmin&&mode!=='github')r=ROOMS[0];currentId=r.id;markTab();
  $('layout').classList.toggle('wide',r.kind==='admin');
- main.innerHTML=r.kind==='intro'?intro():r.kind==='exhibits'?exhibitsRoom(r):r.kind==='timeline'?timelineRoom(r):r.kind==='calendar'?calendarRoom(r):r.kind==='guide'?guideRoom():r.kind==='classes'?classesRoom(sub):r.kind==='library'?libraryRoom():adminRoom();
+ main.innerHTML=r.kind==='intro'?intro():r.kind==='exhibits'?exhibitsRoom(r):r.kind==='timeline'?timelineRoom(r):r.kind==='calendar'?calendarRoom(r):r.kind==='guide'?guideRoom():r.kind==='classes'?classesRoom(sub):r.kind==='library'?libraryRoom():r.kind==='news'?newsRoom(sub):adminRoom();
  if(r.kind==='library'){main.querySelectorAll('[data-lsn]').forEach(c=>{c.onclick=()=>openLesson(c.dataset.lsn);c.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openLesson(c.dataset.lsn)}}});main.querySelectorAll('[data-lage]').forEach(b=>b.onclick=()=>{libF.age=b.dataset.lage;render()});main.querySelectorAll('[data-lpil]').forEach(b=>b.onclick=()=>{libF.pil=b.dataset.lpil;render()})}
  if(r.kind==='classes'&&sub&&clsOf(sub)){const it=data.exhibits.filter(e=>clsList(e).includes(sub)).map(e=>({...e,roomName:roomOf(e.room).name+' · '+clsOf(sub).name,c:roomOf(e.room).c}));main.querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>openViewer(it,+b.dataset.i))}
  if(r.kind==='exhibits'){const items=roomItems(r).map(e=>({...e,roomName:r.name+(clsNames(e).length?' · '+clsNames(e).join(', '):''),c:r.c}));main.querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>openViewer(items,+b.dataset.i));
@@ -1857,6 +1940,14 @@ function render(){
   main.querySelectorAll('[data-fcls]').forEach(b=>b.onclick=()=>{const c=clsOf(b.dataset.fcls);cFilter=cFilter.cls===b.dataset.fcls?{site:'',cls:''}:{site:c?c.site:'',cls:b.dataset.fcls};render()})}
  main.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{location.hash=b.dataset.go});
  main.querySelectorAll('[data-her]').forEach(b=>b.onclick=()=>{const h=heritageOf().find(x=>x.id===b.dataset.her),it=herItems(b.dataset.her);if(!it.length)return;openViewer(it.map(e=>({...e,roomName:roomOf(e.room).name+' · Di sản: '+(h?h.name:''),c:roomOf(e.room).c})),0)});
+ main.querySelectorAll('[data-nwcat]').forEach(b=>b.onclick=()=>{nwF.cat=b.dataset.nwcat;nwN=12;render()});
+ main.querySelectorAll('[data-nwsite]').forEach(b=>b.onclick=()=>{nwF.site=b.dataset.nwsite;nwN=12;render()});
+ main.querySelectorAll('[data-nwmore]').forEach(b=>b.onclick=()=>{nwN+=12;render()});
+ main.querySelectorAll('[data-nwph]').forEach(b=>b.onclick=()=>{const n=newsOf().find(x=>x.id===sub);if(!n)return;const P=n.photos.filter(p=>pubPhoto(p)||phPrev[p]);openLightbox(P.map(p=>({photo:p,site:n.title,cap:fmtDate(n.date)})),+b.dataset.nwph)});
+ main.querySelectorAll('[data-nwshare]').forEach(b=>b.onclick=async()=>{const n=newsOf().find(x=>x.id===b.dataset.nwshare),url=location.origin+location.pathname+'#ban-tin/'+n.id;
+  try{if(navigator.share){await navigator.share({title:n.title,text:nSum(n.body,120),url});return}await navigator.clipboard.writeText(url);b.textContent='✅ Đã chép link tin';}catch(_){prompt('Chép link tin này:',url)}});
+ main.querySelectorAll('[data-nwnew]').forEach(b=>b.onclick=()=>goNews(null));
+ main.querySelectorAll('[data-nwedit]').forEach(b=>b.onclick=()=>goNews(b.dataset.nwedit));
  main.querySelectorAll('[data-dynew]').forEach(b=>b.onclick=()=>goDiary(b.dataset.dynew));
  main.querySelectorAll('[data-dymore]').forEach(b=>b.onclick=()=>{const k=b.dataset.dymore;dyShow[k]=(dyShow[k]||6)+6;render()});
  main.querySelectorAll('[data-dyexp]').forEach(b=>b.onclick=()=>{const p=b.previousElementSibling;p.classList.toggle('clamp');b.textContent=p.classList.contains('clamp')?'Xem thêm':'Thu gọn'});

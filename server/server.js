@@ -191,6 +191,18 @@ function cleanDiary(x) {
   if (!o.text) throw new HttpErr(400, 'Hãy viết nội dung nhật ký.');
   return o;
 }
+/* Bản tin trường: tin tức, thông báo, sự kiện… do quản trị đăng. */
+const NEWS_CATS = ['tin-tuc', 'thong-bao', 'su-kien', 'vinh-danh', 'phu-huynh'];
+function cleanNews(x) {
+  x = x || {};
+  const o = { id: str(x.id, 40), date: str(x.date, 10), title: str(x.title, 200), cat: NEWS_CATS.includes(x.cat) ? x.cat : 'tin-tuc', site: str(x.site, 60),
+    body: str(x.body, 8000), photos: (Array.isArray(x.photos) ? x.photos : []).slice(0, 12).filter(p => PUB_PHOTO.test(p || '')),
+    link: okUrl(str(x.link, 1000)) ? str(x.link, 1000) : '', pin: !!x.pin, by: str(x.by, 60), at: str(x.at, 30) };
+  if (!okId(o.id)) throw new HttpErr(400, 'Bản tin không hợp lệ.');
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(o.date)) throw new HttpErr(400, `Ngày của bản tin “${o.title}” không hợp lệ.`);
+  if (!o.title) throw new HttpErr(400, 'Bản tin cần có tiêu đề.');
+  return o;
+}
 function cleanIntro(x) {
   if (!x || typeof x !== 'object') return null;
   const o = { text: str(x.text, 1500), teachers: str(x.teachers, 200), kids: str(x.kids, 30), motto: str(x.motto, 150),
@@ -232,6 +244,7 @@ function cleanData(d) {
   if (Array.isArray(s.stats)) settings.stats = s.stats.slice(0, 6).map(x => ({ n: str(x?.n, 12), l: str(x?.l, 40) })).filter(x => x.n || x.l);
   return { v: 1, settings, exhibits: d.exhibits.map(cleanExhibit), timeline: d.timeline.map(cleanTimeline),
     lessons: (Array.isArray(d.lessons) ? d.lessons : []).slice(0, 300).map(cleanLesson),
+    news: (Array.isArray(d.news) ? d.news : []).slice(0, 500).map(cleanNews),
     diary: (Array.isArray(d.diary) ? d.diary : []).slice(-MAX_DIARY).map(x => { try { return cleanDiary(x); } catch { return null; } }).filter(Boolean) };
 }
 function applyItem(data, kind, item, beforeId) {
@@ -310,6 +323,7 @@ function ai() {
   return aiClient;
 }
 const ROOM_INFO = {
+  'ban-tin': 'Bản tin trường: tin tức, thông báo, sự kiện, vinh danh và góc phụ huynh của ba điểm trường',
   'hanh-trinh': 'Phòng 1 · Hành trình của trường: các mốc lịch sử của Trường Mầm non Nông Tiến và hai phân hiệu, ảnh nổi bật của ba nhà trường',
   'khoanh-khac': 'Phòng 2 · Khoảnh khắc diệu kỳ: bước tiến bộ đầu đời của trẻ',
   'tri-an': 'Phòng 3 · Lời tri ân thơ ngây: lời chúc, thiệp, tranh tặng cô ngày 20/11, lời cảm ơn của cha mẹ',
@@ -350,6 +364,8 @@ async function aiKnowledge() {
   if ((st.heritage || []).length) L.push('BẢN ĐỒ DI SẢN GẦN TRẺ: ' + st.heritage.map(h => `${h.name} (${h.site})`).join('; '));
   L.push('HIỆN VẬT TRƯNG BÀY (tên | phòng | lớp | thời gian | tóm tắt):');
   for (const e of (d.exhibits || []).filter(e => !e.sample)) L.push(`- ${cut(e.name, 90)} | ${(ROOM_INFO[e.room] || e.room).split(':')[0]} | ${cn(e) || cut(e.from, 50)} | ${cut(e.era, 40)} | ${cut(e.story, 160)}`);
+  const news = (d.news || []).slice().sort((a, b) => String(b.date).localeCompare(String(a.date))).slice(0, 30);
+  if (news.length) { L.push('BẢN TIN TRƯỜNG (ngày | điểm trường | tiêu đề | tóm tắt):'); for (const n of news) L.push(`- ${n.date} | ${n.site || 'Toàn trường'} | ${cut(n.title, 120)} | ${cut(n.body, 300)}`); }
   if ((d.lessons || []).length) { L.push('KHO HỌC LIỆU (tiêu chí | độ tuổi | bài | tháng):'); for (const l of d.lessons) L.push(`- ${l.tc} | ${l.age} tuổi | ${l.title} | ${cut(l.week || l.month, 50)}`); }
   aiKb = { at: Date.now(), text: L.join('\n') };
   return aiKb.text;
