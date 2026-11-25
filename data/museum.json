@@ -11164,6 +11164,283 @@
    "photos": [],
    "photoAlt": "",
    "sample": false
+  },
+  {
+   "id": "emwtcb4mz",
+   "room": "di-san",
+   "art": "caylon",
+   "name": "BGH kiểm tra lớp",
+   "era": "",
+   "plan": "BGH nhà trường phát động thi đua lớp xanh, sạch đẹp chào mừng 20.11",
+   "from": "Lớp 3- 4 tuổi A3 (Trường chính)",
+   "story": "BGH nhà trường phát động thi đua lớp xanh, sạch đẹp chào mừng 20.11",
+   "ask": "Đây là ai? Mọi người đang làm gì?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l1b1bdd"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/c6fd2e376371009997d0.jpg",
+   "photos": [
+    "anh/c6fd2e376371009997d0.jpg",
+    "anh/a36024cf871637bc7192.jpg"
+   ],
+   "photoAlt": "BGH nhà trường phát động thi đua lớp xanh, sạch đẹp chào mừng 20.11",
+   "sample": false
+  },
+  {
+   "id": "emwukkocg",
+   "room": "di-san",
+   "art": "ao",
+   "name": "Ngày hội văn hóa Việt Nam - lớp 4-5 tuổi B1",
+   "era": "",
+   "plan": "",
+   "from": "4-5 tuổi B1",
+   "story": "Hôm nay, các bé lớp 4–5 tuổi B1 được tham gia hoạt động hưởng ứng Ngày Văn hóa Việt Nam với nhiều nội dung bổ ích và thú vị. Các bé được tìm hiểu về nét đẹp văn hóa truyền thống của dân tộc, trang phục, món ăn, phong tục tập quán và một số lễ hội đặc trưng của Việt Nam. Thông qua các hoạt động quan sát, trò chuyện và trải nghiệm, trẻ thêm hiểu biết, yêu quý và tự hào về quê hương, đất nước; Bước đầu hình thành ý thức giữ gìn và phát huy những giá trị văn hóa truyền thống của dân tộc.",
+   "ask": "Các con có biết chúng mình đang tìm hiểu về ngày gì không?Chúng mình cần làm gì để giữ gìn bản sắc văn hóa dân tộc?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1DyJgK8NmBpsN9-fFOh4vXtd7S6VthA3f/view?usp=drive_link",
+   "cls": [
+    "l62a027"
+   ],
+   "tc": [
+    "TC1",
+    "TC5",
+    "TC8"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwukp5yo",
+   "room": "khoanh-khac",
+   "art": "ao",
+   "name": "Trình diễn trang phục ngày hội văn hóa Việt Nam",
+   "era": "",
+   "plan": "",
+   "from": "4-5 tuổi B1",
+   "story": "",
+   "ask": "Be thích trang phục dân tộc nào nhất?",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l62a027"
+   ],
+   "tc": [
+    "TC5"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/4216d09db0d62aa864c9.jpg",
+   "photos": [
+    "anh/4216d09db0d62aa864c9.jpg",
+    "anh/db601703d1f82162f3a4.jpg",
+    "anh/3c634fd83cf78aed80e3.jpg",
+    "anh/3d572774be00a96ee237.jpg",
+    "anh/6d49ef8d0691485d959d.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwum32nq",
+   "room": "di-san",
+   "art": "truong",
+   "name": "Ngày Văn hóa Việt Nam 24/11/2026",
+   "era": "Tháng 11/2016",
+   "plan": "Ngày Văn hóa Việt Nam 24/11/2026",
+   "from": "Lớp 3 - 4 tuổi A1",
+   "story": "Hành trình khám phá di sản trang phục các dân tộc là chuyến thăm quan đầy ý nghĩa, giúp các bé tìm hiểu vẻ đẹp đa dạng và độc đáo của văn hóa Việt Nam. Mỗi bộ trang phục mang một màu sắc, hoa văn và nét đẹp riêng, thể hiện bản sắc, phong tục và truyền thống của từng dân tộc như Kinh, Tày, Dao, Mông, Thái… Qua hoạt động trải nghiệm, các bé được ngắm nhìn, tìm hiểu và làm quen với những bộ trang phục truyền thống, từ đó thêm yêu quê hương, trân trọng sự khác biệt và có ý thức giữ gìn, phát huy những giá trị văn hóa di sản dân tộc Việt Nam.",
+   "ask": "Hôm nay các con được làm những gì trong hoạt động ngày văn hóa Việt Nam nhà trường??",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l92c638"
+   ],
+   "tc": [
+    "TC1",
+    "TC2",
+    "TC3",
+    "TC4",
+    "TC5",
+    "TC6",
+    "TC7",
+    "TC8",
+    "TC9"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwumsbsb",
+   "room": "tri-an",
+   "art": "thiep",
+   "name": "Bé làm tranh hoa tặng  tri ân cô nhân ngày 20/11",
+   "era": "Tháng 11/2016",
+   "plan": "Bé Làm tranh tặng cô nhân ngày 20/11/2026",
+   "from": "Lớp 3 - 4 tuổi A1",
+   "story": "Hòa chung không khí vui tươi chào mừng ngày Nhà giáo Việt Nam 20/11, các bé được tham gia hoạt động sáng tạo làm tranh hoa tặng cô giáo. Bằng đôi bàn tay khéo léo, sự sáng tạo và tình yêu thương, các bé đã lựa chọn màu sắc, sắp xếp và trang trí những bông hoa thật đẹp. Mỗi bức tranh là một món quà nhỏ chứa đựng tình cảm yêu thương, lòng biết ơn và lời chúc ngọt ngào mà các bé muốn gửi đến cô giáo kính yêu.",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l92c638"
+   ],
+   "tc": [
+    "TC1",
+    "TC2",
+    "TC3",
+    "MR2",
+    "TC4",
+    "TC5",
+    "TC6",
+    "TC7",
+    "TC8",
+    "TC9"
+   ],
+   "keeper": "Cha mẹ",
+   "her": "",
+   "photo": "anh/a904f21e634a2d8cce84.jpg",
+   "photos": [
+    "anh/a904f21e634a2d8cce84.jpg",
+    "anh/6183d5b1eef47ac8f58f.jpg",
+    "anh/3d3a3167feded08a874a.jpg"
+   ],
+   "photoAlt": "Bé làm tranh hoa tặng  tri ân cô nhân ngày 20/11",
+   "sample": true
+  },
+  {
+   "id": "emwus4l57",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Cây thiết mộc lan",
+   "era": "",
+   "plan": "",
+   "from": "",
+   "story": "",
+   "ask": "",
+   "video": "https://drive.google.com/file/d/1A3hVnFYs9WAiaGSjjG9he3Q9bPC_JJMN/view?usp=drive_link",
+   "audio": "",
+   "link3d": "",
+   "drive": "https://drive.google.com/file/d/1A3hVnFYs9WAiaGSjjG9he3Q9bPC_JJMN/view?usp=drive_link",
+   "cls": [
+    "l6c9ea7"
+   ],
+   "tc": [],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwvvx2hn",
+   "room": "di-san",
+   "art": "ao",
+   "name": "Biểu diễn trang phục dân tộc \"Ngày hội văn hoá Việt Nam\"",
+   "era": "11/2026",
+   "plan": "Ngày hội văn hoá Việt Nam",
+   "from": "Lớp MG 4-5T B3 Trường chính",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l8834cf"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/05a23ba6d0f92dfc7a88.jpg",
+   "photos": [
+    "anh/05a23ba6d0f92dfc7a88.jpg",
+    "anh/81309ef82b3434551f83.jpg",
+    "anh/d314a84c0983d287ad3a.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwvwayna",
+   "room": "khoanh-khac",
+   "art": "sach",
+   "name": "Thiết kế khuôn mặt cảm xúc",
+   "era": "11/2026",
+   "plan": "Tiết học: KPXH: Tình cảm, cảm xúc của bé",
+   "from": "Lớp MG 4-5T B3 Trường chính",
+   "story": "",
+   "ask": "",
+   "video": "",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l8834cf"
+   ],
+   "tc": [
+    "TC7"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "anh/c913fb6f83c08472fb25.jpg",
+   "photos": [
+    "anh/c913fb6f83c08472fb25.jpg"
+   ],
+   "photoAlt": "",
+   "sample": false
+  },
+  {
+   "id": "emwvwf4in",
+   "room": "di-san",
+   "art": "sach",
+   "name": "Biểu diễn trang phục dân tộc",
+   "era": "11/2026",
+   "plan": "Ngày hội văn hoá Việt Nam",
+   "from": "Lớp MG 4-5T B3 Trường chính",
+   "story": "",
+   "ask": "",
+   "video": "https://drive.google.com/file/d/1cOIFGbZTqJiLJnHjIIMfCuYLyjswGi4T/view?usp=drive_link",
+   "audio": "",
+   "link3d": "",
+   "drive": "",
+   "cls": [
+    "l8834cf"
+   ],
+   "tc": [
+    "TC8"
+   ],
+   "keeper": "",
+   "her": "",
+   "photo": "",
+   "photos": [],
+   "photoAlt": "",
+   "sample": false
   }
  ],
  "timeline": [
