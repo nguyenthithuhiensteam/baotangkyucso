@@ -1078,13 +1078,13 @@ function printQr(L){
  const w=window.open('','_blank');if(!w){setMsg('Trình duyệt chặn cửa sổ mới: hãy cho phép cửa sổ bật lên rồi bấm In lại.');return}
  const img=p=>siteBase()+p;
  const cards=L.map(e=>`<div class="card"><div class="ph"><img src="${esc(img(e.photo))}" onerror="this.onerror=null;this.src='${RAW}${esc(e.photo)}'" alt=""></div><div class="info"><b>${esc(e.name)}</b><small>${esc(roomOf(e.room).name)}${clsNames(e).length?' · '+esc(clsNames(e).join(', ')):''}</small>
-  <div class="row"><div class="qr" data-url="${esc(exLink(e))}"></div><div class="hint">📱 Quét mã QR để xem câu chuyện, video${arOf()&&arOf().items.includes(e.id)?'<br>📷 Quét ảnh bằng <b>AR</b> tại mục “Quét ảnh AR”':''}</div></div></div></div>`).join('');
+  <div class="row"><div class="qr" data-url="${esc(exLink(e))}"></div><div class="hint">📱 Quét <b>mã QR</b>: xem câu chuyện, video${arOf()&&arOf().items.includes(e.id)?'<br>📷 Quét <b>ảnh</b> ở mục “Quét ảnh AR”':''}</div></div></div></div>`).join('');
  w.document.write(`<!doctype html><html lang="vi"><head><meta charset="utf-8"><title>Thẻ QR hiện vật – Bảo tàng ký ức số</title>
  <style>@page{size:A4;margin:8mm}*{box-sizing:border-box}body{margin:0;font-family:"Nunito",Arial,sans-serif;color:#1d2638}
  .bar{padding:10px;text-align:center;background:#eef3ff}.bar button{font:inherit;font-size:16px;padding:8px 18px;border-radius:999px;border:0;background:#3949ab;color:#fff;cursor:pointer}
- .grid{display:grid;grid-template-columns:1fr 1fr;gap:5mm;padding:4mm}.card{border:1.2mm solid #3949ab;border-radius:5mm;padding:3mm;height:88mm;display:grid;grid-template-rows:40mm 1fr;gap:2mm;overflow:hidden;break-inside:avoid;page-break-inside:avoid}
- .ph{display:flex;align-items:center;justify-content:center;background:#fff;border-radius:3mm;overflow:hidden}.ph img{max-width:100%;max-height:40mm;object-fit:contain}
- .info b{display:block;font-size:13pt;line-height:1.2;max-height:2.4em;overflow:hidden}.info small{display:block;font-size:9pt;color:#555;margin:1mm 0}
+ .grid{display:grid;grid-template-columns:1fr 1fr;gap:5mm;padding:4mm}.card{border:1.2mm solid #3949ab;border-radius:5mm;padding:3mm;height:88mm;display:grid;grid-template-rows:38mm 1fr;gap:2mm;overflow:hidden;break-inside:avoid;page-break-inside:avoid}
+ .ph{display:flex;align-items:center;justify-content:center;background:#fff;border-radius:3mm;overflow:hidden}.ph img{max-width:100%;max-height:38mm;object-fit:contain}
+ .info>b{display:block;font-size:13pt;line-height:1.2;max-height:2.4em;overflow:hidden}.info small{display:block;font-size:9pt;color:#555;margin:1mm 0}
  .row{display:grid;grid-template-columns:24mm 1fr;gap:3mm;align-items:center}.qr svg{width:24mm;height:24mm;display:block}.hint{font-size:8.5pt;line-height:1.35;color:#333}
  .head{grid-column:1/-1;text-align:center;font-size:10pt;color:#3949ab;font-weight:700}
  @media print{.bar{display:none}}</style></head><body><div class="bar"><button onclick="print()">🖨️ In thẻ</button> &nbsp; ${L.length} thẻ · khổ A4 · 6 thẻ mỗi trang</div>
