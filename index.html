@@ -377,6 +377,12 @@ h3.fsel{font-size:22px}h3.fsel small{font-size:14px;color:var(--muted);font-fami
 .cimsg{margin:0;color:var(--indigo);font-weight:700;min-height:1em}
 .cilist{display:grid;gap:6px;margin-top:10px}.cilist>div{display:flex;flex-wrap:wrap;gap:6px}.btn.ghost{opacity:.75}
 @media (max-width:640px){.cintro{grid-template-columns:1fr}.ciph{aspect-ratio:16/9}}
+.arsteps{margin:0;padding-left:20px;display:grid;gap:6px}
+.arlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px}.arit{all:unset;cursor:pointer;display:grid;gap:4px;text-align:center;font-size:13px;font-weight:700}.arit img,.arit svg{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;display:block}.arit:focus-visible{outline:3px solid var(--turmeric-fill)}
+.qrpick{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:8px;max-height:min(60vh,560px);overflow-y:auto;padding:4px;border:2px solid var(--line);border-radius:14px;background:var(--paper)}
+.qrit{display:grid;grid-template-columns:auto 52px minmax(0,1fr);gap:8px;align-items:center;padding:6px 8px;border-radius:12px;cursor:pointer;background:var(--frame);border:2px solid transparent}.qrit.on{border-color:var(--indigo)}
+.qrph{width:52px;height:52px;border-radius:10px;overflow:hidden;display:block}.qrph img,.qrph svg{width:100%;height:100%;object-fit:cover;display:block}.qrit b{display:block;font-size:14px;line-height:1.25}.qrit small{color:var(--muted);font-size:12px}
+.artag{background:var(--lilac);color:#fff;border-radius:6px;padding:0 5px;font-weight:800}.armsg{color:var(--indigo)}
 .nwhome{display:grid;gap:10px;margin:14px 0}
 .nwgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:14px}
 .nwc{display:grid;grid-template-rows:auto 1fr;background:var(--frame);border-radius:18px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 4px 0 var(--line);border:2px solid transparent;transition:transform .15s}
@@ -640,6 +646,7 @@ const ROOMS=[
  {id:"hoc-lieu",n:"7",name:"Kho học liệu số – Trẻ em Tuyên Quang",kind:"library",c:"var(--turmeric)",
   lead:"Xây dựng và tổ chức thực hiện Bộ tiêu chí “Trẻ em Tuyên Quang: Khỏe, An toàn, Tự tin giao tiếp, Yêu quê hương” thông qua mô hình Hành trình di sản."},
  {id:"lop-hoc",name:"Các lớp học",kind:"classes",c:"var(--teal)"},
+ {id:"quet-ar",name:"📷 Quét ảnh AR",kind:"ar",c:"var(--lilac)"},
  {id:"huong-dan",name:"Hướng dẫn cho lớp",kind:"guide",c:"var(--indigo)"},
  {id:"quan-tri",name:"Khu quản trị",kind:"admin",adminOnly:true,c:"var(--muted)"}
 ];
@@ -1030,6 +1037,83 @@ function newsRoom(sub){
   ${L.length?`<div class="nwgrid">${L.slice(0,nwN).map((n,i)=>newsCard(n,i===0&&!nwF.cat&&!nwF.site)).join('')}</div>${L.length>nwN?`<button type="button" class="btn small" data-nwmore>Xem thêm tin (${L.length-nwN})</button>`:''}`:`<div class="empty">${all.length?'Không có tin phù hợp bộ lọc.':'Nhà trường chưa đăng bản tin nào.'}</div>`}
  </section>`;
 }
+/* ===== Thẻ QR và AR ===== */
+const siteBase=()=>location.origin+location.pathname.replace(/index\.html$/,'');
+const exLink=e=>siteBase()+'#hv/'+e.id;
+const arOf=()=>data.settings&&data.settings.ar&&data.settings.ar.file?data.settings.ar:null;
+function arRoom(){
+ const a=arOf(),items=a?a.items.map(id=>data.exhibits.find(e=>e.id===id)).filter(Boolean):[];
+ return `<section class="room" style="--c:var(--lilac)"><div class="room-head"><span class="eyebrow">Trải nghiệm thực tế tăng cường</span><h2>📷 Quét ảnh AR</h2>
+  <p>Đưa camera điện thoại vào <b>ảnh trên thẻ hiện vật</b> dán ở lớp, góc thiên nhiên, góc di sản: khung sáng và tên hiện vật hiện lên ngay trên ảnh, kèm câu chuyện, video, lời chúc của bé.</p>
+  ${a?`<div class="cta"><a class="btn sun" href="ar.html">📷 Mở camera quét AR</a></div>`:''}</div>
+  <div class="guide">
+   <div class="box"><h3>Cách quét</h3><ol class="arsteps"><li>Bấm <b>Mở camera quét AR</b>, cho phép trang dùng camera.</li><li>Hướng camera vào <b>ảnh trên thẻ</b> (không phải mã QR), giữ máy cách thẻ khoảng 20–40 cm, đủ sáng.</li><li>Khi khung sáng hiện lên, bấm nút ở dưới màn hình để xem câu chuyện, video.</li></ol><p class="muted" style="margin:0">Thẻ còn có <b>mã QR</b>: quét bằng camera hoặc Zalo để mở thẳng trang hiện vật, không cần AR.</p></div>
+   <div class="box"><h3>Hiện vật quét AR được (${items.length})</h3>${items.length?`<div class="arlist">${items.map(e=>`<button type="button" class="arit" data-arhv="${esc(e.id)}">${pic(e)}<span>${esc(e.name)}</span></button>`).join('')}</div>`:'<p class="muted">Nhà trường đang chuẩn bị hiện vật AR.</p>'}</div>
+  </div></section>`;
+}
+let qrF={room:'',cls:'',ph:true},qrSel=new Set(),qrInit=false,arMsg='';
+function qrList(){
+ const C=isAdmin()?null:myClasses();
+ return data.exhibits.filter(e=>!e.sample&&(!qrF.room||e.room===qrF.room)&&(!qrF.cls||clsList(e).includes(qrF.cls))&&(!qrF.ph||pubPhoto(e.photo))&&(isAdmin()||!C.length||clsList(e).some(c=>C.includes(c)))&&(isAdmin()||!me||!me.rooms||me.rooms.includes(e.room)));
+}
+function adminQr(){
+ const L=qrList(),C=isAdmin()?classesOf():classesOf().filter(c=>myClasses().includes(c.id)),rooms=isAdmin()?EXROOMS:EXROOMS.filter(r=>me&&me.rooms&&me.rooms.includes(r.id));
+ if(!qrInit){L.forEach(e=>qrSel.add(e.id));qrInit=true}
+ const n=L.filter(e=>qrSel.has(e.id)).length,a=arOf(),arSet=new Set(a?a.items:[]);
+ return `<div class="box" style="max-width:960px"><h3>🔳 In thẻ QR cho hiện vật</h3>
+  <p style="margin:0;color:var(--muted);font-size:15px">Mỗi thẻ có ảnh hiện vật, tên, lớp và mã QR. Quét QR bằng camera hoặc Zalo là mở đúng hiện vật trên bảo tàng. Ảnh trên thẻ cũng dùng để <b>quét AR</b>. In giấy A4 (6 thẻ một trang), cắt rời, ép plastic rồi dán cạnh cây, sản phẩm, góc trưng bày.</p>
+  <div class="atools" style="position:static"><select id="qrRoom" aria-label="Phòng"><option value="">Mọi phòng</option>${rooms.map(r=>`<option value="${r.id}" ${qrF.room===r.id?'selected':''}>Phòng ${r.n} · ${esc(r.name)}</option>`).join('')}</select>
+   <select id="qrCls" aria-label="Lớp"><option value="">${isAdmin()?'Mọi lớp':'Các lớp của tôi'}</option>${C.map(c=>`<option value="${c.id}" ${qrF.cls===c.id?'selected':''}>${esc(c.name)}</option>`).join('')}</select>
+   <label class="check"><input type="checkbox" id="qrPh" ${qrF.ph?'checked':''}> Chỉ hiện vật có ảnh</label>
+   <small>${L.length} hiện vật · đã chọn ${n} · <button type="button" class="linkbtn" id="qrAll">Chọn tất cả</button> · <button type="button" class="linkbtn" id="qrNone">Bỏ chọn</button></small></div>
+  <div class="qrpick">${L.map(e=>`<label class="qrit ${qrSel.has(e.id)?'on':''}"><input type="checkbox" data-qrid="${esc(e.id)}" ${qrSel.has(e.id)?'checked':''}><span class="qrph">${pic(e)}</span><span><b>${esc(e.name)}</b><small>${roomShort(e.room)}${clsNames(e).length?' · '+esc(clsShort(e)):''}${arSet.has(e.id)?' · <span class="artag">AR</span>':''}</small></span></label>`).join('')||'<small class="muted">Không có hiện vật phù hợp.</small>'}</div>
+  <div class="factions" style="position:static;border:0"><button type="button" class="btn primary" id="qrPrint" ${n?'':'disabled'}>🖨️ In ${n} thẻ QR</button></div></div>
+ ${isAdmin()?`<div class="box" style="max-width:960px;margin-top:16px"><h3>📷 Hiện vật quét AR</h3>
+  <p style="margin:0;color:var(--muted);font-size:15px">Chọn hiện vật ở danh sách trên (chỉ hiện vật có ảnh, tối đa 20; tệp khoảng 0,5 MB mỗi hiện vật) rồi bấm <b>Tạo tệp AR</b>: máy “học” ảnh bìa của từng hiện vật để camera nhận ra ảnh in trên thẻ. Mất khoảng 5–20 giây mỗi ảnh. Xong bấm <b>Lưu lên trang</b>. Đổi ảnh bìa của hiện vật thì tạo lại tệp AR và in lại thẻ.</p>
+  <p style="margin:0">${a?`Đang có <b>${a.items.length}</b> hiện vật AR (tạo ngày ${esc(String(a.at||'').slice(0,10))}).`:'Chưa có tệp AR.'} ${arMsg?`<b class="armsg">${esc(arMsg)}</b>`:''}</p>
+  <div class="factions" style="position:static;border:0"><button type="button" class="btn primary" id="arMake" ${n&&!busy?'':'disabled'}>✨ Tạo tệp AR từ ${Math.min(n,20)} hiện vật đã chọn</button>${a?`<button type="button" class="btn" id="arSelect">Chọn lại các hiện vật AR hiện có</button><a class="btn" href="ar.html" target="_blank" rel="noopener">Mở trang quét AR ↗</a>`:''}</div></div>`:''}`;
+}
+/* Trang in thẻ: mở cửa sổ mới, vẽ mã QR bằng thư viện qrcode-generator, in A4. */
+function printQr(L){
+ const w=window.open('','_blank');if(!w){setMsg('Trình duyệt chặn cửa sổ mới: hãy cho phép cửa sổ bật lên rồi bấm In lại.');return}
+ const img=p=>siteBase()+p;
+ const cards=L.map(e=>`<div class="card"><div class="ph"><img src="${esc(img(e.photo))}" onerror="this.onerror=null;this.src='${RAW}${esc(e.photo)}'" alt=""></div><div class="info"><b>${esc(e.name)}</b><small>${esc(roomOf(e.room).name)}${clsNames(e).length?' · '+esc(clsNames(e).join(', ')):''}</small>
+  <div class="row"><div class="qr" data-url="${esc(exLink(e))}"></div><div class="hint">📱 Quét mã QR để xem câu chuyện, video${arOf()&&arOf().items.includes(e.id)?'<br>📷 Quét ảnh bằng <b>AR</b> tại mục “Quét ảnh AR”':''}</div></div></div></div>`).join('');
+ w.document.write(`<!doctype html><html lang="vi"><head><meta charset="utf-8"><title>Thẻ QR hiện vật – Bảo tàng ký ức số</title>
+ <style>@page{size:A4;margin:8mm}*{box-sizing:border-box}body{margin:0;font-family:"Nunito",Arial,sans-serif;color:#1d2638}
+ .bar{padding:10px;text-align:center;background:#eef3ff}.bar button{font:inherit;font-size:16px;padding:8px 18px;border-radius:999px;border:0;background:#3949ab;color:#fff;cursor:pointer}
+ .grid{display:grid;grid-template-columns:1fr 1fr;gap:5mm;padding:4mm}.card{border:1.2mm solid #3949ab;border-radius:5mm;padding:3mm;height:88mm;display:grid;grid-template-rows:40mm 1fr;gap:2mm;overflow:hidden;break-inside:avoid;page-break-inside:avoid}
+ .ph{display:flex;align-items:center;justify-content:center;background:#fff;border-radius:3mm;overflow:hidden}.ph img{max-width:100%;max-height:40mm;object-fit:contain}
+ .info b{display:block;font-size:13pt;line-height:1.2;max-height:2.4em;overflow:hidden}.info small{display:block;font-size:9pt;color:#555;margin:1mm 0}
+ .row{display:grid;grid-template-columns:24mm 1fr;gap:3mm;align-items:center}.qr svg{width:24mm;height:24mm;display:block}.hint{font-size:8.5pt;line-height:1.35;color:#333}
+ .head{grid-column:1/-1;text-align:center;font-size:10pt;color:#3949ab;font-weight:700}
+ @media print{.bar{display:none}}</style></head><body><div class="bar"><button onclick="print()">🖨️ In thẻ</button> &nbsp; ${L.length} thẻ · khổ A4 · 6 thẻ mỗi trang</div>
+ <div class="grid">${cards}</div>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"><\/script>
+ <script>document.querySelectorAll('.qr').forEach(function(el){var q=qrcode(0,'M');q.addData(el.dataset.url);q.make();el.innerHTML=q.createSvgTag({cellSize:4,margin:0,scalable:true})});<\/script></body></html>`);
+ w.document.close();
+}
+/* Tạo tệp nhận ảnh AR (MindAR) ngay trong trình duyệt rồi tải lên kho. */
+async function makeAr(ids){
+ const E=ids.map(id=>data.exhibits.find(e=>e.id===id)).filter(e=>e&&pubPhoto(e.photo)).slice(0,20);
+ if(!E.length){setMsg('Hãy chọn hiện vật có ảnh.');return}
+ if(dirty){setMsg('Còn thay đổi chưa lưu. Hãy Lưu lên trang hoặc Bỏ thay đổi trước khi tạo tệp AR.');return}
+ busy=true;arMsg='Đang tải bộ “học ảnh”…';render();
+ try{
+  const {Compiler}=await import('https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image.prod.js');
+  const load0=src=>new Promise((ok,no)=>{const i=new Image();i.crossOrigin='anonymous';i.onload=()=>ok(i);i.onerror=no;i.src=src});
+  /* thu nhỏ ảnh (cạnh dài 640px) để tệp AR nhẹ, điện thoại tải nhanh */
+  const load=async src=>{const i=await load0(src),k=Math.min(1,640/Math.max(i.naturalWidth,i.naturalHeight));if(k>=1)return i;const c=document.createElement('canvas');c.width=Math.round(i.naturalWidth*k);c.height=Math.round(i.naturalHeight*k);c.getContext('2d').drawImage(i,0,0,c.width,c.height);return load0(c.toDataURL('image/jpeg',0.9))};
+  const imgs=[];for(const[i,e]of E.entries()){arMsg=`Đang tải ảnh ${i+1}/${E.length}…`;render();imgs.push(await load(RAW+e.photo).catch(()=>load(e.photo)))}
+  const c=new Compiler();await c.compileImageTargets(imgs,p=>{const t=`Máy đang học ảnh: ${Math.round(p)}%`;if(t!==arMsg){arMsg=t;const m=document.querySelector('.armsg');if(m)m.textContent=t}});
+  const buf=await c.exportData();let bin='';const u=new Uint8Array(buf);for(let i=0;i<u.length;i+=0x8000)bin+=String.fromCharCode.apply(null,u.subarray(i,i+0x8000));
+  arMsg='Đang tải tệp AR lên kho…';render();
+  const r=await api('/api/file',{name:'ar-hien-vat.mind',data:'data:application/octet-stream;base64,'+btoa(bin)},()=>{arMsg=WAKE;render()});
+  data.settings.ar={file:r.url,items:E.map(e=>e.id),at:new Date().toISOString()};markDirty();
+  arMsg=`Đã tạo tệp AR cho ${E.length} hiện vật (${Math.round(u.length/1024)} KB). Bấm Lưu lên trang, khoảng 5–10 phút sau quét được.`;
+ }catch(err){console.error(err);arMsg='Chưa tạo được tệp AR: '+((err&&err.msg)||err&&err.message||'lỗi không rõ')}
+ finally{busy=false;render()}
+}
 function intro(){
  const ph=[
   {a:new Date(2026,10,4),b:new Date(2026,10,11,23),t:"Giai đoạn 1 · Chuẩn bị",li:["Triển khai kế hoạch tại họp đầu tháng (04/11)","Tiếp nhận cây xanh, chỉnh trang lớp học","Mỗi lớp tạo thư mục “Bảo tàng ký ức số” trên Drive tổ chức"]},
@@ -1402,15 +1486,15 @@ function adminRoom(){
  if(!canAdmin)return `<section class="room"><div class="empty">Khu quản trị chỉ dành cho người được cấp quyền chỉnh sửa trang.</div></section>`;
  const A=isAdmin(), local=mode!=='github';
  const tabs=local?[['exhibits','Hiện vật'],['timeline','Mốc lịch sử'],['links','Giới thiệu & link chung']]
-  :A?[['exhibits','Hiện vật'],['timeline','Mốc lịch sử'],['links','Giới thiệu & link chung'],['news','📰 Bản tin'],['diary','📔 Nhật ký lớp'],['classes','Lớp học'],['skkn','Minh chứng SKKN'],['lessons','Học liệu'],['gallery','Ảnh nổi bật'],['pending','Duyệt bài'+(pendingList?` (${pendingList.filter(p=>p.status==='pending').length})`:'')],['users','Tài khoản'],['pw','Đổi mật khẩu']]
-  :[['exhibits','Hiện vật'],...(myClasses().length?[['diary','📔 Nhật ký lớp']]:[]),...(me.timeline?[['timeline','Mốc lịch sử']]:[]),['mine','Bài đã gửi'],['pw','Đổi mật khẩu']];
+  :A?[['exhibits','Hiện vật'],['timeline','Mốc lịch sử'],['links','Giới thiệu & link chung'],['news','📰 Bản tin'],['qr','🔳 Thẻ QR & AR'],['diary','📔 Nhật ký lớp'],['classes','Lớp học'],['skkn','Minh chứng SKKN'],['lessons','Học liệu'],['gallery','Ảnh nổi bật'],['pending','Duyệt bài'+(pendingList?` (${pendingList.filter(p=>p.status==='pending').length})`:'')],['users','Tài khoản'],['pw','Đổi mật khẩu']]
+  :[['exhibits','Hiện vật'],...(myClasses().length?[['diary','📔 Nhật ký lớp']]:[]),['qr','🔳 Thẻ QR'],...(me.timeline?[['timeline','Mốc lịch sử']]:[]),['mine','Bài đã gửi'],['pw','Đổi mật khẩu']];
  if(!tabs.some(t=>t[0]===aTab))aTab=tabs[0][0];
  const lead=local||A?`Thêm, sửa, xóa hiện vật và mốc lịch sử; gắn link phòng 3D, video, âm thanh. Thay đổi chỉ hiện với phụ huynh sau khi bấm <b>Lưu lên trang</b>.`
   :`Chị/cô được thêm và sửa hiện vật ở ${myRooms().length?myRooms().map(r=>`<b>Phòng ${r.n} · ${esc(r.name)}</b>`).join(', '):'<b>(chưa được giao phòng nào)</b>'}${me.timeline?' và các mốc lịch sử của trường':''}. ${me.review?'Bài gửi sẽ hiện trên trang sau khi người quản trị duyệt.':'Bài gửi hiện ngay trên trang sau khoảng 1–2 phút.'}`;
  return `<section class="room" style="--c:var(--muted)"><div class="room-head"><span class="eyebrow">${A||local?'Chỉ người quản trị mới thấy mục này':'Dành cho giáo viên'}</span><h2>Khu quản trị</h2><p>${lead}</p></div>
  ${mode==='github'?`<div class="ghinfo"><span>Đang đăng nhập: <b>${esc(me.name)}</b> (${A?'Quản trị':'Giáo viên'} · ${esc(me.username)})</span><span style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="btn small" id="ghReload">Tải bản mới nhất</button><button type="button" class="btn small" id="ghOut">Đăng xuất</button></span></div>`:''}
  <div class="atabs" role="tablist">${tabs.map(([k,l])=>`<button type="button" role="tab" data-atab="${k}" aria-selected="${aTab===k}">${l}</button>`).join('')}</div>
- ${aTab==='exhibits'?adminExhibits():aTab==='timeline'?adminTimeline():aTab==='links'?adminLinks():aTab==='classes'?adminClasses():aTab==='skkn'?adminSkkn():aTab==='lessons'?adminLessons():aTab==='gallery'?adminGallery():aTab==='pending'?adminPending():aTab==='users'?adminUsers():aTab==='mine'?myPosts():aTab==='diary'?adminDiary():aTab==='news'?adminNews():pwForm()}
+ ${aTab==='exhibits'?adminExhibits():aTab==='timeline'?adminTimeline():aTab==='links'?adminLinks():aTab==='classes'?adminClasses():aTab==='skkn'?adminSkkn():aTab==='lessons'?adminLessons():aTab==='gallery'?adminGallery():aTab==='pending'?adminPending():aTab==='users'?adminUsers():aTab==='mine'?myPosts():aTab==='diary'?adminDiary():aTab==='news'?adminNews():aTab==='qr'?adminQr():pwForm()}
  ${readOnly?`<div class="box warn"><p>Tài khoản này chỉ có quyền xem, nên không lưu được thay đổi.</p></div>`:''}
  </section>`;
 }
@@ -1759,6 +1843,16 @@ function wireAdmin(){
   if(!d.title)errors.ls_title='Hãy nhập tên bài học.';d.links.forEach((x,i)=>{if(x.url&&!okLink(x.url))errors['lu_'+i]='Link phải bắt đầu bằng https://'});if(Object.keys(errors).length){render();return}
   d.links=d.links.filter(x=>x.url);
   const L=lessonsOf().slice(),i=L.findIndex(x=>x.id===d.id);if(i>=0)L[i]=d;else L.push(d);data.lessons=L;lessonDraft=null;markDirty();render();setMsg('Đã cập nhật kho học liệu. Bấm Lưu lên trang để áp dụng.')};
+ /* thẻ QR & AR */
+ const qrR=$('qrRoom');if(qrR)qrR.onchange=()=>{qrF.room=qrR.value;render()};
+ const qrC=$('qrCls');if(qrC)qrC.onchange=()=>{qrF.cls=qrC.value;render()};
+ const qrP=$('qrPh');if(qrP)qrP.onchange=()=>{qrF.ph=qrP.checked;render()};
+ const qrA=$('qrAll');if(qrA)qrA.onclick=()=>{qrList().forEach(e=>qrSel.add(e.id));render()};
+ const qrN=$('qrNone');if(qrN)qrN.onclick=()=>{qrList().forEach(e=>qrSel.delete(e.id));render()};
+ main.querySelectorAll('[data-qrid]').forEach(c=>c.onchange=()=>{c.checked?qrSel.add(c.dataset.qrid):qrSel.delete(c.dataset.qrid);c.closest('.qrit').classList.toggle('on',c.checked);const n=qrList().filter(e=>qrSel.has(e.id)).length;const b=$('qrPrint');if(b){b.disabled=!n;b.textContent=`🖨️ In ${n} thẻ QR`}const m=$('arMake');if(m){m.disabled=!n||busy;m.textContent=`✨ Tạo tệp AR từ ${Math.min(n,20)} hiện vật đã chọn`}});
+ const qrPr=$('qrPrint');if(qrPr)qrPr.onclick=()=>printQr(qrList().filter(e=>qrSel.has(e.id)));
+ const arM=$('arMake');if(arM)arM.onclick=()=>makeAr(qrList().filter(e=>qrSel.has(e.id)&&pubPhoto(e.photo)).map(e=>e.id));
+ const arS=$('arSelect');if(arS)arS.onclick=()=>{qrF={room:'',cls:'',ph:true};qrSel=new Set(arOf().items);render()};
  /* bản tin */
  const nwRd=()=>{if(!nwDraft||!$('nwForm'))return;Object.assign(nwDraft,{title:val('nw_title'),date:val('nw_date'),cat:val('nw_cat'),site:val('nw_site'),body:$('nw_body').value.trim(),link:val('nw_link'),pin:$('nw_pin').checked})};
  const nwA=$('nwAdd');if(nwA)nwA.onclick=()=>{nwDraft=blankNews();errors={};render();showForm()};
@@ -1936,9 +2030,12 @@ function markTab(){[...$('rooms').children].forEach(b=>b.setAttribute('aria-sele
 function render(){
  sidePanel();
  const [want,sub]=((location.hash||'').slice(1)||'loi-vao').split('/');
+ /* Link riêng của hiện vật (mã QR): #hv/<mã> mở phòng của hiện vật rồi mở khung xem đúng hiện vật đó. */
+ /* chưa thấy (dữ liệu mới đang tải): tạm hiện trang chủ, giữ nguyên link; tải xong trang vẽ lại và mở đúng hiện vật */
+ if(want==='hv'&&data.exhibits.some(x=>x.id===sub)){const e=data.exhibits.find(x=>x.id===sub);location.replace('#'+e.room);if(e){diSel='';setTimeout(()=>{const r=roomOf(e.room),L=data.exhibits.filter(x=>x.room===e.room).map(x=>({...x,roomName:r.name+(clsNames(x).length?' · '+clsNames(x).join(', '):''),c:r.c}));openViewer(L,Math.max(0,L.findIndex(x=>x.id===e.id)))},60)}return}
  let r=ROOMS.find(x=>x.id===want)||ROOMS[0];if(r.adminOnly&&!canAdmin&&mode!=='github')r=ROOMS[0];currentId=r.id;markTab();
  $('layout').classList.toggle('wide',r.kind==='admin');
- main.innerHTML=r.kind==='intro'?intro():r.kind==='exhibits'?exhibitsRoom(r):r.kind==='timeline'?timelineRoom(r):r.kind==='calendar'?calendarRoom(r):r.kind==='guide'?guideRoom():r.kind==='classes'?classesRoom(sub):r.kind==='library'?libraryRoom():r.kind==='news'?newsRoom(sub):adminRoom();
+ main.innerHTML=r.kind==='intro'?intro():r.kind==='exhibits'?exhibitsRoom(r):r.kind==='timeline'?timelineRoom(r):r.kind==='calendar'?calendarRoom(r):r.kind==='guide'?guideRoom():r.kind==='classes'?classesRoom(sub):r.kind==='library'?libraryRoom():r.kind==='news'?newsRoom(sub):r.kind==='ar'?arRoom():adminRoom();
  if(r.kind==='library'){main.querySelectorAll('[data-lsn]').forEach(c=>{c.onclick=()=>openLesson(c.dataset.lsn);c.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openLesson(c.dataset.lsn)}}});main.querySelectorAll('[data-lage]').forEach(b=>b.onclick=()=>{libF.age=b.dataset.lage;render()});main.querySelectorAll('[data-lpil]').forEach(b=>b.onclick=()=>{libF.pil=b.dataset.lpil;render()})}
  if(r.kind==='classes'&&sub&&clsOf(sub)){const it=data.exhibits.filter(e=>clsList(e).includes(sub)).map(e=>({...e,roomName:roomOf(e.room).name+' · '+clsOf(sub).name,c:roomOf(e.room).c}));main.querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>openViewer(it,+b.dataset.i))}
  if(r.kind==='exhibits'){const items=roomItems(r).map(e=>({...e,roomName:r.name+(clsNames(e).length?' · '+clsNames(e).join(', '):''),c:r.c}));main.querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>openViewer(items,+b.dataset.i));
@@ -1946,6 +2043,7 @@ function render(){
   main.querySelectorAll('[data-fcls]').forEach(b=>b.onclick=()=>{const c=clsOf(b.dataset.fcls);cFilter=cFilter.cls===b.dataset.fcls?{site:'',cls:''}:{site:c?c.site:'',cls:b.dataset.fcls};render()})}
  main.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{location.hash=b.dataset.go});
  main.querySelectorAll('[data-her]').forEach(b=>b.onclick=()=>{const h=heritageOf().find(x=>x.id===b.dataset.her),it=herItems(b.dataset.her);if(!it.length)return;openViewer(it.map(e=>({...e,roomName:roomOf(e.room).name+' · Di sản: '+(h?h.name:''),c:roomOf(e.room).c})),0)});
+ main.querySelectorAll('[data-arhv]').forEach(b=>b.onclick=()=>{location.hash='hv/'+b.dataset.arhv});
  main.querySelectorAll('[data-nwcat]').forEach(b=>b.onclick=()=>{nwF.cat=b.dataset.nwcat;nwN=12;render()});
  main.querySelectorAll('[data-nwsite]').forEach(b=>b.onclick=()=>{nwF.site=b.dataset.nwsite;nwN=12;render()});
  main.querySelectorAll('[data-nwmore]').forEach(b=>b.onclick=()=>{nwN+=12;render()});
@@ -1996,7 +2094,7 @@ function show(){const e=list[pos];viewHit(e);
  $('vThumbs').querySelectorAll('[data-vph]').forEach(b=>b.onclick=()=>{$('vArt').innerHTML=imgOf(P[+b.dataset.vph],e.photoAlt||e.name);$('vThumbs').querySelectorAll('[data-vph]').forEach(x=>x.setAttribute('aria-pressed',x===b))});$('vPlan').textContent=e.plan||e.roomName;$('vTitle').textContent=e.name;
  $('vMeta').textContent=[e.roomName,e.era,e.from,tcList(e).length?'Tiêu chí '+tcList(e).join(', '):'',e.keeper?'Người giữ chặng: '+e.keeper:'',herOf(e.her)?'Di sản: '+herOf(e.her).name:'',e.sample?'nội dung mẫu':''].filter(Boolean).join(' · ');$('vStory').textContent=e.story;$('vAsk').textContent=e.ask;$('vAsk').parentElement.hidden=!e.ask;
  const L=[[e.video,'▶ Xem video'],[e.audio,'♪ Nghe thuyết minh'],[e.link3d,'Xem phòng 3D'],[e.drive,'Mở thư mục lớp']].filter(([u])=>okUrl(u));
- $('vLinks').innerHTML=L.map(([u,t],i)=>`<a class="btn small ${i===0?'primary':''}" href="${esc(u)}" target="_blank" rel="noopener">${t} ↗</a>`).join('')+(L.length?'<span class="note-d">Mở ở tab mới.'+(okUrl(e.drive)?' Thư mục Drive chỉ mở được với tài khoản đã được cấp quyền.':'')+'</span>':'');
+ $('vLinks').dataset.hv=e.id;$('vLinks').innerHTML=L.map(([u,t],i)=>`<a class="btn small ${i===0?'primary':''}" href="${esc(u)}" target="_blank" rel="noopener">${t} ↗</a>`).join('')+(L.length?'<span class="note-d">Mở ở tab mới.'+(okUrl(e.drive)?' Thư mục Drive chỉ mở được với tài khoản đã được cấp quyền.':'')+'</span>':'');
  $('vPos').textContent=`${pos+1} / ${list.length}`;$('vPrev').disabled=pos===0;$('vNext').textContent=pos===list.length-1?'Kết thúc':'Tiếp →'}
 function close(){V.hidden=true;$('vVideo').innerHTML='';if(lastFocus)lastFocus.focus()}
 $('vPrev').onclick=()=>{if(pos>0){pos--;show()}};

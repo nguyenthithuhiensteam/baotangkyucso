@@ -173,7 +173,7 @@ function cleanTimeline(x) {
 /* Kho học liệu số theo Bộ tiêu chí (Hành trình di sản). */
 /* Tài liệu đính kèm bài học: tệp tải lên nằm ở kho công khai tailieu/<tên>. */
 const LINK_KINDS = ['giao-an', 'tro-choi', 'video', 'bai-hat', 'tu-lieu'];
-const FILE_EXT = ['pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx', 'mp3', 'mp4', 'm4a', 'jpg', 'jpeg', 'png', 'zip'];
+const FILE_EXT = ['pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx', 'mp3', 'mp4', 'm4a', 'jpg', 'jpeg', 'png', 'zip', 'mind'];
 const FILE_RE = new RegExp('^tailieu/[a-z0-9-]{1,80}[.](' + FILE_EXT.join('|') + ')$');
 const MAX_FILE = 15 * 1024 * 1024;
 /* Giới thiệu lớp (Phòng 4): lời giới thiệu, cô phụ trách, sĩ số, khẩu hiệu, ảnh lớp, video. */
@@ -241,6 +241,9 @@ function cleanData(d) {
   // Ảnh nổi bật của ba nhà trường (Phòng 1)
   if (Array.isArray(s.gallery)) settings.gallery = s.gallery.slice(0, 80).map(g => ({ photo: str(g?.photo, 80), site: str(g?.site, 60), cap: str(g?.cap, 200) }))
     .filter(g => /^anh\/(gioithieu\/[a-z0-9-]{1,40}|[a-z0-9]{8,40})\.jpg$/.test(g.photo));
+  // AR: tệp nhận ảnh (MindAR) và danh sách hiện vật theo đúng thứ tự trong tệp
+  if (s.ar && typeof s.ar === 'object' && FILE_RE.test(str(s.ar.file, 120)) && /[.]mind$/.test(s.ar.file))
+    settings.ar = { file: str(s.ar.file, 120), items: (Array.isArray(s.ar.items) ? s.ar.items : []).slice(0, 40).map(x => str(x, 40)).filter(okId), at: str(s.ar.at, 30) };
   if (Array.isArray(s.stats)) settings.stats = s.stats.slice(0, 6).map(x => ({ n: str(x?.n, 12), l: str(x?.l, 40) })).filter(x => x.n || x.l);
   return { v: 1, settings, exhibits: d.exhibits.map(cleanExhibit), timeline: d.timeline.map(cleanTimeline),
     lessons: (Array.isArray(d.lessons) ? d.lessons : []).slice(0, 300).map(cleanLesson),

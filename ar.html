@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Quét ảnh AR – Bảo tàng ký ức số</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@600;700;800&display=swap">
+<style>
+:root{--indigo:#3949ab;--sun:#ffcf33;--ink:#1d2638;--paper:#fffdf7;--muted:#5d6b85;color-scheme:light}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#0f1530;font-family:Nunito,system-ui,sans-serif;color:var(--ink);overflow:hidden}
+a-scene{position:fixed;inset:0}
+.screen{position:fixed;inset:0;display:grid;place-items:center;padding:24px;background:linear-gradient(160deg,#2b3a8f,#5b3a9f 60%,#c2185b);color:#fff;text-align:center;z-index:20}
+.screen[hidden]{display:none}
+.screen .in{max-width:440px;display:grid;gap:14px;justify-items:center}
+.screen h1{margin:0;font-family:"Baloo 2",sans-serif;font-size:32px;line-height:1.1}
+.screen p{margin:0;font-size:16px;line-height:1.5;opacity:.95}
+.big{font:inherit;font-weight:800;font-size:19px;border:0;border-radius:999px;padding:14px 26px;background:var(--sun);color:var(--ink);cursor:pointer;box-shadow:0 5px 0 #c99a00}
+.big:disabled{opacity:.6}
+.lnk{color:#fff;font-weight:700}
+.top{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:calc(env(safe-area-inset-top,0px) + 10px) 12px 10px;background:linear-gradient(#0009,#0000);color:#fff;font-weight:800}
+.top a{color:#fff;text-decoration:none;background:#fff3;border-radius:999px;padding:6px 12px;font-size:14px}
+.hintbar{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:5;width:min(70vw,300px);aspect-ratio:1;border:4px dashed #fffc;border-radius:22px;display:grid;place-items:end center;padding-bottom:10px;color:#fff;font-weight:800;text-shadow:0 1px 3px #000;pointer-events:none;animation:pulse 1.8s ease-in-out infinite}
+.hintbar[hidden]{display:none}
+@keyframes pulse{50%{transform:translate(-50%,-50%) scale(1.04);opacity:.7}}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:12;background:var(--paper);border-radius:22px 22px 0 0;padding:14px 16px calc(env(safe-area-inset-bottom,0px) + 16px);box-shadow:0 -10px 30px #0006;display:grid;gap:10px;max-height:70vh;overflow:auto;transform:translateY(0);transition:transform .25s}
+.sheet[hidden]{display:grid;transform:translateY(110%)}
+.sheet .row{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:12px;align-items:center}
+.sheet img{width:64px;height:64px;border-radius:12px;object-fit:cover;background:#eee}
+.sheet b{display:block;font-family:"Baloo 2",sans-serif;font-size:20px;line-height:1.15}
+.sheet small{color:var(--muted);font-weight:700}
+.sheet .x{border:0;background:#0001;border-radius:50%;width:36px;height:36px;font-size:16px;cursor:pointer}
+.sheet p{margin:0;line-height:1.5;font-size:15px}
+.acts{display:flex;flex-wrap:wrap;gap:8px}
+.btn{font:inherit;font-weight:800;font-size:15px;border:0;border-radius:999px;padding:9px 16px;background:#e8ecfb;color:var(--indigo);text-decoration:none;cursor:pointer}
+.btn.p{background:var(--indigo);color:#fff}
+.vid{position:fixed;inset:0;z-index:30;background:#000d;display:grid;place-items:center;padding:16px}
+.vid[hidden]{display:none}
+.vid .box{width:min(100%,900px);display:grid;gap:10px}
+.vid iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000}
+.vid button{justify-self:end}
+.found .hintbar{display:none}
+.a-enter-vr,.a-enter-ar,.a-orientation-modal{display:none!important}
+</style>
+</head>
+<body>
+<div class="screen" id="start"><div class="in">
+ <div style="font-size:64px" aria-hidden="true">📷✨</div>
+ <h1>Quét ảnh AR</h1>
+ <p id="lead">Đưa camera vào <b>ảnh trên thẻ hiện vật</b> của Bảo tàng ký ức số: tên và câu chuyện của hiện vật hiện lên ngay trên ảnh.</p>
+ <button class="big" id="go" disabled>Đang chuẩn bị…</button>
+ <p style="font-size:14px">Trang cần quyền dùng camera. Ảnh từ camera chỉ xử lý trên máy, không gửi đi đâu.</p>
+ <a class="lnk" href="./#quet-ar">← Về bảo tàng</a>
+</div></div>
+
+<div class="top" hidden id="top"><span>📷 Quét ảnh AR</span><a href="./#quet-ar">✕ Thoát</a></div>
+<div class="hintbar" id="hint" hidden>Hướng vào ảnh trên thẻ</div>
+
+<section class="sheet" id="sheet" hidden aria-live="polite">
+ <div class="row"><img id="sImg" alt=""><div><b id="sTitle"></b><small id="sMeta"></small></div><button class="x" id="sClose" aria-label="Đóng">✕</button></div>
+ <p id="sStory"></p>
+ <div class="acts" id="sActs"></div>
+</section>
+
+<div class="vid" id="vid" hidden><div class="box"><iframe id="vFrame" title="Video hiện vật" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe><button class="btn p" id="vClose">✕ Đóng video</button></div></div>
+
+<script>
+/* Trang quét AR: MindAR nhận ảnh trên thẻ hiện vật, hiện khung sáng + tên hiện vật trên ảnh và bảng thông tin ở dưới. */
+const RAW='https://raw.githubusercontent.com/nguyenthithuhiensteam/baotangkyucso/main/';
+const ROOMN={'khoanh-khac':'Phòng 2 · Khoảnh khắc diệu kỳ','tri-an':'Phòng 3 · Lời tri ân thơ ngây','di-san':'Phòng 4 · Hành trình di sản lớp tôi','thien-nhien':'Phòng 6 · Góc thiên nhiên xanh'};
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const okUrl=u=>/^https:\/\/[^\s"'<>]+$/i.test(String(u||''));
+let D=null,AR=null,ITEMS=[],cur=-1;
+function embedOf(u){u=String(u||'');let m=u.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:.*&)?v=|shorts\/|embed\/|live\/))([\w-]{11})/);if(m)return 'https://www.youtube-nocookie.com/embed/'+m[1]+'?autoplay=1&rel=0';m=u.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?(?:.*&)?id=)([\w-]{20,})/);if(m)return 'https://drive.google.com/file/d/'+m[1]+'/preview';return ''}
+const loadScript=src=>new Promise((ok,no)=>{const s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=()=>no(new Error('Không tải được '+src));document.head.appendChild(s)});
+async function getData(){
+ for(const u of ['data/museum.json?t='+Date.now(),RAW+'data/museum.json?t='+Date.now()]){try{const r=await fetch(u,{cache:'no-store'});if(r.ok)return await r.json()}catch(_){}}
+ throw new Error('Không tải được dữ liệu bảo tàng.');
+}
+/* Ảnh chữ (tiếng Việt) vẽ trên canvas, dán lên mặt phẳng 3D phía trên ảnh thẻ. */
+function labelCanvas(e,i){
+ const c=document.createElement('canvas');c.width=1024;c.height=300;c.id='lab'+i;const g=c.getContext('2d');
+ const r=(x,y,w,h,rad)=>{g.beginPath();g.moveTo(x+rad,y);g.arcTo(x+w,y,x+w,y+h,rad);g.arcTo(x+w,y+h,x,y+h,rad);g.arcTo(x,y+h,x,y,rad);g.arcTo(x,y,x+w,y,rad);g.closePath()};
+ g.fillStyle='rgba(57,73,171,.92)';r(8,8,1008,284,60);g.fill();g.lineWidth=10;g.strokeStyle='#ffcf33';g.stroke();
+ g.fillStyle='#ffcf33';g.font='800 46px Nunito, Arial, sans-serif';g.textAlign='center';g.fillText('✨ '+(ROOMN[e.room]||'Bảo tàng ký ức số'),512,82);
+ g.fillStyle='#fff';let t=e.name||'';let fs=78;g.font=`800 ${fs}px "Baloo 2", Arial, sans-serif`;while(g.measureText(t).width>940&&fs>40){fs-=4;g.font=`800 ${fs}px "Baloo 2", Arial, sans-serif`}
+ if(g.measureText(t).width>940){while(g.measureText(t+'…').width>940)t=t.slice(0,-1);t+='…'}
+ g.fillText(t,512,175);g.fillStyle='#ffe9a8';g.font='700 40px Nunito, Arial, sans-serif';g.fillText('👇 Chạm vào bảng dưới màn hình để xem câu chuyện',512,250);
+ document.body.appendChild(c);c.style.display='none';return c;
+}
+function buildScene(){
+ const sc=document.createElement('a-scene');
+ sc.setAttribute('mindar-image',`imageTargetSrc: ${AR.file}; autoStart: false; uiLoading: no; uiScanning: no; uiError: no; maxTrack: 1; filterMinCF: 0.0001; filterBeta: 0.001`);
+ sc.setAttribute('color-space','sRGB');sc.setAttribute('renderer','colorManagement: true; alpha: true');sc.setAttribute('vr-mode-ui','enabled: false');sc.setAttribute('device-orientation-permission-ui','enabled: false');
+ const cam=document.createElement('a-camera');cam.setAttribute('position','0 0 0');cam.setAttribute('look-controls','enabled: false');sc.appendChild(cam);
+ ITEMS.forEach((e,i)=>{
+  const t=document.createElement('a-entity');t.setAttribute('mindar-image-target','targetIndex: '+i);
+  const col='#ffcf33',edge=(w,h,x,y)=>{const p=document.createElement('a-plane');p.setAttribute('width',w);p.setAttribute('height',h);p.setAttribute('position',`${x} ${y} 0.01`);p.setAttribute('material',`color: ${col}; shader: flat; transparent: true; opacity: 0.95`);p.setAttribute('animation','property: material.opacity; from: 0.95; to: 0.35; dir: alternate; loop: true; dur: 700');return p};
+  const asp=e._asp||1; // chiều cao / chiều rộng ảnh
+  [edge(1.06,0.03,0,asp/2+0.015),edge(1.06,0.03,0,-asp/2-0.015),edge(0.03,asp+0.06,-0.53,0),edge(0.03,asp+0.06,0.53,0)].forEach(p=>t.appendChild(p));
+  const lab=document.createElement('a-plane');labelCanvas(e,i);lab.setAttribute('width',1.1);lab.setAttribute('height',1.1*300/1024);lab.setAttribute('position',`0 ${asp/2+0.25} 0.02`);
+  lab.setAttribute('material',`src: #lab${i}; shader: flat; transparent: true`);lab.setAttribute('animation','property: position; to: 0 '+(asp/2+0.29)+' 0.02; dir: alternate; loop: true; dur: 900; easing: easeInOutSine');t.appendChild(lab);
+  const star=document.createElement('a-ring');star.setAttribute('radius-inner',0.05);star.setAttribute('radius-outer',0.08);star.setAttribute('position',`0.5 ${asp/2+0.05} 0.03`);star.setAttribute('material','color: #ffffff; shader: flat');star.setAttribute('animation','property: scale; to: 1.6 1.6 1.6; dir: alternate; loop: true; dur: 600');t.appendChild(star);
+  t.addEventListener('targetFound',()=>show(i));
+  t.addEventListener('targetLost',()=>{document.body.classList.remove('found');$('hint').hidden=false});
+  sc.appendChild(t);
+ });
+ document.body.appendChild(sc);return sc;
+}
+function show(i){
+ const e=ITEMS[i];if(!e)return;document.body.classList.add('found');$('hint').hidden=true;if(cur===i&&!$('sheet').hidden)return;cur=i;
+ $('sImg').src=e.photo;$('sImg').onerror=function(){this.onerror=null;this.src=RAW+e.photo};$('sTitle').textContent=e.name;
+ $('sMeta').textContent=[ROOMN[e.room],e._cls,e.era].filter(Boolean).join(' · ');
+ $('sStory').textContent=e.story||e.plan||'';
+ const v=embedOf(e.video),A=[];
+ if(v)A.push(`<button class="btn p" data-v="${esc(v)}">▶ Xem video</button>`);else if(okUrl(e.video))A.push(`<a class="btn p" href="${esc(e.video)}" target="_blank" rel="noopener">▶ Xem video ↗</a>`);
+ if(okUrl(e.audio)){const a=embedOf(e.audio);A.push(a?`<button class="btn" data-v="${esc(a)}">🔊 Nghe lời bé</button>`:`<a class="btn" href="${esc(e.audio)}" target="_blank" rel="noopener">🔊 Nghe ↗</a>`)}
+ A.push(`<a class="btn ${v?'':'p'}" href="./#hv/${encodeURIComponent(e.id)}">📖 Xem đầy đủ trong bảo tàng</a>`);
+ $('sActs').innerHTML=A.join('');$('sActs').querySelectorAll('[data-v]').forEach(b=>b.onclick=()=>{$('vFrame').src=b.dataset.v;$('vid').hidden=false});
+ $('sheet').hidden=false;if(navigator.vibrate)navigator.vibrate(40);
+}
+$('sClose').onclick=()=>{$('sheet').hidden=true;cur=-1};
+$('vClose').onclick=()=>{$('vid').hidden=true;$('vFrame').src='about:blank'};
+(async()=>{
+ const go=$('go');
+ try{
+  D=await getData();AR=D.settings&&D.settings.ar;
+  if(!AR||!AR.file||!AR.items||!AR.items.length){$('lead').textContent='Nhà trường chưa bật hiện vật AR. Quý vị quét mã QR trên thẻ để xem hiện vật.';go.textContent='Chưa có hiện vật AR';return}
+  const cls=D.settings.classes||[];
+  ITEMS=AR.items.map(id=>D.exhibits.find(e=>e.id===id)).map((e,i)=>e?{...e,_cls:(Array.isArray(e.cls)?e.cls:e.cls?[e.cls]:[]).map(c=>(cls.find(x=>x.id===c)||{}).name).filter(Boolean).join(', ')}:{id:'',name:'Hiện vật',room:''});
+  // tỉ lệ ảnh để khung sáng ôm đúng ảnh trên thẻ
+  await Promise.all(ITEMS.map(e=>new Promise(ok=>{if(!e.photo)return ok();const im=new Image();im.onload=()=>{e._asp=im.naturalHeight/im.naturalWidth;ok()};im.onerror=()=>ok();im.src=e.photo;setTimeout(ok,4000)})));
+  go.textContent='Đang tải bộ quét…';
+  await loadScript('https://aframe.io/releases/1.5.0/aframe.min.js');
+  await loadScript('https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js');
+  await document.fonts.ready.catch(()=>{});
+  const sc=buildScene();
+  await new Promise(ok=>sc.hasLoaded?ok():sc.addEventListener('loaded',ok,{once:true}));
+  go.disabled=false;go.textContent=`📷 Bật camera (${ITEMS.length} hiện vật)`;
+  go.onclick=async()=>{
+   go.disabled=true;go.textContent='Đang mở camera…';
+   try{await sc.systems['mindar-image-system'].start();$('start').hidden=true;$('top').hidden=false;$('hint').hidden=false}
+   catch(err){console.error(err);go.disabled=false;go.textContent='📷 Thử lại';$('lead').innerHTML='Chưa mở được camera. Hãy cho phép trang dùng camera (biểu tượng ổ khóa cạnh địa chỉ trang), dùng Chrome hoặc Safari, rồi bấm thử lại.'}
+  };
+  sc.addEventListener('arError',()=>{$('start').hidden=false;$('lead').textContent='Không mở được camera trên máy này. Quý vị quét mã QR trên thẻ để xem hiện vật.';go.disabled=false;go.textContent='📷 Thử lại'});
+ }catch(err){console.error(err);go.textContent='Không tải được';$('lead').textContent=(err&&err.message)||'Không tải được trang quét AR, vui lòng thử lại.'}
+})();
+</script>
+</body>
+</html>
